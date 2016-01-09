@@ -1,3 +1,10 @@
+.DS_Store
 _site
+assets/vendor/
+.bundle
+Gemfile.lock
+/html
+/md
 .sass-cache
-.jekyll-metadata
+node_modules
+comments.json
