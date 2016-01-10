@@ -5,8 +5,19 @@
     // Positioning context for the mobile navigation icon
     position: relative;
 
-    height: 200px;
-    background: green;
+    .topbar {
+        height: 21px;
+        background: #000;
+    }
+    .colorblock-blue {
+        height: 175px;
+    }
+    .colorblock-gray {
+        height: 329px;
+    }
+    .colorblock-purple {
+        height: 338px;
+    }
 }
 
 .site-title {
@@ -28,7 +39,7 @@
             margin-right: 20px;
         }
     }
-    @include media-query($on-palm) {
+    @include media-query($mobile) {
         position: absolute;
         top: 9px;
         right: $spacing-unit / 2;

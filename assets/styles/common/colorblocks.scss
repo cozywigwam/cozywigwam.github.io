@@ -1,0 +1,63 @@
+.colorblock-gray {
+    background: $gray;
+
+    &:before, &:after {
+        background-image: url("../images/colorblock-purple-sidebar.png");
+    }
+}
+.colorblock-blue {
+    background: $blue;
+
+    &:before, &:after {
+        background-image: url("../images/colorblock-blue-sidebar.png");
+    }
+}
+.colorblock-purple {
+    background: #000;
+    @include gradient-vertical($lavender, $magenta);
+
+    &:before, &:after {
+        background-image: url("../images/colorblock-purple-sidebar.png");
+    }
+}
+.colorblock-cyan {
+    background: #000;
+    @include gradient-vertical($light-cerulean, $aqua);
+
+    &:before, &:after {
+        background-image: url("../images/colorblock-cyan-sidebar.png");
+    }
+}
+[class^="colorblock"] {
+    position: relative;
+
+
+    &:before, &:after {
+        @include pseudo(10%, 100%);
+        background-repeat: repeat-y;
+    }
+    &:before {
+        @include absolute-left-top();
+        background-position: 100% 0;
+    }
+    &:after {
+        @include absolute-right-top();
+        background-position: 0 0;
+    }
+
+
+
+    .inner {
+        @include desktop() {
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid magenta;
+
+        }
+
+    }
+
+
+
+
+}
