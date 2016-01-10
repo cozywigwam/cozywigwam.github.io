@@ -12,79 +12,49 @@
     .colorblock-blue {
         height: 175px;
     }
-    .colorblock-gray {
-        height: 329px;
-    }
-    .colorblock-purple {
-        height: 338px;
-    }
-}
+    .block-header-logo {
+        @include colorblock-gray();
 
-.site-title {
-    float: left;
-}
+        .inner {
+            @include inner-indent(100px);
 
-.site-nav {
-    float: right;
+            .logo-area {
+                width: 30%;
+                max-width: 200px;
+                border: 1px solid magenta;
 
-    .menu-icon {
-        display: none;
-    }
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
+                a {
+                    display: block;
 
-        // Gaps between nav items, but not on the last one
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
-    }
-    @include media-query($mobile) {
-        position: absolute;
-        top: 9px;
-        right: $spacing-unit / 2;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
+                    img {
+                        width: 100%;
+                    }
+                }
+                span {
+                    color: $gray-copy;
                 }
             }
         }
+    }
+    .block-header-nav {
+        @include colorblock-purple();
 
-        .trigger {
-            clear: both;
-            display: none;
-        }
+        .inner {
+            @include inner-indent(100px);
 
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
 
-        .page-link {
-            display: block;
-            padding: 5px 10px;
-
-            &:not(:last-child) {
-                margin-right: 0;
+                li {
+                    a {
+                        color: $light-gray-copy;
+                    }
+                }
             }
-            margin-left: 20px;
         }
     }
+
 }
+

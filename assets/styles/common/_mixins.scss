@@ -69,3 +69,9 @@
     width: $w;
     height: $h;
 }
+
+@mixin inner-indent($p: 200px) {
+    padding: $p;
+    border: 1px solid cyan;
+
+}

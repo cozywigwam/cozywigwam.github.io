@@ -54,6 +54,10 @@ $desktop:        $laptop + 1;
  * My stuff
  */
 
+$body-copy: #ffdee3;
+$light-gray-copy: #f1f1f1;
+$gray-copy: #555;
+
 $gray: #262626;
 $blue: #738ffd;
 $lavender: #b98ffd;
@@ -74,10 +78,10 @@ $footer-height: 120px;
         "common/base",
         "vendor/bootstrap/variables",
         "vendor/bootstrap/mixins",
+        "common/colorblocks",
         "common/header",
         "common/footer",
         "common/layout",
-        "common/syntax-highlighting",
-        "common/colorblocks"
+        "common/syntax-highlighting"
 ;
 

@@ -5,6 +5,10 @@
         background-image: url("../images/colorblock-purple-sidebar.png");
     }
 }
+@mixin colorblock-gray() {
+    @extend %colorblock-base;
+    @extend .colorblock-gray;
+}
 .colorblock-blue {
     background: $blue;
 
@@ -20,6 +24,10 @@
         background-image: url("../images/colorblock-purple-sidebar.png");
     }
 }
+@mixin colorblock-purple() {
+    @extend %colorblock-base;
+    @extend .colorblock-purple;
+}
 .colorblock-cyan {
     background: #000;
     @include gradient-vertical($light-cerulean, $aqua);
@@ -27,6 +35,37 @@
     &:before, &:after {
         background-image: url("../images/colorblock-cyan-sidebar.png");
     }
+
+}
+%colorblock-base {
+    position: relative;
+
+
+    &:before, &:after {
+        @include pseudo(10%, 100%);
+        background-repeat: repeat-y;
+    }
+    &:before {
+        @include absolute-left-top();
+        background-position: 100% 0;
+    }
+    &:after {
+        @include absolute-right-top();
+        background-position: 0 0;
+    }
+
+
+
+    .inner {
+        @include desktop() {
+            width: 80%;
+            margin: 0 auto;
+            border: 1px solid magenta;
+
+        }
+
+    }
+
 }
 [class^="colorblock"] {
     position: relative;
@@ -56,8 +95,4 @@
         }
 
     }
-
-
-
-
 }
