@@ -13,12 +13,6 @@ baseurl: ""
 exclude:
   - README.md
   - __reference
-  - assets/vendor/bootstrap-sass/
-  - assets/vendor/bootstrap-sass/assets/stylesheets
-  - assets/vendor/bootstrap-sass/stylesheets
-  - assets/vendor/font-awesome/less
-  - assets/vendor/font-awesome/scss
-  - assets/vendor/font-awesome/src
 
 # Syntax highlighting
 #highlighter:         pygments
