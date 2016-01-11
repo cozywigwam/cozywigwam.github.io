@@ -18,7 +18,7 @@ html {
 }
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-    color: $text-color;
+    color: $body-copy;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
@@ -27,7 +27,7 @@ body {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
 
-    background: url("../images/placeholder-bg.jpg") no-repeat 50% 0;
+    //background: url("../images/placeholder-bg.jpg") no-repeat 50% 0;
 }
 // .page-wrap is used for the sticky footer
 .page-wrap {
@@ -44,7 +44,8 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    //margin-bottom: $spacing-unit / 2;
+    position: relative;
 }
 img {
     display: block;
@@ -126,8 +127,8 @@ pre {
 
     > svg {
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 36px;
+        height: 36px;
         vertical-align: middle;
 
         path {
@@ -149,4 +150,7 @@ th {
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
     background-color: #f9f9f9;
+}
+.rss-subscribe {
+	margin-bottom: 0;
 }

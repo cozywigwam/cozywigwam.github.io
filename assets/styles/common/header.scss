@@ -1,7 +1,7 @@
 /**
  * Site header
  */
-.site-header {
+header#site-header {
     // Positioning context for the mobile navigation icon
     position: relative;
 
@@ -16,12 +16,11 @@
         @include colorblock-gray();
 
         .inner {
-            @include inner-indent(100px);
+            @include inner-indent(60px, 100px);
 
             .logo-area {
                 width: 30%;
-                max-width: 200px;
-                border: 1px solid magenta;
+                max-width: 140px;
 
                 a {
                     display: block;

@@ -70,8 +70,17 @@
     height: $h;
 }
 
-@mixin inner-indent($p: 200px) {
-    padding: $p;
-    border: 1px solid cyan;
+@mixin inner-indent($p-top-bottom: 200px, $p-left-right: 200px) {
+    padding: $p-top-bottom $p-left-right;
+}
 
+
+
+@mixin colorblock-gray() {
+    @extend %colorblock-base;
+    @extend .colorblock-gray;
+}
+@mixin colorblock-purple() {
+    @extend %colorblock-base;
+    @extend .colorblock-purple;
 }

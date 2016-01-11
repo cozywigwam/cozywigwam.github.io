@@ -2,11 +2,35 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
+
+@charset "utf-8";
+
+
+
+/*
+ * My stuff
+ */
+
+$body-copy: #ffdee3;
+$light-gray-copy: #f1f1f1;
+$gray-copy: #555;
+
+$gray: #262626;
+$blue: #738ffd;
+$lavender: #b98ffd;
+$magenta: #fe8efe;
+$light-cerulean: #74b5fd;
+$aqua: #76fffe;
+
+$footer-height: 300px;
+
+
+
+
 /*
  * Jekyll stuff
  */
 
-@charset "utf-8";
 
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
@@ -16,11 +40,11 @@ $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$text-color:       $body-copy;
+$background-color: #000;
+$brand-color:      $lavender;
 
-$grey-color:       #828282;
+$grey-color:       $light-gray-copy;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -50,22 +74,6 @@ $desktop:        $laptop + 1;
 }
 
 
-/*
- * My stuff
- */
-
-$body-copy: #ffdee3;
-$light-gray-copy: #f1f1f1;
-$gray-copy: #555;
-
-$gray: #262626;
-$blue: #738ffd;
-$lavender: #b98ffd;
-$magenta: #fe8efe;
-$light-cerulean: #74b5fd;
-$aqua: #76fffe;
-
-$footer-height: 120px;
 
 
 
@@ -82,6 +90,7 @@ $footer-height: 120px;
         "common/header",
         "common/footer",
         "common/layout",
-        "common/syntax-highlighting"
+        "common/syntax-highlighting",
+        "pages/home"
 ;
 

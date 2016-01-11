@@ -1,4 +1,14 @@
-.site-footer {
-    height: $footer-height;
-    background: yellow;
+footer#site-footer {
+    .colorblock-cyan {
+        height: 100px;
+    }
+
+    .block-footer-content {
+        @include colorblock-gray();
+        height: $footer-height;
+
+        .inner {
+            @include inner-indent(130px, 100px);
+        }
+    }
 }
