@@ -84,8 +84,8 @@ $desktop:        $laptop + 1;
 @import
         "common/_mixins",
         "common/base",
-        "vendor/bootstrap/variables",
-        "vendor/bootstrap/mixins",
+        "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables",
+        "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins",
         "common/colorblocks",
         "common/header",
         "common/footer",
