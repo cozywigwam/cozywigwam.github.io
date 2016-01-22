@@ -1,25 +1,5 @@
 <header id="site-header">
-	<div class="topbar"></div>
-	<div class="colorblock-blue"></div>
-
-	<div class="block-header-logo">
-		<div class="inner">
-			<div class="logo-area">
-				<a class="site-title" href="{{ site.baseurl }}/"><img src="assets/images/logo.png" alt="SFSS logo"></a>
-				<span class="current-date-time">{{ 'now' | date: "%c" }}</span>
-			</div>
-		</div>
-	</div>
-
-	<div class="block-header-nav">
-		<div class="inner">
-			<nav>
-				<ul>
-					<li><a href="">You and Me</a></li>
-					<li><a href="">Categories</a></li>
-					<li><a href="">Portfolio</a></li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+	<a class="site-title" href="{{ site.baseurl }}/">
+		{% include logo-large.svg %}
+	</a>
 </header>

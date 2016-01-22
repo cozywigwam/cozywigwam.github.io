@@ -2,58 +2,16 @@
  * Site header
  */
 header#site-header {
-    // Positioning context for the mobile navigation icon
     position: relative;
+    //background: url("../images/bg-header.jpg") no-repeat 0 0;
 
-    .topbar {
-        height: 21px;
-        background: #000;
+    a.site-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 40%;
+        padding: 5%;
     }
-    .colorblock-blue {
-        height: 175px;
-    }
-    .block-header-logo {
-        @include colorblock-gray();
-
-        .inner {
-            @include inner-indent(60px, 100px);
-
-            .logo-area {
-                width: 30%;
-                max-width: 140px;
-
-                a {
-                    display: block;
-
-                    img {
-                        width: 100%;
-                    }
-                }
-                span {
-                    color: $gray-copy;
-                }
-            }
-        }
-    }
-    .block-header-nav {
-        @include colorblock-purple();
-
-        .inner {
-            @include inner-indent(100px);
-
-            ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-
-                li {
-                    a {
-                        color: $light-gray-copy;
-                    }
-                }
-            }
-        }
-    }
-
 }
 

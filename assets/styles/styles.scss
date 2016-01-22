@@ -10,18 +10,18 @@
  * My stuff
  */
 
-$body-copy: #ffdee3;
-$light-gray-copy: #f1f1f1;
-$gray-copy: #555;
+$body-copy: #e1f0fa;
+$body-copy-alt: #ac6b54;
 
-$gray: #262626;
-$blue: #738ffd;
-$lavender: #b98ffd;
-$magenta: #fe8efe;
-$light-cerulean: #74b5fd;
-$aqua: #76fffe;
 
-$footer-height: 300px;
+$default-padding-left-right: 5%;
+$default-padding-top-bottom: 5%;
+
+body {
+    //background: url("../images/placeholder-bg2.jpg") no-repeat 50% 0;
+    //background-size: cover;
+}
+
 
 
 
@@ -31,19 +31,21 @@ $footer-height: 300px;
  */
 
 
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
+$base-font-family: "PT Sans", Arial, sans-serif;
+$base-font-size:   17px;
 $base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+$small-font-size:  $base-font-size * 0.9;
+$base-line-height: 2;
+$heading-font-family: "PT Sans Condensed", $base-font-family;
 
-$spacing-unit:     30px;
+$spacing-unit:     60px;
 
 $text-color:       $body-copy;
-$background-color: #000;
-$brand-color:      $lavender;
+$background-color: #2d3132;
+$brand-color:      #a0d1f0;
+$accent-color: #ff966f;
 
-$grey-color:       $light-gray-copy;
+$grey-color:       #666;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
@@ -52,7 +54,7 @@ $content-width:    800px;
 
 $mobile:          600px;
 $laptop:        800px;
-$desktop:        $laptop + 1;
+$desktop:        1200px;
 
 // Use media queries like this:
 // @include media-query($mobile) {
@@ -66,8 +68,8 @@ $desktop:        $laptop + 1;
         @content;
     }
 }
-@mixin desktop {
-    @media screen and (min-width: $desktop) {
+@mixin mq($device) {
+    @media screen and (min-width: $device) {
         @content;
     }
 }
@@ -79,13 +81,11 @@ $desktop:        $laptop + 1;
 
 
 
-// Import partials from `sass_dir` (defaults to `_sass`)
+// see hidden `sass_dir` in _config.yml
 @import
         "common/_mixins",
         "common/base",
-        "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/variables",
-        "../vendor/bootstrap-sass/assets/stylesheets/bootstrap/mixins",
-        "common/colorblocks",
+        "common/type",
         "common/header",
         "common/footer",
         "common/layout",
