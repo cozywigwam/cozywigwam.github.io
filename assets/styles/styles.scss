@@ -5,7 +5,6 @@
 @charset "utf-8";
 
 
-
 /*
  * My stuff
  */
@@ -13,13 +12,12 @@
 $body-copy: #e1f0fa;
 $body-copy-alt: #ac6b54;
 
-
 $default-padding-left-right: 5%;
 $default-padding-top-bottom: 5%;
 
 body {
-    //background: url("../images/placeholder-bg2.jpg") no-repeat 50% 0;
-    //background-size: cover;
+	//background: url("../images/placeholder-bg2.jpg") no-repeat 50% 0;
+	//background-size: cover;
 }
 
 
@@ -30,31 +28,30 @@ body {
  * Jekyll stuff
  */
 
-
 $base-font-family: "PT Sans", Arial, sans-serif;
-$base-font-size:   17px;
+$base-font-size: 17px;
 $base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.9;
+$small-font-size: $base-font-size * 0.9;
 $base-line-height: 2;
 $heading-font-family: "PT Sans Condensed", $base-font-family;
 
-$spacing-unit:     60px;
+$spacing-unit: 60px;
 
-$text-color:       $body-copy;
+$text-color: $body-copy;
 $background-color: #2d3132;
-$brand-color:      #a0d1f0;
+$brand-color: #a0d1f0;
 $accent-color: #ff966f;
 
-$grey-color:       #666;
+$grey-color: #666;
 $grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-dark: darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
+$content-width: 800px;
 
-$mobile:          600px;
-$laptop:        800px;
-$desktop:        1200px;
+$mobile: 600px;
+$laptop: 800px;
+$desktop: 1200px;
 
 // Use media queries like this:
 // @include media-query($mobile) {
@@ -64,32 +61,24 @@ $desktop:        1200px;
 //     }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+	@media screen and (max-width: $device) {
+		@content;
+	}
 }
 @mixin mq($device) {
-    @media screen and (min-width: $device) {
-        @content;
-    }
+	@media screen and (min-width: $device) {
+		@content;
+	}
 }
-
-
-
-
-
-
 
 
 // see hidden `sass_dir` in _config.yml
-@import
-        "common/_mixins",
-        "common/base",
-        "common/type",
-        "common/header",
-        "common/footer",
-        "common/layout",
-        "common/syntax-highlighting",
-        "pages/home"
-;
+@import "common/_mixins",
+"common/base",
+"common/type",
+"common/header",
+"common/footer",
+"common/layout",
+"common/syntax-highlighting",
+"pages/home";
 
