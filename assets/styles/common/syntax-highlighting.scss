@@ -1,12 +1,37 @@
-/**
- * Syntax highlighting styles
- */
+pre,
+code {
+	font-size: 11px;
+
+	@include mq($mobile) {
+		font-size: 13px;
+	}
+	@include mq($laptop) {
+		font-size: 14px;
+	}
+	@include mq($desktop) {
+		font-size: 15px;
+	}
+}
+code {
+	padding: 1px 5px;
+}
+pre {
+	padding: 46px 30px 48px;
+	overflow-x: auto;
+	border: 2px solid $border-color;
+
+	> code {
+		border: 0;
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
 .highlight {
-	background: #fff;
+	background: $background-color-alt;
 	@extend %vertical-rhythm;
 
 	.highlighter-rouge & {
-		background: #eef;
+		//background: #eef;
 	}
 
     .c     { color: #998; font-style: italic } // Comment

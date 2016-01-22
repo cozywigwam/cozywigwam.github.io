@@ -1,53 +1,59 @@
-/**
- * Page content
- */
 .page-content {
-	padding: 8% 0;
-}
-.post-list {
-	margin-top: 6%;
-	list-style: none;
-
-	a.post-link {
-		@include clearfix();
-		display: block;
-		padding: 6%;
-		margin-bottom: 12em;
-		color: inherit;
-
-		span.post-meta {
-			display: block;
-			font-size: $small-font-size;
-			color: $body-copy-alt;
-			margin-bottom: 2em;
-		}
-		@include mq($desktop) {
-			img {
-				float: left;
-				width: 55%;
-				height: auto;
-			}
-			.index-content {
-				margin-left: 65%;
-				padding-right: 4%;
-
-				h2 {
-					margin: 0;
-					padding-top: 0.5em;
-					line-height: 1;
-				}
-			}
-		}
+	@include mq($desktop) {
+		margin-left: 35%;
 	}
 }
+.post-list {
+	list-style: none;
 
+	/*
+	.index-content {
+		h2 {
+			margin: 0;
+			padding-top: 0.5em;
+			line-height: 1.4;
+		}
+		h3 {
+			margin: 0;
+			color: $body-copy-alt-2;
+			font-size: 1.5em;
+			line-height: 1.7;
+		}
+		span.post-meta {
+			display: block;
+			margin-bottom: 2em;
+			font-family: $monospace-font-family;
+			color: $body-copy-alt;
+			font-size: 0.9em;
+		}
+	}
+	*/
+	.index-content + .index-content {
+		margin-top: 4em;
+	}
+}
 /**
  * Posts
  */
 .post-header {
-	margin-bottom: $spacing-unit;
-}
-.post-title {
+	h2 {
+		margin: 0;
+		padding-top: 0.5em;
+		line-height: 1.4;
+	}
+	h3 {
+		margin: 0;
+		color: $body-copy-alt-2;
+		font-size: 1.5em;
+		line-height: 1.7;
+	}
+	span.post-meta {
+		display: block;
+		margin-bottom: 2em;
+		font-family: $monospace-font-family;
+		color: $body-copy-alt;
+		font-size: 0.9em;
+	}
 }
 .post-content {
 	margin-bottom: $spacing-unit;

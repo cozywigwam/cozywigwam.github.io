@@ -6,15 +6,15 @@ layout: default
 
 	<div class="post-list">
 		{% for post in site.posts %}
-		<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
 
-			<div class="index-content">
-				<h2>{{ post.title }}</h2>
-				<span class="post-meta">{{ post.date | date: "%B %-d, %Y" }}</span>
+		<div class="post-header">
+			<h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+			<h3>{{ post.subtitle }}</h3>
+			<span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+		</div>
 
-				<p>{{ post.intro }}</p>
-			</div>
-		</a>
+		<p>{{ post.intro }}</p>
+
 		{% endfor %}
 	</div>
 

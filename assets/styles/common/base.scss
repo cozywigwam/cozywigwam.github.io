@@ -23,10 +23,8 @@ body {
 	-o-font-feature-settings: "kern" 1;
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
-
-	//background: url("../images/placeholder-bg.jpg") no-repeat 50% 0;
+	overflow-x: hidden;
 }
-// .page-wrap is used for the sticky footer
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
@@ -70,28 +68,7 @@ blockquote {
 		margin-bottom: 0;
 	}
 }
-pre,
-code {
-	font-size: 15px;
-	border: 1px solid $grey-color-light;
-	border-radius: 3px;
-	background-color: #eef;
-}
-code {
-	padding: 1px 5px;
-}
-pre {
-	padding: 8px 12px;
-	overflow-x: auto;
-
-	> code {
-		border: 0;
-		padding-right: 0;
-		padding-left: 0;
-	}
-}
 .icon {
-
 	> svg {
 		display: inline-block;
 		width: 36px;
@@ -135,5 +112,10 @@ a {
 	}
 }
 .inner {
-	@include inner-indent();
+	@include inner-padding(0, 6%);
+
+	@include mq($desktop) {
+		padding-top: 7.4%;
+		padding-bottom: 7.4%;
+	}
 }

@@ -1,18 +1,13 @@
 footer#site-footer {
 	position: relative;
+	min-height: 300px;
 
-	.footer-content {
+	a {
 		position: absolute;
-		top: 0;
-		left: 0;
+		bottom: 0;
 		right: 0;
-		width: 100%;
+		padding: 5%;
+		//border: 1px solid magenta;
 
-		a.site-title {
-			display: block;
-			margin: 5% auto 0;
-			width: 20%;
-		}
 	}
-
 }
