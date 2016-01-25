@@ -1,4 +1,4 @@
-Computer creation comet dust.
+Code and technology blog.
 
 ## License
 
