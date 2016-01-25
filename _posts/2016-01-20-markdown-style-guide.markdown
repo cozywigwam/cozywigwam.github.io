@@ -10,10 +10,10 @@ Are legitimate desktop ( `$laptop` , as jekyll likes to call it) screen sizes ac
 
 ##Heading h2 for my Character Test
 
-```
+{% highlight bash %}
 # 80 char fixed-width test
 12345678902234567890323456789042345678905234567890623456789072345678908234567890
-```
+{% endhighlight %}
 
 ###Additional Tests
 
