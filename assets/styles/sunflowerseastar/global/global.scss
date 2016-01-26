@@ -16,15 +16,19 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font-family;
 	font-weight: 700;
 
+
+
 	// TODO: research optimizeLegibility and determine if it should be included or discarded
 	//text-rendering: optimizeLegibility;
 }
 h1 {
 	font-size: 2rem;
+	text-shadow: 9px 7px 0 $background-color-alt;
 }
 h2 {
 	margin-top: 3rem;
 	font-size: 2.4rem;
+	text-shadow: 7px 4px 0 $background-color-alt;
 
 	a {
 		color: inherit;
@@ -33,6 +37,8 @@ h2 {
 h3 {
 	margin-top: 1.5rem;
 	font-size: 1.3rem;
+
+	text-shadow: 6px 4px 0 $background-color-alt;
 }
 h4, h5, h6 {
 	margin-top: 1rem;
@@ -51,13 +57,8 @@ a {
 	color: $body-copy;
 	text-decoration: none;
 
-	text-shadow: 2px 2px 2px #fff;
-
-
 	&:visited {
 		color: lighten($body-copy, 7%);
-
-		text-shadow: 2px 2px 2px #fff;
 	}
 	&:hover {
 		color: lighten($body-copy, 15%);
@@ -97,20 +98,26 @@ img {
 
 
 header#site-header {
-	padding: 100px 0;
+
 
 	@include mq($desktop) {
-		padding-top: 200px;
-		//float: left;
 		width: 20%;
 		height: 100%;
 		position: fixed;
-		background: yellow;
+		background: $background-color-alt-2;
 	}
 	a.site-title {
 		display: block;
-		width: 50%;
-		border: 1px solid magenta;
+		width: 100%;
+		position: absolute;
+		top: 20%;
+
+		padding: 20%;
+
+
+		svg {
+			//width: 100%;
+		}
 	}
 }
 

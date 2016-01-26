@@ -9,7 +9,7 @@
 /* -------- */
 
 $primary-color: #a0d1f0;
-$primary-color-light: #a0d1f0;
+$primary-color-light: lighten($primary-color, 12%);
 
 $secondary-color: #ff966f;
 $secondary-color-light: #ff966f;
@@ -19,7 +19,8 @@ $tertiary-color: lightgreen;
 
 
 $background-color: #2d3132;
-$background-color-alt: #272a2b;
+$background-color-alt: darken($background-color, 2.5%);
+$background-color-alt-2: lighten($background-color, 1%);
 
 /* -------- */
 // HEX BANK
