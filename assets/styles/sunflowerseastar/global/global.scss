@@ -58,10 +58,10 @@ a {
 	text-decoration: none;
 
 	&:visited {
-		color: lighten($body-copy, 7%);
+		color: lighten($body-copy, 2%);
 	}
 	&:hover {
-		color: lighten($body-copy, 15%);
+		color: lighten($body-copy, 6%);
 		text-decoration: none;
 	}
 }
@@ -99,30 +99,43 @@ img {
 
 header#site-header {
 
-
 	@include mq($desktop) {
 		width: 20%;
 		height: 100%;
 		position: fixed;
 		background: $background-color-alt-2;
 	}
-	a.site-title {
+	a.logo {
 		display: block;
 		width: 100%;
 		position: absolute;
 		top: 20%;
-
 		padding: 20%;
+	}
+	a.github {
+		position: absolute;
+		top: 7%;
+		left: 0;
+		width: 34%;
+		padding: 5%;
+		color: #fff;
+		margin: 0 auto;
+		right: 0;
+		border: 1px solid transparent;
 
-
-		svg {
-			//width: 100%;
+		svg path {
+			fill: $background-color;
+		}
+		&:hover {
+			svg path {
+				fill: $background-color-alt;
+			}
 		}
 	}
 }
 
 .page-content {
 	@include mq($desktop) {
-		margin-left: 35%;
+		margin-left: 20%;
 	}
 }
