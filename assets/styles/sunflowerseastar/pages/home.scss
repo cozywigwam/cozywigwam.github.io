@@ -1,8 +1,4 @@
-.page-content {
-	@include mq($desktop) {
-		margin-left: 35%;
-	}
-}
+
 .post-list {
 	list-style: none;
 
@@ -53,12 +49,5 @@
 		font-family: $monospace-font-family;
 		color: $body-copy-alt;
 		font-size: 0.9em;
-	}
-}
-.post-content {
-	margin-bottom: $spacing-unit;
-
-	img {
-		margin: 10% 0;
 	}
 }

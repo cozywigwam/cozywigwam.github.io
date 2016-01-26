@@ -4,93 +4,25 @@
 
 @charset "utf-8";
 
+/*
+ * There is a "base directory" with the variable `sass_dir`.
+ * This can be controlled in _config.yml.
+ */
+@import "site-agnostic/_resets-and-normalization",
+
+"site-agnostic/_site_agnostic_variables",
+"sunflowerseastar/global/_VARIABLES",
+"site-agnostic/_site-agnostic-mixins";
 
 
-$background-color: #2d3132;
-$background-color-alt: #272a2b;
-$border-color: #454b4d;
-$brand-color: #a0d1f0;
-$accent-color: #ff966f;
-
-$body-copy: #e1f0fa;
-$body-copy-alt: #ff966f;
-$body-copy-alt-2: #ac6b54;
-
-$default-padding-left-right: 4%;
-$default-padding-top-bottom: 7.4%;
+/*
 
 
-body {
-	//background: url("../images/test5.jpg") no-repeat 50% 0;
-	//background-size: cover;
-}
+*/
 
 
-
-
-
-
-$base-font-family: "PT Sans", Arial, sans-serif;
-$heading-font-family: "PT Sans Narrow", $base-font-family;
-$monospace-font-family: "Inconsolata", monospace;
-$base-font-size: 17px;
-$base-font-weight: 400;
-$small-font-size: $base-font-size * 0.9;
-$base-line-height: 2;
-
-$spacing-unit: 60px;
-
-$text-color: $body-copy;
-$grey-color: #666;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark: darken($grey-color, 25%);
-
-// Width of the content area
-$content-width: 800px;
-
-$mobile: 600px;
-$laptop: 800px;
-$desktop: 1200px;
-
-// Use media queries like this:
-// @include media-query($mobile) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-	@media screen and (min-width: $device) {
-		@content;
-	}
-}
-@mixin mq($device) {
-	@media screen and (min-width: $device) {
-		@content;
-	}
-}
-@mixin media-query-max($device) {
-	@media screen and (max-width: $device - 1) {
-		@content;
-	}
-}
-@mixin mq-max($device) {
-	@media screen and (max-width: $device - 1) {
-		@content;
-	}
-}
-
-
-
-// see hidden `sass_dir` in _config.yml
-@import "common/_mixins",
-
-"common/base",
-"common/type",
-
-"common/header",
-"common/footer",
-"common/layout",
-"common/syntax-highlighting",
-"pages/home";
-
+@import "sunflowerseastar/global/fonts",
+"sunflowerseastar/global/_MIXINS",
+"sunflowerseastar/global/global",
+"sunflowerseastar/global/code",
+"sunflowerseastar/pages/home";
