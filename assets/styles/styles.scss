@@ -1,27 +1,44 @@
 ---
 ---
 
-
 @charset "utf-8";
 
-/*
- * There is a "base directory" with the variable `sass_dir`.
- * This can be controlled in _config.yml.
- */
-@import "site-agnostic/_resets-and-normalization",
 
+
+
+
+
+
+
+
+
+// TODO: update SCSS syntax highlighter, distinguish comment styles/levels
+/**
+ * Jekyll's "base directory" for @import's is _config.yml -> sass: sass_dir:
+ * e.g. `@import "_HEX_BANK",` == `@import [sass_dir]/_HEX_BANK.scss`
+ */
+
+@import "_HEX_BANK",
+
+// variables
 "site-agnostic/_site_agnostic_variables",
 "sunflowerseastar/global/_VARIABLES",
-"site-agnostic/_site-agnostic-mixins";
+
+// mixins
+"site-agnostic/_site-agnostic-mixins",
+
+// fonts (regardless if webfont or system)
+"sunflowerseastar/global/fonts",
+
+
+
+
 
 
 /*
+ *
+ */
 
-
-*/
-
-
-@import "sunflowerseastar/global/fonts",
 "sunflowerseastar/global/_MIXINS",
 "sunflowerseastar/global/global",
 "sunflowerseastar/global/code",

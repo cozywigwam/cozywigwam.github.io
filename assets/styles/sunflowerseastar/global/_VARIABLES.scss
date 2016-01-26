@@ -1,34 +1,12 @@
-
-
-
-
-
+// Looking for color values? See [sass_dir]/_HEX_BANK.scss
 
 $base-font-size: 14px;
 $small-font-size: $base-font-size * 0.9;
 $base-line-height: 2;
 
+$body-copy: $primary-color-light;
+$body-copy-alt: $secondary-color-light;
+$body-copy-alt-2: $secondary-color-alt;
+//$body-copy-special: $tertiary-color;
 
-
-
-$background-color: #2d3132;
-$background-color-alt: #272a2b;
 $border-color: #454b4d;
-$primary-color: #a0d1f0;
-$secondary-color: #ff966f;
-
-$body-copy: #e1f0fa;
-$body-copy-alt: #ff966f;
-$body-copy-alt-2: #ac6b54;
-
-
-
-$text-color: $body-copy;
-$grey-color: #666;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark: darken($grey-color, 25%);
-
-
-
-
-
