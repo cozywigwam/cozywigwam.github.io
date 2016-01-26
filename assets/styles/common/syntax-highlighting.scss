@@ -6,7 +6,6 @@ code {
 
 // liquid `{% highlight [lang] %}` tags
 figure.highlight {
-	@extend %vertical-rhythm;
 	overflow-x: auto;
 	padding: 46px 30px 48px;
 	font-size: 11px;
