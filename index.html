@@ -2,11 +2,10 @@
 layout: default
 ---
 
-<div class="inner">
+<div class="post-list">
+	{% for post in site.posts %}
 
-	<div class="post-list">
-		{% for post in site.posts %}
-
+	<div class="post-preview">
 		<div class="post-header">
 			<h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 			<h3>{{ post.subtitle }}</h3>
@@ -14,8 +13,7 @@ layout: default
 		</div>
 
 		<p>{{ post.intro }}</p>
-
-		{% endfor %}
 	</div>
 
+	{% endfor %}
 </div>

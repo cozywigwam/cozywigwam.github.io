@@ -15,10 +15,15 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 1rem;
 	font-family: $heading-font-family;
 	font-weight: 700;
+	cursor: default;
+
+	a {
+		cursor: pointer;
+	}
 }
 h1 {
 	font-size: 2rem;
-	text-shadow: 9px 7px 0 $background-color-alt;
+	text-shadow: 11px 9px 0 $background-color-alt;
 }
 h2 {
 	margin-top: 3rem;
@@ -33,7 +38,7 @@ h3 {
 	margin-top: 1.5rem;
 	font-size: 1.3rem;
 
-	text-shadow: 6px 4px 0 $background-color-alt;
+	text-shadow: 5px 3px 0 $background-color-alt;
 }
 h4, h5, h6 {
 	margin-top: 1rem;
@@ -78,27 +83,18 @@ img {
 
 
 
+
+
 /*
- * Wrappers, default inners, etc.
+ * Overall layout
  */
-.inner {
-	@include inner-padding(0, 6%);
-
-	@include mq($desktop) {
-		padding-top: 7.4%;
-		padding-bottom: 7.4%;
-	}
-}
-
-
-
 
 header#site-header {
 	@include clearfix();
 	background: $background-color-alt-2;
 
 	@include mq($desktop) {
-		width: 20%;
+		width: $header-width-mq-desktop;
 		height: 100%;
 		position: fixed;
 	}
@@ -151,12 +147,34 @@ header#site-header {
 }
 
 .page-content {
-	margin-top: 20%;
+	padding: 20% 6% 30%;
 
 	@include mq($small) {
-		margin-top: 12%;
+		@include padding-top-bottom(12%, 20%);
 	}
 	@include mq($desktop) {
-		margin: 0 0 0 20%;
+		margin-left: $header-width-mq-desktop;
+		padding: 6% 7.4%;
+	}
+}
+
+.post-header {
+	h2 {
+		margin: 0;
+		padding-top: 0.5em;
+		line-height: 1.4;
+	}
+	h3 {
+		margin: 0;
+		color: $body-copy-alt-2;
+		font-size: 1.5em;
+		line-height: 1.7;
+	}
+	span.post-meta {
+		display: block;
+		margin-bottom: 2em;
+		font-family: $monospace-font-family;
+		color: $body-copy-alt;
+		font-size: 0.9em;
 	}
 }
