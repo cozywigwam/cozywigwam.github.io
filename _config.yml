@@ -34,3 +34,10 @@ markdown: kramdown
 sass:
   sass_dir:          assets/styles
   style:            :compressed
+
+
+# GitHub Pages configuration overrides
+# https://help.github.com/articles/using-jekyll-with-pages/#configuration-overrides
+safe: true
+lsi: false
+#source: [your top-level directory]
