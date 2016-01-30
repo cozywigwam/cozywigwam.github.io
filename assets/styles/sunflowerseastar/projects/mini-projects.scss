@@ -19,12 +19,25 @@ body, html {
 /* ---------------- */
 /* ---------------- */
 
+@import "../../site-agnostic/_site-agnostic-variables.scss";
+@import "../../site-agnostic/_site-agnostic-mixins.scss";
+
+@mixin rect($width: 100px, $height: 100px, $background: #000) {
+	width: $width;
+	height: $height;
+	background: $background;
+}
 
 
 [data-project-namespace="miniproject-1_animation-test"] {
-	.circle-1 {
+	.rect-loop-left {
+		@include rect();
+		@include absolute-left(100px, 100px);
+	}
+	.rect-loop-right {
 		width: 100px;
 		height: 100px;
 		background: red;
 	}
+
 }
