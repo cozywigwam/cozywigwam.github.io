@@ -1,0 +1,30 @@
+/* ---------------- */
+/* ---------------- */
+.META {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+[class*="meta"] {
+	opacity: 0.2;
+	font-family: monospace;
+}
+
+/* ---------------- */
+body, html {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+/* ---------------- */
+/* ---------------- */
+
+
+
+[data-project-namespace="miniproject-1_animation-test"] {
+	.circle-1 {
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+}
