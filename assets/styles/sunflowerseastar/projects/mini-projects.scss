@@ -30,14 +30,27 @@ body, html {
 
 
 [data-project-namespace="miniproject-1_animation-test"] {
-	.rect-loop-left {
-		@include rect();
-		@include absolute-left(100px, 100px);
-	}
-	.rect-loop-right {
-		width: 100px;
-		height: 100px;
-		background: red;
+	[data-class="test-1"] {
+		.rect-loop-left {
+			@include rect(100px, 200px, green);
+			@include absolute-left-top(200px, 50px);
+		}
+		.rect-loop-right {
+			@include rect(100px, 200px, yellow);
+			@include absolute-left-top(300px, 50px);
+			z-index: 2;
+		}
+		.rect-center {
+			@include rect(500px, 100px, silver);
+			@include absolute-left-top(100px, 100px);
+		}
+
+
+
 	}
 
+
+
 }
+
+
