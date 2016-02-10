@@ -4,7 +4,6 @@ title: "Markdown Style Guide"
 date:   2016-01-20 18:26:33 -0800
 categories: style-guide markdown
 subtitle: Calling the actors to the stage, breaking the fourth wall, abusing metaphors
-intro: lorem ipsum
 ---
 Are legitimate desktop ( `$laptop` , as jekyll likes to call it) screen sizes accommodating 80 character widths for code sections? Let’s begin this purposeful journey that wears clothes of silly words.
 
@@ -22,9 +21,25 @@ While we’re at it, we might as well kick the tires on a list.
 - Extraordinary
 - Plain
 - Semantics
-- Over-thinking, or is it under-thinking? And supposing there was a final judgement of     some sort, who would adjudicate? Regardless, I just wanted enough copy to wrap
+- Over-thinking, or is it under-thinking? And supposing there was a final judgement of some sort, who would adjudicate? Regardless, I just wanted enough copy to wrap these here lines
 - Ambivalence
 
 Let’s not spoil the list with ungraceul exit spacing. Like $laptop, this makes me think of another term I found from Jekyll: “vertical-rhythm.”
 
-This all seems so dreadfully boring, but then again, I could not bring myself to erect yet another 21st century monument to Lorem Ipsum Brutalism. And I didn’t want to keep this local only, because someone else might want a markdown style guide/test, right?
+# zomg h1
+
+It's a heading round-up.
+
+## Terrible twos
+
+Dumb paragraphs always gettin' in the way.
+
+### Third Time is a Whatever
+
+#### Fore
+
+##### Hit Me a Five Spot
+
+###### Asterisk Melee
+
+Well that was anticlimactic.
