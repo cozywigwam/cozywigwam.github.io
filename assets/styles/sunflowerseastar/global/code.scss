@@ -1,5 +1,6 @@
 code {
-	padding: 1px 6px 4px 4px; // inline padding, overwritten below for code blocks
+	margin: 0 3px;
+	padding: 3px 6px 4px 6px; // inline padding, overwritten below for code blocks
 	background: $background-color-alt;
 	border: 1px solid $border-color; // also overwritten below
 }
@@ -7,7 +8,7 @@ code {
 // liquid `{% highlight [lang] %}` tags
 .highlight {
 	overflow-x: auto;
-	padding: 46px 30px 48px;
+	padding: 28px 50px;
 	font-size: 11px;
 	background: $background-color-alt;
 	border: 2px solid $border-color;
@@ -22,6 +23,7 @@ code {
 		font-size: 15px;
 	}
 	code {
+		margin: 0;
 		padding: 0;
 		border: 0;
 	}
@@ -89,4 +91,12 @@ code {
 	.vg    { color: #008080 } // Name.Variable.Global
 	.vi    { color: #008080 } // Name.Variable.Instance
 	.il    { color: #099 } // Literal.Number.Integer.Long
+}
+
+
+// Bash - remove colors
+.highlight .language-bash {
+	span {
+		color: inherit;
+	}
 }
