@@ -1,0 +1,56 @@
+/* ---------------- */
+/* ---------------- */
+.META {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+[class*="meta"] {
+	opacity: 0.2;
+	font-family: monospace;
+}
+
+/* ---------------- */
+body, html {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+/* ---------------- */
+/* ---------------- */
+
+@import "../../site-agnostic/_site-agnostic-variables.scss";
+@import "../../site-agnostic/_site-agnostic-mixins.scss";
+
+@mixin rect($width: 100px, $height: 100px, $background: #000) {
+	width: $width;
+	height: $height;
+	background: $background;
+}
+
+
+[data-project-namespace="miniproject-1_animation-test"] {
+	[data-class="test-1"] {
+		.rect-loop-left {
+			@include rect(100px, 200px, green);
+			@include absolute-left-top(200px, 50px);
+		}
+		.rect-loop-right {
+			@include rect(100px, 200px, yellow);
+			@include absolute-left-top(300px, 50px);
+			z-index: 2;
+		}
+		.rect-center {
+			@include rect(500px, 100px, silver);
+			@include absolute-left-top(100px, 100px);
+		}
+
+
+
+	}
+
+
+
+}
+
+
