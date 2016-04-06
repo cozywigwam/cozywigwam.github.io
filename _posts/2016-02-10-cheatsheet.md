@@ -1,10 +1,18 @@
 ---
 layout: post
-title: "Cheatsheet: Linux Installations"
-date:   2016-02-10
-categories: cheatsheet linux
+title: "Cheatsheet"
+date:   2016-04-06
+categories: cheatsheet
 subtitle: Because brainspace is limited
 ---
+
+### git
+git submodule add git@github.com:url_to/awesome_submodule.git path_to_awesome_submodule
+git submodule update --init
+
+### Examine the system
+mount
+df -h
 
 ## Basics
 
