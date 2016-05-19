@@ -1,8 +1,12 @@
 // Looking for color values? See [sass_dir]/_HEX_BANK.scss
 
-$base-font-size: 16px;
+$base-font-size: 18px;
+$base-font-size-mobile: 19px;
+$base-font-size-laptop: 20px;
+$base-font-size-desktop: 20px;
+
 $small-font-size: $base-font-size * 0.9;
-$base-line-height: 2;
+$base-line-height: 2.2;
 
 $body-copy: $primary-color-light;
 $body-copy-alt: $secondary-color-light;

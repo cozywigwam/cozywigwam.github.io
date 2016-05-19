@@ -3,6 +3,23 @@ code {
 	padding: 3px 6px 4px 6px; // inline padding, overwritten below for code blocks
 	background: $background-color-alt;
 	border: 1px solid $border-color; // also overwritten below
+
+	@include mq($mobile) {
+		font-size: 13px;
+	}
+	@include mq($laptop) {
+		font-size: 14px;
+	}
+	@include mq($desktop) {
+		font-size: 15px;
+	}
+}
+
+[class^="highlight"] + h2, [class^="highlight"] + h3 {
+	margin-top: 3rem;
+}
+[class^="highlight"] + h4, [class^="highlight"] + h5 {
+	margin-top: 2rem;
 }
 
 // liquid `{% highlight [lang] %}` tags

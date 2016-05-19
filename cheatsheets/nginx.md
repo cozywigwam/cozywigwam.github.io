@@ -7,7 +7,7 @@ subtitle: nginx
 
 ### Random
 
-```
+``` bash
 sudo nginx -t && sudo nginx -s reload # !nginxreload
 ```
 
@@ -15,7 +15,7 @@ sudo nginx -t && sudo nginx -s reload # !nginxreload
 
 !nginxnowww
 
-```
+``` bash
 server {
     listen 80;
     listen 443 ssl;
@@ -39,7 +39,7 @@ server {
 ### Let's Encrypt SSL
 [DO Let's Encrypt Ubuntu/nginx Tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
 
-```
+``` bash
 # install let's encrypt
 sudo apt-get -y install bc # auto 'yes' to prompts
 sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
@@ -48,9 +48,11 @@ sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 sudo service nginx stop
 netstat -na | grep ':80.*LISTEN' # sanity check
 
-cd /opt/letsencrypt
-./letsencrypt-auto certonly --standalone # launch GUI
+/opt/letsencrypt/letsencrypt-auto certonly --standalone # launch GUI
 sudo ls /etc/letsencrypt/live/YOUR_DOMAIN_NAME # verify
+
+# renew everything
+/opt/letsencrypt/letsencrypt-auto renew
 
 # generate Diffie-Hellman Group
 sudo openssl dhparam -out /etc/ssl/certs/dhparam_DOMAIN.pem 2048 # !diffie
@@ -60,7 +62,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam_DOMAIN.pem 2048 # !diffie
 
 !nginxssl
 
-```
+``` bash
 ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem;
 ssl_certificate_key /etc/letsencrypt/live/DOMAIN_NAME/privkey.pem;
 

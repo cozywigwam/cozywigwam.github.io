@@ -7,14 +7,14 @@ subtitle: Calling the actors to the stage, breaking the fourth wall, abusing met
 ---
 Are legitimate desktop ( `$laptop` , as jekyll likes to call it) screen sizes accommodating 80 character widths for code sections? Let’s begin this purposeful journey that wears clothes of silly words.
 
-##Heading h2 for my Character Test
+## H2 Brings the Noise
 
-{% highlight bash %}
+``` bash
 # 80 char fixed-width test
 12345678902234567890323456789042345678905234567890623456789072345678908234567890
-{% endhighlight %}
+```
 
-###Additional Tests
+### Additional Tests
 
 While we’re at it, we might as well kick the tires on a list.
 

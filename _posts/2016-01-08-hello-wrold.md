@@ -5,7 +5,7 @@ date:   2016-01-08 18:26:33 -0800
 categories: misc
 subtitle: code style and 80 character width test
 ---
-{% highlight bash %}
+``` bash
 12345678902234567890323456789042345678905234567890623456789062345678907234567890
                                               ##
                 ###     ###                   ##                  ###
@@ -16,6 +16,4 @@ subtitle: code style and 80 character width test
 ##  ##  ####### ####### ####### #####    ##   ##  ##   ##  #####  ####### ######
 ##
 12345678902234567890323456789042345678905234567890623456789062345678907234567890
-{% endhighlight %}
-
-But of course; it's always on prupose.
+```
