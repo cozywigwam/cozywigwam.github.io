@@ -35,24 +35,55 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 h1 {
-	font-size: 5rem;
+	font-size: 4rem;
 	text-shadow: 45px -33px 0 $text-shadow-main;
+
+	@include mq($small) {
+		font-size: 4.6rem;
+	}
+	@include mq($laptop) {
+		font-size: 4.8rem;
+	}
+	@include mq($desktop) {
+		font-size: 5rem;
+	}
 }
 h2 {
 	margin-top: 3rem;
-	font-size: 2.8rem;
+	font-size: 2.4rem;
 	line-height: 3;
 	text-shadow: 22px -18px 0 $text-shadow-main;
 
 	a {
 		color: inherit;
 	}
+	@include mq($small) {
+		font-size: 2.6rem;
+	}
+	@include mq($laptop) {
+		font-size: 2.7rem;
+	}
+	@include mq($desktop) {
+		font-size: 2.8rem;
+	}
 }
 h3 {
 	margin-top: 1.5rem;
-	font-size: 1.8rem;
-	line-height: 2.6;
+	font-size: 1.6rem;
+	line-height: 2.3;
 	text-shadow: 5px -3px 0 $text-shadow-main;
+
+	@include mq($small) {
+		line-height: 2.4;
+	}
+	@include mq($laptop) {
+		font-size: 1.7rem;
+		line-height: 2.5;
+	}
+	@include mq($desktop) {
+		font-size: 1.8rem;
+		line-height: 2.6;
+	}
 }
 h4, h5, h6 {
 	margin-top: 1rem;
@@ -137,6 +168,17 @@ img {
 	background-color:  $quarternary-color;
 }
 
+@include mq-max($desktop) {
+	.desktop-only {
+		display: none !important;
+	}
+}
+@include mq($desktop) {
+	.mobile-only {
+		display: none !important;
+	}
+}
+
 
 
 
@@ -149,49 +191,66 @@ img {
 header#site-header {
 	@include clearfix();
 
+	@include mq($small) {
+		padding: 12% 6% 6%;
+	}
 	@include mq($desktop) {
 		width: $header-width-mq-desktop;
 		height: 100%;
+		padding: 0;
 		position: fixed;
 	}
 	a.logo {
 		display: block;
 		width: 100%;
 		padding: 15%;
+		opacity: 0.7;
+		@include transition-basic();
 
+		&:hover {
+			opacity: 1;
+		}
+
+		img {
+			margin: 0 auto;
+
+			@include mq($small) {
+			    display: inline-block;
+			}
+			@include mq($desktop) {
+			    display: block;
+			}
+		}
 		@include mq($small) {
-			float: left;
-			width: 50%;
-			padding: 10%;
+			//float: left;
+			width: auto;
+			padding: 0;
 		}
 		@include mq($desktop) {
 			position: absolute;
 			bottom: 6%;
 			width: 80%;
-			margin-left: 20%;
+			margin: 0 0 0 20%;
 			padding: 10%;
-			opacity: 0.7;
-			@include transition-basic();
-
-			&:hover {
-				opacity: 1;
-			}
 		}
 	}
 	a.github {
 		display: block;
-		width: 30%;
-		padding: 5%;
-		margin: 8% auto 20%;
+		position: absolute;
+		top: 1%;
+		right: 4%;
+		width: 10%;
 
 		@include mq($small) {
-			float: right;
-			width: 50%;
-			padding: 20%;
-			margin: 0 auto;
+			position: absolute;
+			top: 1.5%;
+			right: 3%;
+			width: 4%;
 		}
 		@include mq($desktop) {
 			position: absolute;
+			top: initial;
+			right: initial;
 			bottom: 0;
 			left: 5%;
 			width: 15%;
@@ -213,7 +272,7 @@ header#site-header {
 	padding: 20% 6% 30%;
 
 	@include mq($small) {
-		@include padding-top-bottom(12%, 20%);
+		@include padding-top-bottom(0%, 20%);
 	}
 	@include mq($desktop) {
 		margin-left: $header-width-mq-desktop;
