@@ -1,8 +1,6 @@
 ---
 layout: post
-title: "HTML Cheatsheet"
-categories: html, cheatsheet
-subtitle: Because brainspace is limited - cheatsheet for HTML
+title: "HTML"
+categories: cheatsheet
 ---
 
-### inline styles in the head

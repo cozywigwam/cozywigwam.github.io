@@ -1,11 +1,28 @@
 ---
 layout: post
-title: "Markdown Style Guide"
-date:   2016-01-20 18:26:33 -0800
-categories: style-guide markdown
-subtitle: Calling the actors to the stage, breaking the fourth wall, abusing metaphors
+title: "Markdown Shenanigans"
+categories: markdown
 ---
-Are legitimate desktop ( `$laptop` , as jekyll likes to call it) screen sizes accommodating 80 character widths for code sections? Let’s begin this purposeful journey that wears clothes of silly words.
+
+![image alt text]
+
+[image alt text]: /assets/images/pilot-toss-cat.jpg "title text"
+
+Are we [legitimate]? Let's try a quick test. `$ Oh, shall we?` Yes, we shall!
+
+[legitimate]: http://info.cern.ch/hypertext/WWW/TheProject.html "World Wide Web"
+
+    takePicture() {
+        // make it happen
+    }
+    tossCat() {
+        takePicture();
+    }
+    flyPlane() {
+        tossCat();
+    }
+    
+The `// make it happen` part always seems easy from the brainstorming couch. (Especially if the brainstormer isn't a doer, as I once overheard.)
 
 ## H2 Brings the Noise
 

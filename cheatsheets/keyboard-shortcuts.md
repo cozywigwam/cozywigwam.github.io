@@ -2,7 +2,6 @@
 layout: post
 title: "Keyboard Shortcuts"
 categories: cheatsheet
-subtitle: Because brainspace is limited - cheatsheet for installations
 ---
 
 # Bash

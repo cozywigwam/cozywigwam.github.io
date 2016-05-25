@@ -1,23 +1,8 @@
 ---
 layout: post
-title: "Cheatsheet"
+title: "Installation & Setup"
 categories: cheatsheet
-subtitle: Because brainspace is limited - cheatsheet for installations
 ---
-
-### git
-{% highlight bash %}
-git submodule add git@github.com:url_to/awesome_submodule.git path_to_awesome_submodule
-git submodule update --init
-{% endhighlight %}
-
-### Examine the system
-{% highlight bash %}
-mount
-df -h
-{% endhighlight %}
-
-## Setup
 
 ### curl & git are dpkg
 {% highlight bash %}
@@ -50,6 +35,12 @@ curl -L http://git.io/n-install | bash
 n list # see 'em
 {% endhighlight %}
 
+### see installed packages
+``` bash
+dpkg --get-selections | grep -v deinstall
+dpkg --get-selections | grep -i php
+```
+
 
 ### jekyll is a gem
 {% highlight bash %}
@@ -58,13 +49,10 @@ gem install jekyll
 
 
 
-## Server Setup
-
 ### set up first user after installation
 {% highlight bash %}
-# [ if you need ssh-copy-id on Mac...
-brew install ssh-copy-id
-# ]
+# if you need ssh-copy-id on Mac
+# brew install ssh-copy-id
 
 ssh-copy-id example_user@203.0.113.10
 {% endhighlight %}
