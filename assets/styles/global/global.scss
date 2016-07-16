@@ -9,13 +9,13 @@ body {
 	background: $background-color url("../images/bg-desktop.jpg") fixed no-repeat 0 100%;
 	background-size: cover;
 
-	@include mq($mobile) {
+	@include breakpoint-sm {
 		font-size: $base-font-size-mobile;
 	}
-	@include mq($laptop) {
+	@include breakpoint-md {
 		font-size: $base-font-size-laptop;
 	}
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		font-size: $base-font-size-desktop;
 	}
 }
@@ -41,10 +41,10 @@ h1 {
 	@include mq($small) {
 		font-size: 4.6rem;
 	}
-	@include mq($laptop) {
+	@include breakpoint-md {
 		font-size: 4.8rem;
 	}
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		font-size: 5rem;
 	}
 }
@@ -60,10 +60,10 @@ h2 {
 	@include mq($small) {
 		font-size: 2.6rem;
 	}
-	@include mq($laptop) {
+	@include breakpoint-md {
 		font-size: 2.7rem;
 	}
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		font-size: 2.8rem;
 	}
 }
@@ -76,11 +76,11 @@ h3 {
 	@include mq($small) {
 		line-height: 2.4;
 	}
-	@include mq($laptop) {
+	@include breakpoint-md {
 		font-size: 1.7rem;
 		line-height: 2.5;
 	}
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		font-size: 1.8rem;
 		line-height: 2.6;
 	}
@@ -108,8 +108,11 @@ p {
 	margin-top: 0;
 	margin-bottom: 2rem;
 
-	@include mq($desktop) {
+	@include breakpoint-md {
 		max-width: 700px;
+	}
+	@include breakpoint-lg {
+		max-width: 900px;
 	}
 }
 .highlight + p {
@@ -120,25 +123,34 @@ h1, h2, h3 {
 		color: $body-copy;
 		text-decoration: none;
 
-		&:visited {
-			color: $body-copy;
-		}
 		&:hover {
 			text-shadow: 22px -18px 0 $text-shadow-main-hover;
 			color: $body-copy;
 			text-decoration: none;
+		}
+		&:visited {
+			color: $body-copy;
+
+			&:hover {
+				color: $body-copy;
+			}
 		}
 	}
 }
 a {
 	color: $secondary-color;
 	@include transition-basic();
+	text-decoration: none;
 
+	&:hover {
+		color: lighten($secondary-color, 8%);
+	}
 	&:visited {
 		color: $tertiary-color;
-	}
-	&:hover {
-		color: $quarternary-color;
+
+		&:hover {
+			color: lighten($tertiary-color, 8%);
+		}
 	}
 }
 ul, ol {
@@ -152,7 +164,7 @@ li {
 	line-height: 1.7em;
 	max-width: 500px;
 
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		max-width: 700px;
 	}
 }
@@ -173,7 +185,7 @@ img {
 		display: none !important;
 	}
 }
-@include mq($desktop) {
+@include breakpoint-lg {
 	.mobile-only {
 		display: none !important;
 	}
@@ -194,7 +206,7 @@ header#site-header {
 	@include mq($small) {
 		padding: 12% 6% 6%;
 	}
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		width: $header-width-mq-desktop;
 		height: 100%;
 		padding: 0;
@@ -217,7 +229,7 @@ header#site-header {
 			@include mq($small) {
 			    display: inline-block;
 			}
-			@include mq($desktop) {
+			@include breakpoint-lg {
 			    display: block;
 			}
 		}
@@ -226,7 +238,7 @@ header#site-header {
 			width: auto;
 			padding: 0;
 		}
-		@include mq($desktop) {
+		@include breakpoint-lg {
 			position: absolute;
 			bottom: 6%;
 			width: 80%;
@@ -247,7 +259,7 @@ header#site-header {
 			right: 3%;
 			width: 4%;
 		}
-		@include mq($desktop) {
+		@include breakpoint-lg {
 			position: absolute;
 			top: initial;
 			right: initial;
@@ -274,7 +286,7 @@ header#site-header {
 	@include mq($small) {
 		@include padding-top-bottom(0%, 20%);
 	}
-	@include mq($desktop) {
+	@include breakpoint-lg {
 		margin-left: $header-width-mq-desktop;
 		padding: 6% 7.4%;
 	}
@@ -335,11 +347,11 @@ $desktop: 1200px;
 
 @include mq-max($mobile) {
 }
-@include mq($mobile) {
+@include breakpoint-sm {
 }
-@include mq($laptop) {
+@include breakpoint-md {
 }
-@include mq($desktop) {
+@include breakpoint-lg {
 }
 
 

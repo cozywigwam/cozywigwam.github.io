@@ -32,9 +32,14 @@ subtitle: Because brainspace is limited - cheatsheet for installations
 
 
 
-### Examine installed packages & versions
+### Package managers
 
     # bower
+    bower list
+    bower search
+    bower install
+    bower uninstall
+    bower prune
 
     # brew
     brew list
@@ -48,5 +53,21 @@ subtitle: Because brainspace is limited - cheatsheet for installations
     dpkg --get-selections | grep -v deinstall
     dpkg --get-selections | grep -i php
     
+    # n
+    n // arrow keys and select
+    n --help
+    n list
+    n stable // use/install stable
+    n latest // use/install latest
+    n rm 0.9.4 v0.10.0 // remove
+    
     # npm
+    npm help
+    npm help <cmd>
+    npm list -g --depth=0
+    npm outdated
+    sudo npm update -g npm
+    
+    # ~ is minor: ~1.2.3 matches 1.2.x, not 1.3.0
+    # ^ is major: ^1.2.3 matches 1.x.x, not 2.0.0
     

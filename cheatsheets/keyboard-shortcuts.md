@@ -25,3 +25,6 @@ categories: cheatsheet
 
 ### Adobe Audition
 ` - snap full screen for video review
+
+### Adobe Photoshop
+⇧ ⌘ U - curves adjustment layer

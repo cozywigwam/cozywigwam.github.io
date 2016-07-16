@@ -8,7 +8,10 @@ categories: cheatsheet
 ``` bash
 git submodule add git@github.com:url_to/awesome_submodule.git path_to_awesome_submodule
 git submodule update --init
+
+git remote add origin [remote repo]
 ```
+
 
 
 

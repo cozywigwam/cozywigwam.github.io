@@ -14,11 +14,17 @@ Note: shortcut letters are CaSe-senSItive
 #### panels
 
 F7 - Layers
-F8 - Artboards
+F8 - Artboards (artboard tool, ⇧ O )
 
 ⇧ F7 - Align panel
 ⇧ F8 - Transform panel
 ⇧ F9 - Pathfinder panel
+
+#### tools
+
+n - pencil
+⇧ n - shaper
+s - scale tool
 
 #### unsorted
 
@@ -26,7 +32,6 @@ F8 - Artboards
 ⌘ D - toggle transparency grid
 ⌘ 5 - make guides from selection/target
 ⌘ O - outline text as anchor points
-s - scale tool
 
 
 ### Notes
@@ -43,3 +48,6 @@ after pulling in or line-drawing art, start by correcting various fills & stroke
 - for inner substroke, use offset path
 
 - after using an effect, use Object -> expand appearance to make anchor points conform
+
+
+

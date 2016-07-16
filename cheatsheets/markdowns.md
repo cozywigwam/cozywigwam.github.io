@@ -22,6 +22,14 @@ link
 [basics]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown basics"
 [syntax]: http://daringfireball.net/projects/markdown/basics "Daring Fireball markdown syntax"
 
+*italics,* _also italics_
+
+**bold**
+
+***bold italic***
+
+
+
 
 ### GitHub & Jekyll
 
