@@ -26,25 +26,21 @@
  * --- MAINLY SITE-AGNOSTIC ---
  */
 
-@import "_HEX_BANK", 						// <-- site-specific
+@import "_HEX_BANK",
 
-// cascaded variables
+"utility/_media-queries",
+"utility/_resets-and-normalization",
+"utility/_site-agnostic-variables",
 
-"site-agnostic/_resets-and-normalization",
-"site-agnostic/_site-agnostic-variables",
-"global/_VARIABLES", 		// <-- site-specific
+"global/_VARIABLES",
 
-// site-agnostic mixins
-"site-agnostic/_site-agnostic-mixins",
+"utility/_site-agnostic-mixins",
 
 /*
  * --- SITE-SPECIFIC ONLY ---
  */
 
-// fonts (regardless if webfont or system)
 "global/fonts",
-
-// local mixins
 "global/_MIXINS",
 "global/global",
 "global/code";
