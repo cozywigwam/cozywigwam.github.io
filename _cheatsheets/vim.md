@@ -71,7 +71,7 @@ subtitle: Seek nirvana
 To convert the full document's tabs to spaces, `:set expandtab` and then `:retab!` (`!` includes "strings of only normal spaces" in the conversion).
 
 
-### Sizing Windows
+### Windows
 
 | `:help CTRL-W` | help |
 | `CTRL-W =` | equalize |
