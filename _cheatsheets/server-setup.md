@@ -1,17 +1,18 @@
 ---
 layout: post
-title: "Installation & Setup"
+title: "Server Setup"
 categories: cheatsheet
+subtitle: Installation reminders
 ---
 
 ### curl & git are dpkg
-{% highlight bash %}
+```bash
 sudo apt-get install curl git
-{% endhighlight %}
+```
 
 
 ### RVM & Ruby
-{% highlight bash %}
+```bash
 curl -L https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 rvm requirements
@@ -19,21 +20,20 @@ rvm install ruby
 rvm use ruby --default
 rvm rubygems current
 rvm list # see 'em
-{% endhighlight %}
+```
 
 
 ### node is dpkg...
-{% highlight bash %}
-#sudo apt-get install nodejs
-#sudo apt-get install npm
-{% endhighlight %}
+```bash
+#sudo apt-get install nodejs npm
+```
 
 
 ### ... but use n instead
-{% highlight bash %}
+```bash
 curl -L http://git.io/n-install | bash
 n list # see 'em
-{% endhighlight %}
+```
 
 ### see installed packages
 ``` bash
@@ -43,49 +43,49 @@ dpkg --get-selections | grep -i php
 
 
 ### jekyll is a gem
-{% highlight bash %}
+```bash
 gem install jekyll
-{% endhighlight %}
+```
 
 
 
 ### set up first user after installation
-{% highlight bash %}
+```bash
 # if you need ssh-copy-id on Mac
 # brew install ssh-copy-id
 
-ssh-copy-id example_user@203.0.113.10
-{% endhighlight %}
+ssh-copy-id example_user@200.0.110.1
+```
 
 
 ### HTTPS SSL cert with Let's Encrypt [(ref.)](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
 
 Install Let's Encrypt. [DO Tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
 
-{% highlight bash %}
+```bash
 sudo apt-get -y install bc # auto 'yes' to prompts
 sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
-{% endhighlight %} 
+``` 
 
 Register the domain with Let's Encrypt.
 
-{% highlight bash %}
+```bash
 sudo service nginx stop
 netstat -na | grep ':80.*LISTEN' # sanity check
 cd /opt/letsencrypt
 ./letsencrypt-auto certonly --standalone # launches instructions-led GUI
 sudo ls /etc/letsencrypt/live/YOUR_DOMAIN_NAME # verify
-{% endhighlight %} 
+``` 
 
 Generate Diffie-Hellman Group
 
-{% highlight bash %}
+```bash
 sudo openssl dhparam -out /etc/ssl/certs/dhparam_YOUR_DOMAIN_NAME.pem 2048
-{% endhighlight %} 
+``` 
 
 Update the nginx vhost config by changing the main server block to `listen 443 ssl` with ssl-related directives, then 301 port 80 to https.
 
-{% highlight bash %}
+```bash
 server {
     # listen 80 ...
     listen 443 ssl;
@@ -111,6 +111,6 @@ server {
     server_name example.com;
     return 301 https://$host$request_uri;
 }
-{% endhighlight %} 
+``` 
 
 

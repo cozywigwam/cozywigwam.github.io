@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Cheatsheet & Snippets"
+title: "nginx"
 categories: cheatsheet
-subtitle: nginx
+subtitle: Misc snippets
 ---
 
 ### Random
@@ -12,8 +12,6 @@ sudo nginx -t && sudo nginx -s reload # !nginxreload
 ```
 
 ### force no-www & https
-
-!nginxnowww
 
 ``` bash
 server {
@@ -59,8 +57,6 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam_DOMAIN.pem 2048 # !diffie
 ```
 
 ### server block config for SSL
-
-!nginxssl
 
 ``` bash
 ssl_certificate /etc/letsencrypt/live/DOMAIN_NAME/fullchain.pem;

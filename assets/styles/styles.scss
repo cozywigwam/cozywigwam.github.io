@@ -1,54 +1,17 @@
 ---
 ---
-
 @charset "utf-8";
 
-
-
-
-
-
-
-
-// [META] TODO: update SCSS syntax highlighter, distinguish comment styles/levels
-/**
- * Jekyll's "base directory" for @import's is _config.yml -> sass: sass_dir:
- * e.g. `@import "_HEX_BANK",` == `@import [sass_dir]/_HEX_BANK.scss`
- */
-
-
-
-
-
-
-
-/*
- * --- MAINLY SITE-AGNOSTIC ---
- */
-
 @import "_HEX_BANK",
-
 "utility/_media-queries",
 "utility/_resets-and-normalization",
 "utility/_site-agnostic-variables",
-
 "global/_VARIABLES",
-
 "utility/_site-agnostic-mixins",
-
-/*
- * --- SITE-SPECIFIC ONLY ---
- */
 
 "global/fonts",
 "global/_MIXINS",
 "global/global",
-"global/code";
-
-
-/*
- * Projects
- */
-//"projects/mini-projects";
-
+"global/code",
+"global/code/cozywigwam-in-progress";
 

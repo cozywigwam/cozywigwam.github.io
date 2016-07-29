@@ -2,10 +2,9 @@
 layout: post
 title: "SVG"
 categories: cheatsheet
+subtitle: Embed options
 ---
 
-(W3C September 2010: SVG Primer)[https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html#SVG_in_HTML]
-(W3C: Embedding SVG in HTML documents)[https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html#SVG_in_HTML]
 
 ```html
 <!-- YES -->
@@ -17,16 +16,14 @@ categories: cheatsheet
 </object>
 
 <!-- or if you don't mind the verbosity -->
-<svg width="300px" height="300px" xmlns="http://www.w3.org/2000/svg"> <text x="10" y="50" font-size="30">My SVG</text></svg>
-
-
-<!-- MAYBE -->
-
+<svg width="50px" height="50px" xmlns="http://www.w3.org/2000/svg">
+  <text x="10" y="10" font-size="20">My SVG</text>
+</svg>
 
 
 <!-- NO -->
 
-<!-- ha ha, iframe -->
+<!-- lol iframe -->
 <iframe src="image.svg">
   Your browser does not support iframes
 </iframe>
@@ -34,43 +31,42 @@ categories: cheatsheet
 <!-- not spec (W3C <embed>) -->
 <embed type="image/svg+xml" src="image.svg" /> 
 
-<!-- security; blocks links -->
 <img src="image.svg" />
 ```
 
-```css
+```scss
 // NO
-
-// security; blocks links
 #myelement {
   background-image: url(image.svg);
 }
 ```
 
 
-> 
-> From (W3C: Embedded Content)[http://w3c.github.io/html/semantics-embedded-content.html#element]
-> 
+
+From [W3C: Embedded Content](http://w3c.github.io/html/semantics-embedded-content.html#element)
+
 > Here’s a way to embed a resource that requires a proprietary plugin, like Flash:
 > 
-> ```
+> ```html
 > <embed src="catgame.swf">
-> > ```
+> ```
 > 
 > If the user does not have the plugin (for example if the plugin vendor doesn’t support the user’s platform), then the user will be unable to use the resource.
 > 
 > To pass the plugin a parameter "quality" with the value "high", an attribute can be specified:
 > 
-> ```
+> ```html
 > <embed src="catgame.swf" quality="high">
 > ```
 > 
 > This would be equivalent to the following, when using an object element instead:
 > 
-> ```
+> ```html
 > <object data="catgame.swf">
 >   <param name="quality" value="high">
 > </object>
 > ```
 > 
 
+
+[W3C SVG Primer - Embedding SVG in HTML documents](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html#SVG_in_HTML)

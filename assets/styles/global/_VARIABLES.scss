@@ -2,10 +2,10 @@
 
 $transition-speed-default: 380ms;
 
-$base-font-size: 18px;
-$base-font-size-mobile: 19px;
-$base-font-size-laptop: 20px;
-$base-font-size-desktop: 22px;
+$base-font-size: 14px;
+$base-font-size-mobile: 15px;
+$base-font-size-laptop: 16px;
+$base-font-size-desktop: 17px;
 
 $small-font-size: $base-font-size * 0.9;
 $base-line-height: 1.8;
@@ -17,3 +17,17 @@ $body-copy-alt-2: $secondary-color-alt;
 $border-color: #454b4d;
 
 $header-width-mq-desktop: 20%;
+
+
+$heading-1-base: 2.2rem;
+$heading-2-base: 1.8rem;
+$heading-3-base: 1.5rem;
+$heading-4-base: 1.4rem;
+$heading-5-base: 1.3rem;
+$heading-6-base: 1.2rem;
+
+$heading-multiplier-sm: 1.05;
+$heading-multiplier-md: 1.1;
+$heading-multiplier-lg: 1.2;
+$heading-multiplier-xl: 1.6;
+$heading-multiplier-xxl: 2.2;

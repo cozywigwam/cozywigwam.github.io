@@ -2,18 +2,25 @@
 layout: default
 ---
 
-<div class="post-list">
-	{% for post in site.posts %}
+<section class="intro">
+	<h2>Welcome</h2>
+	<p>Sunflower Sea Star is the technical operations hub for my online presence. Although I'm a bit bird-crazy, the <a href="https://en.wikipedia.org/wiki/Sunflower_seastar" target="_blank">sunflower sea star</a> seemed like a fun analogy. Cozywigwam (<a href="https://github.com/cozywigwam/" target="_blank">GitHub</a>, <a href="https://twitter.com/cozywigwam" target="_blank">Twitter</a>) is my handle.</p>
+	<p><a href="https://polyambidextro.us" target="_blank">Polyambidextrous</a> is the umbrella site. <a href="https://sinistrocular.com" target="_blank">Sinistrocular</a>, <a href="https://theantiauthority.com" target="_blank">The Anti Authority</a> (just a 404 at the moment, but a future dictionary), and <a href="http://cyaneyedvireo.com" target="_blank">Cyan-eyed Vireo</a> have varied combinations of social media and/or a website. Each conceptual property is separate because I approach different disciplines with unique aims and aesthetics. However, it is an opportunity to build each group not only with its own look and voice, but with its own technological exploration.</p>
+	<p>At present, no posts are publicly available. A few cheatsheets follow, but they are like personal notes.</p>
+</section>
+
+<section class="post-list">
+	{% for cheatsheet in site.cheatsheets %}
 
 	<div class="post-preview">
 		<div class="post-header">
-			<h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-			<h3>{{ post.subtitle }}</h3>
-			<span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+			<h2><a class="post-link" href="{{ cheatsheet.url | prepend: site.baseurl }}">{{ cheatsheet.title }}</a></h2>
+			<h3>{{ cheatsheet.subtitle }}</h3>
 		</div>
 
-		<p>{{ post.intro }}</p>
+		<p>{{ cheatsheet.intro }}</p>
 	</div>
 
 	{% endfor %}
-</div>
+</section>
+

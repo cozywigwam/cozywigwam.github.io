@@ -1,4 +1,5 @@
-#Jekyll config file
+# Jekyll config file
+# defaults: https://jekyllrb.com/docs/configuration/#default-configuration
 
 # Setup
 name: Grant Surratt
@@ -7,37 +8,35 @@ title: Sunflower Sea Star
 tagline: Grep and grok.
 description: Grep and grok.
 url: http://sunflowerseastar.com
-baseurl: ""
+timezone: America/San_Francisco
+
+collections:
+  cheatsheets:
+    output: true
+
 
 #files to exclude, array
 exclude:
   - README.md
   - __reference
 
-# Syntax highlighting
-#highlighter:         pygments
-
 # Permalinks
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-#relative_permalinks: true
+permalink: pretty
 
-#twitter_username: cozywigwam
-github_username:  cozywigwam
+twitter_username: cozywigwam
+github_username: cozywigwam
 
-# Build settings
-markdown: kramdown
+liquid:
+  error_mode: strict
 
 # Assets
 #
 # We specify the directory for Jekyll so we can use @imports.
 sass:
-  sass_dir:          assets/styles
-  style:            :compressed
+  sass_dir: assets/styles
+  style: :compressed
 
 
 # GitHub Pages configuration overrides
 # https://help.github.com/articles/using-jekyll-with-pages/#configuration-overrides
 safe: true
-lsi: false
-#source: [your top-level directory]

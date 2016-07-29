@@ -9,7 +9,7 @@
 /* -------- */
 
 $primary-color: #cad8e0;
-$primary-color-light: lighten($primary-color, 6%);
+$primary-color-light: lighten($primary-color, 4%);
 
 $secondary-color: #ff966f;
 $secondary-color-light: #ff966f;
@@ -20,12 +20,8 @@ $tertiary-color: #7694a8;
 $quarternary-color: #6b5155; // rgb 107, 81, 85
 
 
-$text-shadow-main: rgba(107, 81, 85, 0.2);
-$text-shadow-main-hover: rgba(107, 81, 85, 1);
-
-
 $background-color: #2d3132;
-$background-color-alt: darken($background-color, 2.5%);
+$background-color-alt: darken($background-color, 2.5%); // #272a2b, rgb(39, 42, 43)
 $background-color-alt-2: lighten($background-color, 1%);
 
 /* -------- */
