@@ -264,17 +264,14 @@ header#site-header {
 	a.github {
 		display: block;
 		position: absolute;
-		top: 1%;
-		right: 4%;
-		width: 10%;
+		top: 8px;
+		right: 12px;
+		width: 32px;
 		opacity: 0.5;
 		@include transition-basic();
 
 		@include breakpoint-sm {
 			position: absolute;
-			top: 1.5%;
-			right: 3%;
-			width: 4%;
 		}
 		@include breakpoint-lg {
 			position: absolute;
