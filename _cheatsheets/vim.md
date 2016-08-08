@@ -19,11 +19,11 @@ subtitle: Seek nirvana
 
 | `?` | help |
 | `F3` | *[custom map]* toggle open/close |
-| `C` | update tree root (equivalent to `cd CD`) |
-| `u` | up dir |
-| `U` | up dir, leave current root expanded |
+| `C` | TREEROOT NAVIGATION - down |
+| `U` | TREEROOT NAVIGATION - up |
+| `u` | TREEROOT NAVIGATION - collapse tree & up |
+| `CD`| TREEROOT NAVIGATION - go to pwd |
 | `cd`| update pwd |
-| `CD`| move tree root to pwd |
 | `P` | jump to tree root |
 | `p` | jump to parent |
 | `O` | expand all sub-dirs |
@@ -55,7 +55,7 @@ subtitle: Seek nirvana
 | `"a-"z` | named |
 | `"0` | yank |
 | `+_` | black hole |
-| `"+` | clipboard |
+| `"* "+` | clipboard |
 | `"=` | expression |
 | `"% "# ". ": "/` | *read-only registers* |
 
