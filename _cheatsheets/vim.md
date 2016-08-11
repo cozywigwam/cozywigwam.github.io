@@ -191,7 +191,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 #### :Gedit
 
 `:Gedit [revision]` | e.g. `:Gedit HEAD^:%`
-`<CR>` | go to object corresponding to SHA on cursor's line
+`<Enter>` | go to object corresponding to SHA on cursor's line
 `C` | jump to commit object
 `-` | jump to tree object
 
