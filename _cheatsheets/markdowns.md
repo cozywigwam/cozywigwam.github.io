@@ -5,16 +5,7 @@ categories: cheatsheet
 subtitle: Dialect roundup
 ---
 
-### Markdown
-
-Add `.text` to some URLs. For instance, Jon Gruber's [intro].
-
-Daring Fireball's [introduction] (philosophy), [basics], and [syntax].
-
-[intro]: http://daringfireball.net/projects/markdown/basics.text
-[introduction]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown introduction"
-[basics]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown basics"
-[syntax]: http://daringfireball.net/projects/markdown/basics "Daring Fireball markdown syntax"
+### Basics
 
 ```
 *italics,* and _more italics_
@@ -25,7 +16,33 @@ Daring Fireball's [introduction] (philosophy), [basics], and [syntax].
 ```
 
 
-### github.com
+#### Tables
+
+3 dash minimum, colors for alignment, line begin/end pipes optional.
+
+```
+| th | th | th |
+| --- |:---:| ---:|
+| left | middle | right |
+```
+
+
+### Dialects, variations
+
+#### Markdown
+
+Add `.text` to some URLs. For instance, Jon Gruber's [intro].
+
+Daring Fireball's [introduction] (philosophy), [basics], and [syntax].
+
+[intro]: http://daringfireball.net/projects/markdown/basics.text
+[introduction]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown introduction"
+[basics]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown basics"
+[syntax]: http://daringfireball.net/projects/markdown/basics "Daring Fireball markdown syntax"
+
+
+
+#### github.com
 
 Uses ["GitHub Flavored Markdown,"] aka GFM: [Syntax], [Writing on GitHub root](https://help.github.com/categories/writing-on-github/). [Kramdown parse info].
 
@@ -35,7 +52,7 @@ Uses ["GitHub Flavored Markdown,"] aka GFM: [Syntax], [Writing on GitHub root](h
 [Kramdown parse info]: http://kramdown.gettalong.org/parser/gfm.html
 
 
-### GitHub Pages & Jekyll
+#### GitHub Pages & Jekyll
 
 As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
 
@@ -48,21 +65,21 @@ As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
 
 
 
-### Stack Overfow
+#### Stack Overfow
 
 Stack Overflow's [markdown help].
 
 [markdown help]: http://stackoverflow.com/editing-help
 
 
-### Slack
+#### Slack
 
 Slack API [basic message formatting].
 
 [basic message formatting]: https://api.slack.com/docs/message-formatting
 
 
-### JIRA
+#### JIRA
 
 {% raw %}
 ```bash
@@ -78,7 +95,7 @@ link to [this site|https://thissite.com]
 
 
 
-### CommonMark
+#### CommonMark
 
 An attempt "to specify Markdown syntax unambiguously." [Spec], [GitHub]. ["Dingus" (live tester)].
 
