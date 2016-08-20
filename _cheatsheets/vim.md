@@ -67,15 +67,14 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 
 ### Registers
 
-| `""` | unnamed |
-| `"a-"z` | named |
-| `"0` | yank |
-| `+_` | black hole |
-| `"+` | clipboard |
-| `"*` | primary (or redundant clipboard in Mac OS X) |
-| `"=` | expression |
-| `"% "# ". ": "/` | *read-only registers* |
-
+`:h registers` | naturally
+`0` | yank
+`+` | clipboard
+`*` | primary (or redundant clipboard in Mac OS X)
+`=` | expression
+`_` | black hole
+`%` `#` | filename, alt filename
+`/` | last search pattern
 
 
 ### Tabs & spaces

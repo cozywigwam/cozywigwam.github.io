@@ -69,7 +69,9 @@ As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
 
 Stack Overflow's [markdown help].
 
-[markdown help]: http://stackoverflow.com/editing-help
+[Markdown help]: http://stackoverflow.com/editing-help
+
+Code blocks are four indented spaces.
 
 
 #### Slack
