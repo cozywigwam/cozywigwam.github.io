@@ -11,10 +11,10 @@ $small-font-size: $base-font-size * 0.9;
 $base-line-height: 1.8;
 
 $body-copy: $primary-color-light;
-$body-copy-alt: $secondary-color-light;
-$body-copy-alt-2: $secondary-color-alt;
+$body-copy-alt: $secondary-color;
+$body-copy-alt-2: $tertiary-color;
 
-$border-color: #454b4d;
+$border-color: lighten($background-color, 40%);
 
 $header-width-mq-desktop: 20%;
 

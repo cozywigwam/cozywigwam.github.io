@@ -13,7 +13,8 @@ HTML reference:
 code {
 	margin: 0 3px;
 	padding: 3px 6px 4px 6px; // inline padding, overwritten below for code blocks
-	background: $background-color-alt;
+	// background: $background-color;
+    background: rgba(41, 45, 53, 0.5);
 	border: 1px solid $border-color; // also overwritten below
 
 	@include breakpoint-sm {
@@ -28,6 +29,7 @@ code {
 }
 table {
 	code {
+        background: none;
 		border: 0;
 	}
 	td > code:first-child {
@@ -41,8 +43,7 @@ table {
 	overflow-x: auto;
 	padding: 28px 50px;
 	font-size: 11px;
-	background: $background-color-alt;
-	border: 2px solid $border-color;
+    @include bg-box-alpha-gray();
 
 	@include breakpoint-sm {
 		font-size: 13px;
@@ -58,6 +59,7 @@ table {
 	code {
 		margin: 0;
 		padding: 0;
+        background: none;
 		border: 0;
 	}
 }

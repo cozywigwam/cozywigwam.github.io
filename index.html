@@ -2,13 +2,6 @@
 layout: default
 ---
 
-<section class="intro">
-	<h2>Welcome</h2>
-	<p>Sunflower Sea Star is my technical hub. Although I'm a bit bird-crazy, the <a href="https://en.wikipedia.org/wiki/Sunflower_seastar" target="_blank">sunflower sea star</a> seemed like a fun analogy. The domain name was available, too, which surprised me, given that gems like phalacrocorax.com are already taken. Cozywigwam (<a href="https://github.com/cozywigwam/" target="_blank">GitHub</a>, <a href="https://twitter.com/cozywigwam" target="_blank">Twitter</a>) is a handle.</p>
-	<p><a href="https://polyambidextro.us" target="_blank">Polyambidextrous</a> is the umbrella site. <a href="https://sinistrocular.com" target="_blank">Sinistrocular</a>, <a href="https://theantiauthority.com" target="_blank">The Anti-Authority</a> (just a 404 at the moment, but a future dictionary), and <a href="http://cyaneyedvireo.com" target="_blank">Cyan-eyed Vireo</a> have assorted combinations of social media and/or a website. I like keeping them separate for various reasons, not least of which is the opportunity to explore different technical avenues.</p>
-	<p>At present, no posts are publicly available, but here are some cheatsheets. <em>How baked are they</em>, you ask? Well, first of all, it's weird that you're asking me questions on my own website. But to answer you, not that much, although it's variable. Most of them are more like personal reference sheets and learning aids than polished cheatsheets.</p>
-</section>
-
 <section class="post-list">
 	{% for cheatsheet in site.cheatsheets %}
 
@@ -18,9 +11,17 @@ layout: default
 			<h3>{{ cheatsheet.subtitle }}</h3>
 		</div>
 
-		<p>{{ cheatsheet.intro }}</p>
+		<!-- <p>{{ cheatsheet.intro }}</p> -->
 	</div>
 
 	{% endfor %}
+
+    <div class="post-preview">
+        <div class="post-header">
+            <h2><a class="post-link" href="/about">About</a></h2>
+            <h3>cozywigwam</h3>
+        </div>
+    </div>
+
 </section>
 

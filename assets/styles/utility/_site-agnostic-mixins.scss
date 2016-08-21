@@ -113,14 +113,15 @@
 	}
 }
 
-
-
-
-// in progress ones...
-
-@mixin pseudo($w: 0, $h: 0, $display: block) {
-	content: "";
-	display: $display;
-	width: $w;
-	height: $h;
+@mixin wtf() {
+    background: green;
+}
+@mixin test() {
+    // background: rgba(41, 45, 53, 0.7);
+    background: green;
+    border-bottom: 6px solid #c2e3ff;
+}
+@mixin bg-box-alpha-gray() {
+    background: rgba(41, 45, 53, 0.5);
+    border-bottom: 6px solid #c2e3ff;
 }

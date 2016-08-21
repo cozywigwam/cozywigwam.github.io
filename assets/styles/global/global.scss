@@ -5,8 +5,8 @@ body {
 	line-height: $base-line-height;
 	font-weight: 400;
 	color: $body-copy;
-	background: $background-color url("../images/bg-desktop.jpg") fixed no-repeat 0 100%;
-	background-size: cover;
+	background: url('../images/blue-jay.jpg') no-repeat fixed 50% 80%;
+    background-size: cover;
 
 	@include breakpoint-sm {
 		font-size: $base-font-size-mobile;
@@ -142,10 +142,10 @@ a {
 		color: lighten($secondary-color, 8%);
 	}
 	&:visited {
-		color: $secondary-color-light;
+		color: $tertiary-color;
 
 		&:hover {
-			color: lighten($secondary-color-light, 8%);
+			color: $quarternary-color;
 		}
 	}
 }
@@ -165,13 +165,12 @@ li {
 	}
 }
 td, th {
-	padding: .5rem 1.5rem .5rem;
+	padding: 1rem 1.5rem;
 	border: 1px solid $border-color;
 }
 table {
 	margin-bottom: 2rem;
-	background: $background-color-alt;
-	border: 2px solid $border-color;
+    @include bg-box-alpha-gray();
 
 	th, td {
 		border-color: $border-color;
