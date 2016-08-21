@@ -186,9 +186,12 @@ img {
 hr {
     max-width: 760px;
     height: 10px;
-    margin-bottom: 24%;
+    margin-bottom: 14%;
     background: $secondary-color;
     border-bottom: 4px solid $quarternary-color;
+}
+.page-content hr {
+    margin-top: 10%;
 }
 
 // TODO: blockquote
@@ -305,10 +308,13 @@ header.site-header {
 }
 
 footer.site-footer {
-    max-width: 760px;
     margin: 0 auto;
-    padding: 0 0 12%;
+    padding: 20% 6% 30%;
 
+    @include breakpoint-lg {
+        margin-left: $header-width-mq-desktop;
+        padding: 6% 7.4% 30%;
+    }
     a {
         display: inline-block;
         opacity: 0.9;
@@ -328,14 +334,14 @@ footer.site-footer {
 
 
 .page-content {
-	padding: 20% 6% 30%;
+	padding: 20% 6% 12%;
 
 	@include breakpoint-sm {
 		@include padding-top-bottom(0%, 20%);
 	}
 	@include breakpoint-lg {
 		margin-left: $header-width-mq-desktop;
-		padding: 6% 7.4% 30%;
+		padding: 6% 7.4% 10%;
 	}
 }
 
@@ -362,20 +368,6 @@ footer.site-footer {
 		color: $body-copy-alt;
 		font-size: 0.9em;
 		cursor: default;
-	}
-}
-
-
-section.intro {
-	margin-bottom: 10rem;
-}
-@include breakpoint-lg {
-	section.intro {
-		margin-bottom: 12rem;
-	}
-    section.post-list {
-		padding-top: 8rem;
-		border-top: 1px solid $border-color;
 	}
 }
 
