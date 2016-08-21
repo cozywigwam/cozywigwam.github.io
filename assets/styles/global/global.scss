@@ -5,7 +5,7 @@ body {
 	line-height: $base-line-height;
 	font-weight: 400;
 	color: $body-copy;
-	background: url('../images/blue-jay.jpg') no-repeat fixed 50% 80%;
+	background: $tertiary-color url('../images/blue-jay.jpg') no-repeat fixed 50% 80%;
     background-size: cover;
 
 	@include breakpoint-sm {
@@ -25,7 +25,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 1rem;
 	font-family: $heading-font-family;
-	font-weight: 700;
+	// font-weight: 700;
+    font-weight: normal;
 	line-height: 1.4;
 	cursor: default;
 
@@ -117,29 +118,29 @@ p {
 }
 h1, h2, h3 {
 	a {
-		color: $body-copy;
+		// color: $body-copy;
 		text-decoration: none;
 
 		&:hover {
-			color: lighten($body-copy, 10%);
+			// color: lighten($body-copy, 10%);
+            border-bottom: 5px solid $secondary-color;
 			text-decoration: none;
 		}
 		&:visited {
-			color: $body-copy;
+			// color: $body-copy;
 
 			&:hover {
-				color: $body-copy;
+				// color: $body-copy;
 			}
 		}
 	}
 }
 a {
 	color: $secondary-color;
-	@include transition-basic();
 	text-decoration: none;
 
 	&:hover {
-		color: lighten($secondary-color, 8%);
+		color: lighten($tertiary-color, 8%);
 	}
 	&:visited {
 		color: $tertiary-color;
@@ -182,6 +183,14 @@ table {
 img {
 	display: block;
 }
+hr {
+    max-width: 760px;
+    height: 10px;
+    margin-bottom: 24%;
+    background: $secondary-color;
+    border-bottom: 4px solid $quarternary-color;
+}
+
 // TODO: blockquote
 blockquote {
 	margin-bottom: 3rem;
@@ -212,7 +221,7 @@ blockquote {
  * Overall layout
  */
 
-header#site-header {
+header.site-header {
 	@include clearfix();
 
 	@include breakpoint-sm {
@@ -295,6 +304,29 @@ header#site-header {
 	}
 }
 
+footer.site-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 0 12%;
+
+    a {
+        display: inline-block;
+        opacity: 0.9;
+        @include transition-basic();
+
+        &:hover {
+            opacity: 1;
+        }
+        img {
+
+            box-shadow: 14px 20px 100px rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+    }
+}
+
+
+
 .page-content {
 	padding: 20% 6% 30%;
 
@@ -303,7 +335,7 @@ header#site-header {
 	}
 	@include breakpoint-lg {
 		margin-left: $header-width-mq-desktop;
-		padding: 6% 7.4%;
+		padding: 6% 7.4% 30%;
 	}
 }
 

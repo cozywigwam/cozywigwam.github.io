@@ -1,8 +1,8 @@
 $code-variable: #e4b3e5;
 $code-secondary-color: #ffbca3;
-$code-primary-color: #c2c8cc;
+$code-primary-color: #dae1e5;
 $code-primary-color-light: lighten($code-primary-color, 8%);
-$code-primary-color-dark: #919699;
+$code-primary-color-dark: #c2c8cc;
 
 code, pre  {
 	color: $code-primary-color;

@@ -12,10 +12,11 @@ HTML reference:
 // inline
 code {
 	margin: 0 3px;
-	padding: 3px 6px 4px 6px; // inline padding, overwritten below for code blocks
+	padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
 	// background: $background-color;
+    @include alpha-gray();
     background: rgba(41, 45, 53, 0.5);
-	border: 1px solid $border-color; // also overwritten below
+	border-bottom: 2px solid $quarternary-color; // also overwritten below
 
 	@include breakpoint-sm {
 		font-size: 13px;
@@ -41,11 +42,12 @@ table {
 // block
 .highlight {
 	overflow-x: auto;
-	padding: 28px 50px;
+	padding: 16px 20px 20px;
 	font-size: 11px;
     @include bg-box-alpha-gray();
 
 	@include breakpoint-sm {
+        padding: 28px 30px;
 		font-size: 13px;
 	}
 	@include breakpoint-md {
