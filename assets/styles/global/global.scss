@@ -5,7 +5,7 @@ body {
 	line-height: $base-line-height;
 	font-weight: 400;
 	color: $body-copy;
-	background: $tertiary-color url('../images/bg-blue.jpg') no-repeat fixed 50% 80%;
+	background: $sfss-bg-blue url('../images/bg-blue.jpg') no-repeat fixed 50% 80%;
     background-size: cover;
 
 	@include breakpoint-sm {
