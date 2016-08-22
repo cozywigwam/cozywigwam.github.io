@@ -13,13 +13,10 @@ subtitle: Seek nirvana
 
 | `<C-v><C-i>` | insert a tab character |
 | `<C-v>[unicode]` | insert unicode |
-| `\l` | *[custom map]* toggle tab/spaces visibility |
 | `ga` | examine character at cursor |
-| `\p` | *[custom map]* reveal syntax group for highlighting | 
+| `<leader>H` | *[custom map]* reveal syntax group for highlighting | 
 | `:help cmdline-special` | notes about % and # |
 | `:noh` | stop highlighting searches |
-| `\h` | *[custom map]* stop highlighting searches |
-| `\o` | *[custom map]* `:source ~/.vimrc` |
 | `<C-r>[register]` | (from input mode) insert contents of register |
 | `//e` | repeat search and move cursor to end of highlight |
 | `:h text-objects` | word, sentence, paragraph, tag, b/), B/}, ], etc. |
@@ -27,8 +24,6 @@ subtitle: Seek nirvana
 | `%` | current filename with relative path |
 | `%:p` | current filename with full path |
 | `%:p:h` | full path only |
-| `\k` | *[custom map]* new line above: `O<Esc>` |
-| `\j` | *[custom map]* new line below: `o<Esc>` |
 
 
 ### Marks
@@ -37,7 +32,7 @@ subtitle: Seek nirvana
 | `'[mark]` | jump to `[mark]` line |
 | `` `[ `]`` | begin/end of previous yank/put |
 | `` `< `>`` | " visual selection |
-| `` `.`` | " last change (like the first `g;` |
+| `` `.`` | " last change (like the first `g;`) |
 | `` `^`` | " last insert mode exit (used by `gi`) |
 | `` `( `)`` | " sentence |
 | `` `{ `}`` | " paragraph |
@@ -79,7 +74,6 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 
 ### Tabs & spaces
 
-| `\l` | Toggle tab/spaces visibility |
 | `tabstop (ts)` | How many columns a tab equals |
 | `softtabstop (sts)` | How many columns you get for inserting a tab |
 | `shiftwidth` | How many columns `<<` and `>>` get |
