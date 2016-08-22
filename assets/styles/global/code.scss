@@ -13,7 +13,6 @@ HTML reference:
 code {
 	margin: 0 3px;
 	padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
-	// background: $background-color;
     @include alpha-gray();
     background: rgba(41, 45, 53, 0.5);
 	border-bottom: 2px solid $quarternary-color; // also overwritten below
@@ -77,10 +76,13 @@ table {
 .highlighter-rouge + table {
 	margin-top: 3.2rem;
 }
+table + h2,
+table + h3, 
 .highlighter-rouge + h2,
 .highlighter-rouge + h3 {
 	margin-top: 3.8rem;
 }
+table + table,
 .highlighter-rouge + .highlighter-rouge {
 	margin-top: 4rem;
 }

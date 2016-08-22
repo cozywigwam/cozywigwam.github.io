@@ -14,7 +14,7 @@ $body-copy: $primary-color-light;
 $body-copy-alt: $secondary-color;
 $body-copy-alt-2: $tertiary-color;
 
-$border-color: lighten($background-color, 40%);
+$border-color: $sfss-light-gray;
 
 $header-width-mq-desktop: 20%;
 

@@ -26,14 +26,15 @@ The Polyambidextrous family is:
 - [Sunflower Sea Star] - the technical side of things (this site)
 - [The Anti-Authority] - future home of an unneeded dictionary
 
-Social:
+Sunflower Sea Star relevant accounts:
 
 - [LinkedIn]
 - [Twitter]
+- [Github]
 
-I'm an upbeat and cheerful person. My other interests include speedcubing, poetry, armchair philosophy, sometimes pinball, and more birds. Since moving to SF from NY, I've been having fun trying to learn to surf. I prefer open knowledge, reality checks, and optimism to negativity, pretension, and opacity.
+I'm an upbeat and cheerful person. My other interests include speedcubing, poetry, armchair philosophy, sometimes pinball, and more birds. Since moving to SF from NY, I've been having fun trying to learn to surf. I prefer open knowledge, reality checks, and optimism to negativity, pretense, and opacity.
 
-I find tremendous inspiration from others across the web, and I would like to say thanks to those who operate on a high level and share so much with others. In particular:
+I find tremendous inspiration from others across the web, and I would like to say thanks to those who operate on a high level and share & contribute so much with the online community. In particular:
 
 - Nicolas Bevacqua [@nzgb](https://twitter.com/nzgb)
 - Steve Losh [@stevelosh](https://twitter.com/stevelosh)
@@ -49,3 +50,4 @@ I find tremendous inspiration from others across the web, and I would like to sa
 
 [LinkedIn]: https://www.linkedin.com/in/grantsurratt
 [Twitter]: https://twitter.com/cozywigwam
+[Github]: https://github.com/cozywigwam

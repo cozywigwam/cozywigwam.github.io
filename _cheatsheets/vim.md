@@ -7,7 +7,7 @@ subtitle: Seek nirvana
 
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimrc)
 
-
+## Application
 
 ### Misc
 
@@ -108,6 +108,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 | `<C-w> T` | move current window to a new tab page |
 
 
+<hr/>
 
 ## Plugins & other related
 
@@ -140,6 +141,8 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 
 ### Vimperator
+
+[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc)
 
 | `:hs! [filter]` | history; use the bang to immediately open results |
 | `o O` | open / open with current address populated |

@@ -62,9 +62,9 @@ h2 {
 }
 h3 {
 	margin-top: 1.8rem;
-    color: $tertiary-color;
+    color: $secondary-color;
 	font-size: $heading-3-base;
-	line-height: 2.3;
+	line-height: 1.4;
 
 	@include breakpoint-sm { font-size: $heading-3-base * $heading-multiplier-sm; }
 	@include breakpoint-md { font-size: $heading-3-base * $heading-multiplier-md; }
@@ -121,7 +121,7 @@ p {
 		max-width: 900px;
 	}
 }
-h1, h2, h3 {
+h1, h2 {
 	a {
 		color: $body-copy;
 		text-decoration: none;
@@ -171,8 +171,19 @@ li {
 	}
 }
 td, th {
-	padding: 1rem 1.5rem;
+	padding: 0.5rem 1rem;
+    line-height: 1.8;
 	border: 1px solid $border-color;
+
+    @include breakpoint-sm {
+        padding: 0.6rem 1.2rem;
+    }
+    @include breakpoint-md {
+        padding: 0.8rem 1.4rem;
+    }
+    @include breakpoint-lg {
+        padding: 1rem 1.5rem;
+    }
 }
 table {
 	margin-bottom: 2rem;
@@ -183,8 +194,14 @@ table {
 	}
 	td {
 		text-align: left;
-        font-size: 14px;
+        font-size: 12px;
 	}
+    @include breakpoint-sm {
+        font-size: 13px;
+    }
+    @include breakpoint-md {
+        font-size: 14px;
+    }
 }
 img {
 	display: block;
@@ -386,6 +403,17 @@ footer.site-footer {
 	}
 }
 
+.post-list {
+    @include breakpoint-md {
+        padding-top: 10%;
+    }
+    @include breakpoint-lg {
+        padding-top: 20%;
+    }
+}
+.post-preview + .post-preview {
+    margin-top: 1.4rem;
+}
 .post-header {
 	padding-bottom: 1rem;
 
@@ -398,9 +426,8 @@ footer.site-footer {
 		line-height: 1.4;
 	}
 	h3 {
-		margin: 0;
+		margin-top: 0.4rem;
 		color: $body-copy-alt-2;
-		line-height: 1.7;
 	}
 	span.post-meta {
 		display: block;
