@@ -5,7 +5,7 @@ body {
 	line-height: $base-line-height;
 	font-weight: 400;
 	color: $body-copy;
-	background: $tertiary-color url('../images/blue-jay.jpg') no-repeat fixed 50% 80%;
+	background: $tertiary-color url('../images/bg-blue.jpg') no-repeat fixed 50% 80%;
     background-size: cover;
 
 	@include breakpoint-sm {
@@ -36,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
 	margin: 0;
+    color: $body-copy;
 	font-size: $heading-1-base;
 
 	@include breakpoint-sm { font-size: $heading-1-base * $heading-multiplier-sm; }
@@ -45,7 +46,8 @@ h1 {
 	@include breakpoint-xxl { font-size: $heading-1-base * $heading-multiplier-lg; }
 }
 h2 {
-	margin-top: 1.6rem;
+	margin-top: 2rem;
+    color: $tertiary-color;
 	font-size: $heading-2-base;
 	line-height: 2.4;
 
@@ -59,7 +61,8 @@ h2 {
 	@include breakpoint-xxl { font-size: $heading-2-base * $heading-multiplier-lg; }
 }
 h3 {
-	margin-top: 1.5rem;
+	margin-top: 1.8rem;
+    color: $tertiary-color;
 	font-size: $heading-3-base;
 	line-height: 2.3;
 
@@ -70,10 +73,10 @@ h3 {
 	@include breakpoint-xxl { font-size: $heading-3-base * $heading-multiplier-lg; }
 }
 h4, h5, h6 {
-	margin-top: 1rem;
 	line-height: 2.2;
 }
 h4 {
+    margin-top: 1.6rem;
 	font-size: $heading-4-base;
 
 	@include breakpoint-sm { font-size: $heading-4-base * $heading-multiplier-sm; }
@@ -83,6 +86,7 @@ h4 {
 	@include breakpoint-xxl { font-size: $heading-4-base * $heading-multiplier-lg; }
 }
 h5 {
+    margin-top: 1.3rem;
 	font-size: $heading-5-base;
 
 	@include breakpoint-sm { font-size: $heading-5-base * $heading-multiplier-sm; }
@@ -92,6 +96,7 @@ h5 {
 	@include breakpoint-xxl { font-size: $heading-5-base * $heading-multiplier-lg; }
 }
 h6 {
+    margin-top: 1.2rem;
 	font-size: $heading-6-base;
 
 	@include breakpoint-sm { font-size: $heading-6-base * $heading-multiplier-sm; }
@@ -107,7 +112,7 @@ h6 {
 p {
 	max-width: 500px;
 	margin-top: 0;
-	margin-bottom: 2rem;
+	margin-bottom: 1.4rem;
 
 	@include breakpoint-md {
 		max-width: 700px;
@@ -118,7 +123,7 @@ p {
 }
 h1, h2, h3 {
 	a {
-		// color: $body-copy;
+		color: $body-copy;
 		text-decoration: none;
 
 		&:hover {
@@ -127,7 +132,7 @@ h1, h2, h3 {
 			text-decoration: none;
 		}
 		&:visited {
-			// color: $body-copy;
+			color: $body-copy;
 
 			&:hover {
 				// color: $body-copy;
@@ -155,7 +160,7 @@ ul, ol {
 }
 ul, ol, dl {
 	margin-top: 0;
-	margin-bottom: 1.4rem;
+	margin-bottom: 2.2rem;
 }
 li {
 	line-height: 1.7em;
@@ -178,13 +183,14 @@ table {
 	}
 	td {
 		text-align: left;
+        font-size: 14px;
 	}
 }
 img {
 	display: block;
 }
 hr {
-    max-width: 760px;
+    max-width: $max-code-table-hr-width;
     height: 10px;
     margin-bottom: 14%;
     background: $secondary-color;
@@ -196,10 +202,19 @@ hr {
 
 // TODO: blockquote
 blockquote {
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 	padding-left: 2rem;
-	border-left: 1px solid $border-color;
+	border-left: 1px solid $secondary-color;
 
+    @include breakpoint-sm {
+        font-size: 14px;
+    }
+    @include breakpoint-md {
+        font-size: 14px;
+    }
+    @include breakpoint-lg {
+        font-size: 15px;
+    }
 	p {
 		font-style: italic;
 
@@ -210,7 +225,7 @@ blockquote {
 }
 ::selection {
 	color: $secondary-color;
-	background-color:  $quarternary-color;
+	background-color:  $secondary-color;
 }
 
 
@@ -235,18 +250,19 @@ header.site-header {
 		height: 100%;
 		padding: 0;
 		position: fixed;
-	}
+        display: flex; // fuck you IE
+        align-items: center;
+    }
 	a.logo {
 		display: block;
-		width: 44%;
-		max-width: 160px;
+		width: 50%;
+		max-width: 200;
 		margin: 5rem auto 0;
-		padding: 5%;
-		opacity: 0.55;
+        border-bottom: 10px solid transparent;
 		@include transition-basic();
 
 		&:hover {
-			opacity: 0.9;
+            @include sfss-border-bottom-highlight($secondary-color);
 		}
 		img {
 			margin: 0 auto;
@@ -259,17 +275,16 @@ header.site-header {
 			}
 		}
 		@include breakpoint-sm {
+            display: inline-block;
 			width: auto;
 			margin: 0;
-			padding: 0;
 		}
 		@include breakpoint-lg {
+            display: block;
 			position: absolute;
-			bottom: 6%;
-			width: 74%;
+			width: 100%;
 			max-width: none;
-			margin: 0 0 0 20%;
-			padding: 10%;
+			margin: 0 0 0 15%;
 		}
 	}
 	a.github {
@@ -309,24 +324,50 @@ header.site-header {
 
 footer.site-footer {
     margin: 0 auto;
-    padding: 20% 6% 30%;
+    padding: 0 6% 30%;
 
     @include breakpoint-lg {
         margin-left: $header-width-mq-desktop;
-        padding: 6% 7.4% 30%;
+        padding: 0 7.4% 30%;
     }
-    a {
+    a.return-home-link {
         display: inline-block;
-        opacity: 0.9;
-        @include transition-basic();
+        margin: 5% 0;
+        padding: 0.5rem 0.2rem 0.5rem;
+        color: $body-copy;
+        font-size: 15px;
 
         &:hover {
+            color: $secondary-color;
+        }
+    }
+    a.cozy {
+        position: relative;
+        display: block;
+        width: 276px;
+        height: 248px;
+        @include transition-basic();
+        background: url('../images/cozy.gif') no-repeat 50% 50%;
+        box-shadow: 14px 20px 100px rgba(0, 0, 0, 0.7);
+        border-radius: 5px;
+
+        &:after {
+            content: "";
+            @include absolute-all();
+            background: url('../images/cozy-hover.gif') no-repeat 50% 50%;
+            opacity: 0;
+            @include transition-basic();
+        }
+        &:hover {
+
             opacity: 1;
+
+            &:after {
+                opacity: 1;
+            }
         }
         img {
 
-            box-shadow: 14px 20px 100px rgba(0, 0, 0, 0.7);
-            border-radius: 5px;
         }
     }
 }
