@@ -56,7 +56,7 @@ subtitle: Seek nirvana
 
 ### Command-Line mode
 
-Command-Line mode "exposes us to the vestiges of ex." (Drew Neil) 
+> Command-Line mode "exposes us to the vestiges of ex." -Drew Neil 
 
 Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C-f>` to open command-line history (cf. `q:`).
 

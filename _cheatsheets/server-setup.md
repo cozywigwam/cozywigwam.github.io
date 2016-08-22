@@ -51,7 +51,6 @@ gem install jekyll
 
 ### set up first user after installation
 ```bash
-# if you need ssh-copy-id on Mac
 # brew install ssh-copy-id
 
 ssh-copy-id example_user@200.0.110.1

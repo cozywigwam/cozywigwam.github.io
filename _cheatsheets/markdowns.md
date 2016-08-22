@@ -31,9 +31,11 @@ subtitle: Dialect roundup
 
 #### Markdown
 
-Add `.text` to some URLs. For instance, Jon Gruber's [intro].
+Add `.text` to some URLs. For instance, Jon Gruber's [intro]. Daring Fireball's:
 
-Daring Fireball's [introduction] (philosophy), [basics], and [syntax].
+- [introduction] (philosophy)
+- [basics]
+- [syntax].
 
 [intro]: http://daringfireball.net/projects/markdown/basics.text
 [introduction]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown introduction"
@@ -44,7 +46,11 @@ Daring Fireball's [introduction] (philosophy), [basics], and [syntax].
 
 #### github.com
 
-Uses ["GitHub Flavored Markdown,"] aka GFM: [Syntax], [Writing on GitHub root](https://help.github.com/categories/writing-on-github/). [Kramdown parse info].
+Uses ["GitHub Flavored Markdown,"] aka GFM:
+
+- [Syntax]
+- [Writing on GitHub root]
+- [Kramdown parse info].
 
 ["GitHub flavored markdown,"]: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
 [Syntax]: https://help.github.com/articles/basic-writing-and-formatting-syntax/
@@ -67,11 +73,12 @@ As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
 
 #### Stack Overfow
 
-Stack Overflow's [markdown help].
+Code blocks are four indented spaces.
+
+- Stack Overflow's [markdown help].
 
 [Markdown help]: http://stackoverflow.com/editing-help
 
-Code blocks are four indented spaces.
 
 
 #### Slack
