@@ -74,9 +74,12 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 
 ### Tabs & spaces
 
+| `<leader>t?` | `:set ts? sts? sw?` |
+| `<leader>t2` | `:set ts=2 sts=2 sw=2` |
+| `<leader>t4` | `:set ts=4 sts=4 sw=4` |
 | `tabstop (ts)` | How many columns a tab equals |
 | `softtabstop (sts)` | How many columns you get for inserting a tab |
-| `shiftwidth` | How many columns `<<` and `>>` get |
+| `shiftwidth (sw)` | How many columns `<<` and `>>` get |
 | `expandtab/noexpandtab (et)` | Expand tabs to become spaces |
 | `retab` | Replace white-space with settings |
 
@@ -169,6 +172,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:Gstatus` | status
 `g?` | show help
 `D` | diff
+`U` | co file, scrap changes (`:Gread` and `:w`)
 `cc` | commit
 `cA` | commit `--amend --use-message=HEAD`
 `r` | reload
