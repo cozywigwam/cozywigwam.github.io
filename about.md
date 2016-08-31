@@ -12,7 +12,7 @@ subtitle: asdf
 
 Welcome. Thank you for visiting this site. ☺︎ My name is Grant Surratt, and I'm a digial creator in San Francisco. At a glance:
 
-- a happy person
+- upbeat, cheerful
 - passionate about using computers to make things
 - hungry brain
 
@@ -20,7 +20,7 @@ My background is front-end, and I use my family of websites as explorations into
 
 The Polyambidextrous family is:
 
-- [Polyambidextrous] - frontispiece; aggregate
+- Polyambidextrous - frontispiece; aggregate (sorry, not quite ready!)
 - [Sinistrocular] - photography, especially of birds
 - [Cyan-Eyed Vireo] - composition
 - [Sunflower Sea Star] - the technical side of things (this site)
@@ -32,9 +32,9 @@ Sunflower Sea Star relevant accounts:
 - [Twitter]
 - [Github]
 
-I'm an upbeat and cheerful person. My other interests include speedcubing, poetry, armchair philosophy, sometimes pinball, and more birds. Since moving to SF from NY, I've been having fun trying to learn to surf. I prefer open knowledge, reality checks, and optimism to negativity, pretense, and opacity.
+My other interests include speedcubing, poetry, armchair philosophy, sometimes pinball, and more birds. Since moving to SF from NY, I've been having fun trying to learn to surf. I prefer open knowledge, reality checks, and optimism to negativity, pretense, and opacity.
 
-I find tremendous inspiration from others across the web, and I would like to say thanks to those who operate on a high level and share & contribute so much with the online community. In particular:
+I find tremendous inspiration from others across the web, and I would like to say thanks to those who operate on a high level and share & contribute so much with the online community. A small subset:
 
 - Nicolas Bevacqua [@nzgb](https://twitter.com/nzgb)
 - Steve Losh [@stevelosh](https://twitter.com/stevelosh)

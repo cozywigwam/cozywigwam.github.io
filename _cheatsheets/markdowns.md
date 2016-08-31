@@ -9,9 +9,7 @@ subtitle: Dialect roundup
 
 ```
 *italics,* and _more italics_
-
 **bold**
-
 ***bold italic***
 ```
 
@@ -31,13 +29,12 @@ subtitle: Dialect roundup
 
 #### Markdown
 
-Add `.text` to some URLs. For instance, Jon Gruber's [intro]. Daring Fireball's:
+Daring Fireball's:
 
 - [introduction] (philosophy)
 - [basics]
 - [syntax].
 
-[intro]: http://daringfireball.net/projects/markdown/basics.text
 [introduction]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown introduction"
 [basics]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown basics"
 [syntax]: http://daringfireball.net/projects/markdown/basics "Daring Fireball markdown syntax"
