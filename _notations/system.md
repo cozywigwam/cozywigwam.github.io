@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "System"
-categories: cheatsheet
+categories: notation
 subtitle: Examination, package managers
 ---
 

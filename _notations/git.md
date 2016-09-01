@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git"
-categories: cheatsheet
+categories: notation
 subtitle: Submodules and diffing
 ---
 

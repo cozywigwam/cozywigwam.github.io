@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Markdowns & Similar"
-categories: cheatsheet
+categories: notation
 subtitle: Dialect roundup
 ---
 

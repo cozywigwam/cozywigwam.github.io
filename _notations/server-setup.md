@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Server Setup"
-categories: cheatsheet
+categories: notation
 subtitle: Installation reminders
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Type"
-categories: cheatsheet
+categories: notation
 subtitle: Characters
 ---
 
