@@ -1,10 +1,8 @@
-# cozywigwam.github.io README.md
+Code home and development center for the Polyambidextrous family:
 
-Code home, and development center for the Polyambidextrous family:
-
-- Polyambidextrous - frontispiece; aggregate (sorry, not quite ready!)
+- Polyambidextrous - frontispiece; aggregate (aaaaallllllmost ready!)
 - [Sinistrocular] - photography, especially of birds
-- [Cyan-Eyed Vireo] - composition
+- [Cyan-Eyed Vireo] - music
 - [Sunflower Sea Star] - the technical side of things (this site)
 - [The Anti-Authority] - future home of an unneeded dictionary
 
