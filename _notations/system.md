@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "System"
-categories: cheatsheet
+categories: notation
 subtitle: Examination, package managers
 ---
 
@@ -75,7 +75,7 @@ n rm 0.9.4 v0.10.0 # remove
 npm help
 npm help <cmd>
 npm list -g --depth=0
-npm outdated
+npm outdated -g --depth=0
 sudo npm update -g npm
 
 # ~ is minor: ~1.2.3 matches 1.2.x, not 1.3.0

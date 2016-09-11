@@ -3,15 +3,15 @@ layout: home
 ---
 
 <section class="post-list">
-	{% for cheatsheet in site.cheatsheets %}
+	{% for notation in site.notations %}
 
 	<div class="post-preview">
 		<div class="post-header">
-			<h2><a class="post-link" href="{{ cheatsheet.url | prepend: site.baseurl }}">{{ cheatsheet.title }}</a></h2>
-			<h3>{{ cheatsheet.subtitle }}</h3>
+			<h2><a class="post-link" href="{{ notation.url | prepend: site.baseurl }}">{{ notation.title }}</a></h2>
+			<h3>{{ notation.subtitle }}</h3>
 		</div>
 
-		<!-- <p>{{ cheatsheet.intro }}</p> -->
+		<!-- <p>{{ notation.intro }}</p> -->
 	</div>
 
 	{% endfor %}

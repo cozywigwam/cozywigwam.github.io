@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "VIM"
-categories: cheatsheet
+categories: notation
 subtitle: Seek nirvana
 ---
 
