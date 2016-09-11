@@ -164,6 +164,11 @@ ul, ol {
 ul, ol, dl {
 	margin-top: 0;
 	margin-bottom: 2.2rem;
+
+    ul, ol, dl {
+        margin-top: 0.2rem;
+        margin-bottom: 0.6rem;
+    }
 }
 li {
 	line-height: 1.7em;
