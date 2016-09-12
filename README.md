@@ -9,5 +9,5 @@ Code home and development center for the Polyambidextrous family:
 [Polyambidextrous]: https://polyambidextro.us "Polyambidextro.us"
 [Sinistrocular]: https://sinistrocular.com "Sinistrocular Photography"
 [Cyan-Eyed Vireo]: https://soundcloud.com/cyaneyedvireo "Cyan-Eyed Vireo Music"
-[Sunflower Sea Star]: https://sunflowerseastar.com "Sunflower Sea Star"
+[Sunflower Sea Star]: http://sunflowerseastar.com "Sunflower Sea Star"
 [The Anti-Authority]: https://theantiauthority.com "The Anti-Authority"
