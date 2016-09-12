@@ -30,9 +30,9 @@ As a passionate self-learner, I started pushing harder these last couple years o
 
 I am now circling back to my original friends, HTML, CSS, and JS, and learning how to make them interact with the new friends. In addition to firming up JavaScript basics, I've started digging into Node and python. A small current project involves publishing a script to report on which dependency managers and build tools are present in the current project, along with an optional list of the overall project's top-level dependenies.
 
-My paid work in the last couple years is varied, but falls into categories of either medium-to-large scale marketing websites or JavaScript application work. (A private portfolio of agency work is available upon request). Here are a few examples:
+My paid work in the last couple years is varied, but falls into categories of either medium-to-large scale marketing websites or JavaScript application work. (A portfolio of agency work is available upon request). Here are a few examples:
 
-- designed an Angular 1.5 app that allows users to generate an animated gif with their own photos. Angular controlled the overall app, a component was used for cropping capabilities, and gif.js handled the canvas-to-animated gif conversion.
+- created an Angular app that allows users to generate an animated gif with their own photos. Angular controlled the overall app, a component was used for cropping capabilities, and gif.js handled the canvas-to-animated gif conversion.
 
 - built a front-end for a credit union's ATM finder (Google Maps integration) with geolocation services.
 
