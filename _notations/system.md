@@ -87,4 +87,7 @@ sudo npm update -g npm
 
 ```bash
 history -c
+
+# Mac OS - routing table
+netstat -rn # like Linux `route -n`
 ```

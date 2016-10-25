@@ -31,3 +31,19 @@ git remote add origin [remote repo]
 git add -p # --patch
 git add -i # --interactive TODO: learn it
 ```
+
+
+
+### Config
+
+```
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	df = diff
+	dfs = diff --staged
+    logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
+    loggg = log --graph --decorate --oneline --abbrev-commit --all
+```
