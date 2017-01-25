@@ -7,11 +7,9 @@ subtitle: Characters
 
 ### "What character is this?"
 
-Paste a character into Vim and use `ga` (the mnemonic is "get ASCII value") to display the ASCII value in decimal, hexadecimal, and octal (`:h ga`). For example, try this character: `𝄪`
+[Double sharp (unicodelookup.com)](http://unicodelookup.com/#119082)
 
-    # output: <𝄪> 119082, Hex 0001d12a, Octal 350452
-    
-Use [unicodelookup.com](http://unicodelookup.com). [Here's](http://unicodelookup.com/#119082) the link indicating that it's a double sharp.
+`ga` | (under cursor in vim) "get ASCII value"
 
 
 ### Fun and curious characters

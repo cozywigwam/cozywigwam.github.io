@@ -24,12 +24,16 @@ git remote add origin [remote repo]
 | `git diff --cached` | index to HEAD (cached is a synonym for staged) |
 
 
+### Inspecting
+
+```bash
+git ls-tree -r --name-only
+```
 
 ### Patching
 
 ```bash
 git add -p # --patch
-git add -i # --interactive TODO: learn it
 ```
 
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "VIM"
+title: "Vim"
 categories: notation
 subtitle: Seek nirvana
 ---
@@ -16,15 +16,46 @@ subtitle: Seek nirvana
 | `ga` | examine character at cursor |
 | `<leader>H` | *[custom map]* reveal syntax group for highlighting | 
 | `:help cmdline-special` | notes about % and # |
-| `:noh` | stop highlighting searches |
+| `:noh` (`<leader>n` custom) | stop highlighting searches |
 | `<C-r>[register]` | (from input mode) insert contents of register |
-| `//e` | repeat search and move cursor to end of highlight |
 | `:h text-objects` | word, sentence, paragraph, tag, b/), B/}, ], etc. |
 | `:h filename-modifiers` | `%`, `%:p`, etc. |
 | `%` | current filename with relative path |
 | `%:p` | current filename with full path |
 | `%:p:h` | full path only |
 
+
+### Search
+
+`//e` | repeat search and move cursor to end of highlight (character "offsets")
+`:%sno/<div>/<span/` | "nomagic" substitution
+`\C` | respect case (can go anywhere in pattern)
+`:set nowrapscan` | don't jump bottom/top when searching
+`{-}` | be ungreedy
+`<`, `>` | word boundaries
+
+`:h pattern-atoms` |
+`:h whitespace` |
+`\d` | digit [0-9]
+`\D` | non-digit [^0-9]
+`\s` | white space [ ] (<Tab> and <Space>)
+`\_s` | white space with newline
+`\S` | non-white characters [^ ] (not <Tab> and <Space>)
+`\l` | lowercase alpha [a-z]
+`\L` | non-lowercase alpha [^a-z]
+`\u` | uppercase alpha [A-Z]
+`\U` | non-uppercase alpha [^A-Z]
+`\w` | word character [0-9a-fA-F_]
+`\W` | non-word character [^0-9a-fA-F_]
+`\_x` | "x" is any character class character but with newline
+
+`\t` | <tab>
+`\r` | <cr>, good for substitution
+`\n` | end-of-line, good for search
+`~` | last substitution string
+
+`\1`, `\2`... | parenthetical sub-expression/submatch
+`\zs`, `ze` | set start/end of match
 
 ### Marks
 
