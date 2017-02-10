@@ -8,13 +8,20 @@ subtitle: zsh & misc. CL
 [dotfiles](https://github.com/cozywigwam/dotfiles)
 
 
-### help
+### zsh
 
 ```bash
 man zsh
+man zshbuiltins
+man zshoptions
 
 # prompt, jobs, if/then
 man zshmisc
+
+# show (default non-vicmd/viins) zle key bindings
+bindkeys
+
+# setopt HIST_IGNORE_SPACE
 ```
 
 
@@ -84,7 +91,12 @@ sed -i '' 's/oldterm/newterm/g' [filename]
 tree -I node
 tree -d .
 
+# recent directories
+dirs -v
+
 # rename files ./old1.txt, ./old2.txt
 rename 's/old/new/g' *
 
+# custom notification sounds for System Prefs -> Sounds
+cp my-custom-sound.mp3 ~/Library/Sounds/
 ```

@@ -10,12 +10,5 @@ subtitle: screen+
 Hold `⌥` when dragging mouse to enable copy to OS X clipboard.
 
 `<leader>z` | zoom
-
-How to replace `<?` with `<?php`:
-
-```
-<?
-  // `>?` is on its own line and needs to match newline character
-?>
-<? // and with a space ?>
-```
+`list-commands / lscm` | list all commands
+`list-keys / lsk / <leader>?` | list all bound keys

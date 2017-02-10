@@ -9,9 +9,8 @@ subtitle: Commandments
 
 ### ZLE
 
+[Reference](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/) from Serge Gebhardt's site.
+
 ```bash
 zle -la # list widgets
-
-bindkey -M viins '^w'
-
 ```
