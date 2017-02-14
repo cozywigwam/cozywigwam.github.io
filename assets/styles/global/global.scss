@@ -360,11 +360,11 @@ body {
 
   footer.site-footer {
     margin: 0 auto;
-    padding: 0 6% 30%;
+    padding: 0 6% 8%;
 
     @include breakpoint-lg {
       margin-left: $header-width-mq-desktop;
-      padding: 0 7.4% 30%;
+      padding: 0 7.4% 10%;
     }
     a.return-home-link {
       display: inline-block;
@@ -377,44 +377,15 @@ body {
         color: $secondary-color;
       }
     }
-    a.cozy {
-      position: relative;
-      display: block;
-      width: 276px;
-      height: 248px;
-      @include transition-basic();
-      background: url('../images/cozy.gif') no-repeat 50% 50%;
-      box-shadow: 14px 20px 100px rgba(0, 0, 0, 0.7);
-      border-radius: 5px;
-
-      &:after {
-        content: "";
-        @include absolute-all();
-        background: url('../images/cozy-hover.gif') no-repeat 50% 50%;
-        opacity: 0;
-        @include transition-basic();
-      }
-      &:hover {
-
-        opacity: 1;
-
-        &:after {
-          opacity: 1;
-        }
-      }
-      img {
-
-      }
-    }
   }
 
 
 
   .page-content {
-    padding: 20% 6% 12%;
+    padding: 10% 6% 12%;
 
     @include breakpoint-sm {
-      @include padding-top-bottom(0%, 20%);
+      @include padding-top-bottom(0%, 10%);
     }
     @include breakpoint-lg {
       margin-left: $header-width-mq-desktop;
@@ -426,15 +397,15 @@ body {
     @include breakpoint-md {
       padding-top: 10%;
     }
-    @include breakpoint-lg {
-      padding-top: 20%;
+    .post-header {
+      padding-bottom: 1rem;
     }
   }
   .post-preview + .post-preview {
     margin-top: 1.4rem;
   }
   .post-header {
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
 
     @include breakpoint-lg {
       padding-bottom: 2rem;
