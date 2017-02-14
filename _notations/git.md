@@ -5,37 +5,23 @@ categories: notation
 subtitle: Submodules and diffing
 ---
 
-### Submodules
+### Misc
 
-Note lack of trailing slash for the path.
+`git diff` | working to index
+`git diff HEAD` | everything to HEAD
+`git diff --cached` | index to HEAD (cached is a synonym for staged)
 
-``` bash
+```bash
+git ls-tree -r --name-only
+
+git add -p # --patch
+
+# submodules
 git submodule add git@github.com:cozywigwam/my-submodule.git my-submodule-path
 git submodule update --init
 
 git remote add origin [remote repo]
 ```
-
-
-### Diff
-
-| `git diff` | working to index |
-| `git diff HEAD` | everything to HEAD |
-| `git diff --cached` | index to HEAD (cached is a synonym for staged) |
-
-
-### Inspecting
-
-```bash
-git ls-tree -r --name-only
-```
-
-### Patching
-
-```bash
-git add -p # --patch
-```
-
 
 
 ### Config

@@ -2,67 +2,70 @@
 HTML reference:
 
 <div class="language-bash highlighter-rouge">
-	<pre class="highlight">
-		<code>#</code>
-	</pre>
+<pre class="highlight">
+<code>#</code>
+</pre>
 </div>
-*/
+ */
 
 
 // inline
 code {
-	margin: 0 3px;
-	padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
-    @include alpha-gray();
-    background: rgba(41, 45, 53, 0.5);
-	border-bottom: 2px solid $quarternary-color; // also overwritten below
+  margin: 0 3px;
+  padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
+  @include alpha-gray();
+  background: $black-dark;
+  border-top: 1px solid $black-light;
+  border-bottom: 2px solid $quarternary-color; // also overwritten below
 
-	@include breakpoint-sm {
-		font-size: 13px;
-	}
-	@include breakpoint-md {
-		font-size: 14px;
-	}
-	@include breakpoint-lg {
-		font-size: 15px;
-	}
+  @include breakpoint-sm {
+    font-size: 15px;
+  }
+  @include breakpoint-md {
+    font-size: 16px;
+  }
+  @include breakpoint-lg {
+    font-size: 17px;
+  }
 }
 table {
-	code {
-        background: none;
-		border: 0;
-	}
-	td > code:first-child {
-		margin-left: 0;
-		padding-left: 0;
-	}
+  code {
+    font-family: "Inconsolata";
+    background: none;
+    border: 0;
+  }
+  td > code:first-child {
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
 // block
 .highlight {
-	overflow-x: auto;
-	padding: 16px 20px 20px;
-	font-size: 11px;
-    @include bg-box-alpha-gray();
+  overflow-x: auto;
+  padding: 16px 20px 20px;
+  font-size: 11px;
+  border: 1px solid $black-light;
+  @include bg-box-alpha-gray();
 
-	@include breakpoint-sm {
-        padding: 28px 30px;
-		font-size: 13px;
-	}
-	@include breakpoint-md {
-		font-size: 14px;
-	}
-	@include breakpoint-lg {
-		font-size: 15px;
-	}
+  @include breakpoint-sm {
+    padding: 28px 30px;
+    font-size: 13px;
+  }
+  @include breakpoint-md {
+    font-size: 14px;
+  }
+  @include breakpoint-lg {
+    font-size: 15px;
+  }
 
-	// overwrite inline
-	code {
-		margin: 0;
-		padding: 0;
-        background: none;
-		border: 0;
-	}
+  // overwrite inline
+  code {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
 }
 
 
@@ -74,15 +77,15 @@ table {
 .highlighter-rouge + ol,
 .highlighter-rouge + blockquote,
 .highlighter-rouge + table {
-	margin-top: 3.2rem;
+  margin-top: 3.2rem;
 }
 table + h2,
 table + h3, 
 .highlighter-rouge + h2,
 .highlighter-rouge + h3 {
-	margin-top: 3.8rem;
+  margin-top: 3.8rem;
 }
 table + table,
 .highlighter-rouge + .highlighter-rouge {
-	margin-top: 4rem;
+  margin-top: 4rem;
 }
