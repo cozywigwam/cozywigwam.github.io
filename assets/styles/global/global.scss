@@ -276,6 +276,7 @@ body {
 
   header.site-header {
     @include clearfix();
+    text-align: center;
 
     @include breakpoint-sm {
       padding: 12% 6% 6%;
@@ -289,7 +290,7 @@ body {
       align-items: center;
     }
     a.logo {
-      display: block;
+      display: inline-block;
       width: 50%;
       max-width: 200;
       margin: 5rem auto 0;
