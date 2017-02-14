@@ -1,450 +1,460 @@
 html {
-    background: $sfss-bg-blue;
+  background: $sfss-bg-blue;
 }
 body {
-	// font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: $base-line-height;
-	font-weight: 400;
-	color: $body-copy;
-	background: $sfss-bg-blue url('../images/bg-blue.jpg') no-repeat fixed 50% 80%;
-    background-size: cover;
+  // font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 400;
+  color: $body-copy;
+  background: $sfss-bg-blue;
 
-	@include breakpoint-sm {
-		font-size: $base-font-size-mobile;
-	}
-	@include breakpoint-md {
-		font-size: $base-font-size-laptop;
-	}
-	@include breakpoint-lg {
-		font-size: $base-font-size-desktop;
-	}
+  @include breakpoint-sm {
+    font-size: $base-font-size-mobile;
+  }
+  @include breakpoint-md {
+    font-size: $base-font-size-laptop;
+  }
+  @include breakpoint-lg {
+    font-size: $base-font-size-desktop;
+  }
 }
 
 /*
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
-	margin-bottom: 1rem;
-	font-family: $heading-font-family;
-	// font-weight: 700;
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-family: $heading-font-family;
+    // font-weight: 700;
     font-weight: normal;
-	line-height: 1.4;
-	cursor: default;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    cursor: default;
 
-	a {
-		cursor: pointer;
-	}
-}
-h1 {
-	margin: 0;
+    a {
+      cursor: pointer;
+    }
+  }
+  h1 {
+    margin: 0;
     color: $body-copy;
-	font-size: $heading-1-base;
+    font-size: $heading-1-base;
 
-	@include breakpoint-sm { font-size: $heading-1-base * $heading-multiplier-sm; }
-	@include breakpoint-md { font-size: $heading-1-base * $heading-multiplier-md; }
-	@include breakpoint-lg { font-size: $heading-1-base * $heading-multiplier-lg; }
-	@include breakpoint-xl { font-size: $heading-1-base * $heading-multiplier-lg; }
-	@include breakpoint-xxl { font-size: $heading-1-base * $heading-multiplier-lg; }
-}
-h2 {
-	margin-top: 2rem;
+    @include breakpoint-sm { font-size: $heading-1-base * $heading-multiplier-sm; }
+    @include breakpoint-md { font-size: $heading-1-base * $heading-multiplier-md; }
+    @include breakpoint-lg { font-size: $heading-1-base * $heading-multiplier-lg; }
+    @include breakpoint-xl { font-size: $heading-1-base * $heading-multiplier-lg; }
+    @include breakpoint-xxl { font-size: $heading-1-base * $heading-multiplier-lg; }
+  }
+  h2 {
+    margin-top: 2.8rem;
     color: $tertiary-color;
-	font-size: $heading-2-base;
-	line-height: 2.4;
+    font-size: $heading-2-base;
+    line-height: 2.6;
 
-	a {
-		color: inherit;
-	}
-	@include breakpoint-sm { font-size: $heading-2-base * $heading-multiplier-sm; }
-	@include breakpoint-md { font-size: $heading-2-base * $heading-multiplier-md; }
-	@include breakpoint-lg { font-size: $heading-2-base * $heading-multiplier-lg; }
-	@include breakpoint-xl { font-size: $heading-2-base * $heading-multiplier-lg; }
-	@include breakpoint-xxl { font-size: $heading-2-base * $heading-multiplier-lg; }
-}
-h3 {
-	margin-top: 1.8rem;
-    color: $secondary-color;
-	font-size: $heading-3-base;
-	line-height: 1.4;
-
-	@include breakpoint-sm { font-size: $heading-3-base * $heading-multiplier-sm; }
-	@include breakpoint-md { font-size: $heading-3-base * $heading-multiplier-md; }
-	@include breakpoint-lg { font-size: $heading-3-base * $heading-multiplier-lg; }
-	@include breakpoint-xl { font-size: $heading-3-base * $heading-multiplier-lg; }
-	@include breakpoint-xxl { font-size: $heading-3-base * $heading-multiplier-lg; }
-}
-h4, h5, h6 {
-	line-height: 2.2;
-}
-h4 {
-    margin-top: 1.6rem;
-	font-size: $heading-4-base;
-
-	@include breakpoint-sm { font-size: $heading-4-base * $heading-multiplier-sm; }
-	@include breakpoint-md { font-size: $heading-4-base * $heading-multiplier-md; }
-	@include breakpoint-lg { font-size: $heading-4-base * $heading-multiplier-lg; }
-	@include breakpoint-xl { font-size: $heading-4-base * $heading-multiplier-lg; }
-	@include breakpoint-xxl { font-size: $heading-4-base * $heading-multiplier-lg; }
-}
-h5 {
-    margin-top: 1.3rem;
-	font-size: $heading-5-base;
-
-	@include breakpoint-sm { font-size: $heading-5-base * $heading-multiplier-sm; }
-	@include breakpoint-md { font-size: $heading-5-base * $heading-multiplier-md; }
-	@include breakpoint-lg { font-size: $heading-5-base * $heading-multiplier-lg; }
-	@include breakpoint-xl { font-size: $heading-5-base * $heading-multiplier-lg; }
-	@include breakpoint-xxl { font-size: $heading-5-base * $heading-multiplier-lg; }
-}
-h6 {
-    margin-top: 1.2rem;
-	font-size: $heading-6-base;
-
-	@include breakpoint-sm { font-size: $heading-6-base * $heading-multiplier-sm; }
-	@include breakpoint-md { font-size: $heading-6-base * $heading-multiplier-md; }
-	@include breakpoint-lg { font-size: $heading-6-base * $heading-multiplier-lg; }
-	@include breakpoint-xl { font-size: $heading-6-base * $heading-multiplier-lg; }
-	@include breakpoint-xxl { font-size: $heading-6-base * $heading-multiplier-lg; }
-}
-
-/*
- * Other text & type treatment, and img
- */
-p {
-	max-width: 500px;
-	margin-top: 0;
-	margin-bottom: 1.4rem;
-
-	@include breakpoint-md {
-		max-width: 700px;
-	}
-	@include breakpoint-lg {
-		max-width: 900px;
-	}
-}
-h1, h2 {
-	a {
-		color: $body-copy;
-		text-decoration: none;
-
-		&:hover {
-			// color: lighten($body-copy, 10%);
-            border-bottom: 5px solid $secondary-color;
-			text-decoration: none;
-		}
-		&:visited {
-			color: $body-copy;
-
-			&:hover {
-				// color: $body-copy;
-			}
-		}
-	}
-}
-a {
-	color: $secondary-color;
-	text-decoration: none;
-
-	&:hover {
-		color: lighten($tertiary-color, 8%);
-	}
-	&:visited {
-		color: $tertiary-color;
-
-		&:hover {
-			color: $quarternary-color;
-		}
-	}
-}
-ul, ol {
-	margin-left: 2rem;
-}
-ul, ol, dl {
-	margin-top: 0;
-	margin-bottom: 2.2rem;
-
-    ul, ol, dl {
-        margin-top: 0.2rem;
-        margin-bottom: 0.6rem;
+    a {
+      color: inherit;
     }
-}
-li {
-	line-height: 1.7em;
-	max-width: 500px;
+    @include breakpoint-sm { font-size: $heading-2-base * $heading-multiplier-sm; }
+    @include breakpoint-md { font-size: $heading-2-base * $heading-multiplier-md; }
+    @include breakpoint-lg { font-size: $heading-2-base * $heading-multiplier-lg; }
+    @include breakpoint-xl { font-size: $heading-2-base * $heading-multiplier-lg; }
+    @include breakpoint-xxl { font-size: $heading-2-base * $heading-multiplier-lg; }
+  }
+  h3 {
+    margin-top: 3rem;
+    color: $tertiary-color;
+    font-size: $heading-3-base;
+    line-height: 1.6;
 
-	@include breakpoint-lg {
-		max-width: 700px;
-	}
-}
-td, th {
-	padding: 0.5rem 1rem;
-    line-height: 1.8;
-	border: 1px solid $border-color;
+    @include breakpoint-sm { font-size: $heading-3-base * $heading-multiplier-sm; }
+    @include breakpoint-md { font-size: $heading-3-base * $heading-multiplier-md; }
+    @include breakpoint-lg { font-size: $heading-3-base * $heading-multiplier-lg; }
+    @include breakpoint-xl { font-size: $heading-3-base * $heading-multiplier-lg; }
+    @include breakpoint-xxl { font-size: $heading-3-base * $heading-multiplier-lg; }
+  }
+  h4, h5, h6 {
+    line-height: 2.4;
+  }
+  h4 {
+    margin-top: 2rem;
+    font-size: $heading-4-base;
 
-    @include breakpoint-sm {
-        padding: 0.5rem 1.2rem;
-    }
+    @include breakpoint-sm { font-size: $heading-4-base * $heading-multiplier-sm; }
+    @include breakpoint-md { font-size: $heading-4-base * $heading-multiplier-md; }
+    @include breakpoint-lg { font-size: $heading-4-base * $heading-multiplier-lg; }
+    @include breakpoint-xl { font-size: $heading-4-base * $heading-multiplier-lg; }
+    @include breakpoint-xxl { font-size: $heading-4-base * $heading-multiplier-lg; }
+  }
+  h5 {
+    margin-top: 1.8rem;
+    font-size: $heading-5-base;
+
+    @include breakpoint-sm { font-size: $heading-5-base * $heading-multiplier-sm; }
+    @include breakpoint-md { font-size: $heading-5-base * $heading-multiplier-md; }
+    @include breakpoint-lg { font-size: $heading-5-base * $heading-multiplier-lg; }
+    @include breakpoint-xl { font-size: $heading-5-base * $heading-multiplier-lg; }
+    @include breakpoint-xxl { font-size: $heading-5-base * $heading-multiplier-lg; }
+  }
+  h6 {
+    margin-top: 1.5rem;
+    font-size: $heading-6-base;
+
+    @include breakpoint-sm { font-size: $heading-6-base * $heading-multiplier-sm; }
+    @include breakpoint-md { font-size: $heading-6-base * $heading-multiplier-md; }
+    @include breakpoint-lg { font-size: $heading-6-base * $heading-multiplier-lg; }
+    @include breakpoint-xl { font-size: $heading-6-base * $heading-multiplier-lg; }
+    @include breakpoint-xxl { font-size: $heading-6-base * $heading-multiplier-lg; }
+  }
+
+  /*
+   * Other text & type treatment, and img
+   */
+  p {
+    max-width: 500px;
+    margin-top: 0;
+    margin-bottom: 1.4rem;
+
     @include breakpoint-md {
-        padding: 0.6rem 1.3rem;
+      max-width: 700px;
     }
     @include breakpoint-lg {
-        padding: 0.6rem 1.4rem;
+      max-width: 900px;
     }
-}
-table {
-	margin-bottom: 2rem;
-    @include bg-box-alpha-gray();
+  }
+  h1, h2 {
+    a {
+      color: $quinary-color;
 
-	th, td {
-		border-color: $border-color;
-	}
-	td {
-		text-align: left;
-        font-size: 12px;
-	}
+      &:hover {
+        //border-bottom: 5px solid $secondary-color;
+        text-decoration: none;
+      }
+      &:active {
+        color: $quarternary-color;
+      }
+      &:visited {
+        color: $body-copy;
+
+        &:hover {
+           color: $senary-color;
+        }
+        &:active {
+          color: $quarternary-color;
+        }
+      }
+    }
+  }
+  a {
+    color: $quinary-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $senary-color;
+    }
+    &:visited {
+      color: $quinary-color;
+
+      &:hover {
+        color: $senary-color;
+      }
+      &:active {
+        color: $quarternary-color;
+      }
+    }
+    &:active {
+      color: $quarternary-color;
+    }
+  }
+  ul, ol {
+    margin-left: 2rem;
+  }
+  ul, ol, dl {
+    margin-top: 0;
+    margin-bottom: 2.2rem;
+
+    ul, ol, dl {
+      margin-top: 0.2rem;
+      margin-bottom: 0.6rem;
+    }
+  }
+  li {
+    line-height: 1.7em;
+    max-width: 500px;
+
+    @include breakpoint-lg {
+      max-width: 700px;
+    }
+  }
+  td, th {
+    padding: 0.5rem 1rem;
+    line-height: 1.8;
+    border: 1px solid $border-color;
+
     @include breakpoint-sm {
-        font-size: 13px;
+      padding: 0.5rem 1.2rem;
     }
     @include breakpoint-md {
-        font-size: 14px;
+      padding: 0.6rem 1.3rem;
     }
-}
-img {
-	display: block;
-}
-hr {
+    @include breakpoint-lg {
+      padding: 0.6rem 1.4rem;
+    }
+  }
+  table {
+    font-family: $monospace-font-family;
+    margin-bottom: 2rem;
+    @include bg-box-alpha-gray();
+
+    th, td {
+      border-color: $border-color;
+    }
+    td {
+      text-align: left;
+      font-size: 15px;
+    }
+    @include breakpoint-sm {
+      font-size: 16px;
+    }
+    @include breakpoint-md {
+      font-size: 17px;
+    }
+  }
+  img {
+    display: block;
+  }
+  hr {
     max-width: $max-code-table-hr-width;
     height: 10px;
     margin-bottom: 14%;
     background: $secondary-color;
-    border-bottom: 4px solid $quarternary-color;
-}
-.page-content hr {
+    border-bottom: 4px solid $tertiary-color;
+  }
+  .page-content hr {
     margin-top: 10%;
-}
+  }
 
-// TODO: blockquote
-blockquote {
-	margin-bottom: 2rem;
-	padding-left: 2rem;
-	border-left: 1px solid $secondary-color;
+  // TODO: blockquote
+  blockquote {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid $secondary-color;
 
     @include breakpoint-sm {
-        font-size: 14px;
+      font-size: 14px;
     }
     @include breakpoint-md {
-        font-size: 14px;
+      font-size: 14px;
     }
     @include breakpoint-lg {
-        font-size: 15px;
+      font-size: 15px;
     }
-	p {
-		font-style: italic;
+    p {
+      font-style: italic;
 
-		em {
-			font-style: normal;
-		}
-	}
-}
-::selection {
-	color: $secondary-color;
-	background-color:  $secondary-color;
-}
-
-
-
-
-
-
-
-
-/*
- * Overall layout
- */
-
-header.site-header {
-	@include clearfix();
-
-	@include breakpoint-sm {
-		padding: 12% 6% 6%;
-	}
-	@include breakpoint-lg {
-		width: $header-width-mq-desktop;
-		height: 100%;
-		padding: 0;
-		position: fixed;
-        display: flex; // fuck you IE
-        align-items: center;
+      em {
+        font-style: normal;
+      }
     }
-	a.logo {
-		display: block;
-		width: 50%;
-		max-width: 200;
-		margin: 5rem auto 0;
-        border-bottom: 10px solid transparent;
-		@include transition-basic();
+  }
+  ::selection {
+    color: $secondary-color;
+    background-color:  $secondary-color;
+  }
 
-		&:hover {
-            @include sfss-border-bottom-highlight($secondary-color);
-		}
-		img {
-			margin: 0 auto;
 
-			@include breakpoint-sm {
-			    display: inline-block;
-			}
-			@include breakpoint-lg {
-			    display: block;
-			}
-		}
-		@include breakpoint-sm {
-            display: inline-block;
-			width: auto;
-			margin: 0;
-		}
-		@include breakpoint-lg {
-            display: block;
-			position: absolute;
-			width: 100%;
-			max-width: none;
-			margin: 0 0 0 15%;
-		}
-	}
-	a.github {
-		display: block;
-		position: absolute;
-		top: 8px;
-		right: 12px;
-		width: 32px;
-		opacity: 0.5;
-		@include transition-basic();
 
-		@include breakpoint-sm {
-			position: absolute;
-		}
-		@include breakpoint-lg {
-			position: absolute;
-			top: initial;
-			right: initial;
-			bottom: 0;
-			left: 5%;
-			width: 15%;
-			padding: 1%;
-		}
-		svg path {
-			fill: $quarternary-color;
-			@include transition-basic();
-		}
-		&:hover {
-			opacity: 0.7;
 
-			svg path {
-				fill: darken($quarternary-color, 2%);
-			}
-		}
-	}
-}
 
-footer.site-footer {
+
+
+
+  /*
+   * Overall layout
+   */
+
+  header.site-header {
+    @include clearfix();
+
+    @include breakpoint-sm {
+      padding: 12% 6% 6%;
+    }
+    @include breakpoint-lg {
+      width: $header-width-mq-desktop;
+      height: 100%;
+      padding: 0;
+      position: fixed;
+      display: flex; // fuck you IE
+      align-items: center;
+    }
+    a.logo {
+      display: block;
+      width: 50%;
+      max-width: 200;
+      margin: 5rem auto 0;
+      border-bottom: 10px solid transparent;
+      @include transition-basic();
+
+      &:hover {
+        @include sfss-border-bottom-highlight($secondary-color);
+      }
+      img {
+        margin: 0 auto;
+
+        @include breakpoint-sm {
+          display: inline-block;
+        }
+        @include breakpoint-lg {
+          display: block;
+        }
+      }
+      @include breakpoint-sm {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+      }
+      @include breakpoint-lg {
+        display: block;
+        position: absolute;
+        width: 100%;
+        max-width: none;
+        margin: 0 0 0 15%;
+      }
+    }
+    a.github {
+      display: block;
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      width: 32px;
+      opacity: 0.5;
+      @include transition-basic();
+
+      @include breakpoint-sm {
+        position: absolute;
+      }
+      @include breakpoint-lg {
+        position: absolute;
+        top: initial;
+        right: initial;
+        bottom: 0;
+        left: 5%;
+        width: 15%;
+        padding: 1%;
+      }
+      svg path {
+        fill: $quarternary-color;
+        @include transition-basic();
+      }
+      &:hover {
+        opacity: 0.7;
+
+        svg path {
+          fill: darken($quarternary-color, 2%);
+        }
+      }
+    }
+  }
+
+  footer.site-footer {
     margin: 0 auto;
     padding: 0 6% 30%;
 
     @include breakpoint-lg {
-        margin-left: $header-width-mq-desktop;
-        padding: 0 7.4% 30%;
+      margin-left: $header-width-mq-desktop;
+      padding: 0 7.4% 30%;
     }
     a.return-home-link {
-        display: inline-block;
-        margin: 5% 0;
-        padding: 0.5rem 0.2rem 0.5rem;
-        color: $body-copy;
-        font-size: 15px;
+      display: inline-block;
+      margin: 5% 0;
+      padding: 0.5rem 0.2rem 0.5rem;
+      color: $body-copy;
+      font-size: 15px;
 
-        &:hover {
-            color: $secondary-color;
-        }
+      &:hover {
+        color: $secondary-color;
+      }
     }
     a.cozy {
-        position: relative;
-        display: block;
-        width: 276px;
-        height: 248px;
+      position: relative;
+      display: block;
+      width: 276px;
+      height: 248px;
+      @include transition-basic();
+      background: url('../images/cozy.gif') no-repeat 50% 50%;
+      box-shadow: 14px 20px 100px rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+
+      &:after {
+        content: "";
+        @include absolute-all();
+        background: url('../images/cozy-hover.gif') no-repeat 50% 50%;
+        opacity: 0;
         @include transition-basic();
-        background: url('../images/cozy.gif') no-repeat 50% 50%;
-        box-shadow: 14px 20px 100px rgba(0, 0, 0, 0.7);
-        border-radius: 5px;
+      }
+      &:hover {
+
+        opacity: 1;
 
         &:after {
-            content: "";
-            @include absolute-all();
-            background: url('../images/cozy-hover.gif') no-repeat 50% 50%;
-            opacity: 0;
-            @include transition-basic();
+          opacity: 1;
         }
-        &:hover {
+      }
+      img {
 
-            opacity: 1;
-
-            &:after {
-                opacity: 1;
-            }
-        }
-        img {
-
-        }
+      }
     }
-}
+  }
 
 
 
-.page-content {
-	padding: 20% 6% 12%;
+  .page-content {
+    padding: 20% 6% 12%;
 
-	@include breakpoint-sm {
-		@include padding-top-bottom(0%, 20%);
-	}
-	@include breakpoint-lg {
-		margin-left: $header-width-mq-desktop;
-		padding: 6% 7.4% 10%;
-	}
-}
-
-.post-list {
-    @include breakpoint-md {
-        padding-top: 10%;
+    @include breakpoint-sm {
+      @include padding-top-bottom(0%, 20%);
     }
     @include breakpoint-lg {
-        padding-top: 20%;
+      margin-left: $header-width-mq-desktop;
+      padding: 6% 7.4% 10%;
     }
-}
-.post-preview + .post-preview {
-    margin-top: 1.4rem;
-}
-.post-header {
-	padding-bottom: 1rem;
+  }
 
-	@include breakpoint-lg {
-		padding-bottom: 2rem;
-	}
-	h2 {
-		margin: 0;
-		padding-top: 0.5em;
-		line-height: 1.4;
-	}
-	h3 {
-		margin-top: 0.4rem;
-		color: $body-copy-alt-2;
-	}
-	span.post-meta {
-		display: block;
-		margin-bottom: 2em;
-		font-family: $monospace-font-family;
-		color: $body-copy-alt;
-		font-size: 0.9em;
-		cursor: default;
-	}
-}
+  .post-list {
+    @include breakpoint-md {
+      padding-top: 10%;
+    }
+    @include breakpoint-lg {
+      padding-top: 20%;
+    }
+  }
+  .post-preview + .post-preview {
+    margin-top: 1.4rem;
+  }
+  .post-header {
+    padding-bottom: 1rem;
+
+    @include breakpoint-lg {
+      padding-bottom: 2rem;
+    }
+    h2 {
+      margin: 0;
+      padding-top: 0.5em;
+      line-height: 1.4;
+    }
+    h3 {
+      margin-top: 0.4rem;
+    }
+    span.post-meta {
+      display: block;
+      margin-bottom: 2em;
+      font-family: $monospace-font-family;
+      color: $body-copy-alt;
+      font-size: 0.9em;
+      cursor: default;
+    }
+  }
 
 

@@ -8,18 +8,40 @@
 // HIT UP HEX BANK
 /* -------- */
 
-$primary-color: #dcdcdc;
+$black: #26282a;
+//$red: #ff8878
+//$green: #b4fb73
+//$yellow: #fffcb7
+//$blue: #8bbce5
+//$magenta: #ffb2fe
+//$cyan: #a2e1f8
+$white: #f1f1f1;
+
+$black-light: #3a3a3a;
+$black-dark: #222426;
+$red: #fe978b;
+$green: #d6fcba;
+$yellow: #fffed5;
+$blue: #c2e3ff;
+$magenta: #ffc6ff;
+$cyan: #c0e9f8;
+//$white: #ffffff;
+
+
+$primary-color: $white;
 $primary-color-light: lighten($primary-color, 8%);
 
-$secondary-color: #d6fcba; // light green
-$tertiary-color: #c2e3ff; // light blue
-$quarternary-color: #ffc6ff; // light magenta
+$secondary-color: $yellow;
+$tertiary-color: $blue;
+$quarternary-color: $magenta;
+$quinary-color: $green;
+$senary-color: $red;
 
-$sfss-bg-gray: #292d35;
+$sfss-bg-gray: $black;
 
 $sfss-light-gray: #8c95a8;
 
-$sfss-bg-blue: #6392c8;
+$sfss-bg-blue: $black
 
 /* -------- */
 // HEX BANK

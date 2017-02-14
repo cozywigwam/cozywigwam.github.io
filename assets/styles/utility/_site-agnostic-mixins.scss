@@ -114,7 +114,7 @@
 }
 
 @mixin alpha-gray() {
-    background: rgba(41, 45, 53, 0.3);
+    background: $black-dark;
 }
 @mixin sfss-border-top-highlight($color: $quarternary-color) {
     border-top: 10px solid $color
