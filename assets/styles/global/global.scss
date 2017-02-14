@@ -126,10 +126,9 @@ body {
   }
   h1, h2 {
     a {
-      color: $quinary-color;
+      color: $body-copy;
 
       &:hover {
-        //border-bottom: 5px solid $secondary-color;
         text-decoration: none;
       }
       &:active {
