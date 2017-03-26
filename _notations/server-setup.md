@@ -18,8 +18,7 @@ source ~/.rvm/scripts/rvm
 rvm requirements
 rvm install ruby
 rvm use ruby --default
-rvm rubygems current
-rvm list # see 'em
+rvm list
 ```
 
 

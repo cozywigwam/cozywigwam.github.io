@@ -25,24 +25,13 @@ dpkg -get-selections
 mount
 df -h
 iostat -c 2
+dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]' # macOS
 ```
-    
-
-### Observe USB (Mac OS X)
-
-```bash
-system_profiler SPUSBDataType
-```
-
-- open Audio MIDI Setup application
-- cmd + 1 - Audio Devices (input/output, built-in microphone)
-- cmd + 2 - MIDI Studio - see USB, Bluetooth, and Network-connected devices... test MIDI
-
 
 
 ### Package managers
 
-```bash
+```sh
 # bower
 bower list
 bower search
@@ -80,14 +69,57 @@ sudo npm update -g npm
 
 # ~ is minor: ~1.2.3 matches 1.2.x, not 1.3.0
 # ^ is major: ^1.2.3 matches 1.x.x, not 2.0.0
+
+# rvm
+ruby -v
+rvm list
+gem list
+
+# rbenv
+rbenv # quick help
+rbenv install -l # list
+rbenv install 2.3.1
+rbenv version # see current version
+rbenv versions # like `ls ~/.rbenv/versions/`
+
+rbenv shell # just a helper for RBENV_VERSION
+rbenv local # adds .ruby-version project file
+rbenv global
+
+# gems
+gem env
+```
+
+
+# macOS
+
+Observe USB in the GUI:
+- open Audio MIDI Setup application
+- cmd + 1 - Audio Devices (input/output, built-in microphone)
+- cmd + 2 - MIDI Studio - see USB, Bluetooth, and Network-connected devices... test MIDI
+
+```sh
+# observe USB
+system_profiler SPUSBDataType
+
+# routing table
+netstat -rn # like Linux `route -n`
+
+# when camera stops working
+ps -ax | grep i vdcassistant
+kill [pid]
+
+# users with uid 5xx
+dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
+dscl # then `cd Contact`, `cd Users`, `read [username]`
 ```
 
 
 ### Misc
 
-```bash
+```sh
 history -c
 
-# Mac OS - routing table
-netstat -rn # like Linux `route -n`
+# vagrant
+vagrant ssh-config # see hostname, port, SSH Key location
 ```

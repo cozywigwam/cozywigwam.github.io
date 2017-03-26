@@ -45,6 +45,11 @@ kill -9 `lsof -t -u charadriidae`
 ```
 
 
+### less
+
+`M-u` | toggle search highlighting
+
+
 ### Ack
 
 [dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc)
@@ -83,11 +88,8 @@ jobs -l # show PID
 `<M-u>` | toggle search highlighting
 
 ```bash
-# Mac OS
 sed -i '.bak' 's/oldterm/newterm/g' [filename] 
-
-# no backup file
-sed -i '' 's/oldterm/newterm/g' [filename]
+sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
 
 # dir tree
 tree -I node
@@ -101,4 +103,8 @@ rename 's/old/new/g' *
 
 # custom notification sounds for System Prefs -> Sounds
 cp my-custom-sound.mp3 ~/Library/Sounds/
+
+# 
+command -v [word]
+type [word]
 ```

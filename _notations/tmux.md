@@ -5,22 +5,17 @@ categories: notation
 subtitle: screen+
 ---
 
+
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf)
 
+`[session][:window][.pane]`
 
 ### Key bindings
 
-`list-commands / lscm` | list all commands
-`list-keys / lsk / <leader>?` | list all bound keys (default table is "prefix")
-
-Keys are bound to either a key table or a mode table. The two key tables:
+Keys are bound to either a key table or a mode table. Usage `[-t mode-table] [-T key-table]`. The two key tables: 
 
 - prefix
 - root
-
-```bash
-tmux list-keys # equivalent to '-T prefix' + '-T root'
-```
 
 The mode tables:
 
@@ -31,15 +26,27 @@ The mode tables:
 - vim-copy
 - vim-edit
 
+
+`list-commands / lscm` | list all commands
+`list-keys / lsk / <leader>?` | list all bound keys (default table is "prefix")
+
+
 ```bash
-# list prefix & root key bindings
+# list prefix & root key table bindings
 tmux list-keys # equivalent to '-T prefix' + '-T root'
 
-# list vi-copy mode key bindings
+# list vi-copy mode table bindings
 tmux lsk -t vi-copy
 
-# vi-copy binding
+# bind the "v" key in vi-copy mode
 tmux bind-key -t vi-copy v begin-selection
+
+# allow a key to [-r] repeat
+bind-key -r L swap-window -t +1
+
+unbind C-n # unbind one thing
+unbind-key -a # unbind everything (see http://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative)
+tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default keys
 ```
 
 
@@ -65,3 +72,6 @@ tmux setw
 Hold `⌥` when dragging mouse to enable copy to OS X clipboard.
 
 `<leader>z` | zoom
+`<leader>q` | display pane numbers
+`<leader>{` & `<leader>}` | swap (move) panes
+`attach-session -c ~/new-dir` | change current working-directory

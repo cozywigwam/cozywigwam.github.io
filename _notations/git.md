@@ -7,8 +7,11 @@ subtitle: Submodules and diffing
 
 ### Misc
 
+`git help -a` | see commands
+`git help -p` | concept guides
+
 `git diff` | working to index
-`git diff HEAD` | everything to HEAD
+`git diff HEAD` | working to HEAD
 `git diff --cached` | index to HEAD (cached is a synonym for staged)
 
 ```bash
@@ -21,6 +24,12 @@ git submodule add git@github.com:cozywigwam/my-submodule.git my-submodule-path
 git submodule update --init
 
 git remote add origin [remote repo]
+
+# list merged branches
+for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+
+# ...unmerged
+for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
 ```
 
 
