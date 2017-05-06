@@ -11,28 +11,40 @@ subtitle: Seek nirvana
 
 ### Misc
 
-| `<C-v><C-i>` | insert a tab character |
-| `<C-v>[unicode]` | insert unicode |
-| `ga` | examine character at cursor |
-| `<leader>H` | *[custom map]* reveal syntax group for highlighting | 
-| `:help cmdline-special` | notes about % and # |
-| `:noh` (`<leader>n` custom) | stop highlighting searches |
-| `<C-r>[register]` | (from input mode) insert contents of register |
-| `:h text-objects` | word, sentence, paragraph, tag, b/), B/}, ], etc. |
-| `:h filename-modifiers` | `%`, `%:p`, etc. |
-| `%` | current filename with relative path |
-| `%:p` | current filename with full path |
-| `%:p:h` | full path only |
+`:ver` | know thyself
+`!echo $VIMRUNTIME` | you are here
+`<C-v><C-i>` | insert a tab character
+`<C-v>[unicode]` | insert unicode
+`ga` | examine character at cursor
+`<leader>H` | [custom map] reveal syntax group for highlighting 
+`:help cmdline-special` | notes about % and #
+`:noh` (`<leader>n` custom) | stop highlighting searches
+`<C-r>[register]` | (from input mode) insert contents of register
+`:h text-objects` | word, sentence, paragraph, tag, b/), B/}, ], etc.
+`:h filename-modifiers` | `%`, `%:p`, etc.
+`%` | current filename with relative path
+`%:p` | current filename with full path
+`%:p:h` | full path only
+`gx` | open URL under cursor
+`<leader>fmap` | [custom] list all <leader> mappings
 
 
 ### Search
 
+`:h /magic` | literalism and escapism
+`:h pattern-overview` | atoms, character classes, etc.
 `//e` | repeat search and move cursor to end of highlight (character "offsets")
 `:%sno/<div>/<span/` | "nomagic" substitution
 `\C` | respect case (can go anywhere in pattern)
-`:set nowrapscan` | don't jump bottom/top when searching
+`:set nowrapscan` | prevent jump between bottom/top when searching
 `{-}` | be ungreedy
 `<`, `>` | word boundaries
+
+Delete unwanted lines:
+`:g/^$/d`
+`:v/./d`
+`:g/^\s*$/d`
+`:v/\S/d`
 
 `:h pattern-atoms` |
 `:h whitespace` |
@@ -59,25 +71,31 @@ subtitle: Seek nirvana
 
 ### Marks
 
-| `` `[mark]`` | jump to `[mark]` line & col |
-| `'[mark]` | jump to `[mark]` line |
-| `` `[ `]`` | begin/end of previous yank/put |
-| `` `< `>`` | " visual selection |
-| `` `.`` | " last change (like the first `g;`) |
-| `` `^`` | " last insert mode exit (used by `gi`) |
-| `` `( `)`` | " sentence |
-| `` `{ `}`` | " paragraph |
+`` `[mark]`` | jump to `[mark]` line & col
+`'[mark]` | jump to `[mark]` line
+`` `[ `]`` | begin/end of previous yank/put
+`` `< `>`` | " visual selection
+`` `.`` | " last change (like the first `g;`)
+`` `^`` | " last insert mode exit (used by `gi`)
+`` `( `)`` | " sentence
+`` `{ `}`` | " paragraph
 
 
 
 ### Lists
 
-| `:ju[mps]` | jumplist |
-| `:changes` | change list |
-| `:reg` | registers |
-| `:ar[gs]` | argument list |
-| `:cope[n]` | quickfix list |
+`:ju[mps]` | jumplist
+`:changes` | change list
+`:reg` | registers
+`:ar[gs]` | argument list
+`:cope[n]` | quickfix list
 
+#### Quickfix list
+
+`]q` & `[q` | up/down
+`]Q` & `[Q` | last/first
+`]]q` & `[[q` | next/prev file
+`]]Q` & `[[Q` | next/prev quickfix list
 
 
 ### Command-Line mode
@@ -86,17 +104,19 @@ subtitle: Seek nirvana
 
 Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C-f>` to open command-line history (cf. `q:`).
 
-| `q:` | command-line history |
-| `@:` `@@` | repeat last command-line command (TODO: `@@` difference?) |
+`q:` | command-line history
+`@:` `@@` | repeat last command-line command (TODO: `@@` difference?)
 
 
 
 ### Registers
 
 `:h registers` | naturally
-`0` | yank
+`0` | yank & delete
+`1` | delete with `%`, `(`, `)`, `/`, `?`, `n`, `N`, `{`, `}`
+`-` | small delete (< 1 line)
 `+` | clipboard
-`*` | primary (or redundant clipboard in Mac OS X)
+`*` | primary (or redundant clipboard in macOS)
 `=` | expression
 `_` | black hole
 `%` `#` | filename, alt filename
@@ -105,14 +125,14 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 
 ### Tabs & spaces
 
-| `<leader>t?` | `:set ts? sts? sw?` |
-| `<leader>t2` | `:set ts=2 sts=2 sw=2` |
-| `<leader>t4` | `:set ts=4 sts=4 sw=4` |
-| `tabstop (ts)` | How many columns a tab equals |
-| `softtabstop (sts)` | How many columns you get for inserting a tab |
-| `shiftwidth (sw)` | How many columns `<<` and `>>` get |
-| `expandtab/noexpandtab (et)` | Expand tabs to become spaces |
-| `retab` | Replace white-space with settings |
+`<leader>t?` | `:set ts? sts? sw?`
+`<leader>t2` | `:set ts=2 sts=2 sw=2`
+`<leader>t4` | `:set ts=4 sts=4 sw=4`
+`tabstop (ts)` | How many columns a tab equals
+`softtabstop (sts)` | How many columns you get for inserting a tab
+`shiftwidth (sw)` | # when shifting with angle brackets
+`expandtab/noexpandtab (et)` | Expand tabs to become spaces
+`retab` | Replace white-space with settings
 
 To convert the full document's tabs to spaces, `:set expandtab` and then `:retab!` (`!` includes "strings of only normal spaces" in the conversion).
 
@@ -120,20 +140,20 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 ### Windows
 
-| `:help ctrl-w` | help |
-| `<C-w> =` | equalize |
-| `<C-w> +/-` | adjust height N |
-| `<C-w> </>` | adjust width N |
-| `<C-w> ^` | split with alternate |
-| `<C-w> p` | go to previous (last accessed) window |
-| `<C-w> s/v` | split current window N lines/columns size |
-| `<C-w> W/w` | go to N next/previous window (wrap around) | 
-| `<C-w> _` | "maximize" vertically |
-| `<C-w> |` | "maximize" horizontally |
-| `<C-w> H/J/K/L` | move window |
-| `<C-w> x` | exchange with neighbor |
-| `<C-w> r` | rotate |
-| `<C-w> T` | move current window to a new tab page |
+`:help ctrl-w` | help
+`<C-w> =` | equalize
+`<C-w> +/-` | adjust height N
+`<C-w> </>` | adjust width N
+`<C-w> ^` | split with alternate
+`<C-w> p` | go to previous (last accessed) window
+`<C-w> s/v` | split current window N lines/columns size
+`<C-w> W/w` | go to N next/previous window (wrap around) 
+`<C-w> _` | "maximize" vertically
+`<C-w> |` | "maximize" horizontally
+`<C-w> H/J/K/L` | move window
+`<C-w> x` | exchange with neighbor
+`<C-w> r` | rotate
+`<C-w> T` | move current window to a new tab page
 
 
 <hr/>
@@ -142,29 +162,29 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 ### NERDTree
 
-| `?` | help |
-| `F2` | *[custom map]* open NERDTree (default width) |
-| `F3` | *[custom map]* toggle open/close |
-| `C` | TREEROOT NAVIGATION - down |
-| `U` | TREEROOT NAVIGATION - up |
-| `u` | TREEROOT NAVIGATION - collapse tree & up |
-| `CD`| TREEROOT NAVIGATION - go to pwd |
-| `cd`| update pwd |
-| `P` | jump to tree root |
-| `p` | jump to parent |
-| `O` | expand all sub-dirs |
-| `X` | collapse all sub-dirs |
-| `I` | toggle hidden |
-| `R` | refresh |
+`?` | help
+`F2` | [custom map] open NERDTree (default width)
+`F3` | [custom map] toggle open/close
+`C` | TREEROOT NAVIGATION - down
+`U` | TREEROOT NAVIGATION - up
+`u` | TREEROOT NAVIGATION - collapse tree & up
+`CD`| TREEROOT NAVIGATION - go to pwd
+`cd`| update pwd
+`P` | jump to tree root
+`p` | jump to parent
+`O` | expand all sub-dirs
+`X` | collapse all sub-dirs
+`I` | toggle hidden
+`R` | refresh
 
 
 
 ### Ctrl-P
 
-| `?<CR>` | open help |
-| `<C-b> <C-f>` | cycle between modes |
-| `<C-d>` | toggle between full-path & filename only search |
-| `<C-p> <C-n>` | prev/next searches |
+`?<CR>` | open help
+`<C-b> <C-f>` | cycle between modes
+`<C-d>` | toggle between full-path & filename only search
+`<C-p> <C-n>` | prev/next searches
 
 
 
@@ -172,24 +192,26 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc)
 
-| `:hs! [filter]` | history; use the bang to immediately open results |
-| `o O` | open / open with current address populated |
-| `t T` | new tab / new tab with " |
-| `w W` | new window / new window with " |
-| `p P` | open with clipboard (URL or search) / new tab with clipboard |
-| `;` | extendended hint |
-| `;;` | focus |
-| `;S` | save object |
-| `;y` | yank location |
-| `;#` | yank anchor URL |
-| `;v` | view source |
-| `;V` | open source in editor |
-| `;c` | open context menu |
-| `;I` | open media object in new tab |
-| `m` | create mark |
-| `M` | create quickmark |
-| `:marks` | see marks |
-| `:qmarks` | see quick marks |
+`:hs! [filter]` | history; use the bang to immediately open results
+`o O` | open / open with current address populated
+`t T` | new tab / new tab with "
+`w W` | new window / new window with "
+`p P` | open with clipboard (URL or search) / new tab with clipboard
+`;` | extendended hint
+`;;` | focus
+`;F` | multiple background tabs
+`;S` | save object
+`;y` | yank location
+`;#` | yank anchor URL
+`;v` | view source
+`;V` | open source in editor
+`;c` | open context menu
+`;i` & `;I` | open media object (& in new tab)
+`m` | create mark
+`M` | create quickmark
+`:marks` | see marks
+`:qmark j` | set "j"
+`:qmarks j` | see "j"
 
 
 ### Fugitive
@@ -238,3 +260,8 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:3` | (3-way merge) current file in merge branch
 
 
+### Color
+
+`:edit $VIMRUNTIME/colors/README.txt` | colorscheme authorship
+`:so $VIMRUNTIME/syntax/hitest.vim` | see highlight groups
+`runtime syntax/colortest.vim` | test color setup 

@@ -107,4 +107,6 @@ cp my-custom-sound.mp3 ~/Library/Sounds/
 # 
 command -v [word]
 type [word]
+
+ytdl --extract-audio --audio-format mp3 <url>
 ```

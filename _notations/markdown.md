@@ -76,6 +76,15 @@ Code blocks are four indented spaces.
 
 [Markdown help]: http://stackoverflow.com/editing-help
 
+```
+Here's an inline link to [Google](http://www.google.com/).
+Here's a reference-style link to [Google][1].
+Here's a very readable link to [Yahoo!][yahoo].
+
+  [1]: http://www.google.com/
+  [yahoo]: http://www.yahoo.com/
+```
+
 
 
 #### Slack
@@ -87,6 +96,8 @@ Slack API [basic message formatting].
 
 #### JIRA
 
+Formatting: https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all
+
 {% raw %}
 ```bash
 {{inline-code}}
@@ -96,6 +107,13 @@ Slack API [basic message formatting].
 {code}
 
 link to [this site|https://thissite.com]
+
+bq. This is one line of block quote
+
+{quote}
+This is multiple lines
+of block quote
+{quote}
 ```
 {% endraw %}
 

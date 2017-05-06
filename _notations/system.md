@@ -5,9 +5,11 @@ categories: notation
 subtitle: Examination, package managers
 ---
 
-### Know thyself
+# Know thyself
 
-```bash
+Noah Hoffman's [notes](http://web.labmed.washington.edu/nhoffman/notes/linux)
+
+```sh
 printenv
 history
 id
@@ -29,7 +31,7 @@ dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]' # macOS
 ```
 
 
-### Package managers
+# Package managers
 
 ```sh
 # bower
@@ -52,7 +54,7 @@ composer show # because list would be too easy
 dpkg --get-selections | grep -v deinstall
 dpkg --get-selections | grep -i php
 
-# n
+# n (instead of nvm)
 n # arrow keys and select
 n --help
 n list
@@ -66,6 +68,13 @@ npm help <cmd>
 npm list -g --depth=0
 npm outdated -g --depth=0
 sudo npm update -g npm
+
+# original global path
+/usr/local/lib/node_modules/
+
+# change global path
+npm config set prefix '~/.npm-global' # updates ~/.npmrc
+# add ~/.npm-global/bin to path
 
 # ~ is minor: ~1.2.3 matches 1.2.x, not 1.3.0
 # ^ is major: ^1.2.3 matches 1.x.x, not 2.0.0
@@ -93,7 +102,16 @@ gem env
 
 # macOS
 
-Observe USB in the GUI:
+settings/options defaults: https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
+`<S-v>` | paste with stripped formatting (might need alt sometimes, not sure here)
+
+## Location of AppleScript services (.workflow files):
+local/ref | in use
+--- | ---
+~/script-and-helpers/Automator/ | ~/Library/Services/
+
+## Observe USB in the GUI:
 - open Audio MIDI Setup application
 - cmd + 1 - Audio Devices (input/output, built-in microphone)
 - cmd + 2 - MIDI Studio - see USB, Bluetooth, and Network-connected devices... test MIDI
@@ -115,7 +133,7 @@ dscl # then `cd Contact`, `cd Users`, `read [username]`
 ```
 
 
-### Misc
+# Misc
 
 ```sh
 history -c

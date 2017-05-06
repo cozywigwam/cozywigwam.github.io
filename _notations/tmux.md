@@ -69,7 +69,7 @@ tmux setw
 
 ### Misc
 
-Hold `⌥` when dragging mouse to enable copy to OS X clipboard.
+Hold `⌥` when click + dragging mouse to enable selection/copying to macOS clipboard.
 
 `<leader>z` | zoom
 `<leader>q` | display pane numbers

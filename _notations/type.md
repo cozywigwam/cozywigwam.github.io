@@ -23,7 +23,7 @@ subtitle: Characters
 - 𝄪 double sharp
 - ∯ surface integral [found here](http://www.cs.tut.fi/~jkorpela/math/kbd.html)
 
-### Make characters on Mac (hold ⌥)
+### Make characters macOS (hold ⌥)
 
 | ` | *modifier to create grave accent* |
 | 1 | ¡ |
