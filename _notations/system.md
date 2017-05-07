@@ -2,7 +2,7 @@
 layout: post
 title: "System"
 categories: notation
-subtitle: Examination, package managers
+subtitle: Examination, Package Managers
 ---
 
 # Know thyself

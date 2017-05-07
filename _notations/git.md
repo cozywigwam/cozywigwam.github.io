@@ -2,7 +2,7 @@
 layout: post
 title: "Git"
 categories: notation
-subtitle: Submodules and diffing
+subtitle: Submodules and Diffing
 ---
 
 ### Misc

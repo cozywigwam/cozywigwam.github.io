@@ -29,11 +29,10 @@ subtitle: Remember Netscape
 
 To add "confirm on quit" to go `about:config` -> `browser.showQuitWarning`
 
-`about:config`
-`about:support`
-
-`~/Library/Application Support/Firefox/Profiles/`
-`~/Library/Mozilla/Firefox/Profiles/`
+- about:config
+- about:support
+- ~/Library/Application Support/Firefox/Profiles/
+- ~/Library/Mozilla/Firefox/Profiles/
 
 [Mozilla keyboard shortcuts](https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts)
 

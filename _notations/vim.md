@@ -2,7 +2,7 @@
 layout: post
 title: "Vim"
 categories: notation
-subtitle: Seek nirvana
+subtitle: Seek Nirvana
 ---
 
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimrc)

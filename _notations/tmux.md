@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "tmux"
+title: "Tmux"
 categories: notation
-subtitle: screen+
+subtitle: Screen+
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Markdowns & Similar"
 categories: notation
-subtitle: Dialect roundup
+subtitle: Dialect Roundup
 ---
 
 ### Basics

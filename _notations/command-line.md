@@ -1,31 +1,15 @@
 ---
 layout: post
-title: "Command line"
+title: "Command Line"
 categories: cheatsheet
-subtitle: zsh & misc. CL
+subtitle: ZSH, etc.
 ---
 
-[dotfiles](https://github.com/cozywigwam/dotfiles)
 
 
-### zsh
+# commands
 
-```bash
-man zsh
-man zshbuiltins
-man zshoptions
-
-# prompt, jobs, if/then
-man zshmisc
-
-# show (default non-vicmd/viins) zle key bindings
-bindkeys
-
-# setopt HIST_IGNORE_SPACE
-```
-
-
-### lsof
+## lsof
 
 ```bash
 lsof -h
@@ -45,12 +29,12 @@ kill -9 `lsof -t -u charadriidae`
 ```
 
 
-### less
+## less
 
 `M-u` | toggle search highlighting
 
 
-### Ack
+## Ack
 
 [dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc)
 
@@ -69,7 +53,7 @@ ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 ```
 
 
-### Jobs
+## Jobs
 
 [Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
 
@@ -83,7 +67,7 @@ jobs -l # show PID
 ```
 
 
-### Misc
+## Misc
 
 `<M-u>` | toggle search highlighting
 
@@ -110,3 +94,60 @@ type [word]
 
 ytdl --extract-audio --audio-format mp3 <url>
 ```
+
+
+# shells
+
+## zsh
+
+[dotfiles](https://github.com/cozywigwam/dotfiles)
+
+
+```bash
+man zsh
+man zshbuiltins
+man zshoptions
+
+# prompt, jobs, if/then
+man zshmisc
+
+# show (default non-vicmd/viins) zle key bindings
+bindkeys
+
+# setopt HIST_IGNORE_SPACE
+```
+
+[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.zshrc)
+
+### ZLE
+
+[Reference](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/) from Serge Gebhardt's site.
+
+```bash
+man zsh
+man zshbuiltins
+man zshoptions
+
+# prompt, jobs, if/then
+man zshmisc
+
+zle -la # list widgets (aka commands)
+
+bindkey # show (default non-vicmd/viins) zle key bindings
+bindkey -M viins # just viins mode
+bindkey -M emacs '\e.' # just the <M-.> binding in emacs mode
+bindkey -rM emacs '\e.' # `-r` to remove binding
+
+# ref. http://www.zsh.org/mla/users/2009/msg00875.html
+bindkey -rM vicmd -- '-' # use `--` since `-` expects an option
+
+echo $fpath # zsh's function path
+```
+
+Use `\e` or `^[` to indicate Meta key.
+
+Modes: `viins`, `vicmd`, `emacs`, others.
+
+`<M-x>` | emacs & [mapped] viins: execute `execute-named-cmd`
+`:` | vicmd: execute `execute-named-cmd`
+
