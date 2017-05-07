@@ -5,14 +5,14 @@ categories: notation
 subtitle: Characters
 ---
 
-### "What character is this?"
+# "What character is this?"
 
 [Double sharp (unicodelookup.com)](http://unicodelookup.com/#119082)
 
 `ga` | (under cursor in vim) "get ASCII value"
 
 
-### Fun and curious characters
+# Fun and curious characters
 
 - ⇧ shift arrow
 - ⌘ looped square
@@ -23,7 +23,7 @@ subtitle: Characters
 - 𝄪 double sharp
 - ∯ surface integral [found here](http://www.cs.tut.fi/~jkorpela/math/kbd.html)
 
-### Make characters macOS (hold ⌥)
+# Make characters macOS (hold ⌥)
 
 | ` | *modifier to create grave accent* |
 | 1 | ¡ |

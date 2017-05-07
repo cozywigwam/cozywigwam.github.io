@@ -5,7 +5,7 @@ categories: notation
 subtitle: Submodules and Diffing
 ---
 
-### Misc
+# Misc
 
 `git help -a` | see commands
 `git help -p` | concept guides
@@ -33,7 +33,7 @@ for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show -
 ```
 
 
-### Config
+# Config
 
 ```
 [alias]

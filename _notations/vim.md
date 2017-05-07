@@ -7,9 +7,9 @@ subtitle: Seek Nirvana
 
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimrc)
 
-## Application
+# Application
 
-### Misc
+## Misc
 
 `:ver` | know thyself
 `!echo $VIMRUNTIME` | you are here
@@ -29,7 +29,7 @@ subtitle: Seek Nirvana
 `<leader>fmap` | [custom] list all <leader> mappings
 
 
-### Search
+## Search
 
 `:h /magic` | literalism and escapism
 `:h pattern-overview` | atoms, character classes, etc.
@@ -69,7 +69,7 @@ Delete unwanted lines:
 `\1`, `\2`... | parenthetical sub-expression/submatch
 `\zs`, `ze` | set start/end of match
 
-### Marks
+## Marks
 
 `` `[mark]`` | jump to `[mark]` line & col
 `'[mark]` | jump to `[mark]` line
@@ -82,7 +82,7 @@ Delete unwanted lines:
 
 
 
-### Lists
+## Lists
 
 `:ju[mps]` | jumplist
 `:changes` | change list
@@ -90,7 +90,7 @@ Delete unwanted lines:
 `:ar[gs]` | argument list
 `:cope[n]` | quickfix list
 
-#### Quickfix list
+### Quickfix list
 
 `]q` & `[q` | up/down
 `]Q` & `[Q` | last/first
@@ -98,7 +98,7 @@ Delete unwanted lines:
 `]]Q` & `[[Q` | next/prev quickfix list
 
 
-### Command-Line mode
+## Command-Line mode
 
 > Command-Line mode "exposes us to the vestiges of ex." -Drew Neil 
 
@@ -109,7 +109,7 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 
 
 
-### Registers
+## Registers
 
 `:h registers` | naturally
 `0` | yank & delete
@@ -123,7 +123,7 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 `/` | last search pattern
 
 
-### Tabs & spaces
+## Tabs & spaces
 
 `<leader>t?` | `:set ts? sts? sw?`
 `<leader>t2` | `:set ts=2 sts=2 sw=2`
@@ -138,7 +138,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 
 
-### Windows
+## Windows
 
 `:help ctrl-w` | help
 `<C-w> =` | equalize
@@ -158,9 +158,9 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 <hr/>
 
-## Plugins & other related
+# Plugins & other related
 
-### NERDTree
+## NERDTree
 
 `?` | help
 `F2` | [custom map] open NERDTree (default width)
@@ -179,7 +179,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 
 
-### Ctrl-P
+## Ctrl-P
 
 `?<CR>` | open help
 `<C-b> <C-f>` | cycle between modes
@@ -188,7 +188,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 
 
-### Vimperator
+## Vimperator
 
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc)
 
@@ -214,13 +214,13 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:qmarks j` | see "j"
 
 
-### Fugitive
+## Fugitive
 
 `:Gwrite` | add %
 `:Gread` | overwrite working with index
 `:Gbrowse` | inspect current object on github.com
 
-#### :Gstatus
+### :Gstatus
 
 `:Gstatus` | status
 `g?` | show help
@@ -231,7 +231,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `r` | reload
 `q` | quit
 
-#### :Gdiff
+### :Gdiff
 
 `:[range]diffget [bufspec]` | obtain diff
 `:[range]diffput [bufspec]` | put diff
@@ -241,14 +241,14 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:diffget //2` | same as above but obtain from target branch
 `:Gwrite!` | (from target or merge branch) resolve conflicts with this version
 
-#### :Gedit
+### :Gedit
 
 `:Gedit [revision]` | e.g. `:Gedit HEAD^:%`
 `<Enter>` | go to object corresponding to SHA on cursor's line
 `C` | jump to commit object
 `-` | jump to tree object
 
-#### [revision]
+### [revision]
 
 `:h fugitive-revision` | `HEAD`, `master`, etc.
 `HEAD^{}` | commit referenced by HEAD
@@ -260,7 +260,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:3` | (3-way merge) current file in merge branch
 
 
-### Color
+## Color
 
 `:edit $VIMRUNTIME/colors/README.txt` | colorscheme authorship
 `:so $VIMRUNTIME/syntax/hitest.vim` | see highlight groups

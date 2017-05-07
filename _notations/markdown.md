@@ -5,7 +5,7 @@ categories: notation
 subtitle: Dialect Roundup
 ---
 
-### Basics
+# Basics
 
 ```
 *italics,* and _more italics_
@@ -14,7 +14,7 @@ subtitle: Dialect Roundup
 ```
 
 
-#### Tables
+# Tables
 
 3 dash minimum, colors for alignment, line begin/end pipes optional.
 
@@ -25,9 +25,9 @@ subtitle: Dialect Roundup
 ```
 
 
-### Dialects, variations
+# Dialects, variations
 
-#### Markdown
+## Markdown
 
 Daring Fireball's:
 
@@ -41,7 +41,7 @@ Daring Fireball's:
 
 
 
-#### github.com
+## github.com
 
 Uses ["GitHub Flavored Markdown,"] aka GFM:
 
@@ -55,7 +55,7 @@ Uses ["GitHub Flavored Markdown,"] aka GFM:
 [Kramdown parse info]: http://kramdown.gettalong.org/parser/gfm.html
 
 
-#### GitHub Pages & Jekyll
+## GitHub Pages & Jekyll
 
 As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
 
@@ -68,7 +68,7 @@ As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
 
 
 
-#### Stack Overfow
+## Stack Overfow
 
 Code blocks are four indented spaces.
 
@@ -87,14 +87,14 @@ Here's a very readable link to [Yahoo!][yahoo].
 
 
 
-#### Slack
+## Slack
 
 Slack API [basic message formatting].
 
 [basic message formatting]: https://api.slack.com/docs/message-formatting
 
 
-#### JIRA
+## JIRA
 
 Formatting: https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all
 
@@ -119,7 +119,7 @@ of block quote
 
 
 
-#### CommonMark
+## CommonMark
 
 An attempt "to specify Markdown syntax unambiguously." [Spec], [GitHub]. ["Dingus" (live tester)].
 

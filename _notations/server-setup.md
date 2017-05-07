@@ -5,13 +5,13 @@ categories: notation
 subtitle: Installation reminders
 ---
 
-### curl & git are dpkg
+# curl & git are dpkg
 ```bash
 sudo apt-get install curl git
 ```
 
 
-### RVM & Ruby
+# RVM & Ruby
 ```bash
 curl -L https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
@@ -22,33 +22,33 @@ rvm list
 ```
 
 
-### node is dpkg...
+# node is dpkg...
 ```bash
 #sudo apt-get install nodejs npm
 ```
 
 
-### ... but use n instead
+# ... but use n instead
 ```bash
 curl -L http://git.io/n-install | bash
 n list # see 'em
 ```
 
-### see installed packages
+# see installed packages
 ``` bash
 dpkg --get-selections | grep -v deinstall
 dpkg --get-selections | grep -i php
 ```
 
 
-### jekyll is a gem
+# jekyll is a gem
 ```bash
 gem install jekyll
 ```
 
 
 
-### set up first user after installation
+# set up first user after installation
 ```bash
 # brew install ssh-copy-id
 
@@ -56,7 +56,7 @@ ssh-copy-id example_user@200.0.110.1
 ```
 
 
-### HTTPS SSL cert with Let's Encrypt [(ref.)](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
+# HTTPS SSL cert with Let's Encrypt [(ref.)](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
 
 Install Let's Encrypt. [DO Tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
 

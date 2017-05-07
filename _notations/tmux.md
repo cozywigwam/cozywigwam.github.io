@@ -10,7 +10,7 @@ subtitle: Screen+
 
 `[session][:window][.pane]`
 
-### Key bindings
+# Key bindings
 
 Keys are bound to either a key table or a mode table. Usage `[-t mode-table] [-T key-table]`. The two key tables: 
 
@@ -50,7 +50,7 @@ tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default ke
 ```
 
 
-### Options
+# Options
 
 ```bash
 # server
@@ -67,7 +67,7 @@ tmux setw
 ```
 
 
-### Misc
+# Misc
 
 Hold `⌥` when click + dragging mouse to enable selection/copying to macOS clipboard.
 
