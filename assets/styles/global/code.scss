@@ -14,17 +14,21 @@ code {
   margin: 0 3px;
   padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
   @include alpha-gray();
+  font-size: 13px;
   background: $black-dark;
   border-top: 1px solid $black-light;
   border-bottom: 2px solid $quarternary-color; // also overwritten below
 
+  @include breakpoint-xs {
+    font-size: 14px;
+  }
   @include breakpoint-sm {
     font-size: 15px;
   }
-  @include breakpoint-md {
+  @include breakpoint-lg {
     font-size: 16px;
   }
-  @include breakpoint-lg {
+  @include breakpoint-xl {
     font-size: 17px;
   }
 }
