@@ -276,51 +276,40 @@ body {
 
   header.site-header {
     @include clearfix();
+    height: 60px;
     text-align: center;
 
     @include breakpoint-sm {
-      padding: 12% 6% 6%;
+      position: relative;
+      height: 280px;
     }
     @include breakpoint-lg {
       width: $header-width-mq-desktop;
       height: 100%;
       padding: 0;
       position: fixed;
-      display: flex; // fuck you IE
+      display: flex;
       align-items: center;
     }
     a.logo {
-      display: inline-block;
-      width: 50%;
-      max-width: 200;
-      margin: 5rem auto 0;
-      border-bottom: 10px solid transparent;
-      @include transition-basic();
+      position: fixed;
+      top: -80px;
+      right: 16px;
+      display: block;
+      transform: scaleX(-1);
 
-      &:hover {
-        @include sfss-border-bottom-highlight($secondary-color);
+      @include breakpoint-lg {
+        top: auto;
+        right: auto;
+        bottom: -80px;
+        left: 16px;
       }
       img {
         margin: 0 auto;
 
-        @include breakpoint-sm {
-          display: inline-block;
-        }
         @include breakpoint-lg {
           display: block;
         }
-      }
-      @include breakpoint-sm {
-        display: inline-block;
-        width: auto;
-        margin: 0;
-      }
-      @include breakpoint-lg {
-        display: block;
-        position: absolute;
-        width: 100%;
-        max-width: none;
-        margin: 0 0 0 15%;
       }
     }
     a.github {
@@ -369,12 +358,13 @@ body {
     a.return-home-link {
       display: inline-block;
       margin: 5% 0;
-      padding: 0.5rem 0.2rem 0.5rem;
+      padding: 1em 2em;
       color: $body-copy;
       font-size: 15px;
 
       &:hover {
-        color: $secondary-color;
+        color: $sfss-bg-gray;
+        background: $tertiary-color;
       }
     }
   }
