@@ -12,12 +12,13 @@ subtitle: Er, Spacemacs
 Layouts <-> Perspectives <-> iTerm2 tabs
 Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 
+| `SPC m g h`      | `helm-css-scss`                          |
 | `C-S-o`          | [in dired] (custom) open in external app |
-| `SPC b e`        | delete full buffer contents            |
-| `SPC w u`        | `winner-undo`                          |
-| `C-x C-b`        | (in helm) resume different helm buffer |
-| `SPC h d m`      | `spacemacs/describe-mode`              |
-| `C-c >`, `C-c <` | [in helm] next/prev file               |
+| `SPC b e`        | delete full buffer contents              |
+| `SPC w u`        | `winner-undo`                            |
+| `C-x C-b`        | (in helm) resume different helm buffer   |
+| `SPC h d m`      | `spacemacs/describe-mode`                |
+| `C-c >`, `C-c <` | [in helm] next/prev file                 |
 
 ### buffers/files
 
@@ -61,6 +62,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 
 # help
 
+`[`, `]` | back/forward
 `SPC h` | help
 `SPC h k` | show top level keys
 `SPC h d` | describe...
@@ -70,6 +72,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 `SPC h d m` | ...mode (with keybindings)
 `SPC h d t` | ...theme
 `SPC h d v` | `describe-variable` | ...variable
+`SPC h SPC` | lookup doc, layers, packages, dotfile, toggles, faq
 `SPC ?` | `helm-descbinds`
 `C-h e` | see startup error messages
 
@@ -144,6 +147,7 @@ Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses
 
 # misc
 
+`SPC , i` | [custom] helm imenu
 `C-s )` | (in insert mode) insert literal parenthesis (don't allow smart entry)
 `SPC u SPC b d` | close window along with buffer delete
 `SPC u SPC w d` | delete buffer along with close window
@@ -252,6 +256,8 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 
 [Quick ref PDF](https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf)
 
+`w` | `dired-copy-filename-as-kill` | copy filename
+`SPC u 0 w` | copy filename with full path
 `o` | open in other window
 `C-o` | open in new window
 `+` | `dired-create-directory` | create directory
@@ -278,7 +284,7 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `C-x C-q` | switch to wdired
 `C-c C-c` | save wdired changes
 `(` | toggle details
-
+`J` | find files from here
 
 # keybindings
 
@@ -346,6 +352,23 @@ org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-
 > For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
 > 
 > I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
+
+
+## babel
+
+Evaluate with `C-c C-c`.
+
+#+BEGIN_SRC js
+let test = [1, 2];
+console.log(Math.max(...test));
+#+END_SRC
+
+Evaluation controls: `org-confirm-babel-evaluate`, `org-babel-no-eval-on-ctrl-c-ctrl-c`.
+
+`SPC t C-c` | [custom] toggle no-eval on/off
+
+
+
 
 
 
@@ -462,10 +485,20 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 [macOS - use emacs-plus to reduce sluggishness](https://magit.vc/manual/magit/MacOS-Performance.html)
 
 `(magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")`
+# JS
 
-# react
+
+## React
 
 prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 
 `(setq-local web-mode-enable-auto-quoting nil)`
+
+
+## JSX-IDE mode
+
+`C-c C-o` | toggle element
+`C-c C-f` | toggle all funtions
+`C-c @ C-c` | toggle block
+`C-c @ C-h`, `C-c @ C-s` | hide/show block
 

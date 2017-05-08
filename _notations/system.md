@@ -7,8 +7,6 @@ subtitle: Examination, Package Managers
 
 # Know thyself
 
-Noah Hoffman's [notes](http://web.labmed.washington.edu/nhoffman/notes/linux)
-
 ```sh
 printenv
 history
@@ -76,6 +74,7 @@ sudo npm update -g npm
 npm config set prefix '~/.npm-global' # updates ~/.npmrc
 # add ~/.npm-global/bin to path
 
+# semver
 # ~ is minor: ~1.2.3 matches 1.2.x, not 1.3.0
 # ^ is major: ^1.2.3 matches 1.x.x, not 2.0.0
 
