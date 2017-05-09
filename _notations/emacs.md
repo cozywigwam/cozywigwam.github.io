@@ -441,6 +441,15 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 
 
 
+# yasnippet
+
+Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C-i")`). Yasnippet expand is `M-/`, `C-p`: `hippie-expand`.
+
+`SPC i S v` | [custom] `helm-yas-visit-snippet-file`
+`SPC i S n` | [custom] `yas-new-snippet`
+`SPC i s` | `spacemacs/helm-yas` | major mode snippets
+
+
 
 # magit / git
 
