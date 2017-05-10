@@ -135,9 +135,9 @@ Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses
 `C-x n w` | widen
 `SPC n w` | widen
 
-# perspectives
+# layouts
 
-"Perspectives" controls so-called "layouts."
+"Perspectives" is managing layouts.
 
 `SPC l` | `spacemacs/layouts-transient-state/body `
 `SPC C-s a` | `persp-load-state-from-file` | load
@@ -367,6 +367,20 @@ Evaluation controls: `org-confirm-babel-evaluate`, `org-babel-no-eval-on-ctrl-c-
 
 `SPC t C-c` | [custom] toggle no-eval on/off
 
+`setenv "NODE_PATH"` specifically to `/org/node_modules`: [link](http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/). Install babel presets to `/org`, symlink `/org/node_modules/babel-cli/bin/babel-node.js` as `org-babel-node` to path.
+
+``` org
+#+BEGIN_SRC js :cmd "org-babel-node --presets=stage-"
+let obj = {
+  fruit: "apple",
+  veggie: "kale"
+}
+
+let { fruit, ...restItem } = obj;
+console.log(fruit);
+console.log(restItem);
+#+END_SRC
+```
 
 
 
@@ -471,7 +485,8 @@ Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C
 `d d` | `magit-diff-dwim` | diff according to point
 `d s` | `magit-diff-staged` | see everything that would commit
 `E i` | `magit-ediff-show-staged` | ediff a file that has staged changes (`SPC g e s`)
-`+` | split file's hunks into more/smaller hunks
+`=` | split file's hunks into more/smaller hunks
+`+` | split file's hunks into fewer/larger hunks
 `0` | reset file's hunk qty/size
 
 ## from log

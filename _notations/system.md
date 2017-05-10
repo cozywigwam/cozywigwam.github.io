@@ -129,6 +129,10 @@ kill [pid]
 # users with uid 5xx
 dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
 dscl # then `cd Contact`, `cd Users`, `read [username]`
+
+# hide/show directories in Finder
+chflags hidden Pictures
+chflags nohidden Pictures
 ```
 
 
