@@ -1,5 +1,4 @@
 ---
-
 layout: post
 title: "Emacs"
 categories: notation
@@ -12,6 +11,12 @@ subtitle: Er, Spacemacs
 Layouts <-> Perspectives <-> iTerm2 tabs
 Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 
+| `C-x M-:`        | `repeat-complex-command`                 |
+| `SPC v`          | `er-expand-region`                       |
+| `C-M-SPC`        | `mark-sexp`                              |
+| `C-p`            | `evil-paste-pop`                         |
+| -                | `evil-set-initial-state`                 |
+| `SPC e r`        | `evil-show-registers`                    |
 | `SPC m g h`      | `helm-css-scss`                          |
 | `C-S-o`          | [in dired] (custom) open in external app |
 | `SPC b e`        | delete full buffer contents              |
@@ -170,14 +175,12 @@ manual 23.3 [Choosing File Modes](https://www.gnu.org/software/emacs/manual/html
 `C-x TAB` | indent-rigidly
 `TAB` | indent-for-tab-command
 `M-)` | move-past-close-and-reindent
+`>>` | shifts right `evil-shift-width` amount
 
 ```
 (setq standard-indent 2)
 (setq tab-width 2)
 (my-setup-indent 2)
-
-`>>` | shifts right `evil-shift-width` amount
-# TODO make `SPC , t 2` and `4` include setting tab-width and evil-shift-width
 ```
 
 `SPC , t 2` | set
@@ -239,6 +242,12 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `C-c C-j` | switch to line mode
 `C-c C-k` | switch to char mode
 
+## eshell
+
+`C-p`, `C-n` | previous/next input [custom]
+`M-p`, `M-n` | previous/next match
+`C-c C-p`, `C-c C-n` | previous/next prompt
+
 
 # neotree
 
@@ -263,7 +272,7 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `+` | `dired-create-directory` | create directory
 `i` | `dired-maybe-insert-subdir` | insert sub-directory
 `m` & `u` | mark & unmark
-`U`, `* !` | `dired-unmark-all-files` | unmark all
+`* !` | `dired-unmark-all-files` | unmark all
 `t` | toggle all
 `* /` | mark all directories
 `* / t` | mark all files
@@ -310,8 +319,16 @@ var `custom-enabled-themes`
 `,fh` | `describe-face` | [custom shortcut]
 
 
+# markdown
+
+`orgtbl-mode` "hijacks" tab.
+
 # org-mode
 
+[examples and cookbook](http://ehneilsen.net/notebook/orgExamples/org-examples.html)
+
+`SPC x o` | open link
+`org-version` | version
 `< s <tab>` | expands #+BEGIN_SRC ... #+END_SRC ('s' for src)
 `<S-tab>` | cycle all
 `C-c C-p` & `C-c C-n` | prev/next headline
@@ -354,9 +371,15 @@ org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-
 > I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
 
 
+
+
+
+
 ## babel
 
-Evaluate with `C-c C-c`.
+`C-c C-c` | evaluate
+`C-c '` | open/close major mode editing buffer
+`SPC t C-c` | [custom] toggle no-eval on/off
 
 #+BEGIN_SRC js
 let test = [1, 2];
@@ -365,23 +388,27 @@ console.log(Math.max(...test));
 
 Evaluation controls: `org-confirm-babel-evaluate`, `org-babel-no-eval-on-ctrl-c-ctrl-c`.
 
-`SPC t C-c` | [custom] toggle no-eval on/off
 
 `setenv "NODE_PATH"` specifically to `/org/node_modules`: [link](http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/). Install babel presets to `/org`, symlink `/org/node_modules/babel-cli/bin/babel-node.js` as `org-babel-node` to path.
 
 ``` org
-#+BEGIN_SRC js :cmd "org-babel-node --presets=stage-"
+#+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
 let obj = {
   fruit: "apple",
-  veggie: "kale"
+  veggie: "kale",
+  meat: "tofu"
 }
 
 let { fruit, ...restItem } = obj;
+
 console.log(fruit);
 console.log(restItem);
 #+END_SRC
 ```
 
+## export
+
+[WORG publishing org-mode -> HTML](http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html)
 
 
 
@@ -394,11 +421,12 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 `(define-key helm-map (kbd "C-<return>") 'universal-argument)`
 
 
-`C-o` | jump to next section
 
 `C-c ?` | help
 `C-S-h` | describe key binding
 
+`C-o` | jump to next section
+`M-P`, `M-N` | prev/next search
 `<left>`, `<right>` | prev/next file in results
 `F3` | (for helm search) open results in buffer/promote to buffer
 `C-s` | grep highlighted dir/file
@@ -410,7 +438,7 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 `C-c >` | truncate line (TODO where is this available?)
 `M-D` | delete
 `C-t` | toggle display horizontal/vertical
-`SPC .`, `M-m r l` | resume last completion buffer
+`SPC .`, `M-m r l` | resume last completion buffer, use universal argument to choose
 `SPC r s` | resume last search buffer
 `SPC s \`` | go to last place reached with helm ag
 `C-o` | next source
@@ -459,9 +487,9 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 
 Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C-i")`). Yasnippet expand is `M-/`, `C-p`: `hippie-expand`.
 
-`SPC i S v` | [custom] `helm-yas-visit-snippet-file`
-`SPC i S n` | [custom] `yas-new-snippet`
-`SPC i s` | `spacemacs/helm-yas` | major mode snippets
+`SPC i s v` | `helm-yas-visit-snippet-file`
+`SPC i s n` | `yas-new-snippet`
+`SPC i s h` | `spacemacs/helm-yas` | major mode snippets
 
 
 
@@ -509,14 +537,18 @@ Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C
 [macOS - use emacs-plus to reduce sluggishness](https://magit.vc/manual/magit/MacOS-Performance.html)
 
 `(magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")`
+
+
+
+
 # JS
 
+## js2-mode
 
-## React
+`SPC m w` | `js2-mode-toggle-warnings-and-errors` | toggle errors (e.g. underline missing semicolons
 
-prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
+see [emacs stack exchange](https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode)
 
-`(setq-local web-mode-enable-auto-quoting nil)`
 
 
 ## JSX-IDE mode
@@ -525,4 +557,12 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 `C-c C-f` | toggle all funtions
 `C-c @ C-c` | toggle block
 `C-c @ C-h`, `C-c @ C-s` | hide/show block
+
+
+
+## React
+
+prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
+
+`(setq-local web-mode-enable-auto-quoting nil)`
 
