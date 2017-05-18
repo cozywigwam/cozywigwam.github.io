@@ -5,27 +5,30 @@ categories: notation
 subtitle: Er, Spacemacs
 ---
 
-# get around
-## quick reference/favorites/main
-### misc/hard to remember
+* get around
+** quick reference/favorites/main
+*** misc/hard to remember
 Layouts <-> Perspectives <-> iTerm2 tabs
 Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 
-| `C-x M-:`        | `repeat-complex-command`                 |
-| `SPC v`          | `er-expand-region`                       |
-| `C-M-SPC`        | `mark-sexp`                              |
-| `C-p`            | `evil-paste-pop`                         |
-| -                | `evil-set-initial-state`                 |
-| `SPC e r`        | `evil-show-registers`                    |
-| `SPC m g h`      | `helm-css-scss`                          |
-| `C-S-o`          | [in dired] (custom) open in external app |
-| `SPC b e`        | delete full buffer contents              |
-| `SPC w u`        | `winner-undo`                            |
-| `C-x C-b`        | (in helm) resume different helm buffer   |
-| `SPC h d m`      | `spacemacs/describe-mode`                |
-| `C-c >`, `C-c <` | [in helm] next/prev file                 |
+| `amen`              | escape holy-mode                         |
+| `set-initial-state` | gimme normal, not iedt                   |
+| 'F5'                | [in helm locate] open dired              |
+| `C-x M-:`           | `repeat-complex-command`                 |
+| `SPC v`             | `er-expand-region`                       |
+| `C-M-SPC`           | `mark-sexp`                              |
+| `C-p`               | `evil-paste-pop`                         |
+| -                   | `evil-set-initial-state`                 |
+| `SPC e r`           | `evil-show-registers`                    |
+| `SPC m g h`         | `helm-css-scss`                          |
+| `C-S-o`             | [in dired] (custom) open in external app |
+| `SPC b e`           | delete full buffer contents              |
+| `SPC w u`           | `winner-undo`                            |
+| `C-x C-b`           | (in helm) resume different helm buffer   |
+| `SPC h d m`         | `spacemacs/describe-mode`                |
+| `C-c >`, `C-c <`    | [in helm] next/prev file                 |
 
-### buffers/files
+*** buffers/files
 
 | `SPC p h` | `helm-projectile`                                   | recent, buffers, files          |
 | `SPC f r` | `helm-recentf`                                      | recent files                    |
@@ -40,7 +43,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 | `SPC s f` | `spacemacs/helm-files-smart-do-search`              | ag from current/aribtrary dir   |
 | `SPC f D` | `spacemacs/delete-current-buffer-file`              | delete current buffer           |
 
-### get to dired
+*** get to dired
 
 `SPC f j` | `dired-jump`                                        | dired at current file
 `SPC p d` | `helm-projectile-find-ini includes recentf          | &nbsp;
@@ -48,13 +51,13 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 `SPC b W` | `spacemacs/goto-buffer-workspace`                   | go to where that buffer is displayed (if it is)
 `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | &nbsp;
 
-### projects
+*** projects
 
 | `SPC p`   | projects                                            |                                                 |
 | `SPC p b` | `helm-projectile-switch-to-buffer`                  |                                                 |
 | -         | `persp-switch-to-buffer`                            |                                                 |
 
-### files
+*** files
 
 | `SPC f f` | `helm-find-files`                | open files (helm)         |
 | `SPC f F` | `spacemacs/helm-find-files`      | open files (helm)         |
@@ -65,7 +68,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 | `SPC p F` | `helm-projectile-find-file-dwim` | find file with dwim       |
 
 
-# help
+* help
 
 `[`, `]` | back/forward
 `SPC h` | help
@@ -86,7 +89,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 `SPC t l` | toggle line wrap
 
 
-# search
+* search
 
 `SPC /` | search project - spacemacs/helm-project-smart-do-search
 `SPC s f` | ag (smart-do-search) from current (or arbitrary) directory
@@ -117,20 +120,20 @@ regex and character classes and syntax classes:
 https://www.emacswiki.org/emacs/RegularExpression
 
 
-# interface
+* interface
 
 `SPC T M` | maximize
 `f11` | `spacemacs/toggle-frame-fullscreen-non-native`
 
 
-# evil
+* evil
 
 Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses/brackets, `C-[` to leave
 
 
 
 
-# buffer narrowing
+* buffer narrowing
 
 `C-x n` | prefix
 `C-x n d` | narrow to block
@@ -140,7 +143,7 @@ Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses
 `C-x n w` | widen
 `SPC n w` | widen
 
-# layouts
+* layouts
 
 "Perspectives" is managing layouts.
 
@@ -150,8 +153,9 @@ Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses
 
 
 
-# misc
+* misc
 
+`SPC t C-d` | toggle git fringe globally
 `SPC , i` | [custom] helm imenu
 `C-s )` | (in insert mode) insert literal parenthesis (don't allow smart entry)
 `SPC u SPC b d` | close window along with buffer delete
@@ -169,7 +173,7 @@ manual 23.3 [Choosing File Modes](https://www.gnu.org/software/emacs/manual/html
 
 `SPC u SPC !` | shell command into current buffer
 
-## formatting/indenting/auto-format/autoformat
+** formatting/indenting/auto-format/autoformat
 
 `C-M-\` | indent-region
 `C-x TAB` | indent-rigidly
@@ -177,15 +181,16 @@ manual 23.3 [Choosing File Modes](https://www.gnu.org/software/emacs/manual/html
 `M-)` | move-past-close-and-reindent
 `>>` | shifts right `evil-shift-width` amount
 
-```
+#+BEGIN_SRC emacs-lisp
 (setq standard-indent 2)
 (setq tab-width 2)
 (my-setup-indent 2)
-```
+#+END_SRC
 
 `SPC , t 2` | set
 `SPC = j` | format
-`SPC t h i` | `spacemacs/toggle-highlight-indentation` | ?
+`SPC t h i` | `spacemacs/toggle-highlight-indentation`
+`SPC t h c` | `spacemacs/toggle-highlight-indentation-current-column`
 
 
 
@@ -202,24 +207,24 @@ manual 23.3 [Choosing File Modes](https://www.gnu.org/software/emacs/manual/html
 `SPC r r` | see registers, different format than `:reg`
 `SPC x w d` | `osx-dictionary-search-pointer` | dictionary
 
-## bookmarks
+** bookmarks
 
 `C-x r m` | set bookmark
 `C-x r j` | jump to bookmark
 `C-x r l` | bookmark list
 
-## registers
+** registers
 Registers can hold text, rectangles, or positions.
 
 `SPC r r` | `helm-register` | register list
 
-## tabs/indents
+** tabs/indents
 
 tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Display.html#Text-Display
 
 
 
-# modes
+* modes
 
 [Minor modes](http://ergoemacs.org/emacs/emacs_minor_mode.html)
 
@@ -228,28 +233,31 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `M-: major-mode` | see current major mode
 `M-x normal-mode` | revert to the buffer's original mode
 
-# Windows
+* Windows
 
 `SPC w d` | delete
 `SPC w h/j/k/l` | move
 `SPC w m` | toggle maximize
 `SPC v/V/s/S` | split or split with focus
 
-# shells
+* shells
 
-## term
+** term
 
 `C-c C-j` | switch to line mode
 `C-c C-k` | switch to char mode
 
-## eshell
+** eshell
 
 `C-p`, `C-n` | previous/next input [custom]
 `M-p`, `M-n` | previous/next match
 `C-c C-p`, `C-c C-n` | previous/next prompt
 
+** man
 
-# neotree
+`(customize-group 'man)`
+
+* neotree
 
 `SPC p t` | start at project root
 `SPC f t`, `f3` | toggle
@@ -261,7 +269,7 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 
 
 
-# dired
+* dired
 
 [Quick ref PDF](https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf)
 
@@ -295,23 +303,23 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `(` | toggle details
 `J` | find files from here
 
-# keybindings
+* keybindings
 
 [Spacemacs Guide](https://github.com/syl20bnr/spacemacs/wiki/Keymaps-guide)
 
 `evil-insert-state-map`
 
-```
+#+BEGIN_SRC emacs-lisp
 ;; these are the same... they are preceded with SPC
 (evil-leader/set-key ",h" 'eyebrowse-prev-winow-config')
 (spacemacs/set-leader-keys "'" 'projectile-run-term)
-```
+#+END_SRC
 
 
 
 
 
-# color
+* color
 
 var `custom-enabled-themes`
 
@@ -319,17 +327,19 @@ var `custom-enabled-themes`
 `,fh` | `describe-face` | [custom shortcut]
 
 
-# markdown
+* markdown
 
 `orgtbl-mode` "hijacks" tab.
 
-# org-mode
+* org-mode
 
 [examples and cookbook](http://ehneilsen.net/notebook/orgExamples/org-examples.html)
+[cheatsheet](https://emacsclub.github.io/html/org_tutorial.html#sec-8-1)
+
+`< s <tab>` | [snippet] expands `*+BEGIN_SRC` ... `*+END_SRC` ('s' for src)
 
 `SPC x o` | open link
 `org-version` | version
-`< s <tab>` | expands #+BEGIN_SRC ... #+END_SRC ('s' for src)
 `<S-tab>` | cycle all
 `C-c C-p` & `C-c C-n` | prev/next headline
 `C-c C-f` & `C-c C-b` | prev/next same-level headline
@@ -342,17 +352,17 @@ var `custom-enabled-themes`
 `M-S-<left>` & `M-S-<right>` | promote/demote heading or list element
 `: [[http://example.com][ex]]` | use `:` at ^ to preserve no-formatting
 
-## todos
+** todos
 
 `S-M-<ret>` | new TODO
 `C-c C-t` & `S-<right>/<left>` | rotate/cycle TODO state
 
-```
+#+BEGIN_SRC emacs-lisp
 *bold*, /italic/, _underline_
 [[https://sinistrocular.com][birds link]]
-```
+#+END_SRC
 
-## capture template placeholders
+** capture template placeholders
 
 Jonathan Magen's talk on [youtube](https://www.youtube.com/watch?v=KdcXu_RdKI0)
 
@@ -365,9 +375,9 @@ Jonathan Magen's talk on [youtube](https://www.youtube.com/watch?v=KdcXu_RdKI0)
 org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-capture-html)
 
 > With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
-> 
+>
 > For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
-> 
+>
 > I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
 
 
@@ -375,24 +385,23 @@ org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-
 
 
 
-## babel
+** babel
 
 `C-c C-c` | evaluate
 `C-c '` | open/close major mode editing buffer
 `SPC t C-c` | [custom] toggle no-eval on/off
 
-#+BEGIN_SRC js
+*+BEGIN_SRC js
 let test = [1, 2];
 console.log(Math.max(...test));
-#+END_SRC
+*+END_SRC
 
 Evaluation controls: `org-confirm-babel-evaluate`, `org-babel-no-eval-on-ctrl-c-ctrl-c`.
 
 
 `setenv "NODE_PATH"` specifically to `/org/node_modules`: [link](http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/). Install babel presets to `/org`, symlink `/org/node_modules/babel-cli/bin/babel-node.js` as `org-babel-node` to path.
 
-``` org
-#+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
+*+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
 let obj = {
   fruit: "apple",
   veggie: "kale",
@@ -403,18 +412,51 @@ let { fruit, ...restItem } = obj;
 
 console.log(fruit);
 console.log(restItem);
-#+END_SRC
-```
+*+END_SRC
 
-## export
+** export
 
 [WORG publishing org-mode -> HTML](http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html)
+[WORG org -> jekyll](http://orgmode.org/worg/org-tutorials/org-jekyll.html)
+[happyblogger](https://github.com/bmaland/happyblogger)
+[org2jekyll](https://github.com/ardumont/org2jekyll)
+[org-jekyll](https://github.com/juanre/org-jekyll)
+
+[cheatsheet](https://emacsclub.github.io/html/org_tutorial.html)
+
+#+BEGIN_SRC emacs-lisp
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(
+
+        ("org-notes"
+         :base-directory "~/scratch/org-test/org/"
+         :base-extension "org"
+         :publishing-directory "~/scratch/org-test/public_html/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4             ; Just the default for this project.
+         :auto-preamble t
+         )
+
+
+        ("org-static"
+         :base-directory "~/scratch/org-test/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/scratch/org-test/public_html/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+
+        ("org" :components ("org-notes" "org-static"))
+
+        ))
+#+END_SRC
 
 
 
 
-
-# helm and helm-projectile
+* helm and helm-projectile
 
 NOTE: seems like marking multiple files and then opening all buffers in their own windows does not work by default. (Does in helm-mini, but not helm-projectile or helm-projectile-find-file or helm-find-file.) (Bug?) I must pass universal argument for it to work. But only once. After that, no universal-argument is required ... as if doing it once "fixes" it. I mapped universal argument to C-return:
 
@@ -450,11 +492,11 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 `C-x C-b` | (in helm) resume different helm buffer
 `C-s` | (from helm-projectile `SPC p p`) start ag search from directory
 
-## helm projectile project
+** helm projectile project
 
 `C-d` | jump to dired
 
-## helm ag
+** helm ag
 
 `C-x C-s`  | Save ag results to buffer (Ask save buffer name if prefix key is specified)
 `C-c C-f`  | Enable helm-follow-mode
@@ -462,28 +504,28 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 `C-c <`, `left`  | Move to previous file
 `C-c C-e`  | Switch to edit mode
 
-## helm misc
+** helm misc
 
 `SPC s w g` | google suggest
 `SPC s w w` | wikipedia suggest
 `f2` | [in file & projectile] jump to dired
 
-## error buffer
+** error buffer
 
 `SPC e n`, `SPC e p` | next/previous
 `SPC e` | error transient state
 
-```
+#+BEGIN_SRC emacs-lisp
 (setq powerline-default-separator 'utf-8)
 (setq powerline-default-separator 'zigzag)
-```
+#+BEGIN_SRC emacs-lisp
 
 `*dired` | filter major-mode dired
 `*!dired` | filter exclude major-mode dired
 
 
 
-# yasnippet
+* yasnippet
 
 Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C-i")`). Yasnippet expand is `M-/`, `C-p`: `hippie-expand`.
 
@@ -493,44 +535,44 @@ Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C
 
 
 
-# magit / git
+* magit / git
 
 [manual](https://magit.vc/manual/magit.html)
 
-## general
+** general
 
 `]h`, `[h` | next/prev hunk
 `SPC g f f` | `magit-find-file` | open revision
 `SPC g f h` | `magit-log-buffer-file` | history/log for current buffer
 `SPC g d w` | `magit-diff-working-tree` | all changes - quickly check if branch is clean
 
-## from status
+** from status
 
 `C-u s` | [point at untracked file] track without staging ("git add --intent-to-add")
 `M-1`, `M-2`, `M-3`, `M-4` | outline expansion
 `^` | up
 `M-w` | copy (kill) hash/revision
-`d d` | `magit-diff-dwim` | diff according to point
+`d` | diff options (e.g. whitespace)
 `d s` | `magit-diff-staged` | see everything that would commit
 `E i` | `magit-ediff-show-staged` | ediff a file that has staged changes (`SPC g e s`)
 `=` | split file's hunks into more/smaller hunks
 `+` | split file's hunks into fewer/larger hunks
 `0` | reset file's hunk qty/size
 
-## from log
+** from log
 
 `O` | [in log] reset popup
 
-## from commit
+** from commit
 
 `M-p` | [in commit window] pull up previously used commit messages
 
-## from popup
+** from popup
 
 `?` | describe key
 `C-t` | show popup menu
 
-## misc
+** misc
 
 [reddit workflows](https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/)
 [infix arguements and suffix commands](https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands)
@@ -541,9 +583,11 @@ Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C
 
 
 
-# JS
+* JS
 
-## js2-mode
+[rjxs-mode](https://github.com/felipeochoa/rjsx-mode)
+
+** js2-mode
 
 `SPC m w` | `js2-mode-toggle-warnings-and-errors` | toggle errors (e.g. underline missing semicolons
 
@@ -551,7 +595,7 @@ see [emacs stack exchange](https://emacs.stackexchange.com/questions/26949/can-i
 
 
 
-## JSX-IDE mode
+** JSX-IDE mode
 
 `C-c C-o` | toggle element
 `C-c C-f` | toggle all funtions
@@ -560,9 +604,15 @@ see [emacs stack exchange](https://emacs.stackexchange.com/questions/26949/can-i
 
 
 
-## React
+** React
 
 prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 
 `(setq-local web-mode-enable-auto-quoting nil)`
 
+
+
+# Links
+
+[Spacemacs Advanced Kit](http://oss.io/p/trishume/spacemacs)
+[Org Cheat Sheet](https://emacsclub.github.io/html/org_tutorial.html#sec-8-1)
