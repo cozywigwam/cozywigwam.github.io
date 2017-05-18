@@ -1,4 +1,5 @@
 .DS_Store
-_site
-assets/vendor/
-.sass-cache
+node_modules/
+public/
+*.log
+.gatsby-context.js

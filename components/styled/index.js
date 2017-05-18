@@ -1,0 +1,393 @@
+import styled, { injectGlobal, css } from 'styled-components';
+import { darken, lighten } from 'polished';
+import { Link } from 'react-router';
+import { Row } from 'hedron';
+
+const gray = "#26282a";
+const grayDarker = "#222426";
+const grayLighter = "#3a3a3a";
+const white = "#f1f1f1";
+const red = "#fe978b";
+const green = "#d6fcba";
+const yellow = "#fffed5";
+const blue = "#c2e3ff";
+const magenta = "#ffc6ff";
+const cyan = "#c0e9f8";
+
+const headerWidthMqDesktop = "20%";
+
+/*
+ * Media Queries
+ */
+
+const media = {
+  xs: (...args) => css`
+    @media (min-width: 420px) {
+      ${ css(...args) }
+    }
+  `,
+  sm: (...args) => css`
+    @media (min-width: 768px) {
+      ${ css(...args) }
+    }
+  `,
+  md: (...args) => css`
+    @media (min-width: 992px) {
+      ${ css(...args) }
+    }
+  `,
+  lg: (...args) => css`
+    @media (min-width: 1200px) {
+      ${ css(...args) }
+    }
+  `,
+  xl: (...args) => css`
+    @media (min-width: 1400px) {
+      ${ css(...args) }
+    }
+  `,
+  xxl: (...args) => css`
+    @media (min-width: 1900px) {
+      ${ css(...args) }
+    }
+  `
+}
+
+/*
+ * Global Styles
+ */
+injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Theano+Modern&Norwester');
+
+  html {
+    background: ${gray};
+  }
+  body {
+    margin: 0;
+    font-family: 'Theano Modern', serif;
+    color: ${white};
+    background: ${gray};
+  }
+
+  a {
+    text-decoration: none;
+    color: ${yellow};
+
+    &:hover {
+      color: ${red};
+    }
+    &:visited {
+      color: ${blue};
+    }
+    &:active {
+      color: ${magenta};
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    font-family: "Inconsolata", monospace;
+    margin-bottom: 2rem;
+    background: ${grayDarker};
+    max-width: 1000px;
+    border-bottom: 4px solid ${magenta};
+  }
+  td {
+    border: 1px solid magenta;
+  }
+  th, td {
+    padding: 0.5rem 1rem;
+    line-height: 1.8;
+    border: 1px solid ${grayLighter};
+
+    @include breakpoint-sm {
+      padding: 0.5rem 1.2rem;
+    }
+    @include breakpoint-md {
+      padding: 0.6rem 1.3rem;
+    }
+    @include breakpoint-lg {
+      padding: 0.6rem 1.4rem;
+    }
+  }
+  td {
+    text-align: left;
+    font-size: 13px;
+
+    ${media.sm`
+      font-size: 14px;
+    `}
+    ${media.lg`
+      font-size: 15px;
+    `}
+    ${media.xl`
+      font-size: 16px;
+    `}
+    ${media.xxl`
+      font-size: 17px;
+    `}
+  }
+
+
+
+// inline
+code {
+  margin: 0 3px;
+  padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
+  @include alpha-gray();
+  font-size: 13px;
+  background: $black-dark;
+  border-top: 1px solid $black-light;
+  border-bottom: 2px solid $quarternary-color; // also overwritten below
+
+  // @include breakpoint-xs {
+  //   font-size: 14px;
+  // }
+  // @include breakpoint-sm {
+  //   font-size: 15px;
+  // }
+  // @include breakpoint-lg {
+  //   font-size: 16px;
+  // }
+  // @include breakpoint-xl {
+  //   font-size: 17px;
+  // }
+}
+table code {
+  font-family: "Inconsolata";
+  background: none;
+  border: 0;
+}
+table td > code:first-child {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+// block
+.highlight {
+  overflow-x: auto;
+  padding: 16px 20px 20px;
+  font-size: 11px;
+  border: 1px solid $black-light;
+  @include bg-box-alpha-gray();
+
+  // @include breakpoint-sm {
+  //   padding: 28px 30px;
+  //   font-size: 13px;
+  // }
+  // @include breakpoint-md {
+  //   font-size: 14px;
+  // }
+  // @include breakpoint-lg {
+  //   font-size: 15px;
+  // }
+
+  // overwrite inline
+  code {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+}
+
+
+
+
+
+
+`;
+
+export const Wrapper = styled.div`
+    padding: 10% 6% 12%;
+
+    ${media.sm`
+      padding-top: 0;
+      padding-bottom: 0;
+    `}
+    ${media.lg`
+      margin-left: ${headerWidthMqDesktop};
+    `}
+
+    padding-top: ${props => props.homeWrapper || '10%'};
+`;
+
+export const Hr = styled.hr`
+  max-width: 90%;
+  height: 4px;
+  margin: 10% auto 15% 0;
+  background: ${yellow};
+  border-bottom: 2px solid ${blue};
+`;
+export const Footer = styled.footer`
+  padding: 0 6% 8%;
+`;
+export const Header = styled.header`
+    height: 60px;
+ `;
+
+export const Logo = styled(Link)`
+    position: fixed;
+    top: -80px;
+    right: 16px;
+    display: block;
+    transform: scaleX(-1);
+ `;
+
+export const ReturnHomeLink = styled(Link)`
+    display: inline-block;
+    margin: 5% 0;
+    padding: 1em 2em;
+    color: $body-copy;
+    font-size: 15px;
+
+    &:hover {
+      color: ${gray};
+      background: ${red};
+    }
+`;
+export const StyledLink = styled(Link)`
+    text-decoration: none;
+`;
+
+ export const StyledAnchor = styled.a`
+   color: palevioletred;
+   font-size: 18px;
+ `;
+
+export const Message = styled.h2`
+  font-size: 27px;
+  text-decoration: underline;
+`;
+
+/*
+ * Button
+ */
+export const Button = styled.button`
+  padding: ${props => props.large ? '16px 48px' : '8px 24px'};
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: black;
+  border: 0;
+  cursor: pointer;
+`;
+
+/*
+ * DefaultButton
+ */
+export const DefaultButton = styled(Button)`
+  background-color: lightblue;
+  &:hover {
+    background: ${darken(0.1, '#add8e6')};
+  }
+`;
+
+/*
+ * PrimaryButton
+ */
+export const PrimaryButton = styled(Button)`
+  background-color: lightseagreen;
+  &:hover {
+    background: ${darken(0.1, '#20b2aa')};
+  }
+`;
+
+/*
+ * Success
+ */
+export const SuccessButton = styled(Button)`
+  background-color: lightgreen;
+  &:hover {
+    background: ${darken(0.1, '#90ee90')};
+  }
+`;
+
+/*
+ * Warning
+ */
+export const WarningButton = styled(Button)`
+  background-color: lightsalmon;
+  &:hover {
+    background: ${darken(0.1, '#ffa07a')};
+  }
+`;
+
+/*
+ * Danger
+ */
+export const DangerButton = styled(Button)`
+  background-color: lightcoral;
+  &:hover {
+    background: ${darken(0.1, '#f08080')};
+  }
+`;
+
+/*
+ * Input
+ */
+export const Input = styled.input`
+  color: ${props => props.color};
+  font-size: 16px;
+  padding: ${props => props.large ? '16px 48px' : '8px 24px'};
+  border: 2px solid ${props => props.color};
+  background: transparent;
+`;
+
+/*
+ * Text
+ */
+export const Text = styled.p`
+  font-size: ${props => props.fontSize || '16px'};
+  ${ media.xs`
+    font-size: 20px;
+  ` }
+`;
+
+export const PostHeader = styled.div`
+  padding-bottom: 60px;
+`;
+export const PostTitle = styled.h1`
+  margin: 0.4em 0 .02em;
+  font-size: 35px;
+  font-family: 'Norwester';
+  line-height: 1.4;
+  color: ${magenta};
+`;
+export const PostDescription = styled.h2`
+  margin: 0.4em 0 .02em;
+  font-size: 28px;
+  font-family: 'Norwester';
+  line-height: 1.4;
+`;
+
+/*
+ * PostBody
+ */
+export const PostBody = styled.div`
+ padding: 0px 50px;
+ font-size: 17px;
+ ${ media.xs`
+   font-size: 20px;
+ ` }
+`;
+
+/*
+ * ErrorTitle
+ */
+export const ErrorTitle = styled.h4`
+  font-size: 34px;
+  margin-bottom: 0;
+`;
+
+/*
+ * ErrorBody
+ */
+export const ErrorBody = styled.div`
+  font-size: 18px;
+
+  a {
+    display: block;
+    margin-top: 50px;
+  }
+`;
