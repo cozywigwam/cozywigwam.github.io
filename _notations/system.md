@@ -141,6 +141,8 @@ chflags nohidden Pictures
 ```sh
 history -c
 
+scp -r <local_spec> <remote_spec>
+
 # vagrant
 vagrant ssh-config # see hostname, port, SSH Key location
 ```

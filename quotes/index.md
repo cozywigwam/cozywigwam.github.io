@@ -55,3 +55,6 @@ Ideas are like rabbits. You get a couple and learn how to handle them, and prett
 
 "In vain does the chicken cross the road; Emacs is on both sides." – Ludovic Brenta
 
+
+
+"[B]e a Many-Worlder on Monday, a Bohmian on Tuesday, and a Copenhagenist on Wednesday" - http://www.scottaaronson.com/blog/?p=613, referencing the blog of Peter Shor.

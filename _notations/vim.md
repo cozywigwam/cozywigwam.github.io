@@ -11,6 +11,7 @@ subtitle: Seek Nirvana
 
 ## Misc
 
+`~` | swap case
 `:ver` | know thyself
 `!echo $VIMRUNTIME` | you are here
 `<C-v><C-i>` | insert a tab character
