@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bash Scripting"
-categories: cheatsheet
+categories: notations
 subtitle: lamer
 ---
 

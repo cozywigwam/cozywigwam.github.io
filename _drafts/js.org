@@ -1,0 +1,240 @@
+* testing with code blocks
+
+#+BEGIN_SRC js
+let colors = [ "red", "purple", "green" ];
+let [ firstColor, ...remain ] = colors;
+console.log(firstColor);
+console.log(remain);
+#+END_SRC
+
+
+
+
+* Template Literals
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+  function cl(input) {
+    console.log(input);
+  }
+
+let a = `asdf`;
+console.log(a);
+#+END_SRC
+
+#+RESULTS:
+: asdf
+: undefined
+
+
+* Destructuring
+
+** Arrays
+
+** Objects
+
+#+BEGIN_SRC js
+console.log('df');
+#+END_SRC
+
+#+RESULTS:
+: df
+: undefined
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+let props = {
+  postData: {
+    title: 'pd-title',
+    description: 'pd-desc',
+    path: 'pd-path'
+  },
+  title: 'reg-title',
+  description: 'reg-desc',
+  path: 'reg-path'
+}
+console.log(props);
+  const { title, description, path } = props.postData;
+console.log(title);
+console.log(description);
+console.log(path);
+console.log(props);
+
+title = props;
+console.log(title);
+console.log(description);
+console.log(path);
+console.log(props);
+#+END_SRC
+
+
+#+BEGIN_SRC js :cmd "babel-node --presets=stage-2"
+let obj1 = {
+  bird: "falcon2",
+  frog: "bullfrog"
+}
+let { bird, frog: frogName } = obj1;
+console.log(bird);
+console.log(frogName);
+
+let obj2 = {
+  fruit: "apple",
+  veggie: "kale",
+  meat: "tofuball"
+}
+let { fruit, ...restItem } = obj2;
+console.log(fruit);
+console.log(restItem);
+#+END_SRC
+
+#+RESULTS:
+
+
+* Styling
+
+** Styled Components
+
+*** Smashing Magazine best practices
+Max Stoiber, best practices from [Smashing Magazine](https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/). Three main best practices:
+1 - building small, focused and independent components
+2 - splitting container and presentational components
+    - keep data/logic ("container components that render presentational components") and presentation/styling components separate
+3 - single-use CSS names
+
+- remove the map between styles and components
+
+
+*** YouTube video about styling components
+
+#+BEGIN_SRC js
+import Button from './Button';
+
+const Home = () =>
+  <div>
+    <Button>btn main</Button>
+    <Button primary href="https://duckduckgo.com">btn2</Button>
+    <Button danger>danger</Button>
+  </div>
+#+END_SRC
+
+
+#+BEGIN_SRC js
+const Button = ({ primary, danger, className, ...props }) => {
+  const Tag = props.href ? "a" : "button"
+
+  return <Tag
+    type="button"
+    className={cn(
+      'btn',
+      primary && 'btn-primary',
+      danger && 'btn-danger',
+      className)}
+    {...props}
+  />
+}
+
+const DangerBtn = props =>
+  <Button
+    danger
+    {...props}
+  />
+
+const PrimaryBtn = props =>
+  <Button
+    primary
+    {...props}
+  />
+
+export default Button
+#+END_SRC
+
+
+
+
+
+
+* React
+
+** Components
+
+*** Syntax
+
+# 1 - no props needed
+
+#+BEGIN_SRC js
+const PostLink = () =>
+  <PostHeader>
+    <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+    <PostDescription>{description}</PostDescription>
+  </PostHeader>
+#+END_SRC
+
+# 2 - props without being a class
+
+#+BEGIN_SRC js
+const PostLink = props => {
+  const { title, description, path } = props.postData;
+
+  return (
+    <PostHeader>
+      <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+      <PostDescription>{description}</PostDescription>
+    </PostHeader>
+  )
+}
+export default PostLink
+#+END_SRC
+
+# 3 - class
+
+#+BEGIN_SRC js
+export default class PostLink extends React.Component {
+  render() {
+    const { title, description, path } = this.props.postData;
+
+    return (
+      <PostHeader>
+        <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+        <PostDescription>{description}</PostDescription>
+      </PostHeader>
+    );
+  }
+}
+#+END_SRC
+
+
+
+* SCRATCH / TEST
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+let props = {
+  postData: {
+    title: 'pd-title',
+    description: 'pd-desc',
+    path: 'pd-path'
+  },
+  title: 'reg-title',
+  description: 'reg-desc',
+  path: 'reg-path'
+}
+console.log(props);
+#+END_SRC
+
+#+RESULTS:
+: { postData: { title: 'pd-title', description: 'pd-desc', path: 'pd-path' },
+:   title: 'reg-title',
+:   description: 'reg-desc',
+:   path: 'reg-path' }
+: undefined
+
+
+#+BEGIN_SRC js :cmd "org-babel-node --presets=es2015"
+  const animals = ['dog', 'cat']
+
+  animals.map((anim) => {
+    console.log('anim', anim);
+  })
+#+END_SRC
+
+#+RESULTS:
+: anim dog
+: anim cat
+: undefined
