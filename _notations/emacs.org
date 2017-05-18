@@ -155,7 +155,17 @@ Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses
 
 * misc
 
-`SPC t C-d` | toggle git fringe globally
+File-local variables:
+
+# -*- org-use-tag-inheritance: nil; -*-
+
+* Local variables
+# local variables:
+# org-attach-directory: "./data"
+# org-id-method: uuid
+# end:
+
+`SPC t C-d`, `SPC T f` | toggle fringe
 `SPC , i` | [custom] helm imenu
 `C-s )` | (in insert mode) insert literal parenthesis (don't allow smart entry)
 `SPC u SPC b d` | close window along with buffer delete
@@ -385,7 +395,9 @@ org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-
 
 
 
-** babel
+** code blocks/babel
+
+[header arguments for code blocks](http://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments)
 
 `C-c C-c` | evaluate
 `C-c '` | open/close major mode editing buffer
@@ -415,6 +427,9 @@ console.log(restItem);
 *+END_SRC
 
 ** export
+
+`C-c C-e #` | insert default export options from template
+`#+OPTIONS: toc:nil` | don't export table of contents
 
 [WORG publishing org-mode -> HTML](http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html)
 [WORG org -> jekyll](http://orgmode.org/worg/org-tutorials/org-jekyll.html)
