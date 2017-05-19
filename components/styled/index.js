@@ -3,16 +3,18 @@ import { darken, lighten } from 'polished';
 import { Link } from 'react-router';
 import { Row } from 'hedron';
 
-const gray = "#26282a";
-const grayDarker = "#222426";
-const grayLighter = "#3a3a3a";
-const white = "#f1f1f1";
-const red = "#fe978b";
-const green = "#d6fcba";
-const yellow = "#fffed5";
-const blue = "#c2e3ff";
-const magenta = "#ffc6ff";
-const cyan = "#c0e9f8";
+const colors = {
+  gray: "#26282a",
+  grayDarker: "#222426",
+  grayLighter: "#3a3a3a",
+  white: "#f1f1f1",
+  red: "#fe978b",
+  green: "#d6fcba",
+  yellow: "#fffed5",
+  blue: "#c2e3ff",
+  magenta: "#ffc6ff",
+  cyan: "#c0e9f8"
+}
 
 const headerWidthMqDesktop = "20%";
 
@@ -60,27 +62,27 @@ injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Theano+Modern&Norwester');
 
   html {
-    background: ${gray};
+    background: ${colors.gray};
   }
   body {
     margin: 0;
     font-family: 'Theano Modern', serif;
-    color: ${white};
-    background: ${gray};
+    color: ${colors.white};
+    background: ${colors.gray};
   }
 
   a {
     text-decoration: none;
-    color: ${yellow};
+    color: ${colors.yellow};
 
     &:hover {
-      color: ${red};
+      color: ${colors.red};
     }
     &:visited {
-      color: ${blue};
+      color: ${colors.blue};
     }
     &:active {
-      color: ${magenta};
+      color: ${colors.magenta};
     }
   }
 
@@ -88,17 +90,14 @@ injectGlobal`
     border-collapse: collapse;
     font-family: "Inconsolata", monospace;
     margin-bottom: 2rem;
-    background: ${grayDarker};
+    background: ${colors.grayDarker};
     max-width: 1000px;
-    border-bottom: 4px solid ${magenta};
-  }
-  td {
-    border: 1px solid magenta;
+    border-bottom: 4px solid ${colors.magenta};
   }
   th, td {
     padding: 0.5rem 1rem;
     line-height: 1.8;
-    border: 1px solid ${grayLighter};
+    border: 1px solid ${colors.grayLighter};
 
     ${media.sm`
       padding: 0.5rem 1.2rem;
@@ -130,83 +129,90 @@ injectGlobal`
 
 
 
-code {
-  margin: 0 3px;
-  padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
-  font-size: 13px;
-  background: ${grayDarker};
-  border-top: 1px solid ${grayLighter};
-  border-bottom: 1px solid ${magenta}; // also overwritten below
-
-  ${media.sm`
-    font-size: 14px;
-  `}
-  ${media.lg`
-    font-size: 15px;
-  `}
-  ${media.xl`
-    font-size: 16px;
-  `}
-  ${media.xxl`
-    font-size: 17px;
-  `}
-}
-table code {
-  font-family: "Inconsolata";
-  background: none;
-  border: 0;
-}
-table td > code:first-child {
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.highlight {
-  overflow-x: auto;
-  padding: 16px 20px 20px;
-  font-size: 11px;
-  border: 1px solid ${grayLighter};
-
-  ${media.sm`
-    padding: 28px 30px;
-    font-size: 13px;
-    `}
-  ${media.md`
-    font-size: 14px;
-  `}
-  ${media.lg`
-    font-size: 15px;
-  `}
-
-  // overwrite inline
   code {
-    margin: 0;
-    padding: 0;
+    margin: 0 3px;
+    padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
+    font-size: 13px;
+    background: ${colors.grayDarker};
+    border-top: 1px solid ${colors.grayLighter};
+    border-bottom: 1px solid ${colors.magenta}; // also overwritten below
+
+    ${media.sm`
+      font-size: 14px;
+    `}
+    ${media.lg`
+      font-size: 15px;
+    `}
+    ${media.xl`
+      font-size: 16px;
+    `}
+    ${media.xxl`
+      font-size: 17px;
+    `}
+  }
+  table code {
+    font-family: "Inconsolata";
     background: none;
     border: 0;
   }
-}
+  table td > code:first-child {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .highlight {
+    overflow-x: auto;
+    padding: 16px 20px 20px;
+    font-size: 11px;
+    border: 1px solid ${colors.grayLighter};
+
+    ${media.sm`
+      padding: 28px 30px;
+      font-size: 13px;
+      `}
+    ${media.md`
+      font-size: 14px;
+    `}
+    ${media.lg`
+      font-size: 15px;
+    `}
+
+    code {
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+  }
 
 
 
-.highlighter-rouge + h4,
-.highlighter-rouge + h5,
-.highlighter-rouge + p,
-.highlighter-rouge + ul,
-.highlighter-rouge + ol,
-.highlighter-rouge + blockquote,
-.highlighter-rouge + table {
-  margin-top: 3.2rem;
-}
-table + h2,
-table + h3,
-.highlighter-rouge + h2,
-.highlighter-rouge + h3 {
-  margin-top: 3.8rem;
-}
-table + table,
-.highlighter-rouge + .highlighter-rouge {
-  margin-top: 4rem;
+  .highlighter-rouge + h4,
+  .highlighter-rouge + h5,
+  .highlighter-rouge + p,
+  .highlighter-rouge + ul,
+  .highlighter-rouge + ol,
+  .highlighter-rouge + blockquote,
+  .highlighter-rouge + table {
+    margin-top: 3.2rem;
+  }
+  table + h2,
+  table + h3,
+  .highlighter-rouge + h2,
+  .highlighter-rouge + h3 {
+    margin-top: 3.8rem;
+  }
+  table + table,
+  .highlighter-rouge + .highlighter-rouge {
+    margin-top: 4rem;
+  }
+
+
+
+
+
+h2 {
+  color: ${colors.blue};
 }
 
 
@@ -232,8 +238,8 @@ export const Hr = styled.hr`
   max-width: 90%;
   height: 4px;
   margin: 10% auto 15% 0;
-  background: ${yellow};
-  border-bottom: 2px solid ${blue};
+  background: ${colors.yellow};
+  border-bottom: 2px solid ${colors.blue};
 `;
 export const Footer = styled.footer`
   padding: 0 6% 8%;
@@ -258,8 +264,8 @@ export const ReturnHomeLink = styled(Link)`
     font-size: 15px;
 
     &:hover {
-      color: ${gray};
-      background: ${red};
+      color: ${colors.gray};
+      background: ${colors.red};
     }
 `;
 export const StyledLink = styled(Link)`
@@ -281,7 +287,7 @@ export const Message = styled.h2`
  */
 export const Button = styled.button`
   padding: ${props => props.large ? '16px 48px' : '8px 24px'};
-  color: white;
+  color: ${colors.white};
   font-size: 16px;
   font-weight: 600;
   background-color: black;
@@ -368,7 +374,7 @@ export const PostTitle = styled.h1`
   font-size: 35px;
   font-family: 'Norwester';
   line-height: 1.4;
-  color: ${magenta};
+  color: ${colors.magenta};
 `;
 export const PostDescription = styled.h2`
   margin: 0.4em 0 .02em;
