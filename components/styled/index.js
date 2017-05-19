@@ -100,15 +100,15 @@ injectGlobal`
     line-height: 1.8;
     border: 1px solid ${grayLighter};
 
-    @include breakpoint-sm {
+    ${media.sm`
       padding: 0.5rem 1.2rem;
-    }
-    @include breakpoint-md {
+    `}
+    ${media.md`
       padding: 0.6rem 1.3rem;
-    }
-    @include breakpoint-lg {
+    `}
+    ${media.lg`
       padding: 0.6rem 1.4rem;
-    }
+    `}
   }
   td {
     text-align: left;
@@ -130,28 +130,26 @@ injectGlobal`
 
 
 
-// inline
 code {
   margin: 0 3px;
   padding: 2px 4px 5px 4px; // inline padding, overwritten below for code blocks
-  @include alpha-gray();
   font-size: 13px;
-  background: $black-dark;
-  border-top: 1px solid $black-light;
-  border-bottom: 2px solid $quarternary-color; // also overwritten below
+  background: ${grayDarker};
+  border-top: 1px solid ${grayLighter};
+  border-bottom: 1px solid ${magenta}; // also overwritten below
 
-  // @include breakpoint-xs {
-  //   font-size: 14px;
-  // }
-  // @include breakpoint-sm {
-  //   font-size: 15px;
-  // }
-  // @include breakpoint-lg {
-  //   font-size: 16px;
-  // }
-  // @include breakpoint-xl {
-  //   font-size: 17px;
-  // }
+  ${media.sm`
+    font-size: 14px;
+  `}
+  ${media.lg`
+    font-size: 15px;
+  `}
+  ${media.xl`
+    font-size: 16px;
+  `}
+  ${media.xxl`
+    font-size: 17px;
+  `}
 }
 table code {
   font-family: "Inconsolata";
@@ -163,24 +161,22 @@ table td > code:first-child {
   padding-left: 0;
 }
 
-// block
 .highlight {
   overflow-x: auto;
   padding: 16px 20px 20px;
   font-size: 11px;
-  border: 1px solid $black-light;
-  @include bg-box-alpha-gray();
+  border: 1px solid ${grayLighter};
 
-  // @include breakpoint-sm {
-  //   padding: 28px 30px;
-  //   font-size: 13px;
-  // }
-  // @include breakpoint-md {
-  //   font-size: 14px;
-  // }
-  // @include breakpoint-lg {
-  //   font-size: 15px;
-  // }
+  ${media.sm`
+    padding: 28px 30px;
+    font-size: 13px;
+    `}
+  ${media.md`
+    font-size: 14px;
+  `}
+  ${media.lg`
+    font-size: 15px;
+  `}
 
   // overwrite inline
   code {
@@ -192,6 +188,26 @@ table td > code:first-child {
 }
 
 
+
+.highlighter-rouge + h4,
+.highlighter-rouge + h5,
+.highlighter-rouge + p,
+.highlighter-rouge + ul,
+.highlighter-rouge + ol,
+.highlighter-rouge + blockquote,
+.highlighter-rouge + table {
+  margin-top: 3.2rem;
+}
+table + h2,
+table + h3,
+.highlighter-rouge + h2,
+.highlighter-rouge + h3 {
+  margin-top: 3.8rem;
+}
+table + table,
+.highlighter-rouge + .highlighter-rouge {
+  margin-top: 4rem;
+}
 
 
 
