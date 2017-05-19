@@ -3,6 +3,12 @@ import { darken, lighten } from 'polished';
 import { Link } from 'react-router';
 import { Row } from 'hedron';
 
+const font = {
+  family: {
+    default: "'Theano Modern', serif",
+    heading: "'Norwester', sans-serif"
+  }
+}
 const colors = {
   gray: "#26282a",
   grayDarker: "#222426",
@@ -66,7 +72,7 @@ injectGlobal`
   }
   body {
     margin: 0;
-    font-family: 'Theano Modern', serif;
+    font-family: ${font.family.default};
     color: ${colors.white};
     background: ${colors.gray};
   }
@@ -210,6 +216,19 @@ injectGlobal`
 
 
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.4em 0 0.8em;
+  font-family: ${font.family.heading};
+  font-weight: normal;
+  line-height: 1.8;
+  margin: 1.4em 0 .8em;
+  letter-spacing: 0.05em;
+  cursor: default;
+
+  a {
+    cursor: pointer;
+  }
+}
 
 h2 {
   color: ${colors.blue};
