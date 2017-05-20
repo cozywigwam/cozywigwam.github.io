@@ -16,7 +16,7 @@ path: "/markdown/"
 
 # Tables
 
-3 dash minimum, colors for alignment, line begin/end pipes optional.
+3 dash minimum, columns for alignment, line begin/end pipes optional. Header not required for gfm, but is seemeingly everywhere else.
 
 ```
 | th | th | th |
@@ -43,13 +43,13 @@ Daring Fireball's:
 
 ## github.com
 
-Uses ["GitHub Flavored Markdown,"] aka GFM:
+Uses "[GitHub Flavored Markdown]," aka GFM:
 
 - [Syntax]
 - [Writing on GitHub root]
 - [Kramdown parse info].
 
-["GitHub flavored markdown,"]: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
+[GitHub flavored markdown]: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
 [Syntax]: https://help.github.com/articles/basic-writing-and-formatting-syntax/
 [Writing on GitHub root]: https://help.github.com/categories/writing-on-github/
 [Kramdown parse info]: http://kramdown.gettalong.org/parser/gfm.html
@@ -98,8 +98,7 @@ Slack API [basic message formatting].
 
 Formatting: https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all
 
-{% raw %}
-```bash
+```
 {{inline-code}}
 
 {code} or {code:javascript}
@@ -115,7 +114,6 @@ This is multiple lines
 of block quote
 {quote}
 ```
-{% endraw %}
 
 
 

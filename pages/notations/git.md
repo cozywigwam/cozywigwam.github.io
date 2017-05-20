@@ -12,6 +12,8 @@ path: "/git/"
 `git help -a` | see commands
 `git help -p` | concept guides
 
+|||
+|-|-|
 `git diff` | working to index
 `git diff HEAD` | working to HEAD
 `git diff --cached` | index to HEAD (cached is a synonym for staged)
