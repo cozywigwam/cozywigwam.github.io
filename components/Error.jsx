@@ -1,7 +1,6 @@
 import React from 'react';
 import { Column, Row } from 'hedron';
 import { prefixLink } from 'gatsby-helpers';
-import { ErrorTitle, ErrorBody, StyledLink } from './styled/';
 
 export default class Error extends React.Component {
   render() {
@@ -11,13 +10,13 @@ export default class Error extends React.Component {
     return (
       <Row>
         <Column>
-          <ErrorTitle>Yikes!</ErrorTitle>
+          <h1>Yikes!</h1>
         </Column>
         <Column>
-          <ErrorBody>
+          <div>
             <div dangerouslySetInnerHTML={{ __html: body }} />
-            <StyledLink to={prefixLink('/')}>back home</StyledLink>
-          </ErrorBody>
+            <Link to={prefixLink('/')}>back home</Link>
+          </div>
         </Column>
       </Row>
     );

@@ -7,12 +7,6 @@ import _ from 'lodash';
 import {
   Message,
   Subtitle,
-  DefaultButton,
-  PrimaryButton,
-  SuccessButton,
-  WarningButton,
-  DangerButton,
-  Input,
   StyledLink
 } from '../components/styled/';
 
@@ -34,21 +28,7 @@ export default class Components extends React.Component {
         </Row>
         <Row>
           <Column>
-            <Subtitle>Buttons</Subtitle>
-            <DefaultButton>Default</DefaultButton>
-            <PrimaryButton>Primary</PrimaryButton>
-            <SuccessButton>Success</SuccessButton>
-            <WarningButton>Warning</WarningButton>
-            <DangerButton>Danger</DangerButton>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
             <Subtitle>Inputs</Subtitle>
-            <Input color="red" placeholder="Red" />
-            <Input color="rebeccapurple" placeholder="Rebeccapurple" />
-            <Input color="salmon" placeholder="Salmon" />
-            <Input color="goldenrod" placeholder="Goldenrod" />
           </Column>
         </Row>
         <Row>
