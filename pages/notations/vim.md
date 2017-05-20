@@ -178,7 +178,6 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `<C-w> T` | move current window to a new tab page
 
 
-<hr/>
 
 # Plugins & other related
 

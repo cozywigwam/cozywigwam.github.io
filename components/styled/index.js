@@ -36,16 +36,22 @@ injectGlobal`
       color: ${Colors.red};
     }
     &:visited {
-      color: ${Colors.blue};
     }
     &:active {
       color: ${Colors.magenta};
     }
   }
 
+  blockquote {
+    margin-left: 0;
+    margin-bottom: 2rem;
+    padding: 0.5rem 2rem;
+    ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+    font-style: italic;
+    border-left: 1px solid ${Colors.yellow};
+  }
   table {
     border-collapse: collapse;
-    font-family: "Inconsolata", monospace;
     margin-bottom: 2rem;
     background: ${Colors.grayDarker};
     max-width: 1000px;
@@ -147,8 +153,28 @@ injectGlobal`
     }
   }
 
+  h1 {
+    ${Mixins.fontSizer(Font.size.base.heading.h1, Constants.multipliers.heading)}
+    color: ${Colors.white};
+  }
   h2 {
+    ${Mixins.fontSizer(Font.size.base.heading.h2, Constants.multipliers.heading)}
     color: ${Colors.blue};
+  }
+  h3 {
+    ${Mixins.fontSizer(Font.size.base.heading.h3, Constants.multipliers.heading)}
+    color: ${Colors.green};
+  }
+  h4 {
+    ${Mixins.fontSizer(Font.size.base.heading.h4, Constants.multipliers.heading)}
+    color: ${Colors.yellow};
+  }
+  h5 {
+    ${Mixins.fontSizer(Font.size.base.heading.h5, Constants.multipliers.heading)}
+    color: ${Colors.cyan};
+  }
+  h6 {
+    ${Mixins.fontSizer(Font.size.base.heading.h6, Constants.multipliers.heading)}
   }
 
 
@@ -205,7 +231,7 @@ export const ReturnHomeLink = styled(Link)`
     }
 `;
 export const StyledLink = styled(Link)`
-    text-decoration: none;
+  ${props => props.white ? `color: ${Colors.white};` : '' }
 `;
 
 export const Message = styled.h2`
@@ -235,7 +261,8 @@ export const Input = styled.input`
 export const PostHeader = styled.div`
   padding-bottom: 60px;
 `;
-export const PostTitle = styled.h1`
+export const H1 = styled.h1`
+  color: ${Colors.white};
   margin: 0.4em 0 .02em;
   line-height: 1.4;
 `;

@@ -4,18 +4,19 @@ import { Link } from 'react-router';
 
 import {
   PostHeader,
-  PostTitle,
+  H1,
+  StyledLink,
   PostDescription
 } from './styled/';
 
 const HeadingGroup = props => {
   return (
     <PostHeader>
-      <PostTitle>
+      <H1>
         { props.path
-          ? <Link to={props.path}>{props.title}</Link>
+          ? <StyledLink white to={props.path}>{props.title}</StyledLink>
           : `${props.title}` }
-      </PostTitle>
+      </H1>
       <PostDescription>
         { props.descLink
           ? <a href={"descLink:" + props.descLink}>{props.description}</a>
