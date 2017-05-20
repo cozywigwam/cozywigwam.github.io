@@ -1,3 +1,12 @@
+* Styles
+** Code
+*** Types
+- inline
+  - body text
+  - inside table td
+- pre
+
+
 * JS
 ** JS styles
 *** Colors
