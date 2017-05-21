@@ -1,8 +1,8 @@
 ---
 title: "Command Line"
 layout: notation
-categories: cheatsheet
 description: ZSH, etc.
+path: "/command-line/"
 ---
 
 
