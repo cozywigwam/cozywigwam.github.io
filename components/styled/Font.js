@@ -1,19 +1,25 @@
 export const Font = {
   family: {
     default: "'Theano Modern', serif",
-    heading: "'Norwester', sans-serif"
+    heading: "'Norwester', sans-serif",
+    monospace: "'Inconsolata', monospace"
   },
   size: {
     base: {
       heading: {
-        h1: "2.2rem",
-        h2: "1.8rem",
-        h3: "1.5rem",
-        h4: "1.2rem",
-        h5: "1.1rem",
-        h6: "1.05rem"
+        h1: 28,
+        h2: 25,
+        h3: 22,
+        h4: 19,
+        h5: 17,
+        h6: 16
       }
     }
+  },
+  lineHeight: {
+    compressed: 1.4,
+    regular: 1.6,
+    extended: 1.8
   },
   multiplier: {
     sm: 1.05,

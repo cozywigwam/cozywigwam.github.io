@@ -22,6 +22,7 @@ injectGlobal`
   body {
     margin: 0;
     font-family: ${Font.family.default};
+    line-height: ${Font.lineHeight.regular};
     color: ${Colors.white};
     background: ${Colors.gray};
 
@@ -50,6 +51,7 @@ injectGlobal`
     font-style: italic;
     border-left: 1px solid ${Colors.yellow};
   }
+
   table {
     border-collapse: collapse;
     margin-bottom: 2rem;
@@ -62,10 +64,10 @@ injectGlobal`
   }
   td {
     padding: 0.5rem 1rem;
-    line-height: 1.8;
+    line-height: ${Font.lineHeight.extended};
     border: 1px solid ${Colors.grayLighter};
     text-align: left;
-    ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
 
     @media (min-width: ${Constants.MQ.sm}px) {
       padding: 0.5rem 1.2rem;
@@ -78,15 +80,19 @@ injectGlobal`
     }
   }
 
+  /*
+   * Three types of code...
+   */
   code {
     margin: 0 3px;
     padding: 1px 5px 3px;
+    // TODO: move family to Font
+    font-family: ${Font.family.monospace};
     ${Mixins.fontSizer(16, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};
     border-bottom: 1px solid ${Colors.grayLighter};
   }
   table code {
-    font-family: "Inconsolata";
     background: none;
     border: 0;
     ${Mixins.fontSizer(13, Constants.multipliers.regular)}
@@ -96,7 +102,7 @@ injectGlobal`
     padding-left: 0;
   }
 
-  .highlight {
+  pre {
     overflow-x: auto;
     padding: 16px 20px 20px;
     ${Mixins.fontSizer(13, Constants.multipliers.regular)}
@@ -105,35 +111,28 @@ injectGlobal`
     @media (min-width: ${Constants.MQ.sm}px) {
       padding: 28px 30px;
     }
-
-    code {
-      margin: 0;
-      padding: 0;
-      background: none;
-      border: 0;
-    }
+  }
+  pre code {
+    margin: 0;
+    padding: 0;
+    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
+    line-height: ${Font.lineHeight.extended};
+    background: none;
+    border: 0;
   }
 
 
 
-  .highlighter-rouge + h4,
-  .highlighter-rouge + h5,
-  .highlighter-rouge + p,
-  .highlighter-rouge + ul,
-  .highlighter-rouge + ol,
-  .highlighter-rouge + blockquote,
-  .highlighter-rouge + table {
-    margin-top: 3.2rem;
-  }
-  table + h2,
-  table + h3,
-  .highlighter-rouge + h2,
-  .highlighter-rouge + h3 {
-    margin-top: 3.8rem;
+  pre + p,
+  pre + ul,
+  pre + ol,
+  pre + blockquote,
+  pre + table {
+    // margin-top: 3.2rem;
   }
   table + table,
-  .highlighter-rouge + .highlighter-rouge {
-    margin-top: 4rem;
+  pre + pre {
+    // margin-top: 4rem;
   }
 
 
