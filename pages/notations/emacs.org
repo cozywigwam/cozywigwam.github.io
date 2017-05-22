@@ -152,20 +152,6 @@ Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses
 
 
 
-* misc
-
-File-local variables:
-
-# -*- org-use-tag-inheritance: nil; -*-
-
-** toggles / display
-
-`SPC t n` | toggle line numbers
-`SPC t r` | toggle relative line numbers
-`SPC t l` | toggle line wrap
-`SPC t W` | [custom] toggle word wrap
-
-
 * Local variables
 # local variables:
 # org-attach-directory: "./data"
@@ -249,6 +235,10 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `C-h v major-mode` | see current major mode
 `M-: major-mode` | see current major mode
 `M-x normal-mode` | revert to the buffer's original mode
+
+** JSON
+
+`C-c C-f` | beautify/auto-format TODO bind/normalize this
 
 * Windows
 
@@ -638,3 +628,24 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 
 [Spacemacs Advanced Kit](http://oss.io/p/trishume/spacemacs)
 [Org Cheat Sheet](https://emacsclub.github.io/html/org_tutorial.html#sec-8-1)
+
+
+* misc
+
+File-local variables:
+
+# -*- org-use-tag-inheritance: nil; -*-
+
+** toggles / display
+
+`SPC t n` | toggle line numbers
+`SPC t r` | toggle relative line numbers
+`SPC t l` | toggle line wrap
+`SPC t W` | [custom] toggle word wrap
+
+
+`audo-mode-alist` | list of regex file extensions to determine the major mode
+
+Fix remote zsh prompt to permit TRAMP (from [github](https://github.com/syl20bnr/spacemacs/issues/1945):
+
+`[ [ $TERM == "dumb" ] ] && unsetopt zle && PS1='$ ' && return` (remove space between brackets)
