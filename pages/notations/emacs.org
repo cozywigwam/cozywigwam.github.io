@@ -280,6 +280,7 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 
 [Quick ref PDF](https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf)
 
+`K`, `gr` | hide/kill and show/revert
 `w` | `dired-copy-filename-as-kill` | copy filename
 `SPC u 0 w` | copy filename with full path
 `o` | open in other window
@@ -289,13 +290,14 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `m` & `u` | mark & unmark
 `* !` | `dired-unmark-all-files` | unmark all
 `t` | toggle all
-`* /` | mark all directories
+`* s` | mark all
+`* /` | mark directories
+`* @` | mark symlinks
 `* / t` | mark all files
 `d` | mark for deletion
 `x` | `dired-do-flagged-delete` | delete deletion-marked files
 `!` | run shell command
 `SPC f f` | new file (at current directory)
-`R` | rename/mv
 `C` | copy
 `R` | rename/move
 `D` | delete
@@ -468,6 +470,15 @@ console.log(restItem);
 
 
 
+** visibility
+
+#+BEGIN_SRC emacs-lisp
+#+STARTUP: showeverything
+
+;; or
+
+(setq org-startup-folded nil)
+#+END_SRC
 * helm and helm-projectile
 
 NOTE: seems like marking multiple files and then opening all buffers in their own windows does not work by default. (Does in helm-mini, but not helm-projectile or helm-projectile-find-file or helm-find-file.) (Bug?) I must pass universal argument for it to work. But only once. After that, no universal-argument is required ... as if doing it once "fixes" it. I mapped universal argument to C-return:
