@@ -1,3 +1,8 @@
+* TODO finish styled components transition into gatsby
+* TODO redo footer somehow
+* TODO finish all style copy-over
+* TODO publish
+
 * Styles
 ** Code
 *** Types
