@@ -4,7 +4,7 @@
   "description": "A Gatsby starter with styled-components",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "gatsby develop -p 5000",
     "build": "gatsby build",
     "develop": "gatsby develop"
   },
