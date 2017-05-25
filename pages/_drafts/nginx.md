@@ -46,7 +46,7 @@ sudo git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
 sudo service nginx stop
 netstat -na | grep ':80.*LISTEN' # sanity check
 
-/opt/letsencrypt/letsencrypt-auto certonly --standalone # launch GUI
+sudo /opt/letsencrypt/letsencrypt-auto certonly --standalone # launch GUI
 sudo ls /etc/letsencrypt/live/YOUR_DOMAIN_NAME # verify
 
 # renew everything
@@ -54,7 +54,6 @@ sudo /opt/letsencrypt/letsencrypt-auto renew
 
 # generate Diffie-Hellman Group
 sudo openssl dhparam -out /etc/ssl/certs/dhparam_DOMAIN.pem 2048 # !diffie
-sudo openssl dhparam -out /etc/ssl/certs/dhparam_colleenandgrant.pem 2048
 ```
 
 ### server block config for SSL

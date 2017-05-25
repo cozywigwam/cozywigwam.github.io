@@ -1,7 +1,79 @@
-* headline 1
-** headline 2
-copy
+* Router
 
-#+BEGIN_SRC js
-  console.log('test2');
+** npm/package
+
+*** old is 'react-router'
+*** new is 'react-router-dom' or 'react-router-native' (both will include 'react-router')
+
+** resources
+*** Paul Sherman's [A Simple React Router v4 Tutorial](https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf)
+
+"Anywhere that you want to only render something if it matches the URL's pathname, you should create a <Route> element."
+
+
+
+* JSX
+
+** Conditionals
+*** simple if
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+{
+  props.link.isAvailable &&
+  <Link to={ head.link.url }>{ props.link.name </Link>
+}
+#+END_SRC
+
+* Styled Components
+
+** Example directly to a Styled Component
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+
+// # - /App.js
+import { OrangeSpan } from './styled/Button.js'
+// ...
+<div>
+  <OrangeSpan/>
+</div>
+
+// # - /styled/Button.js
+import React from 'react'
+import styled from 'styled-components';
+
+export const OrangeSpan = styled.span`
+  background: orange;
+`
+#+END_SRC
+
+
+** Example to an intermediate component inside styled/comp.js
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+
+// # - /App.js
+import { Button } from './styled/Button.js'
+// ...
+<div>
+  <Button/>
+</div>
+
+
+// # - /styled/Button.js
+import React from 'react'
+import styled from 'styled-components';
+
+const ButtonThatMovesPerOpen = styled.div`
+  position: absolute;
+  margin-left: ${(props) => (props.open) ? `${props.width}px` : 'none'};
+  transition: margin .2s;
+`
+export const Button = (props) => {
+  return (
+    <ButtonThatMovesPerOpen {...props}>
+      <span onClick={props.toggle}>button</span>
+    </ButtonThatMovesPerOpen>
+  )
+}
+
 #+END_SRC

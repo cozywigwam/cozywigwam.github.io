@@ -548,6 +548,11 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 
 
 
+* company
+
+`M-h` | [company is active] show help popup/tooltip
+`pos-tip-hide` | hide the popup/tooltip
+
 * yasnippet
 
 Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C-i")`). Yasnippet expand is `M-/`, `C-p`: `hippie-expand`.
