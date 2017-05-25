@@ -1,6 +1,7 @@
 import React from 'react';
 import { Column, Row } from 'hedron';
 import { prefixLink } from 'gatsby-helpers';
+import { Link } from 'react-router';
 
 export default class Error extends React.Component {
   render() {

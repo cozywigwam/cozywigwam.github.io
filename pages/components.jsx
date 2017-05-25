@@ -17,34 +17,6 @@ export default class Components extends React.Component {
 
     return (
       <Page>
-        <Helmet title={`${config.siteTitle} - ${_.capitalize(post.name)}`} />
-        <Row divisions={1}>
-          <Column sm={1}>
-            <StyledLink to={prefixLink('/')}>back home</StyledLink>
-          </Column>
-          <Column sm={1}>
-            <Message>Example Components</Message>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <Subtitle>Inputs</Subtitle>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <Subtitle>Variants</Subtitle>
-            <PrimaryButton large>Primary</PrimaryButton>
-            <SuccessButton large>Success</SuccessButton>
-            <DangerButton large>Danger</DangerButton>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <Input large color="rebeccapurple" placeholder="Rebeccapurple" />
-            <Input large color="goldenrod" placeholder="Goldenrod" />
-          </Column>
-        </Row>
       </Page>
     );
   }
