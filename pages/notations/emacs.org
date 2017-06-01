@@ -19,7 +19,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 | `C-M-SPC`           | `mark-sexp`                              |
 | `C-p`               | `evil-paste-pop`                         |
 | -                   | `evil-set-initial-state`                 |
-| `SPC e r`           | `evil-show-registers`                    |
+| `SPC r e`           | `evil-show-registers`                    |
 | `SPC m g h`         | `helm-css-scss`                          |
 | `C-S-o`             | [in dired] (custom) open in external app |
 | `SPC b e`           | delete full buffer contents              |
