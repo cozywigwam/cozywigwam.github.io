@@ -1,7 +1,10 @@
 ```bash
-jekyll serve
+# serve on 5000
+npm start
 
-# build to /_site
-jekyll build --watch
+# build to /public
+npm build
 ```
+
+Gatsby build with Styled Components. Also org-mode -> md/html -> react -> html (at some point).
 
