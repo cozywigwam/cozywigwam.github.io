@@ -86,7 +86,6 @@ injectGlobal`
   code {
     margin: 0 3px;
     padding: 1px 5px 3px;
-    // TODO: move family to Font
     font-family: ${Font.family.monospace};
     ${Mixins.fontSizer(16, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};

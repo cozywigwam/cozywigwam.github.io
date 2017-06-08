@@ -1,12 +1,36 @@
+---
+layout: post
+title: "JavaScript"
+categories: notation
+subtitle: JavaScript Wins
+---
+
 * testing with code blocks
 
 #+BEGIN_SRC js
 let colors = [ "red", "purple", "green" ];
+if (x) {
+  console.log('cl');
+}
 let [ firstColor, ...remain ] = colors;
 console.log(firstColor);
 console.log(remain);
 #+END_SRC
 
+#+RESULTS:
+: red
+: [ 'purple', 'green' ]
+: undefined
+
+#+BEGIN_SRC js2
+if (x) {
+  console.log('zxcv');
+}
+let colors = [ "red", "purple", "green" ];
+let [ firstColor, ...remain ] = colors;
+console.log(firstColor);
+console.log(remain);
+#+END_SRC
 
 
 
@@ -51,19 +75,19 @@ let props = {
   description: 'reg-desc',
   path: 'reg-path'
 }
-console.log(props);
-  const { title, description, path } = props.postData;
-console.log(title);
-console.log(description);
-console.log(path);
-console.log(props);
 
-title = props;
+const { title, description, path } = props.postData;
+
 console.log(title);
 console.log(description);
 console.log(path);
-console.log(props);
 #+END_SRC
+
+#+RESULTS:
+: pd-title
+: pd-desc
+: pd-path
+: undefined
 
 
 #+BEGIN_SRC js :cmd "babel-node --presets=stage-2"
@@ -199,6 +223,11 @@ export default class PostLink extends React.Component {
   }
 }
 #+END_SRC
+
+
+* Misc
+
+"Module request format," /a la node/: starts-with-dot is local.
 
 
 

@@ -1,0 +1,75 @@
+---
+layout: post
+title: "Org"
+categories: notation
+subtitle: This Pays Off, Right?
+---
+
+* My Project Setup
+
+** Example Tree
+
+This is a sample project code root. It excludes possible additional directories like `config` and `scripts`, and is showing files in `_org`:
+
+#+BEGIN_SRC shell
+.
+├── _org
+│   ├── [project-name].org
+│   ├── notes.org
+│   ├── scratch.js
+│   ├── sitemap.org
+├── _reference
+├── client/src
+│   ├── ...
+└── public/dist
+    └── ...
+#+END_SRC
+
+*** [project-name].org
+
+This contains TODOs. If they should be tracked in the global agenda, then they need to be added to `org-agenda-files`:
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-agenda-files (list "~/org/work.org"
+                               "~/org/[project-name-1].org"
+                               "~/org/[project-name-2].org"
+                               "~/org/todo.org"))
+#+END_SRC
+
+I symlink this particular file to `~/org/` for easy access, but that's just me.
+
+*** notes.org
+
+When I research something, I'm trying to either learn it or just figure it out to get something done. If it's something that's general or applicable to all of my other projects, I'll try to record the salient bits in the SFSS notations. If it's project-specific, or something I want handy and close by, I'll put it in `notes.org`.
+
+*** sitemap.org
+
+This is optional. Sometimes I write out the sitemap by hand and manually update it as changes occur in order to keep what's what and what they're called as top of mind. In Sunflower Sea Star's case, however, it doesn't make a ton of sense to do that for two reasons: one is that since everything roughly a 1-to-1 flat file setup, I can just look at the files in the directory to see what pages are there. Then again, this could be automated and exported, hmmm:
+
+#+BEGIN_SRC shell
+echo '-one-off-pages:\n'
+echo 'home'
+echo 'about\n'
+echo '-notations:\n'
+ls
+#+END_SRC
+
+#+RESULTS:
+| -one-off-pages: |
+|                 |
+| home            |
+| about           |
+|                 |
+| -notations:     |
+|                 |
+| browsers.md     |
+| command-line.md |
+| emacs.org       |
+| git.md          |
+| markdown.md     |
+| org.org         |
+| server-setup.md |
+| system.md       |
+| tmux.md         |
+| type.md         |
+| vim.md          |

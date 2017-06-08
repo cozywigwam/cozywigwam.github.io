@@ -11,6 +11,8 @@ subtitle: Er, Spacemacs
 Layouts <-> Perspectives <-> iTerm2 tabs
 Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 
+| `SPC x w d`         | `osx-dictionary-search-pointer`          |
+| ``M-h`, `M-l`       | `org-metaright`, like `<M-right>`        |
 | `amen`              | escape holy-mode                         |
 | `set-initial-state` | gimme normal, not iedt                   |
 | 'F5'                | [in helm locate] open dired              |
@@ -86,6 +88,9 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 `SPC ?` | `helm-descbinds`
 `C-h e` | see startup error messages
 
+In info:
+
+`<f1> ?` | `help-for-help`
 
 
 * search
@@ -106,11 +111,14 @@ Delete/remove trailing whitespace:
 `SPC x d w` | `delete-trailing-whitespace`
 
 Delete/remove unwanted/empty/blank lines:
+
+`C-x C-o` | `delete-blank-lines`
+`flush-lines`
+
 `:g/^$/d`
 `:v/./d`
 `:g/^\s-*$/d`
 `:v/\S-/d`
-`flush-lines`
 
 Break opening HTML tags to new line:
 `:%s/<\([:alpha:]\)/<\n<\1`
@@ -124,10 +132,33 @@ https://www.emacswiki.org/emacs/RegularExpression
 `SPC T M` | maximize
 `f11` | `spacemacs/toggle-frame-fullscreen-non-native`
 
+** Default
+*** [[https://github.com/m2ym/popwin-el][popwin-el]]
+**** Customization Examples from [[https://github.com/syl20bnr/spacemacs/issues/6649][popwin:special-display-config is not configurable by the user · Issue #6649 · syl20bnr/spacemacs]]
+#+BEGIN_SRC emacs-lisp
+(push '("*Help*" :dedicated t :position right :stick t :noselect t :width 0.3)
+      popwin:special-display-config)
+
+Because push adds the entry to the beginning, it overrides the existing "*Help*" entry that appears later in the alist. A cleaner approach is to modify the entry in-place. If you want to change the height of help windows:
+
+(plist-put (cdr (assoc "*Help*" popwin:special-display-config))
+           :height 0.25)
+
+If you want to change an entire entry:
+
+(setcdr (assoc "*Help*" popwin:special-display-config)
+        '(:dedicated t :position right :stick t :noselect t :width 0.3))
+#+END_SRC
+
+
+** Alternatives
+*** [[https://github.com/bmag/emacs-purpose][Purpose]]
+*** [[https://github.com/wasamasa/shackle][Shackle]]
+
 
 * evil
 
-Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses/brackets, `C-[` to leave
+  Enter evil lisp state with `SPC k .` ... use `j` and `k` to navigate parentheses/brackets, `C-[` to leave
 
 
 
@@ -205,21 +236,43 @@ manual 23.3 [Choosing File Modes](https://www.gnu.org/software/emacs/manual/html
 `SPC t n` | line numbers
 `SPC t r` | relative line numbers
 `SPC tab` | alternate buffer
-`SPC f y` | kill full path & filename
+`SPC f y` | kill/get path & filename
+`SPC f j` + `SPC f y` + `q` | kill/get path only (from dired)
 `SPC r y` | see kill ring
 `SPC r r` | see registers, different format than `:reg`
 `SPC x w d` | `osx-dictionary-search-pointer` | dictionary
 
 ** bookmarks
 
-`C-x r m` | set bookmark
-`C-x r j` | jump to bookmark
-`C-x r l` | bookmark list
+`C-x r M`, `SPC r M` [custom] | bookmark-set-no-overwrite | set bookmark
+`C-x r l`, `SPC r L` [custom] | `bookmark-bmenu-list` | bookmark list
+`SPC f b`, `SPC r b` [custom] | `helm-filtered-bookmarks` | helm bookmarks
+
+In *Bookmark List*:
+
+`?` | help
+`d`, `x` | like dired, mark and delete
+`RET`, `1`, `2` | different ways to open
+`C-o` | switch other window to this bookmark
+`r` | rename
+`R` | relocate
+`t` | toggle info
+`s` | save default bookmark file, prefix to non-default
+`l` | load bookmark file
 
 ** registers
-Registers can hold text, rectangles, or positions.
+Registers can hold text, rectangles, positions, window configurations, and buffer-local undo points.
 
 `SPC r r` | `helm-register` | register list
+`C-x r w`, `SPC r w` [custom] | `window-configuration-to-register` | store
+`C-x r j`, `SPC r j` [custom] | `jump-to-register` | restore
+`C-x r u` | `undo-tree-save-state-to-register`
+`C-x r U` | `undo-tree-restore-state-from-register`
+
+
+** marks
+
+`SPC t \`` | `spacemacs/toggle-evil-visual-mark-mode`
 
 ** tabs/indents
 
@@ -260,7 +313,7 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `M-p`, `M-n` | previous/next match
 `C-c C-p`, `C-c C-n` | previous/next prompt
 
-** man
+** man/woman
 
 `(customize-group 'man)`
 
@@ -268,11 +321,12 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 
 `SPC p t` | start at project root
 `SPC f t`, `f3` | toggle
-`K` | parent
+`J`, `K` | navigate down/up
+`H`, `L` | navigate siblings
 `R` | make root
 `|` | vsplit
 `-` | split
-`s` | toggle hidden TODO make 'i' like vim
+`s` | toggle hidden
 
 
 
@@ -292,8 +346,10 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `t` | toggle all
 `* s` | mark all
 `* /` | mark directories
+`* .` | mark extensions
 `* @` | mark symlinks
 `* / t` | mark all files
+`% g` | mark files that contain REGEXP
 `d` | mark for deletion
 `x` | `dired-do-flagged-delete` | delete deletion-marked files
 `!` | run shell command
@@ -311,6 +367,33 @@ tab-width: https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Displa
 `C-c C-c` | save wdired changes
 `(` | toggle details
 `J` | find files from here
+`C-x M-o` | hide/toggle uninteresting files
+
+Use default `^` to go up, but use custom `U` to go up from the current physical directory. Use `U`, `v` to change from being inside a symlinked-dir path to the physical path. (Missing attribution.)
+
+#+BEGIN_SRC emacs-lisp
+  ;; Same as `dired-up-directory', except for wrapping with `file-truename'.
+  ;; ref. https://emacs.stackexchange.com/questions/29908/dired-up-to-parent-directory-on-symlink/29910
+  (defun my-dired-up-directory (&optional other-window)
+    "Run Dired on parent directory of current directory.
+Follows symlinks for current directory.
+Find the parent directory either in this buffer or another buffer.
+Creates a buffer if necessary.
+If OTHER-WINDOW (the optional prefix arg), display the parent
+directory in another window."
+    (interactive "P")
+    (let* ((dir  (file-truename (dired-current-directory)))
+           (up   (file-name-directory (directory-file-name dir))))
+      (or (dired-goto-file (directory-file-name dir))
+          ;; Only try dired-goto-subdir if buffer has more than one dir.
+          (and (cdr dired-subdir-alist)  (dired-goto-subdir up))
+          (progn (if other-window (dired-other-window up) (dired up))
+                 (dired-goto-file dir)))))
+
+(define-key dired-mode-map (kbd "U") 'my-dired-up-directory)
+#+END_SRC
+
+
 
 * keybindings
 
@@ -351,6 +434,7 @@ var `custom-enabled-themes`
 
 ** keys/basics
 
+`C-c .` | `org-time-stamp` | insert stamp
 `< s <tab>` | [snippet] expands `*+BEGIN_SRC` ... `*+END_SRC` ('s' for src)
 `C-c C-o` | `org-open-at-point` | open at point
 `SPC x o` | `link-hint-open-link` | open link
@@ -533,8 +617,6 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 
 `(define-key helm-map (kbd "C-<return>") 'universal-argument)`
 
-
-
 `C-c ?` | help
 `C-S-h` | describe key binding
 
@@ -565,6 +647,7 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 
 ** helm projectile project
 
+`SPC p I` | `projectile-invalidate-cache` | empty `projectile-projects-cache`
 `C-d` | jump to dired
 
 ** helm ag
@@ -650,24 +733,28 @@ Spacelayers 'auto-completion' mode add `indent-for-tab-command` to TAB (`(kbd "C
 
 ** misc
 
-[reddit workflows](https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/)
-[infix arguements and suffix commands](https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands)
-[macOS - use emacs-plus to reduce sluggishness](https://magit.vc/manual/magit/MacOS-Performance.html)
+[[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit workflows]]
+[[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][infix arguements and suffix commands]]
+[[https://magit.vc/manual/magit/MacOS-Performance.html][macOS - use emacs-plus to reduce sluggishness]]
 
+#+BEGIN_SRC emacs-lisp
 `(magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")`
+#+END_SRC
+
+`C-x C-o` | `delete-blank-lines`
 
 
 
 
 * JS
 
-[rjxs-mode](https://github.com/felipeochoa/rjsx-mode)
+[[https://github.com/felipeochoa/rjsx-mode][rjxs-mode]]
 
 ** js2-mode
 
 `SPC m w` | `js2-mode-toggle-warnings-and-errors` | toggle errors (e.g. underline missing semicolons
 
-see [emacs stack exchange](https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode)
+see [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][emacs stack exchange]]
 
 
 
@@ -675,8 +762,8 @@ see [emacs stack exchange](https://emacs.stackexchange.com/questions/26949/can-i
 
 `C-c C-o` | toggle element
 `C-c C-f` | toggle all funtions
-`C-c @ C-c` | toggle block
-`C-c @ C-h`, `C-c @ C-s` | hide/show block
+`C-c @ C-c` | `hs-toggle-hiding` | toggle block
+`C-c @ C-h`, `C-c @ C-s` | `hs-hide-block`, `hs-show-block` | hide/show block
 
 
 
@@ -692,6 +779,11 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 
 [Spacemacs Advanced Kit](http://oss.io/p/trishume/spacemacs)
 [Org Cheat Sheet](https://emacsclub.github.io/html/org_tutorial.html#sec-8-1)
+
+
+* other configs
+
+[[https://github.com/r-darwish/dcp/blob/000856dc0622e70b576cceb87322c45d37b7d73f/.spacemacs][r-darwish]]
 
 
 * misc

@@ -1,0 +1,108 @@
+---
+layout: post
+title: "HTML"
+categories: notation
+---
+
+* Tags
+** `<blockquote>`
+*** [[https://html.spec.whatwg.org/multipage/semantics.html#the-blockquote-element][WHATWG]]
+WHATWG says, "Attribution for the quotation, if any, must be placed outside the blockquote element."
+
+*** A List Apart's [[https://gist.github.com/murtaugh/4489740][gist]]
+
+**** Single Line
+#+BEGIN_SRC html
+<figure class="quote">
+	<blockquote>It is the unofficial force—the Baker Street irregulars.</blockquote>
+</figure>
+#+END_SRC
+
+**** Single Line with Attribution
+#+BEGIN_SRC html
+<figure class="quote">
+	<blockquote>It is the unofficial force—the Baker Street irregulars.</blockquote>
+	<figcaption>Sherlock Holmes, <cite>Sign of Four</cite></figcaption>
+</figure>
+#+END_SRC
+
+**** Multi-Line
+#+BEGIN_SRC html
+<figure class="quote">
+	<blockquote>
+		<p>It is the unofficial force—the Baker Street irregulars.</p>
+		<p>What a bunch of maroons.</p>
+	</blockquote>
+	<figcaption>Sherlock Holmes, <cite>Sign of Four</cite></figcaption>
+</figure>
+#+END_SRC
+
+**** Tweets
+#+BEGIN_SRC html
+<figure class="tweet">
+	<!-- what's inside here is simply the code provided by Twitter without alteration. -->
+	<blockquote class="twitter-tweet" data-partner="tweetdeck"><p>Never, ever, ever let them call you a “creative”. It’s a way to be disenfranchised. You are a designer. It’s not magic, it’s a trade.</p>&mdash; Mike Monteiro (@Mike_FTW) <a href="https://twitter.com/Mike_FTW/status/320929309273493505">April 7, 2013</a></blockquote>
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</figure>
+#+END_SRC
+
+**** Pull Quote
+#+BEGIN_SRC html
+<aside class="quote">
+	<blockquote>It is the unofficial force—the Baker Street irregulars.</blockquote>
+</aside>
+#+END_SRC
+
+*** [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote][<blockquote> - HTML | MDN]]
+
+
+* HTML examples
+** Head
+
+*** Including CSS
+
+CSS Styles in the head ((MDN)[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style])
+
+#+BEGIN_SRC html
+
+<link href="styles/main.css" rel="stylesheet">
+
+<style>
+    body { display: none; }
+</style>
+
+<!-- optional [MIME] `type` attribute defauts to `text/css`, i.e. <style type="text/css" /> -->
+#+END_SRC
+
+
+* misc
+
+[schema.org Microdata](http://schema.org/docs/gs.html)
+[Google's "structured data"](https://developers.google.com/search/docs/guides/intro-structured-data?rd=1)
+
+** W3C
+*** [[https://w3c.github.io/html/][W3C HTML Draft]]
+
+** WHATWG & W3 miscellany
+
+#+BEGIN_SRC html
+<blockquote>
+The W3C publishes some forked versions of these specifications. We have requested that they stop publishing these but they have refused. They copy most of our fixes into their forks, but their forks are usually weeks to months behind. They also make intentional changes, and sometimes even unintentional changes, to their versions. We highly recommend not paying any attention to the W3C forks of WHATWG standards.
+
+<cite>From <a href="https://wiki.whatwg.org/wiki/FAQ#What_are_the_various_versions_of_the_HTML_spec.3F" target="_blank">WHATWG FAQ</a></cite>
+</blockquote>
+#+END_SRC
+
+Steve Faulkner at HTML5 Doctor leaves out WHATWG spec in some articles, and puts the onus on the reader to know that he [Steve] is referring specifically to W3's decision-making and spec.
+
+#+BEGIN_SRC html
+<blockquote>
+<p>It is not the first time that I read Steve Faulkner in this blog not acknowledging the fact that there currently two HTML slightly different specifications are being maintained, W3’s and WHATWG’s, and neither that on occasions some changes in one of them are explicitly not adopted by the other (say, hgroup being dropped).</p>
+<p>I understand Steve is directly affiliated with the W3 and not the WHATWG, and that disagreements between both groups may carry some feelings of confrontation. But taking into account the didactic nature of this blog, and considering that there is no agreed upon reasoning of why someone not Steve should consider either group’s specification the true single reference, I think obviating altogether the fact that the other specification exists, and what is then their stance on the updates being adopted by the other, actually diminishes the value of this blog. Even if a personal bias is explicitly expressed, doing so gives your readers a better position to reflect upon the values of your writings. Obviating it makes it look as if that is motivated by a personal agenda.</p>
+<p>Why there is no comment whatsoever on why developers.whatwg.org still explicitly states that the cite element cannot be used for names? Is it that the new meaning was also accepted by WHATWG but they haven’t updated it yet in the streamlined specification for web developers, or is it that their this change was exclusively breed in the W3 and the WHATWG’s stance has not changed (explicitly declaring so or by omission) and thus there are now two different notions of what cite can be used for?</p>
+
+<cite>From <a href="http://html5doctor.com/cite-and-blockquote-reloaded/" target="_blank">Jorge's comment</a> at the HTML5 Doctor website</cite>
+</blockquote>
+#+END_SRC
+
+Reference [Jorge's comment](http://html5doctor.com/cite-and-blockquote-reloaded/).
