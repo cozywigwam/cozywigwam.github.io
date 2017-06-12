@@ -44,6 +44,7 @@ Workspaces <-> Eyebrowse <-> tmux windows or vim tabs
 | `SPC /`   | `spacemacs/helm-project-smart-do-search`            | ag from project root            |
 | `SPC s f` | `spacemacs/helm-files-smart-do-search`              | ag from current/aribtrary dir   |
 | `SPC f D` | `spacemacs/delete-current-buffer-file`              | delete current buffer           |
+| `C-]` | [in helm find dir] `helm-ff-run-toggle-basename`
 
 *** get to dired
 
@@ -450,6 +451,7 @@ var `custom-enabled-themes`
 `M-<left>` & `M-<right>` | promote/demote heading or list element
 `M-S-<left>` & `M-S-<right>` | promote/demote heading or list element
 `: [[http://example.com][ex]]` | use `:` at ^ to preserve no-formatting
+`C-c -` | `org-ctrl-c-minus` | rotate list state (`org-cycle-list-bullet`) or other, context-senstive
 
 ** todos
 

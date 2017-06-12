@@ -65,28 +65,20 @@ console.log('df');
 : undefined
 
 #+BEGIN_SRC js :cmd "org-babel-node"
-let props = {
-  postData: {
-    title: 'pd-title',
-    description: 'pd-desc',
-    path: 'pd-path'
-  },
-  title: 'reg-title',
-  description: 'reg-desc',
-  path: 'reg-path'
-}
+  let structured = {
+    title: 'structured title',
+    description: 'structured desc'
+  }
 
-const { title, description, path } = props.postData;
+  const { title, description } = structured;
 
-console.log(title);
-console.log(description);
-console.log(path);
+  console.log(title);
+  console.log(description);
 #+END_SRC
 
 #+RESULTS:
-: pd-title
-: pd-desc
-: pd-path
+: structured title
+: structured desc
 : undefined
 
 

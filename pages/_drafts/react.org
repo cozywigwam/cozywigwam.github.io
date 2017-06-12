@@ -132,3 +132,33 @@ import Button from "../../components/Button"
 
 <Button secondary>{ "Read More →" }</Button>
 #+END_SRC
+
+** Gatsby
+*** Add Collection Type
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+// /pages/index.jsx
+
+  renderNotationHeadingGroups(route) {
+    const posts = [];
+    route.pages.map(page => {
+      if (page.data.layout === 'notation') {
+        posts.push(page);
+      }
+    });
+
+    return posts.map(post => {
+      return <HeadingGroup key={uuid()} title={ post.data.title } description={ post.data.description } path={ post.data.path } />
+    });
+  }
+#+END_SRC
+
+#+BEGIN_SRC js :cmd "org-babel-node"
+// /wrappers/md.jsx
+
+    if (layout === 'notation' || layout === 'page') {
+      template = <Post {...this.props} />;
+    } else if (layout === 'error') {
+      template = <Error {...this.props} />;
+    }
+#+END_SRC
