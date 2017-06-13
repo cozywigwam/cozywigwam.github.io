@@ -14,7 +14,7 @@ class MarkdownWrapper extends React.Component {
     const layout = post.layout;
     let template;
 
-    if (layout === 'notation' || layout === 'page') {
+    if (layout === 'notation' || layout == 'theme' || layout === 'page') {
       template = <Post {...this.props} />;
     } else if (layout === 'error') {
       template = <Error {...this.props} />;

@@ -16,10 +16,10 @@ import {
 } from '../components/styled/';
 
 export default class Index extends React.Component {
-  renderNotationHeadingGroups(route) {
+  renderNotationHeadingGroups(route, layout) {
     const posts = [];
     route.pages.map(page => {
-      if (page.data.layout === 'notation') {
+      if (page.data.layout === layout) {
         posts.push(page);
       }
     });
@@ -35,7 +35,9 @@ export default class Index extends React.Component {
         <Helmet title={config.siteTitle} meta={[{ 'name': 'description', 'content': 'code 127' }]} />
 
         <Wrapper homeWrapper>
-          {this.renderNotationHeadingGroups(this.props.route)}
+          { this.renderNotationHeadingGroups(this.props.route, 'theme') }
+          <Hr />
+          { this.renderNotationHeadingGroups(this.props.route, 'notation') }
           <Hr />
           <HeadingGroup path={prefixLink('/about/')} title="About" description="@cozywigwam" descLink="https://twitter.com/cozywigwam" />
         </Wrapper>
