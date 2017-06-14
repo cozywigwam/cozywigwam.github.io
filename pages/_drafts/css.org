@@ -370,6 +370,17 @@ Proper main-content line lengths, in em, [[http://maxdesign.com.au/articles/idea
 
 #+BEGIN_SRC html
 <figure class="quote">
-	<blockquote>As you can see, the average seems to suggest that your container width should be set between the narrowest width of 21em (approx 49 characters per line) to the widest width of 30em (approx 71 characters per line).</blockquote>
+	<blockquote><p>...the author hopes to be held guiltless by those to whom the work is addressed—enlightened souls who prefer dry wines to sweet, sense to sentiment, wit to humor and clean English to slang.</p></blockquote>
+	<figcaption>Ambrose Bierce, <cite>The Devil's Dictionary</cite></figcaption>
 </figure>
+#+END_SRC
+
+** clearfix
+#+BEGIN_SRC css
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 #+END_SRC
