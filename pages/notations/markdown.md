@@ -31,50 +31,24 @@ path: "/markdown/"
 
 Daring Fireball's:
 
-- [introduction] (philosophy)
-- [basics]
-- [syntax].
-
-[introduction]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown introduction"
-[basics]: http://daringfireball.net/projects/markdown/ "Daring Fireball markdown basics"
-[syntax]: http://daringfireball.net/projects/markdown/basics "Daring Fireball markdown syntax"
-
-
+- <a href="http://daringfireball.net/projects/markdown/basics" target="_blank" alt="syntax/basics">basics</a>
+- <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" alt="syntax/basics">syntax</a>
 
 ## github.com
 
-Uses "[GitHub Flavored Markdown]," aka GFM:
+Uses "<a href="https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/" target="_blank" alt="GitHub flavored markdown">GitHub flavored markdown</a>," aka GFM:
 
-- [Syntax]
-- [Writing on GitHub root]
-- [Kramdown parse info].
-
-[GitHub flavored markdown]: https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/
-[Syntax]: https://help.github.com/articles/basic-writing-and-formatting-syntax/
-[Writing on GitHub root]: https://help.github.com/categories/writing-on-github/
-[Kramdown parse info]: http://kramdown.gettalong.org/parser/gfm.html
-
-
-## GitHub Pages & Jekyll
-
-As of [Feb 1 2016], GitHub Pages is Jekyll 3.0, which is *only* [kramdown].
-
-[kramdown]: http://kramdown.gettalong.org/
-[Feb 1 2016]: https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
-
-
-
-
-
+- <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="_blank" alt="syntax">syntax</a>
+- <a href="https://help.github.com/categories/writing-on-github/" target="_blank" alt="Writing on GitHub">Writing on GitHub</a>
+- <a href="http://kramdown.gettalong.org/" target="_blank" alt="Kramdown">Kramdown</a>
+- <a href="http://kramdown.gettalong.org/parser/gfm.html" target="_blank" alt="Kramdown parse info">Kramdown parse info</a>
 
 
 ## Stack Overfow
 
 Code blocks are four indented spaces.
 
-- Stack Overflow's [markdown help].
-
-[Markdown help]: http://stackoverflow.com/editing-help
+- Stack Overflow's <a href="http://stackoverflow.com/editing-help" target="_blank" alt="Markdown help">Markdown help</a>.
 
 ```
 Here's an inline link to [Google](http://www.google.com/).
@@ -89,14 +63,12 @@ Here's a very readable link to [Yahoo!][yahoo].
 
 ## Slack
 
-Slack API [basic message formatting].
-
-[basic message formatting]: https://api.slack.com/docs/message-formatting
+Slack API <a href="https://api.slack.com/docs/message-formatting" target="_blank" alt="basic message formatting">basic message formatting</a>.
 
 
 ## JIRA
 
-Formatting: https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all
+<a href="https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all" target="_blank" alt="JIRA formatting">Formatting</a>
 
 ```
 {{inline-code}}
@@ -119,8 +91,8 @@ of block quote
 
 ## CommonMark
 
-An attempt "to specify Markdown syntax unambiguously." [Spec], [GitHub]. ["Dingus" (live tester)].
+An attempt "to specify Markdown syntax unambiguously."
 
-[GitHub]: https://github.com/jgm/CommonMark
-[Spec]: http://spec.commonmark.org/0.26/
-["Dingus" (live tester)]: http://spec.commonmark.org/dingus/
+- <a href="https://github.com/jgm/CommonMark" target="_blank" alt="CommonMark">CommonMark on GitHub</a>
+- <a href="http://spec.commonmark.org/0.26/" target="_blank" alt="CommonMark spec">CommonMark Spec</a>
+- <a href="http://spec.commonmark.org/dingus/" target="_blank" alt="Dingus">"Dingus" (live tester)</a>

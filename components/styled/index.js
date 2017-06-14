@@ -29,6 +29,10 @@ injectGlobal`
     ${Mixins.fontSizer(18, Constants.multipliers.regular)}
   }
 
+  table + p, pre + p, ul + p {
+    margin-top: 2.5em;
+  }
+
   a {
     text-decoration: none;
     color: ${Colors.yellow};
@@ -61,7 +65,7 @@ injectGlobal`
     border-collapse: collapse;
     margin-bottom: 2rem;
     background: ${Colors.grayDarker};
-    max-width: 1000px;
+    width: 100%;
     border-bottom: 4px solid ${Colors.magenta};
   }
   thead {
@@ -108,8 +112,10 @@ injectGlobal`
 
   pre {
     overflow-x: auto;
+    margin-top: 2.2em;
     padding: 16px 20px 20px;
     ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+    background: ${Colors.grayDarker};
     border: 1px solid ${Colors.grayLighter};
 
     @media (min-width: ${Constants.MQ.sm}px) {
@@ -179,6 +185,18 @@ injectGlobal`
   h6 {
     ${Mixins.fontSizer(Font.size.base.heading.h6, Constants.multipliers.heading)}
   }
+  table + h1, p + h1, ul + h1, pre + h1 {
+    margin-top: 3.4em;
+  }
+  table + h2, p + h2, ul + h2, pre + h2,
+  table + h3, p + h3, ul + h3, pre + h3,
+  table + h4, p + h4, ul + h4, pre + h4,
+  table + ul, ul + table, table + pre, pre + table, pre + ul, ul + pre {
+    margin-top: 2em;
+  }
+  h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6 {
+    margin-top: 0;
+  }
 
 
 
@@ -195,13 +213,14 @@ export const Wrapper = styled.div`
 `;
 
 export const Hr = styled.hr`
-  max-width: 600px;
-  height: 4px;
+  width: 90%;
+  height: 1px;
   margin: 10% auto 15% 0;
-  background: ${Colors.yellow};
-  border-bottom: 2px solid ${Colors.blue};
+  background: ${Colors.magenta};
+  border-bottom: 1px solid ${Colors.blue};
 `;
 export const Footer = styled.footer`
+  max-width: 800px;
   padding: 0 3% 8%;
 
   ${MQ.lg`
@@ -231,12 +250,12 @@ export const ReturnHomeLink = styled(Link)`
     display: inline-block;
     margin: 5% 0;
     padding: 1em 2em;
-    color: $body-copy;
+    color: ${Colors.blue};
     font-size: 15px;
 
     &:hover {
       color: ${Colors.gray};
-      background: ${Colors.red};
+      background: ${Colors.magenta};
     }
 `;
 export const StyledLink = styled(Link)`

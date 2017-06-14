@@ -5,8 +5,6 @@ description: ZSH, etc.
 path: "/command-line/"
 ---
 
-
-
 # commands
 
 ## lsof
@@ -36,7 +34,7 @@ kill -9 `lsof -t -u charadriidae`
 
 ## Ack
 
-[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc)
+<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc" target="_blank" alt="ackrc">dotfile</a>
 
 ```bash
 ack --help | less
@@ -100,8 +98,7 @@ ytdl --extract-audio --audio-format mp3 <url>
 
 ## zsh
 
-[dotfiles](https://github.com/cozywigwam/dotfiles)
-
+<a href="https://github.com/cozywigwam/dotfiles/blob/master/.zshrc" target="_blank" alt="zsh dotfile">dotfile</a>
 
 ```bash
 man zsh
@@ -117,11 +114,10 @@ bindkeys
 # setopt HIST_IGNORE_SPACE
 ```
 
-[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.zshrc)
 
 ### ZLE
 
-[Reference](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/) from Serge Gebhardt's site.
+<a href="http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/" target="_blank" alt="reference">Reference</a> from Serge Gebhardt's site.
 
 ```bash
 man zsh
@@ -148,6 +144,8 @@ Use `\e` or `^[` to indicate Meta key.
 
 Modes: `viins`, `vicmd`, `emacs`, others.
 
+|||
+|-|-|
 `<M-x>` | emacs & [mapped] viins: execute `execute-named-cmd`
 `:` | vicmd: execute `execute-named-cmd`
 

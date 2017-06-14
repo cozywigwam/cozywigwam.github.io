@@ -422,7 +422,8 @@ var `custom-enabled-themes`
 
 * markdown
 
-`orgtbl-mode` "hijacks" tab.
+`orgtbl-mode` | "hijacks" tab.
+`SPC m N`, `SPC m P` | next/prev link
 
 * org-mode
 ** syntax

@@ -35,9 +35,9 @@ export default class Index extends React.Component {
         <Helmet title={config.siteTitle} meta={[{ 'name': 'description', 'content': 'code 127' }]} />
 
         <Wrapper homeWrapper>
-          { this.renderNotationHeadingGroups(this.props.route, 'theme') }
-          <Hr />
           { this.renderNotationHeadingGroups(this.props.route, 'notation') }
+          <Hr />
+          { this.renderNotationHeadingGroups(this.props.route, 'theme') }
           <Hr />
           <HeadingGroup path={prefixLink('/about/')} title="About" description="@cozywigwam" descLink="https://twitter.com/cozywigwam" />
         </Wrapper>

@@ -5,7 +5,7 @@ description: Seek Nirvana
 path: "/vim/"
 ---
 
-[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimrc)
+<a href="https://github.com/cozywigwam/dotfiles/blob/master/.vimrc" target="_blank" alt="Vim dotfile">dotfile</a>
 
 # Application
 
@@ -19,9 +19,9 @@ path: "/vim/"
 `<C-v><C-i>` | insert a tab character
 `<C-v>[unicode]` | insert unicode
 `ga` | examine character at cursor
-`<leader>H` | [custom map] reveal syntax group for highlighting 
+`<leader>fh` | [custom] reveal syntax group for highlighting 
 `:help cmdline-special` | notes about % and #
-`:noh` (`<leader>n` custom) | stop highlighting searches
+`:noh` | stop highlighting searches
 `<C-r>[register]` | (from input mode) insert contents of register
 `:h text-objects` | word, sentence, paragraph, tag, b/), B/}, ], etc.
 `:h filename-modifiers` | `%`, `%:p`, etc.
@@ -56,8 +56,8 @@ Delete unwanted lines:
 
 |||
 |-|-|
-`:h pattern-atoms` |
-`:h whitespace` |
+`:h pattern-atoms` | help
+`:h whitespace` | and more help
 `\d` | digit [0-9]
 `\D` | non-digit [^0-9]
 `\s` | white space [ ] (<Tab> and <Space>)
@@ -70,23 +70,23 @@ Delete unwanted lines:
 `\w` | word character [0-9a-fA-F_]
 `\W` | non-word character [^0-9a-fA-F_]
 `\_x` | "x" is any character class character but with newline
-`\t` | <tab>
-`\r` | <cr>, good for substitution
+`\t` | \<tab>
+`\r` | \<cr>, good for substitution
 `\n` | end-of-line, good for search
 `~` | last substitution string
-`\1`, `\2`... | parenthetical sub-expression/submatch
+`\1`, `\2`, ... | parenthetical sub-expression/submatch
 `\zs`, `ze` | set start/end of match
 
 ## Marks
 
 |||
 |-|-|
-`` `[mark]`` | jump to `[mark]` line & col
+`` `[mark] `` | jump to [mark] line & col
 `'[mark]` | jump to `[mark]` line
 `` `[ `]`` | begin/end of previous yank/put
 `` `< `>`` | " visual selection
-`` `.`` | " last change (like the first `g;`)
-`` `^`` | " last insert mode exit (used by `gi`)
+`` `.`` | " last change
+`` `^`` | " last insert mode exit
 `` `( `)`` | " sentence
 `` `{ `}`` | " paragraph
 
@@ -121,7 +121,7 @@ Start with `:` and use `<C-p>` and `<C-n>` to navigate and edit history. Use `<C
 |||
 |-|-|
 `q:` | command-line history
-`@:` `@@` | repeat last command-line command (TODO: `@@` difference?)
+`@:` `@@` | repeat last command-line command
 
 
 
@@ -186,12 +186,12 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 |||
 |-|-|
 `?` | help
-`F2` | [custom map] open NERDTree (default width)
-`F3` | [custom map] toggle open/close
-`C` | TREEROOT NAVIGATION - down
-`U` | TREEROOT NAVIGATION - up
-`u` | TREEROOT NAVIGATION - collapse tree & up
-`CD`| TREEROOT NAVIGATION - go to pwd
+`F2` | [custom] open NERDTree (default width)
+`F3` | [custom] toggle open/close
+`C` | nav - down
+`U` | nav - up
+`u` | nav - collapse tree & up
+`CD`| nav - go to pwd
 `cd`| update pwd
 `P` | jump to tree root
 `p` | jump to parent
@@ -215,7 +215,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 
 ## Vimperator
 
-[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc)
+<a href="https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc" target="_blank" alt="Vimperator dotfile">dotfile</a>
 
 |||
 |-|-|
@@ -247,7 +247,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 |-|-|
 `:Gwrite` | add %
 `:Gread` | overwrite working with index
-`:Gbrowse` | inspect current object on github.com
+`:Gbrowse` | inspect current object on GitHub
 
 ### :Gstatus
 
@@ -256,7 +256,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:Gstatus` | status
 `g?` | show help
 `D` | diff
-`U` | co file, scrap changes (`:Gread` and `:w`)
+`U` | checkout file, scrap changes (`:Gread` and `:w`)
 `cc` | commit
 `cA` | commit `--amend --use-message=HEAD`
 `r` | reload

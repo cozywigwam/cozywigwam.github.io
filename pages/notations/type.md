@@ -7,24 +7,17 @@ path: "/type/"
 
 # "What character is this?"
 
-[Double sharp (unicodelookup.com)](http://unicodelookup.com/#119082)
+<a href="http://unicodelookup.com/#119082" target="_blank" alt="Double sharp at unicodelookup.com">unicodelookup.com</a>
 
-`ga` | (under cursor in vim) "get ASCII value"
-
-
-# Fun and curious characters
-
-- ⇧ shift arrow
-- ⌘ looped square
-- ⌥ option
-- ♭ flat
-- ♯ sharp
-- ♮ natural
-- 𝄪 double sharp
-- ∯ surface integral [found here](http://www.cs.tut.fi/~jkorpela/math/kbd.html)
+|||
+|-|-|
+`ga` | [Vim] get character info at cursor
+`SPC h d c` | [Spacemacs] get character info at point
 
 # Make characters macOS (hold ⌥)
 
+|||
+|-|-|
 | ` | *modifier to create grave accent* |
 | 1 | ¡ |
 | 2 | ™ |
@@ -72,5 +65,18 @@ path: "/type/"
 | . | ≥ |
 | / | ÷ |
 
+# Misc
 
-[ascii-code.com](http://ascii-code.com/)
+|||
+|-|-|
+| ⇧ | shift arrow |
+| ⌘ | looped square |
+| ⌥ | option |
+| ♭ | flat |
+| ♯ | sharp |
+| ♮ | natural |
+| 𝄪 | double sharp |
+| ∯ | surface integral |
+
+<a href="http://ascii-code.com/" target="_blank" alt="ascii-code.com">ascii-code.com</a>
+

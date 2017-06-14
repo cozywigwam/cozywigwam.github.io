@@ -5,7 +5,7 @@ description: Vim
 path: "/poly/"
 ---
 
-[Poly](https://github.com/cozywigwam/poly) is my Vim theme. As I learned Vim, one of the things I loved the most about it was changing the colors as I went.
+<a href="https://github.com/cozywigwam/poly" target="_blank" alt="Poly Vim theme">Poly</a> is my Vim theme. As I learned Vim, one of the things I loved the most about it was changing the colors as I went.
 
 ![Poly Theme](/assets/poly-01.jpg) 
 

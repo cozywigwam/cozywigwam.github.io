@@ -56,9 +56,9 @@ ssh-copy-id example_user@200.0.110.1
 ```
 
 
-# HTTPS SSL cert with Let's Encrypt [(ref.)](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
+# HTTPS SSL cert with Let's Encrypt
 
-Install Let's Encrypt. [DO Tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04)
+Digital Ocean's <a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04" target="_blank" alt="Digital Ocean Let's Encrypt on Ubuntu 16.04">tutorial</a> for Let's Encrypt on Ubuntu 16.04.
 
 ```bash
 sudo apt-get -y install bc # auto 'yes' to prompts

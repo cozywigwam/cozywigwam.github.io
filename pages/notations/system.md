@@ -101,14 +101,7 @@ gem env
 
 # macOS
 
-settings/options defaults: https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-
-`<S-v>` | paste with stripped formatting (might need alt sometimes, not sure here)
-
-## Location of AppleScript services (.workflow files):
-local/ref | in use
---- | ---
-~/script-and-helpers/Automator/ | ~/Library/Services/
+settings/options defaults from <a href="https://github.com/mathiasbynens/dotfiles/blob/master/.macos" target="_blank" alt="macOS options">Mathias Bynens</a> 
 
 ## Observe USB in the GUI:
 - open Audio MIDI Setup application
@@ -134,6 +127,14 @@ dscl # then `cd Contact`, `cd Users`, `read [username]`
 chflags hidden Pictures
 chflags nohidden Pictures
 ```
+
+## Misc
+
+|||
+|-|-|
+`cmd + shift + V` | paste with stripped formatting (might need alt sometimes, not sure here)
+`~/Library/Services/` | Location of AppleScript services (.workflow files)
+
 
 
 # Misc

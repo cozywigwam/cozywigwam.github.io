@@ -6,27 +6,27 @@ path: "/tmux/"
 ---
 
 
-[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf)
+<a href="https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf" target="_blank" alt="tmux dotfile">dotfile</a>
 
-`[session][:window][.pane]`
 
 # Key bindings
 
 Keys are bound to either a key table or a mode table. Usage `[-t mode-table] [-T key-table]`. The two key tables: 
 
-- prefix
-- root
+- `prefix`
+- `root`
 
 The mode tables:
 
-- emacs-choice
-- emacs-copy
-- emacs-edit
-- vim-choice
-- vim-copy
-- vim-edit
+- `emacs-choice`
+- `emacs-copy`
+- `emacs-edit`
+- `vim-choice`
+- `vim-copy`
+- `vim-edit`
 
-
+|||
+|-|-|
 `list-commands / lscm` | list all commands
 `list-keys / lsk / <leader>?` | list all bound keys (default table is "prefix")
 
@@ -45,9 +45,11 @@ tmux bind-key -t vi-copy v begin-selection
 bind-key -r L swap-window -t +1
 
 unbind C-n # unbind one thing
-unbind-key -a # unbind everything (see http://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative)
+unbind-key -a # unbind everything* 
 tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default keys
 ```
+
+\* (see <a href="http://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative" target="_blank" alt="stack exchange">Stack Exchange</a>)
 
 
 # Options
@@ -71,6 +73,9 @@ tmux setw
 
 Hold `⌥` when click + dragging mouse to enable selection/copying to macOS clipboard.
 
+|||
+|-|-|
+`[session][:window][.pane]` | target syntax
 `<leader>z` | zoom
 `<leader>q` | display pane numbers
 `<leader>{` & `<leader>}` | swap (move) panes

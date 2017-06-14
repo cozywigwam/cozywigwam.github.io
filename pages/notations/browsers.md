@@ -7,8 +7,9 @@ path: "/browsers/"
 
 # Chrome dev tools
 
-[Console API Reference](https://developers.google.com/web/tools/chrome-devtools/console/console-reference)
-[Command Line API Reference](https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference)
+<a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" alt="Console API Reference">Console API Reference</a>
+
+<a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference" target="_blank" alt="Command Line API Reference">Command Line API Reference</a>
 
 |||
 |-|-|
@@ -29,16 +30,25 @@ path: "/browsers/"
 
 # Firefox
 
-To add "confirm on quit" to go `about:config` -> `browser.showQuitWarning`
-
-- about:config
-- about:support
-- ~/Library/Application Support/Firefox/Profiles/
-- ~/Library/Mozilla/Firefox/Profiles/
+## Shortcuts
 
 [Mozilla keyboard shortcuts](https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts)
+
+## Misc
+
+To add "confirm on quit": `about:config`, `browser.showQuitWarning`
+
+### Locations
+
+- `about:config`
+- `about:support`
+- `~/Library/Application Support/Firefox/Profiles/`
+- `~/Library/Mozilla/Firefox/Profiles/`
+
 
 
 # Safari
 
+|||
+|-|-|
 `cmd + opt + r` | responsive
