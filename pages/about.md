@@ -2,36 +2,19 @@
 layout: page
 title: About
 permalink: /about/
-description: dev 
+description: What?
 ---
 
-<header class="post-header">
-    <h1>About</h1>
-    <h3><a href="https://twitter.com/cozywigwam" target="_blank">@cozywigwam</a></h3>
-</header>
+<h3><a href="https://twitter.com/cozywigwam" target="_blank">@cozywigwam</a></h3>
 
 Welcome to Sunflower Sea Star. It is the tech center for my creation arms.
 
-  - [Sunflower Sea Star] - tech/production/execution
-  - [Poly] - design/branding
-  - [Sinistrocular] - photo 
-  - [Cyan-Eyed Vireo] - audio
-  - [The Anti-Authority] - ?
+  - [Sunflower Sea Star](/) - tech/production/execution
+  - <a href="https://polyambidextro.us" target="_blank" alt="Polyambidextro.us">Poly</a> - design/branding
+  - <a href="https://sinistrocular.com" target="_blank" alt="Sinistrocular Photography">Sinistrocular</a> - photo 
+  - <a href="https://soundcloud.com/cyaneyedvireo" target="_blank" alt="Cyan-Eyed Vireo Music">Cyan-Eyed Vireo</a> - audio
+  <!-- - <a href="https://theantiauthority.com" target="_blank" alt="The Anti-Authority">The Anti-Authority</a> - ? -->
 
-I'm on [Twitter], [Github], and [LinkedIn].
+I'm on <a href="https://twitter.com/cozywigwam" target="_blank" alt="Twitter">Twitter</a>, and <a href="https://github.com/cozywigwam" target="_blank" alt="GitHub">GitHub</a>, and <a href="https://www.linkedin.com/in/grantsurratt" target="_blank" alt="LinkedIn">LinkedIn</a>. My email is [twitter/github username] at [this domain].
 
-If you're interested, I have an iTerm theme [Taerminal] and a Vim theme [Poly]. I've poorly hacked Poly into [Emacs] as well. It's a work in progress.
-
-[Sunflower Sea Star]: http://sunflowerseastar.com "Sunflower Sea Star"
-[Poly]: https://polyambidextro.us "Polyambidextro.us"
-[Sinistrocular]: https://sinistrocular.com "Sinistrocular Photography"
-[Cyan-Eyed Vireo]: https://soundcloud.com/cyaneyedvireo "Cyan-Eyed Vireo Music"
-[The Anti-Authority]: https://theantiauthority.com "The Anti-Authority"
-
-[LinkedIn]: https://www.linkedin.com/in/grantsurratt
-[Twitter]: https://twitter.com/cozywigwam
-[Github]: https://github.com/cozywigwam
-
-[Taerminal]: https://github.com/cozywigwam/iterm-taerminal
-[Poly]: https://github.com/cozywigwam/poly
-[Emacs]: https://github.com/cozywigwam/dotfiles/blob/724571a6fe0117bcc850bba5a17cadc7bdd3e8cf/.spacemacs#L340-L550
+If you're interested, check out the Vim theme [poly](/poly/). I've poorly hacked it into [Spac]emacs as [unknotted](/unknotted/). It's a work in progress.
