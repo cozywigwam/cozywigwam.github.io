@@ -43,6 +43,11 @@ injectGlobal`
     }
   }
 
+  img {
+    display: block;
+    padding: 1em 0 2.5em;
+    max-width: 100%;
+  }
   blockquote {
     margin-left: 0;
     margin-bottom: 2rem;
@@ -181,31 +186,37 @@ injectGlobal`
 `;
 
 export const Wrapper = styled.div`
-    padding: 10% 6% 12%;
+  max-width: 800px;
+  padding: 10% 3% 12%;
 
-    ${MQ.sm`
-      padding-top: 0;
-      padding-bottom: 0;
-    `}
-    ${MQ.lg`
-      margin-left: ${Constants.headerWidthMqDesktop};
-    `}
-
-    padding-top: ${props => props.homeWrapper || '10%'};
+  ${MQ.lg`
+    padding-left: ${Constants.headerWidthMqDesktop};
+  `}
 `;
 
 export const Hr = styled.hr`
-  max-width: 90%;
+  max-width: 600px;
   height: 4px;
   margin: 10% auto 15% 0;
   background: ${Colors.yellow};
   border-bottom: 2px solid ${Colors.blue};
 `;
 export const Footer = styled.footer`
-  padding: 0 6% 8%;
+  padding: 0 3% 8%;
+
+  ${MQ.lg`
+    padding-left: ${Constants.headerWidthMqDesktop};
+  `}
+  img {
+    padding: 0;
+  }
 `;
 export const Header = styled.header`
-    height: 60px;
+  height: 60px;
+
+  img {
+    padding: 0;
+  }
  `;
 
 export const Logo = styled(Link)`
@@ -265,6 +276,6 @@ export const H1 = styled.h1`
   line-height: 1.4;
 `;
 export const PostDescription = styled.h2`
-  margin: 0.4em 0 .02em;
+  margin: 0 0 .02em;
   line-height: 1.4;
 `;
