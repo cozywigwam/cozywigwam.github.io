@@ -66,7 +66,7 @@ injectGlobal`
     margin-bottom: 2rem;
     background: ${Colors.grayDarker};
     width: 100%;
-    border-bottom: 4px solid ${Colors.magenta};
+    border-bottom: 2px solid ${Colors.magenta};
   }
   thead {
     display: none;
@@ -94,11 +94,11 @@ injectGlobal`
    */
   code {
     margin: 0 3px;
-    padding: 1px 5px 3px;
+    padding: 3px 4px 3px;
     font-family: ${Font.family.monospace};
     ${Mixins.fontSizer(16, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};
-    border-bottom: 1px solid ${Colors.grayLighter};
+    border-bottom: 2px solid ${Colors.grayLighter};
   }
   table code {
     background: none;
