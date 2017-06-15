@@ -29,7 +29,9 @@ kill -9 `lsof -t -u charadriidae`
 
 ## less
 
-`M-u` | toggle search highlighting
+|||
+|-|-|
+| `M-u` | toggle search highlighting |
 
 
 ## Ack
@@ -47,7 +49,6 @@ ack --dump # see ignores
 ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched)
 
 ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
-
 ```
 
 
@@ -55,6 +56,8 @@ ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 
 [Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
 
+|||
+|-|-|
 | `<C-z>` | "suspend" character |
 | `<C-y>` | "delayed suspend" character |
 
@@ -67,7 +70,9 @@ jobs -l # show PID
 
 ## Misc
 
-`<M-u>` | toggle search highlighting
+|||
+|-|-|
+| `<M-u>` | toggle search highlighting |
 
 ```bash
 sed -i '.bak' 's/oldterm/newterm/g' [filename] 
