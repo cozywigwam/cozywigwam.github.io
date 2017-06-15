@@ -117,6 +117,7 @@ injectGlobal`
     ${Mixins.fontSizer(13, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};
     border: 1px solid ${Colors.grayLighter};
+    border-bottom: 2px solid ${Colors.red};
 
     @media (min-width: ${Constants.MQ.sm}px) {
       padding: 28px 30px;
