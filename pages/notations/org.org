@@ -44,7 +44,7 @@ When I research something, I'm trying to either learn it or just figure it out t
 
 *** sitemap.org
 
-This is optional. Sometimes I write out the sitemap by hand and manually update it as changes occur in order to keep what's what and what they're called as top of mind. In Sunflower Sea Star's case, however, it doesn't make a ton of sense to do that for two reasons: one is that since everything roughly a 1-to-1 flat file setup, I can just look at the files in the directory to see what pages are there. Then again, this could be automated and exported, hmmm:
+This is optional. Sometimes I write out the sitemap by hand and manually update it as changes occur in order to keep track of what's what, and keep the page names/sections top of mind. In Sunflower Sea Star's case, however, it doesn't make sense to do that for two reasons: one is that since everything roughly a 1-to-1 flat file setup, I can just look at the files in the directory to see what pages are there. Then again, this could be automated and exported, hmmm:
 
 #+BEGIN_SRC shell
 echo '-one-off-pages:\n'
