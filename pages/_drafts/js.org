@@ -1,9 +1,13 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
 layout: post
 title: "JavaScript"
 categories: notation
 subtitle: JavaScript Wins
 ---
+#+END_EXAMPLE
 
 * testing with code blocks
 
@@ -56,14 +60,6 @@ console.log(a);
 
 ** Objects
 
-#+BEGIN_SRC js
-console.log('df');
-#+END_SRC
-
-#+RESULTS:
-: df
-: undefined
-
 #+BEGIN_SRC js :cmd "org-babel-node"
   let structured = {
     title: 'structured title',
@@ -82,7 +78,7 @@ console.log('df');
 : undefined
 
 
-#+BEGIN_SRC js :cmd "babel-node --presets=stage-2"
+#+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
 let obj1 = {
   bird: "falcon2",
   frog: "bullfrog"
@@ -173,7 +169,7 @@ export default Button
 
 *** Syntax
 
-# 1 - no props needed
+1) no props needed
 
 #+BEGIN_SRC js
 const PostLink = () =>
@@ -183,7 +179,7 @@ const PostLink = () =>
   </PostHeader>
 #+END_SRC
 
-# 2 - props without being a class
+2) props without being a class
 
 #+BEGIN_SRC js
 const PostLink = props => {
@@ -199,7 +195,7 @@ const PostLink = props => {
 export default PostLink
 #+END_SRC
 
-# 3 - class
+3) class
 
 #+BEGIN_SRC js
 export default class PostLink extends React.Component {
@@ -223,7 +219,7 @@ export default class PostLink extends React.Component {
 
 
 
-* SCRATCH / TEST
+* SCRATCH / TEST :no_export:
 
 #+BEGIN_SRC js :cmd "org-babel-node"
 let props = {

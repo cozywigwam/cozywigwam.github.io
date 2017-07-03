@@ -665,7 +665,7 @@ Change how ~ctrl-c-ctrl-c~ windows behave:
 |-|-|
 | `C-c C-c`   | evaluate                             |
 | `C-c '`     | open/close major mode editing buffer |
-| `SPC t C-c` | [custom] toggle no-eval on/off       |
+| `SPC t C-c` | [custom] toggle no-eval/ctrl-c-ctrl-c on/off       |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE

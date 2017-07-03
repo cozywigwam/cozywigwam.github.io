@@ -7,7 +7,7 @@ path: "/type/"
 
 # Character Reference
 
-[Wikipedia](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references#Character_reference_overview)
+<a href="https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references#Character_reference_overview" target="_blank">Wikipedia</a>
 
 |                                 |                                      |
 |---------------------------------|--------------------------------------|
@@ -78,6 +78,8 @@ path: "/type/"
 
 # Misc
 
+<a href="http://int10h.org/oldschool-pc-fonts/" target="_blank">old-school font pack</a>
+
 |   |                                                                    |
 |---|--------------------------------------------------------------------|
 | ⇧ | shift arrow                                                        |
@@ -94,4 +96,4 @@ path: "/type/"
 
 ## Emoji
 
-[Unicode emoji index](http://www.unicode.org/emoji/charts/index.html)
+<a href="http://www.unicode.org/emoji/charts/index.html" target="_blank">Unicode emoji index</a>

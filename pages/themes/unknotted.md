@@ -15,9 +15,5 @@ And you know, now that I think about it, how much of it is holdover?
 
 So, uh, yeah, there are some TODO items here.
 
-![Unknotted Theme](/assets/unknotted-03.jpg) 
-
-And I'll do them! But I am currently busy, away from the computer, trying to look at a bird.
-
 ![Unknotted Theme](/assets/unknotted-04.jpg) 
 

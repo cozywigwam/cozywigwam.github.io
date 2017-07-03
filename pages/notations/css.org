@@ -1,17 +1,53 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-layout: post
 title: "CSS"
-categories: notation
+layout: notation
+description: The Weird Kid at the Party
+path: "/css/"
 ---
+#+END_EXAMPLE
 
 * General
 ** Reference
-- [CSS Spec]
+<a href="https://www.w3.org/Style/CSS/specs.en.html" target="_blank">CSS spec</a>
 
 ** Custom Properties
 *** Spec
-**** [[https://www.w3.org/TR/css-variables/][W3]]
+
+<a href="https://www.w3.org/TR/css-variables/" target="_blank">W3</a>
+
 *** Syntax Examples
+
+There are regular variables...:
+
+#+BEGIN_SRC css
+:root {
+  --site-red: #f00;
+}
+h1 {
+  var(--site-red);
+}
+#+END_SRC
+
+...and mixin-esque custom properties:
+
+#+BEGIN_SRC css
+:root {
+  --an-argumentless-mixin: {
+    color: red;
+    border: 1px solid pink;
+  }
+}
+.an-unargumentative-element {
+  @apply --an-argumentless-mixin;
+}
+#+END_SRC
+
+These mixins might require the ~Experimental Web Platform features~ flag in Chrome, found here: ~chrome://flags/#enable-experimental-web-platform-features~.
+
+Here are both:
 
 #+BEGIN_SRC css
 :root {
@@ -30,7 +66,7 @@ categories: notation
 }
 #+END_SRC
 
-You cannot overwrite root variables:
+Note that you cannot overwrite a root variable used by a mixin:
 
 #+BEGIN_SRC css
 :root {
@@ -50,11 +86,17 @@ You cannot overwrite root variables:
 #+END_SRC
 
 *** Links
-[[https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/][Serg Hospodarets]] on Smashing Magazine
+
+Customization examples from a <a href="https://github.com/syl20bnr/spacemacs/issues/6649" alt="popwin customizations" target="_blank">GitHub issue</a>:
+
+<a href="https://google.com/" target="_blank">test</a>
+
+Serg Hespodarets' <a href="https://blog.hospodarets.com/css_properties_in_depth" target="_blank">custom props in depth</a>, <a href="https://blog.hospodarets.com/css_apply_rule" target="_blank">native CSS mixins</a>, and on <a href="https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/" target="_blank">Smashing Magazine</a>.
+
 ** Nesting
 
 *** Descendent
-Use `&` to refer to parent block:
+Use ~&~ to refer to parent block:
 
 #+BEGIN_SRC css
   div {
@@ -80,7 +122,7 @@ Use `&` to refer to parent block:
 .deep-element {
   color: black;
 
-  /* note both `@nest` and `&`
+  /* note both `@nest` and `&` */
   @nest body.is-state & {
     color: red;
   }
@@ -123,11 +165,11 @@ Use `&` to refer to parent block:
 #+END_SRC
 
 * CSS Modules
-[[https://github.com/css-modules/css-modules][github]]
-[[https://github.com/css-modules/icss][Interoperable CSS (ICSS)]]
+<a href="https://github.com/css-modules/css-modules" target="_blank">GitHub</a>
+<a href="https://github.com/css-modules/icss" target="_blank">Interoperable CSS (ICSS)</a>
 
 ** Glen Maddern's intro
-[[https://glenmaddern.com/articles/css-modules][Glen Maddern's introduction]]
+<a href="https://glenmaddern.com/articles/css-modules" target="_blank">Glen Maddern's introduction</a>
 
 Each class gets all the styles it needs...
 
@@ -218,7 +260,7 @@ Each class gets all the styles it needs...
 
 *** Phenomic setup
 
-Directory setup (with the global styles file renamed and moved to `styles/`):
+Directory setup (with the global styles file renamed and moved to ~styles/~):
 
 #+BEGIN_SRC
 .
@@ -261,7 +303,7 @@ styles.global.css
 @import './highlight.css';
 #+END_SRC
 
-In order to import these CSS files, add `require('postcss-import')(),` to `postcss.config.js`:
+In order to import these CSS files, add ~require('postcss-import')(),~ to ~postcss.config.js~:
 
 #+BEGIN_SRC js
 // postcss.config.js
@@ -286,7 +328,7 @@ module.exports = (config) => [
   ]
 #+END_SRC
 
-Also note the external `variables.js` file:
+Also note the external ~variables.js~ file:
 
 #+BEGIN_SRC js
 // variables.js
@@ -296,26 +338,26 @@ module.exports = {
 #+END_SRC
 
 *** links
- - [[http://cssnext.io/][cssnext home]]
- - [[http://ricostacruz.com/cheatsheets/cssnext.html][Rico St. Cruz's cheatsheet]]
+ - <a href="http://cssnext.io/" target="_blank">cssnext home</a>
+ - <a href="http://ricostacruz.com/cheatsheets/cssnext.html" target="_blank">Rico St. Cruz's cheatsheet</a>
 
 ** browserlist
 
-[[https://css-tricks.com/browserlist-good-idea/][Chris Coyier's write-up]]
+<a href="https://css-tricks.com/browserlist-good-idea/" target="_blank">Chris Coyier's write-up</a>
 
 * Styled Components
 ** Example directly to a Styled Component
 
 #+BEGIN_SRC js :cmd "org-babel-node"
 
-// # - /App.js
+// /App.js
 import { OrangeSpan } from './styled/Button.js'
 // ...
 <div>
   <OrangeSpan/>
 </div>
 
-// # - /styled/Button.js
+// /styled/Button.js
 import React from 'react'
 import styled from 'styled-components';
 
@@ -328,7 +370,7 @@ export const OrangeSpan = styled.span`
 
 #+BEGIN_SRC js :cmd "org-babel-node"
 
-// # - /App.js
+// /App.js
 import { Button } from './styled/Button.js'
 // ...
 <div>
@@ -336,7 +378,7 @@ import { Button } from './styled/Button.js'
 </div>
 
 
-// # - /styled/Button.js
+// /styled/Button.js
 import React from 'react'
 import styled from 'styled-components';
 
@@ -355,12 +397,12 @@ export const Button = (props) => {
 
 #+END_SRC
 
-* Glamor
-
 
 * Misc
 
-CSS Styles in the head ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style))
+** Styles in HTML <head>
+
+CSS Styles in the head <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style" target="_blank">MDN</a>
 
 #+BEGIN_SRC css
 <link href="styles/main.css" rel="stylesheet">
@@ -372,7 +414,13 @@ CSS Styles in the head ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/
 <!-- optional [MIME] `type` attribute defauts to `text/css`, i.e. <style type="text/css" /> -->
 #+END_SRC
 
-Proper main-content line lengths, in em, [[http://maxdesign.com.au/articles/ideal-line-length-in-ems/][ref]]:
+** Paragraph line width in em
+
+Proper main-content line lengths, in em, <a href="http://maxdesign.com.au/articles/ideal-line-length-in-ems/" target="_blank">ref</a>:
+
+> As you can see, the average seems to suggest that your container width should be set between the narrowest width of 21em (approx 49 characters per line) to the widest width of 30em (approx 71 characters per line).
+
+** blockquote
 
 #+BEGIN_SRC html
 <figure class="quote">
@@ -391,6 +439,6 @@ Proper main-content line lengths, in em, [[http://maxdesign.com.au/articles/idea
 
 #+END_SRC
 
-** selection
+** text selection
 
-`::selection { ... }`
+~::selection { ... }~
