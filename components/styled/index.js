@@ -199,6 +199,13 @@ injectGlobal`
     margin-top: 0;
   }
 
+.pull-right {
+  float: right;
+}
+img.pull-right {
+  margin: 0 0 1em 1em;
+  padding: 0;
+}
 
 
 
