@@ -8,7 +8,7 @@ categories: notation
 ** Reference
 - [CSS Spec]
 
-** Variables
+** Custom Properties
 *** Spec
 **** [[https://www.w3.org/TR/css-variables/][W3]]
 *** Syntax Examples
@@ -30,7 +30,7 @@ categories: notation
 }
 #+END_SRC
 
-  You cannot overwrite root variables:
+You cannot overwrite root variables:
 
 #+BEGIN_SRC css
 :root {
@@ -49,6 +49,8 @@ categories: notation
 }
 #+END_SRC
 
+*** Links
+[[https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/][Serg Hospodarets]] on Smashing Magazine
 ** Nesting
 
 *** Descendent
@@ -216,7 +218,7 @@ Each class gets all the styles it needs...
 
 *** Phenomic setup
 
-Directory setup:
+Directory setup (with the global styles file renamed and moved to `styles/`):
 
 #+BEGIN_SRC
 .
@@ -259,6 +261,8 @@ styles.global.css
 @import './highlight.css';
 #+END_SRC
 
+In order to import these CSS files, add `require('postcss-import')(),` to `postcss.config.js`:
+
 #+BEGIN_SRC js
 // postcss.config.js
 const vars = require('./variables.js');
@@ -281,6 +285,8 @@ module.exports = (config) => [
     ] : [],
   ]
 #+END_SRC
+
+Also note the external `variables.js` file:
 
 #+BEGIN_SRC js
 // variables.js
@@ -384,3 +390,7 @@ Proper main-content line lengths, in em, [[http://maxdesign.com.au/articles/idea
 }
 
 #+END_SRC
+
+** selection
+
+`::selection { ... }`

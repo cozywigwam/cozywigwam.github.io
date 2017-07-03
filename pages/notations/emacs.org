@@ -539,6 +539,7 @@ directory in another window."
 |-|-|
 | `orgtbl-mode`        | "hijacks" tab. |
 | `SPC m N`, `SPC m P` | next/prev link |
+| `SPC m i l` | `markdown-insert-link`  |
 #+END_EXAMPLE
 
 * org-mode
@@ -575,6 +576,14 @@ directory in another window."
 | `M-S-<left>` & `M-S-<right>` | promote/demote heading or list element                        |                                                                        |
 | `: [[http://example.com][ex]]`                       | use `:` at ^ to preserve no-formatting                        |                                                                        |
 | `C-c -`                      | `org-ctrl-c-minus`                                            | rotate list state (`org-cycle-list-bullet`) or other, context-senstive |
+#+END_EXAMPLE
+
+** tables
+
+#+BEGIN_EXAMPLE
+|               |                       |
+|---------------+-----------------------|
+| `SPC m t d c` | `table-delete-column' |
 #+END_EXAMPLE
 
 ** todos
@@ -1067,8 +1076,8 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 
 #+BEGIN_SRC emacs-lisp
 # local variables:
-# org-attach-directory: "./data"
-# org-id-method: uuid
+:# org-attach-directory: "./data"
+:# org-id-method: uuid
 # end:
 #+END_SRC
 

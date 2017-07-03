@@ -73,3 +73,16 @@ ls
 | tmux.md         |
 | type.md         |
 | vim.md          |
+
+
+* org as spreadsheet
+
+[[https://emacs.stackexchange.com/questions/20498/how-do-i-do-simple-addition-in-org-mode/20506#20506][basics per SO answer]]
+
+[[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheet intro]]
+
+| `C-c ?`           | `org-table-field-info`                         |
+| `C-c }`           | `org-table-toggle-coordinate-overlays`         |
+| `C-u C-c *`       | reapply formulas                               |
+| `:=vmean($2..$3)` | row formula, mean of columns 2 & 3             |
+| `=vsum($2..$3)`   | column formula, sum of all rows' columns 2 & 3 |
