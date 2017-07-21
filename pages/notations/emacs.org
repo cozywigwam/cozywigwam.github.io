@@ -405,7 +405,10 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `C-p`, `C-n`         | previous/next input [custom] |
 | `M-p`, `M-n`         | previous/next match          |
 | `C-c C-p`, `C-c C-n` | previous/next prompt         |
+| `C-u 0 C-l` | recenter prompt to top with zero arg to `recenter-top-bottom` |
 #+END_EXAMPLE
+
+Use `C-u` for argument when in insert mode. Use `f1 k` to `describe-key`.
 
 ** man/woman
 
@@ -455,6 +458,7 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `* @`       | mark symlinks                   |                              |
 | `* / t`     | mark all files                  |                              |
 | `% g`       | mark files that contain REGEXP  |                              |
+| `% m`, `* %`       |`dired-mark-files-regexp`| mark filename that match Emacs regexp                              |
 | `d`         | mark for deletion               |                              |
 | `x`         | `dired-do-flagged-delete`       | delete deletion-marked files |
 | `!`         | run shell command               |                              |
@@ -465,7 +469,7 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `S`         | symlink                         |                              |
 | `g`         | refresh ("read aGain")          |                              |
 | `l`         | relist file at point            |                              |
-| `s`         | sort toggle                     |                              |
+| `s`         | sort toggle (`C-u` to pass switches)                     |                              |
 | `(`         | toggle details                  |                              |
 | `A`         | search marked                   |                              |
 | `C-x C-q`   | switch to wdired                |                              |
@@ -473,6 +477,8 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `(`         | toggle details                  |                              |
 | `J`         | find files from here            |                              |
 | `C-x M-o`   | hide/toggle uninteresting files |                              |
+| `i` | `dired-maybe-insert-subdir` | open subdir inside same window |
+| `C-u K` | `dired-do-kill-lines` | [from subdir's line] remove that subdir |
 #+END_EXAMPLE
 
 Use default ~^~ to go up, but use custom ~U~ to go up from the current physical directory. Use ~U~, ~v~ to change from being inside a symlinked-dir path to the physical path. (Missing attribution.)
@@ -498,6 +504,11 @@ directory in another window."
 
 (define-key dired-mode-map (kbd "U") 'my-dired-up-directory)
 #+END_SRC
+
+** sorting
+
+[[https://www.emacswiki.org/emacs/DiredSorting][Emacs Wiki]]
+
 
 
 
@@ -803,7 +814,7 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 |-|-|
 | `C-o`               | jump to next section                                            |
 | `M-P`, `M-N`        | prev/next search                                                |
-| `<left>`, `<right>` | prev/next file in results                                       |
+| `<left>`, `<right>`, `C-c <`, `C-c >` | prev/next file in results, `helm-ag--next-file`|
 | `F3`                | (for helm search) open results in buffer/promote to buffer      |
 | `C-s`               | grep highlighted dir/file                                       |
 | `C-z`               | show actions                                                    |
@@ -841,6 +852,8 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 #+END_EXAMPLE
 
 ** helm ag
+
+Ignore stuff with .agignore.
 
 #+BEGIN_EXAMPLE
 |||
@@ -908,24 +921,27 @@ Spacelayers' ~auto-completion~ mode add ~indent-for-tab-command~ to TAB (~(kbd "
 
 
 
-* magit / git
+* git
 
 [manual](https://magit.vc/manual/magit.html)
 
-** general
+** magit
 
-#+BEGIN_EXAMPLE
+*** general
+
+ #+BEGIN_EXAMPLE
 |||
 |-|-|
+| `SPC g s` | `magit-status` | existing or create new |
 | `]h`, `[h`  | next/prev hunk            |                                                |
 | `SPC g f f` | `magit-find-file`         | open revision                                  |
 | `SPC g f h` | `magit-log-buffer-file`   | history/log for current buffer                 |
 | `SPC g d w` | `magit-diff-working-tree` | all changes - quickly check if branch is clean |
-#+END_EXAMPLE
+ #+END_EXAMPLE
 
-** from status
+*** from status
 
-#+BEGIN_EXAMPLE
+ #+BEGIN_EXAMPLE
 |||
 |-|-|
 | `C-u s`                    | [point at untracked file] track without staging ("git add --intent-to-add") |                                                    |
@@ -938,55 +954,66 @@ Spacelayers' ~auto-completion~ mode add ~indent-for-tab-command~ to TAB (~(kbd "
 | `=`                        | split file's hunks into more/smaller hunks                                  |                                                    |
 | `+`                        | split file's hunks into fewer/larger hunks                                  |                                                    |
 | `0`                        | reset file's hunk qty/size                                                  |                                                    |
-#+END_EXAMPLE
+ #+END_EXAMPLE
 
-** from log
+*** from log
 
-#+BEGIN_EXAMPLE
+ #+BEGIN_EXAMPLE
 |||
 |-|-|
 | `O` | [in log] reset popup |
-#+END_EXAMPLE
+ #+END_EXAMPLE
 
-** from commit
+*** from commit
 
-#+BEGIN_EXAMPLE
+ #+BEGIN_EXAMPLE
 |||
 |-|-|
 | `M-p` | [in commit window] pull up previously used commit messages |
-#+END_EXAMPLE
+ #+END_EXAMPLE
 
-** from popup
+*** from popup
 
-#+BEGIN_EXAMPLE
+ #+BEGIN_EXAMPLE
 |||
 |-|-|
 | `?`   | describe key    |
 | `C-t` | show popup menu |
-#+END_EXAMPLE
+ #+END_EXAMPLE
 
-** misc
+*** misc
 
-[[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit workflows]]
+ [[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit workflows]]
 
-[[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][infix arguements and suffix commands]]
+ [[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][infix arguements and suffix commands]]
 
-[[https://magit.vc/manual/magit/MacOS-Performance.html][macOS - use emacs-plus to reduce sluggishness]]
+ [[https://magit.vc/manual/magit/MacOS-Performance.html][macOS - use emacs-plus to reduce sluggishness]]
+
+ #+BEGIN_SRC emacs-lisp
+(magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
+ #+END_SRC
+
+| `C-x C-o` | `delete-blank-lines` |
+
+** smerge
+
+| `C-c ^ m` | keep mine  |
+| `C-c ^ o` | keep other |
+
+
+
+* tags/ctags
+
+See variable ~tags-table-list~. Delete an item with:
 
 #+BEGIN_SRC emacs-lisp
-(magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
+(setq tags-table-list (delete "/Users/recurvirostridae/unwanted/TAGS" tags-table-list))
 #+END_SRC
 
-#+BEGIN_EXAMPLE
-|||
-|-|-|
-| `C-x C-o` | `delete-blank-lines` |
-#+END_EXAMPLE
-
-
-
+List basics at <a href="https://www.emacswiki.org/emacs/ListStructure" target="_blank">Emacs Wiki List Structure</a> and <a href="https://www.emacswiki.org/emacs/ListModification" target="_blank">Emacs Wiki List Modification</a>.
 
 * JS
+
 
 [[https://github.com/felipeochoa/rjsx-mode][rjxs-mode]]
 
@@ -1041,7 +1068,6 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 
 * misc
 
-
 #+BEGIN_EXAMPLE
 |||
 |-|-|
@@ -1059,6 +1085,18 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 | `; -*- mode: Emacs-Lisp; -*-` | specify major mode in first line of a file                                   |
 | `SPC u SPC !`                 | shell command into current buffer                                            |
 #+END_EXAMPLE
+
+** line endings
+
+<a href="https://www.emacswiki.org/emacs/EndOfLineTips" target="_blank">Emacs Wiki</a>
+
+*** Remove
+
+Substitute out the literal return key (~C-q C-m~): ~,s C-q C-m/~
+
+*** Open with/switch to
+
+~revert-buffer-with-coding-system~ -> ~utf-8-dos~
 
 
 ** Local variables

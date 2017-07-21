@@ -40,9 +40,11 @@ bower uninstall
 bower prune
 
 # brew
+man brew
 brew list
 brew list postgres
 brew search TERM
+brew leaves # "Show installed formulae that are not dependencies of another installed formula."
 
 # composer
 composer # see commands
@@ -141,6 +143,8 @@ chflags nohidden Pictures
 
 ```sh
 history -c
+
+identify -format '%w %h' img.png ## get img pixel dims
 
 scp -r <local_spec> <remote_spec>
 

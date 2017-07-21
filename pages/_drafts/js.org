@@ -34,21 +34,64 @@ console.log(remain);
 
 
 
-* Template Literals
+* Arrays
 
-#+BEGIN_SRC js :cmd "org-babel-node"
-  function cl(input) {
-    console.log(input);
-  }
+** Copying
 
-let a = `asdf`;
-console.log(a);
+<a href="https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript/23536726#23536726" target="_blank">Good SO answer</a>
+
+If it's an array of primitives, use ~slice()~ (or ~concat()~):
+
+#+BEGIN_SRC js
+var myArray = [3, "str", true];
+
+var dupe = myArray.slice();
+// or
+var dupe2 = myArray.concat();
+dupe[0] = 4;
+console.log('myArray', myArray);
 #+END_SRC
 
-#+RESULTS:
-: asdf
-: undefined
+If it's an array of objects, this will result in a shallow copy:
 
+#+BEGIN_SRC js
+var myObjArray = [
+  {
+    name: 'Miles',
+    instrument: 'trumpet'
+  },
+  {
+    name: 'John',
+    instrument: 'saxophone'
+  }
+]
+
+var shallowDupe = myObjArray.slice();
+shallowDupe[0].name = 'Clifford';
+
+console.log('myObjArray', myObjArray); // Clifford overwrote Miles
+#+END_SRC
+
+Instead, one alternative is to stringify and parse:
+
+#+BEGIN_SRC js
+var myObjArray = [
+  {
+    name: 'Miles',
+    instrument: 'trumpet'
+  },
+  {
+    name: 'John',
+    instrument: 'saxophone'
+  }
+]
+
+var dupe = myObjArray.slice();
+// dupe[0].name = 'Clifford'; // would overwrite myObjArray
+
+var dupe2 = JSON.parse(JSON.stringify(myObjArray));
+dupe2[0].name = 'Dexter'; // myObjArray and dupe2 are different
+#+END_SRC
 
 * Destructuring
 
