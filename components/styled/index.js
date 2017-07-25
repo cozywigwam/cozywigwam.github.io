@@ -14,7 +14,7 @@ import { Mixins } from './Mixins';
  * Global Styles
  */
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Theano+Modern&Norwester');
+  @import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Source+Code+Pro');
 
   html {
     background: ${Colors.gray};
