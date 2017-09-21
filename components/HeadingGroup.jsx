@@ -19,7 +19,7 @@ const HeadingGroup = props => {
       </H1>
       <PostDescription>
         { props.descLink
-          ? <a href={"descLink:" + props.descLink}>{props.description}</a>
+          ? <a href={props.descLink}>{props.description}</a>
           : `${props.description}` }
       </PostDescription>
     </PostHeader>

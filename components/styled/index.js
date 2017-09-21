@@ -94,15 +94,18 @@ injectGlobal`
    */
   code {
     margin: 0 3px;
-    padding: 3px 4px 3px;
+    padding: 5px 6px;
     font-family: ${Font.family.monospace};
     ${Mixins.fontSizer(16, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};
+    border-right: 2px solid ${Colors.grayLighter};
     border-bottom: 2px solid ${Colors.grayLighter};
   }
   table code {
-    background: none;
-    border: 0;
+    padding: 4px 5px !important;
+    background: ${Colors.gray};
+    border-right: 1px solid ${Colors.grayLighter};
+    border-bottom: 1px solid ${Colors.grayLighter};
     ${Mixins.fontSizer(13, Constants.multipliers.regular)}
   }
   table td > code:first-child {
@@ -126,7 +129,7 @@ injectGlobal`
   pre code {
     margin: 0;
     padding: 0;
-    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
+    ${Mixins.fontSizer(12, Constants.multipliers.regular)}
     line-height: ${Font.lineHeight.extended};
     background: none;
     border: 0;
@@ -200,7 +203,17 @@ injectGlobal`
   }
 
 
+  .table-cyan table {
+    border-bottom: 2px solid ${Colors.cyan} !important;
+  }
+  .table-green table {
+    border-bottom: 2px solid ${Colors.green} !important;
+  }
 
+
+  .u-text-align--center {
+    text-align: center;
+  }
 
 `;
 
@@ -249,8 +262,8 @@ export const Logo = styled(Link)`
 
 export const ReturnHomeLink = styled(Link)`
     display: inline-block;
-    margin: 5% 0;
-    padding: 1em 2em;
+    margin: 10% auto 22%;
+    padding: 2.6em 7em;
     color: ${Colors.blue};
     font-size: 15px;
 
