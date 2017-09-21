@@ -1,11 +1,52 @@
 ---
 title: "Command Line"
 layout: notation
-description: ZSH, etc.
+description: Shell, Term, Nix
 path: "/command-line/"
 ---
 
-# commands
+# Builtins and Commands
+
+## ack
+
+<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc" target="_blank" alt="ackrc">dotfile</a>
+
+```bash
+ack --help | less
+
+# ack [options] PATTERN [FILE...]
+# ack -f [options] [DIRECTORY...]
+
+ack --dump # see ignores
+
+ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched)
+
+ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
+```
+
+
+## jobs
+
+[Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
+
+|||
+|-|-|
+| `<C-z>` | "suspend" character |
+| `<C-y>` | "delayed suspend" character |
+
+```bash
+%1 # shorthand for `fg %1`
+%1 & # shorthand for `bg %1`
+jobs -l # show PID
+```
+
+
+## less
+
+|||
+|-|-|
+| `M-u` | toggle search highlighting (like `:noh`) |
+
 
 ## lsof
 
@@ -27,57 +68,9 @@ kill -9 `lsof -t -u charadriidae`
 ```
 
 
-## less
-
-|||
-|-|-|
-| `M-u` | toggle search highlighting |
-
-
-## Ack
-
-<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc" target="_blank" alt="ackrc">dotfile</a>
-
-```bash
-ack --help | less
-
-# ack [options] PATTERN [FILE...]
-# ack -f [options] [DIRECTORY...]
-
-ack --dump # see ignores
-
-ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched)
-
-ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
-```
-
-
-## Jobs
-
-[Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
-
-|||
-|-|-|
-| `<C-z>` | "suspend" character |
-| `<C-y>` | "delayed suspend" character |
-
-```bash
-%1 # shorthand for `fg %1`
-%1 & # shorthand for `bg %1`
-jobs -l # show PID
-```
-
-
 ## Misc
 
-|||
-|-|-|
-| `<M-u>` | toggle search highlighting |
-
 ```bash
-sed -i '.bak' 's/oldterm/newterm/g' [filename] 
-sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
-
 # dir tree
 tree -I node
 tree -d .
@@ -88,14 +81,18 @@ dirs -v
 # rename files ./old1.txt, ./old2.txt
 rename 's/old/new/g' *
 
+ytdl --extract-audio --audio-format mp3 <url>
+```
+
+### macOS
+
+```sh
+# sed requires `-i`
+sed -i '.bak' 's/oldterm/newterm/g' [filename] 
+sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
+
 # custom notification sounds for System Prefs -> Sounds
 cp my-custom-sound.mp3 ~/Library/Sounds/
-
-# 
-command -v [word]
-type [word]
-
-ytdl --extract-audio --audio-format mp3 <url>
 ```
 
 
@@ -154,3 +151,41 @@ Modes: `viins`, `vicmd`, `emacs`, others.
 `<M-x>` | emacs & [mapped] viins: execute `execute-named-cmd`
 `:` | vicmd: execute `execute-named-cmd`
 
+
+
+## emacs
+
+### term
+
+|||
+|-|-|
+| `C-c C-j` | switch to line mode |
+| `C-c C-k` | switch to char mode |
+
+### eshell
+
+|||
+|-|-|
+| `C-p`, `C-n`         | previous/next input [custom] |
+| `M-p`, `M-n`         | previous/next match          |
+| `C-c C-p`, `C-c C-n` | previous/next prompt         |
+| `C-u 0 C-l` | recenter prompt to top with zero arg to `recenter-top-bottom` |
+| `C-u` | [insert mode] universal-argument |
+| `f1 k` | [insert mode] `describe-key` |
+
+#### alias
+
+```sh
+alias customls 'ls -la $#'
+which customls
+```
+
+#### reference
+
+Mickey Peterson's <a href="https://www.masteringemacs.org/article/complete-guide-mastering-eshell" target="_blank">Mastering Eshell</a>
+
+### man/woman
+
+|||
+|-|-|
+| `(customize-group 'man)` |

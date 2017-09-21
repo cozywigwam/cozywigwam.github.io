@@ -5,7 +5,9 @@ description: Remember Netscape
 path: "/browsers/"
 ---
 
-# Chrome dev tools
+# Chrome
+
+## dev tools
 
 <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" alt="Console API Reference">Console API Reference</a>
 
@@ -27,6 +29,10 @@ path: "/browsers/"
 `monitorEvents(object[, events])` |
 `F2` | (with element selected) edit as HTML
 
+## Vimium
+
+<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium" target="_blank" alt="vimium">dotfile</a>
+
 
 # Firefox
 
@@ -34,16 +40,21 @@ path: "/browsers/"
 
 [Mozilla keyboard shortcuts](https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts)
 
-## Misc
-
-To add "confirm on quit": `about:config`, `browser.showQuitWarning`
-
-### Locations
+## Locations
 
 - `about:config`
 - `about:support`
 - `~/Library/Application Support/Firefox/Profiles/`
 - `~/Library/Mozilla/Firefox/Profiles/`
+
+## Vimperator
+
+<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc" target="_blank" alt="vimperatorrc">dotfile</a>
+
+## Misc
+
+To add "confirm on quit": `about:config`, `browser.showQuitWarning`
+
 
 
 

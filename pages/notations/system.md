@@ -1,7 +1,7 @@
 ---
 title: "System"
 layout: notation
-description: Examination, Package Managers
+description: Self-discovery
 path: "/system/"
 ---
 
@@ -25,67 +25,89 @@ dpkg -get-selections
 mount
 df -h
 iostat -c 2
-dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]' # macOS
+
+# macOS
+dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
+dscl . list /Users | grep -v '_'
 ```
 
 
-# Package managers
+# Examination
+
+## Bower
 
 ```sh
-# bower
 bower list
 bower search
 bower install
 bower uninstall
 bower prune
+```
 
-# brew
+## Brew
+
+```sh
 man brew
 brew list
 brew list postgres
 brew search TERM
 brew leaves # "Show installed formulae that are not dependencies of another installed formula."
+```
 
-# composer
+## composer
+
+```sh
 composer # see commands
 composer show # because list would be too easy
+```
 
-# dpkg / apt-get
+## dpkg / apt-get
+
+```sh
 dpkg --get-selections | grep -v deinstall
 dpkg --get-selections | grep -i php
+```
 
-# n (instead of nvm)
+## gems
+
+```sh
+gem env
+```
+
+## n (instead of nvm)
+
+```sh
 n # arrow keys and select
 n --help
 n list
 n stable # use/install stable
 n latest # use/install latest
 n rm 0.9.4 v0.10.0 # remove
+```
 
-# npm
+## npm
+
+```sh
 npm help
 npm help <cmd>
 npm list -g --depth=0
 npm outdated -g --depth=0
 sudo npm update -g npm
+```
 
-# original global path
-/usr/local/lib/node_modules/
+### Change global path
 
-# change global path
+Originally, the global path is `/usr/local/lib/node_modules/`. Change it with:
+
+```sh
 npm config set prefix '~/.npm-global' # updates ~/.npmrc
-# add ~/.npm-global/bin to path
+```
 
-# semver
-# ~ is minor: ~1.2.3 matches 1.2.x, not 1.3.0
-# ^ is major: ^1.2.3 matches 1.x.x, not 2.0.0
+Then add `~/.npm-global/bin` to path.
 
-# rvm
-ruby -v
-rvm list
-gem list
+## rbenv
 
-# rbenv
+```sh
 rbenv # quick help
 rbenv install -l # list
 rbenv install 2.3.1
@@ -95,10 +117,24 @@ rbenv versions # like `ls ~/.rbenv/versions/`
 rbenv shell # just a helper for RBENV_VERSION
 rbenv local # adds .ruby-version project file
 rbenv global
-
-# gems
-gem env
 ```
+
+## rvm
+
+```sh
+ruby -v
+rvm list
+gem list
+```
+
+## semver
+
+|||||
+|-|-|-|-|
+~ | minor | `~1.2.3 ≈ 1.2.x` | `~1.2.3 ≉ 1.3.0`
+^ | major | `^1.2.3 ≈ 1.x.x` | `^1.2.3 ≉ 2.0.0`
+
+
 
 
 # macOS
@@ -128,6 +164,10 @@ dscl # then `cd Contact`, `cd Users`, `read [username]`
 # hide/show directories in Finder
 chflags hidden Pictures
 chflags nohidden Pictures
+
+# safely remove a volume
+diskutil list
+diskutil eject disk2 # disk2 is [device]
 ```
 
 ## Misc

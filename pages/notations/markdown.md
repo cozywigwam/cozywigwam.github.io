@@ -5,7 +5,9 @@ description: Dialect Roundup
 path: "/markdown/"
 ---
 
-# Basics
+# Quick Syntax Reference
+
+## Basics
 
 ```
 *italics,* and _more italics_
@@ -13,8 +15,7 @@ path: "/markdown/"
 ***bold italic***
 ```
 
-
-# Tables
+## Tables
 
 3 dash minimum, columns for alignment, line begin/end pipes optional. Header not required for gfm, but is seemeingly everywhere else.
 
@@ -34,7 +35,7 @@ Daring Fireball's:
 - <a href="http://daringfireball.net/projects/markdown/basics" target="_blank" alt="syntax/basics">basics</a>
 - <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" alt="syntax/basics">syntax</a>
 
-## github.com
+## GitHub
 
 Uses "<a href="https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/" target="_blank" alt="GitHub flavored markdown">GitHub flavored markdown</a>," aka GFM:
 

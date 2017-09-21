@@ -241,62 +241,6 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `:qmarks j` | see "j"
 
 
-## Fugitive
-
-|||
-|-|-|
-`:Gwrite` | add %
-`:Gread` | overwrite working with index
-`:Gbrowse` | inspect current object on GitHub
-
-### :Gstatus
-
-|||
-|-|-|
-`:Gstatus` | status
-`g?` | show help
-`D` | diff
-`U` | checkout file, scrap changes (`:Gread` and `:w`)
-`cc` | commit
-`cA` | commit `--amend --use-message=HEAD`
-`r` | reload
-`q` | quit
-
-### :Gdiff
-
-|||
-|-|-|
-`:[range]diffget [bufspec]` | obtain diff
-`:[range]diffput [bufspec]` | put diff
-`do` | diff obtain
-`dp` | diff put
-`:diffget //3` | (from working copy of 3-way merge) obtain from merge branch
-`:diffget //2` | same as above but obtain from target branch
-`:Gwrite!` | (from target or merge branch) resolve conflicts with this version
-
-### :Gedit
-
-|||
-|-|-|
-`:Gedit [revision]` | e.g. `:Gedit HEAD^:%`
-`<Enter>` | go to object corresponding to SHA on cursor's line
-`C` | jump to commit object
-`-` | jump to tree object
-
-### [revision]
-
-|||
-|-|-|
-`:h fugitive-revision` | `HEAD`, `master`, etc.
-`HEAD^{}` | commit referenced by HEAD
-`-` | current file in HEAD
-`^` | current file in previous commit
-`~3` | current file 3 commits ago
-`:0` | current file in the index
-`:2` | (3-way merge) current file in target branch
-`:3` | (3-way merge) current file in merge branch
-
-
 ## Color
 
 |||

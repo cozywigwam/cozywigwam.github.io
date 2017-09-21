@@ -11,6 +11,8 @@ path: "/tmux/"
 
 # Key bindings
 
+Note: some of this information is outdated as of tmux 2.5. See `man tmux`.
+
 Keys are bound to either a key table or a mode table. Usage `[-t mode-table] [-T key-table]`. The two key tables: 
 
 - `prefix`
@@ -39,7 +41,8 @@ tmux list-keys # equivalent to '-T prefix' + '-T root'
 tmux lsk -t vi-copy
 
 # bind the "v" key in vi-copy mode
-tmux bind-key -t vi-copy v begin-selection
+tmux bind-key -t vi-copy v begin-selection # old syntax
+tmux bind-key -T copy-mode-vi v send -X begin-selection # new syntax
 
 # allow a key to [-r] repeat
 bind-key -r L swap-window -t +1
@@ -54,6 +57,8 @@ tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default ke
 
 # Options
 
+Respectively, see and set:
+
 ```bash
 # server
 tmux show-options -s # tmux show -s
@@ -64,9 +69,16 @@ tmux show -g # -g for global session/window settings
 tmux set
 
 # window
-tmux showw
+tmux showw (alias for `show-window-options`)
 tmux setw
 ```
+
+
+# Plugins
+
+<a href="https://github.com/tmux-plugins/tpm" target="_blank">Tmux Plugin Manager</a>
+
+Plugins live in `~/.tmux/plugins`. Install with with `[prefix] + I`. Update with `~/.tmux/plugins/tpm/bin/update_plugins all`.
 
 
 # Misc
