@@ -144,6 +144,9 @@ injectGlobal`
   pre + table {
     // margin-top: 3.2rem;
   }
+  pre + blockquote {
+    margin-top: 3rem;
+  }
   table + table,
   pre + pre {
     // margin-top: 4rem;

@@ -69,10 +69,12 @@ path: "/spacemacs/"
 
 ### buffers
 
-| `SPC p d` | `helm-projectile-find-ini includes recentf`         | &nbsp;                                          |
-| `C-x b`   | `helm-buffers-list`                                 | &nbsp;                                          |
-| `SPC b W` | `spacemacs/goto-buffer-workspace`                   | go to where that buffer is displayed (if it is) |
-| `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | &nbsp;                                          |
+||||
+|-|-|-|
+| `SPC p d` | `helm-projectile-find-ini includes recentf`         |
+| `C-x b`   | `helm-buffers-list`                                 |
+| `SPC b W` | `spacemacs/goto-buffer-workspace`                   |
+| `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` |
 
 
 ### projects
@@ -112,7 +114,6 @@ path: "/spacemacs/"
 | `SPC h d m`          | ...mode (with keybindings)                          |
 | `SPC h d t`          | ...theme                                            |
 | `SPC h d v`          | `describe-variable`                                 |
-    
 | `SPC h SPC`          | lookup doc, layers, packages, dotfile, toggles, faq |
 | `SPC ?`              | `helm-descbinds`                                    |
 | `C-h e`              | see startup error messages                          |
@@ -862,5 +863,8 @@ Substitute out the literal return key (`C-q C-m`): `,s C-q C-m/`
 
 Fix remote zsh prompt to permit TRAMP (from [github](<https://github.com/syl20bnr/spacemacs/issues/1945>)):
 
-`[ [ $TERM == "dumb" ] ] && unsetopt zle && PS1='$ ' && return` (remove space between brackets)
+```
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+```
+
 
