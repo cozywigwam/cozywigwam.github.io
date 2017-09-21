@@ -6,5 +6,5 @@ npm start
 npm run build
 ```
 
-Gatsby build with Styled Components. Includes "notations" and themes. The content is either markdown or org-mode -> markdown.
+Gatsby build with Styled Components. The content is either markdown or org-mode -> markdown.
 

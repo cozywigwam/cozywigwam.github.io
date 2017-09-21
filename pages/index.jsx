@@ -37,8 +37,6 @@ export default class Index extends React.Component {
         <Wrapper homeWrapper>
           { this.renderNotationHeadingGroups(this.props.route, 'notation') }
           <Hr />
-          { this.renderNotationHeadingGroups(this.props.route, 'theme') }
-          <Hr />
           <HeadingGroup path={prefixLink('/about/')} title="About" description="@cozywigwam" descLink="https://twitter.com/cozywigwam" />
         </Wrapper>
       </div>
