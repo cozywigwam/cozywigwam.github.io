@@ -201,7 +201,6 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `R` | refresh
 
 
-
 ## Ctrl-P
 
 |||
@@ -212,33 +211,9 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `<C-p> <C-n>` | prev/next searches
 
 
+## Vimium & Vimperator
 
-## Vimperator
-
-<a href="https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc" target="_blank" alt="Vimperator dotfile">dotfile</a>
-
-|||
-|-|-|
-`:hs! [filter]` | history; use the bang to immediately open results
-`o O` | open / open with current address populated
-`t T` | new tab / new tab with "
-`w W` | new window / new window with "
-`p P` | open with clipboard (URL or search) / new tab with clipboard
-`;` | extendended hint
-`;;` | focus
-`;F` | multiple background tabs
-`;S` | save object
-`;y` | yank location
-`;#` | yank anchor URL
-`;v` | view source
-`;V` | open source in editor
-`;c` | open context menu
-`;i` & `;I` | open media object (& in new tab)
-`m` | create mark
-`M` | create quickmark
-`:marks` | see marks
-`:qmark j` | set "j"
-`:qmarks j` | see "j"
+See [Browsers](/browsers/)
 
 
 ## Color
