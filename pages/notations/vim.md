@@ -32,6 +32,11 @@ path: "/vim/"
 `<leader>fmap` | [custom] list all <leader> mappings
 
 
+## Fold
+
+`zM` | close all folds
+`zR` | open all folds
+
 ## Search
 
 |||

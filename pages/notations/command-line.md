@@ -164,19 +164,20 @@ Modes: `viins`, `vicmd`, `emacs`, others.
 
 ### eshell
 
-|||
-|-|-|
-| `C-p`, `C-n`         | previous/next input [custom] |
-| `M-p`, `M-n`         | previous/next match          |
-| `C-c C-p`, `C-c C-n` | previous/next prompt         |
-| `C-u 0 C-l` | recenter prompt to top with zero arg to `recenter-top-bottom` |
-| `C-u` | [insert mode] universal-argument |
-| `f1 k` | [insert mode] `describe-key` |
+|                      |                                                               |
+|----------------------|---------------------------------------------------------------|
+| `C-p`, `C-n`         | previous/next input [custom]                                  |
+| `M-p`, `M-n`         | previous/next match                                           |
+| `C-c C-p`, `C-c C-n` | previous/next prompt                                          |
+| `C-u 0 C-l`          | recenter prompt to top with zero arg to `recenter-top-bottom` |
+| `C-u`                | [insert mode] universal-argument                              |
+| `f1 k`               | [insert mode] `describe-key`                                  |
+| `SPC b C-r`          | `rename-buffer`                                               |
 
 #### alias
 
 ```sh
-alias customls 'ls -la $#'
+alias customls 'ls -la $*'
 which customls
 ```
 

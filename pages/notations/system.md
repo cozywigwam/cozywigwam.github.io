@@ -170,13 +170,24 @@ diskutil list
 diskutil eject disk2 # disk2 is [device]
 ```
 
+## Daemons & Agents
+
+`brew services list`
+
+`brew services run|start|stop|restart formula|-all`
+
+Daemons: `launchd` and `launchctl`. `brew` plugs into `launchctl` via `brew services`.
+
+Launched at boot: `/Library/LaunchDaemons`
+
+Launched at login: `~/Library/LaunchAgents`
+
 ## Misc
 
 |||
 |-|-|
 `cmd + shift + V` | paste with stripped formatting (might need alt sometimes, not sure here)
 `~/Library/Services/` | Location of AppleScript services (.workflow files)
-
 
 
 # Misc
@@ -191,3 +202,5 @@ scp -r <local_spec> <remote_spec>
 # vagrant
 vagrant ssh-config # see hostname, port, SSH Key location
 ```
+
+Vagrant insecure key: `~/.vagrant.d/insecure_private_key`

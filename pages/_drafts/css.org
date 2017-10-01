@@ -87,7 +87,8 @@ Use `&` to refer to parent block:
 
 ** Media Queries
 
-*** Top Level
+*** CSS
+
 #+BEGIN_SRC css
   @media (min-width: 480px) {
     .box {
@@ -95,6 +96,8 @@ Use `&` to refer to parent block:
     }
   }
 #+END_SRC
+
+*** CSS Modules
 
 #+BEGIN_SRC css
 @custom-media --xs-max (max-width: 479px);
@@ -120,7 +123,244 @@ Use `&` to refer to parent block:
 @media (--only-medium-screen) {}
 #+END_SRC
 
+*** LESS
+
+**** Option 1
+
+#+BEGIN_SRC css
+@breakpointSmall: 480px;
+
+.responsive(@minWidth; @rules) {
+  @media only screen and (min-width: @minWidth) {
+    @rules();
+  }
+}
+
+.doodad {
+  margin: 10px;
+
+  .responsive(@breakpointSmall, {
+    margin: 20px;
+  });
+}
+#+END_SRC
+
+**** Option 2
+
+#+BEGIN_SRC css
+@breakpointMedium: 992px;
+@mediaMedium: ~"only screen and (min-device-width: @breakpointMedium)";
+
+.doodad2 {
+  padding: 5px;
+
+  @media @mediaMedium {
+    padding: 10px;
+  }
+}
+#+END_SRC
+
+**** full example
+
+#+BEGIN_SRC css
+@screenXS      : 480px;
+@screenXSMax   : (@screenSM - 1);
+@screenSM      : 768px;
+@screenSMMax   : (@screenMD - 1);
+@screenMD      : 992px;
+@screenMDMmax  : (@screenLG - 1);
+@screenLG      : 1200px;
+@screenXL      : 1600px;
+
+@xs:  ~"only screen and (min-width: @{screenXS})";
+@sm:  ~"only screen and (min-width: @{screenSM})";
+@md:  ~"only screen and (min-width: @{screenMD})";
+@lg:  ~"only screen and (min-width: @{screenLG})";
+@xl:  ~"only screen and (min-width: @{screenXL})";
+
+@xs-max: ~"only screen and (max-width: @{screenXS})";
+@sm-max: ~"only screen and (max-width: @{screenSM})";
+@md-max: ~"only screen and (max-width: @{screenMD})";
+
+.u-mobile-only {
+  @media @md {
+    display: none;
+  }
+}
+.u-desktop-only {
+  display: none;
+
+  @media @md {
+    display: block;
+  }
+}
+#+END_SRC
+
+Note: the tilde is for escaping/literal (<a href="http://lesscss.org/features/#features-overview-feature-escaping" target="_blank">reference</a>)
+
+
+*** SASS
+
+cf. mb
+
+#+BEGIN_SRC css
+/*
+
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+$screen-xl: 1400px;
+$screen-xxl: 1600px;
+
+$screen-xs-max: ($screen-sm - 1);
+$screen-sm-max: ($screen-md - 1);
+$screen-md-max: ($screen-lg - 1);
+
+,*/
+
+@mixin breakpoint-custom($breakpoint) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+@mixin breakpoint-max($breakpoint) {
+  @media (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+@mixin breakpoint-range($min, $max) {
+  @media (min-width: #{$min}) and (max-width: #{$max}) {
+    @content;
+  }
+}
+
+@mixin breakpoint-xs {
+  @include breakpoint-custom($screen-xs) {
+    @content;
+  }
+}
+@mixin breakpoint-xs-max {
+  @include breakpoint-max($screen-sm - 1) {
+    @content;
+  }
+}
+@mixin breakpoint-sm {
+  @include breakpoint-custom($screen-sm) {
+    @content;
+  }
+}
+
+/* ... */
+
+@mixin mobile-only() {
+  @include breakpoint-md {
+    display: none !important;
+  }
+}
+@mixin desktop-only() {
+  display: none;
+
+  @include breakpoint-md {
+    display: block;
+  }
+}
+
+/* usage */
+
+.my-el {
+  width: 100%;
+
+  @include breakpoint-md {
+    width: 90%;
+  }
+  @include breakpoint-lg {
+    width: 88%;
+  }
+}
+
+#+END_SRC
+
+*** Styled Components
+
+cf. sunflowerseastar
+
+#+BEGIN_SRC js
+// Constants.js
+export const Constants = {
+  MQ: {
+    xs: 420,
+    sm: 768,
+    md: 992,
+    lg: 1200,
+    xl: 1400,
+    xxl: 1900,
+  }
+}
+
+#+END_SRC
+
+#+BEGIN_SRC js
+// components/styled/index.js
+
+export const Header = styled.header`
+  padding: 10px;
+
+  @media (min-width: ${Constants.MQ.sm}px) {
+    padding: 15px;
+  }
+  @media (min-width: ${Constants.MQ.md}px) {
+    padding: 20px;
+  }
+  @media (min-width: ${Constants.MQ.lg}px) {
+    padding: 30px;
+  }
+`;
+#+END_SRC
+
+
+* Strategy
+** Variables
+*** Color
+*** Type
+
+Matt Stow's example, https://paulrobertlloyd.com/2017/03/designing_systems_part_3.
+
+#+BEGIN_SRC scss
+@mixin typeset($preset, $level) {
+  @if ($preset == title) {
+    font-family: $typeface-serif;
+    font-weight: bold;
+    letter-spacing: 0.0025em;
+    text-transform: uppercase;
+
+    @if ($level == 1) {
+      font-size: 1em;
+      line-height: 1.25em;
+    }
+
+    @if ($level == 2) {
+      font-size: 2em;
+      line-height: 2em;
+    }
+
+    ...
+#+END_SRC
+
+Usage:
+
+#+BEGIN_SRC scss
+.c-module__title {
+  @include typeset(title, 2);
+  margin-bottom: ($baseline * 4);
+  padding-top: ($baseline * 2);
+  color: $color-text;
+}
+#+END_SRC
+
+
 * CSS Modules
+
 [[https://github.com/css-modules/css-modules][github]]
 [[https://github.com/css-modules/icss][Interoperable CSS (ICSS)]]
 
@@ -352,6 +592,23 @@ export const Button = (props) => {
 * Glamor
 
 
+* Easing
+
+MDN easing: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+
+Cubic bezier generator: http://cubic-bezier.com/#.3,.8,.83,.67
+
+#+BEGIN_SRC scss
+@mixin transition-s-curve($property: all, $duration: $transition-speed-default) {
+    transition: $property $duration cubic-bezier(0.3, 0.8, 0.1, 0.95);
+}
+
+// ...
+
+@include transition-s-curve(all, 1000ms);
+#+END_SRC
+
+
 * Misc
 
 CSS Styles in the head ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style))
@@ -368,6 +625,28 @@ CSS Styles in the head ([MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/
 
 Proper main-content line lengths, in em, [[http://maxdesign.com.au/articles/ideal-line-length-in-ems/][ref]]:
 
+** color varibles
+
+*** naming schemes
+
+Example from Matt Stow, https://paulrobertlloyd.com/2017/03/designing_systems_part_3
+
+#+BEGIN_SRC css
+// Colour Palette
+$color-brand--crimson: #c00;
+$color-brand--mustard: #fc0;
+
+$color-neutral--darkest: #222;
+$color-neutral--darker: #444;
+$color-neutral--dark: #666;
+$color-neutral--mid: #888;
+$color-neutral--light: #bbb;
+$color-neutral--lighter: #ddd;
+$color-neutral--lightest: #eee;
+#+END_SRC
+
+** blockquote
+
 #+BEGIN_SRC html
 <figure class="quote">
 	<blockquote><p>...the author hopes to be held guiltless by those to whom the work is addressed—enlightened souls who prefer dry wines to sweet, sense to sentiment, wit to humor and clean English to slang.</p></blockquote>
@@ -376,11 +655,11 @@ Proper main-content line lengths, in em, [[http://maxdesign.com.au/articles/idea
 #+END_SRC
 
 ** clearfix
+
 #+BEGIN_SRC css
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
 }
-
 #+END_SRC

@@ -29,6 +29,12 @@ path: "/browsers/"
 `monitorEvents(object[, events])` |
 `F2` | (with element selected) edit as HTML
 
+## Cookies
+
+<a href="https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies" target="_blank">reference</a>
+
+In Applications -> Storage
+
 ## Vimium
 
 <a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium" target="_blank" alt="vimium">dotfile</a>
@@ -46,6 +52,13 @@ path: "/browsers/"
 - `about:support`
 - `~/Library/Application Support/Firefox/Profiles/`
 - `~/Library/Mozilla/Firefox/Profiles/`
+
+## Cookies
+
+<a href="https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies" target="_blank">Reference</a>
+
+In the Storage panel.
+
 
 ## Vimperator
 

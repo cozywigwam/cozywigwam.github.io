@@ -23,6 +23,8 @@ Workspaces | Eyebrowse | tmux windows or vim tabs
 #+BEGIN_EXAMPLE
 |||
 |-|-|
+| `SPC x o` | ace link |
+| `C-S-h`             | [kill ring, etc.] describe-key |
 | `SPC x w d`         | `osx-dictionary-search-pointer`          |
 | `M-h`, `M-l`        | `org-metaright`, like `<M-right>`        |
 | `amen`              | escape holy-mode                         |
@@ -385,7 +387,7 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `C-c C-f` | beautify/auto-format TODO bind/normalize this |
 #+END_EXAMPLE
 
-* Windows
+* windows
 
 #+BEGIN_EXAMPLE
 |||
@@ -395,6 +397,15 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `SPC w m`       | toggle maximize           |
 | `SPC v/V/s/S`   | split or split with focus |
 #+END_EXAMPLE
+
+
+* kill & yank
+
+Use arguements with `yank-pop`:
+
+> With no argument, the previous kill is inserted.
+> With argument N, insert the Nth previous kill.
+> If N is negative, this is a more recent kill.
 
 
 * neotree
@@ -519,6 +530,7 @@ directory in another window."
 | `custom-enabled-themes` | [variable]      |                   |
 | `(get-faces (point))`   | all faces       |                   |
 | `,fh`                   | `describe-face` | [custom shortcut] |
+| `SPC f l` | `list-faces-display` | [custom] see all faces/colors |
 #+END_EXAMPLE
 
 
@@ -549,7 +561,7 @@ directory in another window."
 |-|-|
 | `C-c C-l`                    | `org-insert-link`                                             | insert link                                                            |
 | `C-c .`                      | `org-time-stamp`                                              | insert stamp                                                           |
-| `< s <tab>`                  | [snippet] expands `#+BEGIN_SRC` ... `#+END_SRC` ('s' for src) |                                                                        |
+| `< s` + `<tab>`              | [snippet] expands `#+BEGIN_SRC` ... `#+END_SRC` ('s' for src) |                                                                        |
 | `C-c C-o`                    | `org-open-at-point`                                           | open at point                                                          |
 | `SPC x o`                    | `link-hint-open-link`                                         | open link                                                              |
 | `org-version`                | version                                                       |                                                                        |
@@ -939,7 +951,7 @@ see [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-t
 |-|-|
 | `C-c C-o`                | toggle element                   |                 |
 | `C-c C-f`                | toggle all funtions              |                 |
-| `C-c @ C-c`              | `hs-toggle-hiding`               | toggle block    |
+| `C-c @ C-c`              | `hs-toggle-hiding`               | toggle block (like folding)    |
 | `C-c @ C-h`, `C-c @ C-s` | `hs-hide-block`, `hs-show-block` | hide/show block |
 #+END_EXAMPLE
 
@@ -974,6 +986,7 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 #+BEGIN_EXAMPLE
 |||
 |-|-|
+| `align-regexp` | arbitrary alignment |
 | `C-x C-o` | `delete-blank-lines` |
 | `SPC t C-d`, `SPC T f`        | toggle fringe                                                                |
 | `SPC , i`                     | [custom] helm imenu                                                          |
@@ -989,6 +1002,10 @@ prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
 | `; -*- mode: Emacs-Lisp; -*-` | specify major mode in first line of a file                                   |
 | `SPC u SPC !`                 | shell command into current buffer                                            |
 #+END_EXAMPLE
+
+** vertical & horizontal splits
+
+See `split-height-threshold`, `split-width-threshold`, and `split-window-preferred-function`. If Magit splits horizontally instead of vertically on a large monitor, bump up the `split-height-threshold`, e.g. `(setq split-height-threshold 120)`.
 
 ** line endings
 

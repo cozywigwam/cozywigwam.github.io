@@ -134,6 +134,7 @@ gitroot() {
 | `SPC g f f` | `magit-find-file`         | open revision                                  |
 | `SPC g f h` | `magit-log-buffer-file`   | history/log for current buffer                 |
 | `SPC g d w` | `magit-diff-working-tree` | all changes - quickly check if branch is clean |
+| `SPC g f c` | `magit-file-checkout` | revert |
 
 #### from status
 
