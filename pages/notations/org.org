@@ -5,6 +5,37 @@ categories: notation
 subtitle: This Pays Off, Right?
 ---
 
+* Spreadsheet tables
+
+[[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]
+
+[[https://emacs.stackexchange.com/a/20506/15295][Helpful SO answer]]
+
+[[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][Formula Syntax for Calc]]
+
+#+BEGIN_SRC org
+:=vsum($2..$3) ;; do a calculation
+:=vsum($2..$3);%.2f ;; set format to 2 decimal places
+#+END_SRC
+
+| `C-c }`       | show row & column nubmers |
+| `C-c {`       | toggle debugging          |
+| `C-c C-c`     | "run" at point            |
+| `C-c u C-c *` | re-calc table             |
+
+
+| `::`    | separate formulas                                |
+| `$x`    | column number x                                  |
+| `@x`    | row number x                                     |
+| `@#`    | current row                                      |
+| `$#`    | current column                                   |
+| `@>`    | last row                                         |
+| `x..y`  | range between x and y (top-left to bottom-right) |
+| `vsum`  | vector sum                                       |
+| `vmean` | average                                          |
+
+
+
 * My Project Setup
 
 ** Example Tree

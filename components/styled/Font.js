@@ -1,8 +1,8 @@
 export const Font = {
   family: {
-    default: "'Theano Modern', serif",
-    heading: "'Norwester', sans-serif",
-    monospace: "'Inconsolata', monospace"
+    default: "'Josefin Sans', serif",
+    heading: "'Anton', sans-serif",
+    monospace: "'Source Code Pro', monospace"
   },
   size: {
     base: {

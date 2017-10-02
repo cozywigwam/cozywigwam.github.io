@@ -44,8 +44,6 @@ $sfss-light-gray: #8c95a8;
 $sfss-bg-blue: $black
 #+END_SRC
 
-**** new
-
 #+BEGIN_SRC js :cmd "org-babel-node"
 const gray = "#26282a";
 const grayDarker = "#222426";
@@ -59,7 +57,7 @@ const magenta = "#ffc6ff";
 const cyan = "#c0e9f8";
 #+END_SRC
 *** Media Queries
-#+BEGIN_SRC js :cmd "org-babel-node"
+#+BEGIN_SRC js
 
 const media = {
   xs: (...args) => css`

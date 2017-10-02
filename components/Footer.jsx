@@ -11,9 +11,9 @@ export default class MyFooter extends React.Component {
   render() {
     return (
       <Footer className="site-footer">
-        <ReturnHomeLink to="/">☜</ReturnHomeLink>
-        <Hr />
-        <img src="/cozy4.png" alt="cozy" />
+        <div className="u-text-align--center">
+          <ReturnHomeLink to="/">☜</ReturnHomeLink>
+        </div>
       </Footer>
     );
   }

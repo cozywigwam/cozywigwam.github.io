@@ -2,7 +2,6 @@ import { Constants } from './Constants';
 
 export const Mixins = {
   fontSizer: (baseSize, multiplier) => {
-    console.log('fontSizer()');
     return `
       font-size: ${baseSize}px;
 

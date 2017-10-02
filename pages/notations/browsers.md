@@ -5,7 +5,9 @@ description: Remember Netscape
 path: "/browsers/"
 ---
 
-# Chrome dev tools
+# Chrome
+
+## dev tools
 
 <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" alt="Console API Reference">Console API Reference</a>
 
@@ -14,7 +16,7 @@ path: "/browsers/"
 |||
 |-|-|
 `$_` | previous expression's evaluation
-`$0` - `$4` | most recently inspected elements
+`$0` – `$4` | most recently inspected elements
 `$('img')` | `document.querySelector()` alias
 `$$('img')` | `document.querySelectorAll()` alias
 `$x("//p[a]")` | XPath
@@ -27,6 +29,16 @@ path: "/browsers/"
 `monitorEvents(object[, events])` |
 `F2` | (with element selected) edit as HTML
 
+## Cookies
+
+<a href="https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies" target="_blank">reference</a>
+
+In Applications -> Storage
+
+## Vimium
+
+<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium" target="_blank" alt="vimium">dotfile</a>
+
 
 # Firefox
 
@@ -34,16 +46,52 @@ path: "/browsers/"
 
 [Mozilla keyboard shortcuts](https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts)
 
-## Misc
-
-To add "confirm on quit": `about:config`, `browser.showQuitWarning`
-
-### Locations
+## Locations
 
 - `about:config`
 - `about:support`
 - `~/Library/Application Support/Firefox/Profiles/`
 - `~/Library/Mozilla/Firefox/Profiles/`
+
+## Cookies
+
+<a href="https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies" target="_blank">Reference</a>
+
+In the Storage panel.
+
+
+## Vimperator
+
+<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc" target="_blank" alt="vimperatorrc">dotfile</a>
+
+|||
+|-|-|
+`:hs! [filter]` | history; use the bang to immediately open results
+`o O` | open / open with current address populated
+`t T` | new tab / new tab with "
+`w W` | new window / new window with "
+`p P` | open with clipboard (URL or search) / new tab with clipboard
+`;` | extendended hint
+`;;` | focus
+`;F` | multiple background tabs
+`;S` | save object
+`;y` | yank location
+`;#` | yank anchor URL
+`;v` | view source
+`;V` | open source in editor
+`;c` | open context menu
+`;i` & `;I` | open media object (& in new tab)
+`m` | create mark
+`M` | create quickmark
+`:marks` | see marks
+`:qmark j` | set "j"
+`:qmarks j` | see "j"
+
+
+## Misc
+
+To add "confirm on quit": `about:config`, `browser.showQuitWarning`
+
 
 
 

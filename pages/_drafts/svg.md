@@ -5,6 +5,7 @@ categories: notation
 subtitle: Embed options
 ---
 
+# markup syntax
 
 ```html
 <!-- YES -->

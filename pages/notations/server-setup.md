@@ -1,7 +1,7 @@
 ---
 title: "Server Setup"
 layout: notation
-description: Installation reminders
+description: Installation Reminders
 path: "/server-setup/"
 ---
 
