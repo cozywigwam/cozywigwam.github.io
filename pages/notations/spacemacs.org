@@ -529,8 +529,8 @@ directory in another window."
 |-|-|
 | `custom-enabled-themes` | [variable]      |                   |
 | `(get-faces (point))`   | all faces       |                   |
-| `,fh`                   | `describe-face` | [custom shortcut] |
-| `SPC f l` | `list-faces-display` | [custom] see all faces/colors |
+| `, f h`                   | `describe-face` | [custom shortcut] |
+| `, f l` | `list-faces-display` | [custom] see all faces/colors |
 #+END_EXAMPLE
 
 
