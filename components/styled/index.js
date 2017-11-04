@@ -54,7 +54,7 @@ injectGlobal`
   blockquote {
     margin-left: 0;
     margin-bottom: 2rem;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 0 0.5rem 2rem;
     ${Mixins.fontSizer(13, Constants.multipliers.regular)}
     font-style: italic;
     border-left: 1px solid ${Colors.yellow};
@@ -143,6 +143,17 @@ injectGlobal`
   pre + table {
     // margin-top: 3.2rem;
   }
+  blockquote pre {
+    margin-top: 0.2rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 2px solid ${Colors.blue}
+  }
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+  blockquote p:last-child {
+    margin-bottom: 0.3rem;
+  }
   pre + blockquote {
     margin-top: 3rem;
   }
@@ -161,6 +172,7 @@ injectGlobal`
     line-height: 1.8;
     margin: 1.4em 0 .8em;
     letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
     cursor: default;
 
     a {
