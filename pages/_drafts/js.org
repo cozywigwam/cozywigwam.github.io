@@ -42,7 +42,7 @@ console.log(remain);
 
 ** Copying
 
-<a href="https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript/23536726#23536726" target="_blank">Good SO answer</a>
+[[https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript/23536726#23536726][Good SO answer]]
 
 If it's an array of primitives, use ~slice()~ (or ~concat()~):
 
@@ -260,20 +260,50 @@ export default class PostLink extends React.Component {
 
 "Module request format," /a la node/: starts-with-dot is local.
 
+** prettier
+
+With <a href="https://github.com/typicode/husky" target="_blank">husky</a> and <a href="https://github.com/okonet/lint-staged" target="_blank">lint-staged</a.
+
+#+BEGIN_SRC js
+/* package.json */
+
+// ...
+
+"scripts": {
+  "precommit": "lint-staged",
+
+// ...
+
+"lint-staged": {
+  "src/**/*.{js,jsx,json,css,scss}": [
+    "prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write",
+    "git add"
+  ]
+},
+
+// ...
+
+#+END_SRC
+
+*** run it through files
+
+#+BEGIN_SRC sh
+prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
+prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
+#+END_SRC
+
+*** reference
+
+<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically" target="_blank">CRA docs<a/>
 
 
 * SCRATCH / TEST :no_export:
 
 #+BEGIN_SRC js :cmd "org-babel-node"
 let props = {
-  postData: {
-    title: 'pd-title',
-    description: 'pd-desc',
-    path: 'pd-path'
-  },
-  title: 'reg-title',
-  description: 'reg-desc',
-  path: 'reg-path'
+  object: {},
+  string: '',
+  array: []
 }
 console.log(props);
 #+END_SRC

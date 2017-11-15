@@ -5,7 +5,7 @@ description: Seek Nirvana
 path: "/vim/"
 ---
 
-<a href="https://github.com/cozywigwam/dotfiles/blob/master/.vimrc" target="_blank" alt="Vim dotfile">dotfile</a>
+[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.vimrc)
 
 # Application
 

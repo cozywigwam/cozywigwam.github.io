@@ -5,6 +5,14 @@ categories: notation
 subtitle: This Pays Off, Right?
 ---
 
+* Syntax
+
+From <a href="http://orgmode.org/manual/Emphasis-and-monospace.html" target="_blank">the manual</a>:
+
+#+BEGIN_EXAMPLE
+*bold*, /italic/, _underlined_, =verbatim= and ~code~, and, if you must, ‘+strike-through+’
+#+END_EXAMPLE
+
 * Spreadsheet tables
 
 [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]

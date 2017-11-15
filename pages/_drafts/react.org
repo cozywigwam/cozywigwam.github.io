@@ -4,18 +4,60 @@ title: "React"
 categories: notation
 ---
 
-* Router
+* react-router
+
+
 
 ** npm/package
 
-*** old is 'react-router'
-*** new is 'react-router-dom' or 'react-router-native' (both will include 'react-router')
+`react-router`: core components
+
+`react-router-dom` (or `react-router-native`): adds DOM-aware components (both include 'react-router')
+
+[[https://github.com/ReactTraining/react-router/issues/4648][github comment]] by [[https://github.com/pshrmn][Paul Sherman]]
+
+> Your first link is to the master branch, which at this time is v3.
+>
+> In v4, react-router exports the core components and functions. react-router-dom exports DOM-aware components, like <Link> (which renders an <a>) and <BrowserRouter> (which interacts with the browser's window.history ).
+>
+> react-router-dom re-exports all of react-router's exports, so you only need to import from react-router-dom in your project.
 
 ** resources
+
 *** Paul Sherman's [[https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf][A Simple React Router v4 Tutorial]]
 
-"Anywhere that you want to only render something if it matches the URL's pathname, you should create a <Route> element."
+Use `<BrowserRouter>` as base for web, `<NativeRouter>` for RN.
 
+#+BEGIN_SRC js
+<Route path="[matched by [[https://github.com/pillarjs/path-to-regexp][path-to-regexp]]]" component|render|children />
+#+END_SRC
+
+Matching routes get `match` object:
+
+- `url`
+- `path`
+- `isExact`
+- `params` (route params)
+
+`component` returns a `React.createElement` object.
+
+`render` can receive props:
+
+#+BEGIN_SRC js
+<Route path="/match" render={props => <h1>{props.title}</h1>} />
+<Route path="/next-match" render={props => (
+  <PageInner {...props} data={extraProps}/>
+)}/>
+#+END_SRC
+
+`children` is a pass-through, like `props.children` on a Route level. It ignores `path` attribute and always matches.
+
+**** Location Object
+
+#+BEGIN_SRC js
+// a basic location object
+{ pathname: '/', search: '', hash: '', key: 'abc123' state: {} }
+#+END_SRC
 
 
 * JSX
@@ -38,6 +80,32 @@ categories: notation
 }
 #+END_SRC
 
+*** child calls parent function
+
+#+BEGIN_SRC js
+const Child = props => (
+  <div>
+    <button onClick={props.onClickToggle}
+  </div>
+)
+class Parent extends component {
+  constructor(props) {
+    super(props);
+  }
+  onToggle() {
+    console.log('onToggle()');
+  }
+  render() {
+    return (
+        <div>
+        <Child onClickToggle={() => onToggle().bind(this)}/>
+        </div>
+    )
+  }
+}
+
+
+#+END_SRC
 
 * 3rd-party
 ** Phenomic

@@ -745,8 +745,7 @@ See variable `tags-table-list`. Delete an item with:
 
     (setq tags-table-list (delete "/Users/recurvirostridae/unwanted/TAGS" tags-table-list))
 
-List basics at <a href="<https://www.emacswiki.org/emacs/ListStructure>" target="\_blank">Emacs Wiki List Structure</a> and <a href="<https://www.emacswiki.org/emacs/ListModification>" target="\_blank">Emacs Wiki List Modification</a>.
-
+Generate tags with
 
 # JS
 
@@ -790,6 +789,32 @@ prevent/don't auto-add quotes/quotation marks after typing \`=\` in JSX attribut
 [r-darwish](https://github.com/r-darwish/dcp/blob/000856dc0622e70b576cceb87322c45d37b7d73f/.spacemacs)
 
 
+
+# emacs-lisp
+
+List basics at <a href="<https://www.emacswiki.org/emacs/ListStructure>" target="\_blank">Emacs Wiki List Structure</a> and <a href="<https://www.emacswiki.org/emacs/ListModification>" target="\_blank">Emacs Wiki List Modification</a>.
+
+## Local variables
+
+```emacs-lisp
+# -*- org-use-tag-inheritance: nil; -*-
+
+# local variables:
+# org-attach-directory: "./data"
+# org-id-method: uuid
+# end:
+```
+
+## lisp state
+
+|||
+|-|-|
+| `SPC k .` | enter lisp state |
+| `j` `k`   | navigate         |
+| `C-[`     | exit             |
+
+
+
 # misc
 
 |||
@@ -823,26 +848,6 @@ Substitute out the literal return key (`C-q C-m`): `,s C-q C-m/`
 ### Open with/switch to
 
 `revert-buffer-with-coding-system` -> `utf-8-dos`
-
-
-## Local variables
-
-```emacs-lisp
-# -*- org-use-tag-inheritance: nil; -*-
-
-# local variables:
-# org-attach-directory: "./data"
-# org-id-method: uuid
-# end:
-```
-
-## lisp state
-
-|||
-|-|-|
-| `SPC k .` | enter lisp state |
-| `j` `k`   | navigate         |
-| `C-[`     | exit             |
 
 
 ## toggles / display

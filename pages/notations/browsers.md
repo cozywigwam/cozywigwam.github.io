@@ -9,12 +9,13 @@ path: "/browsers/"
 
 ## dev tools
 
-<a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" alt="Console API Reference">Console API Reference</a>
+[Console API Reference](https://developers.google.com/web/tools/chrome-devtools/console/console-reference)
 
-<a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference" target="_blank" alt="Command Line API Reference">Command Line API Reference</a>
+[Command Line API Reference](https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference)
 
 |||
 |-|-|
+`cmd + shift + P` | [command menu](https://developers.google.com/web/tools/chrome-devtools/ui#command-menu)
 `$_` | previous expression's evaluation
 `$0` – `$4` | most recently inspected elements
 `$('img')` | `document.querySelector()` alias
@@ -31,14 +32,36 @@ path: "/browsers/"
 
 ## Cookies
 
-<a href="https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies" target="_blank">reference</a>
+[reference](https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies)
 
 In Applications -> Storage
 
+## Run Chromium with flags
+
+From [The Chromium Projects](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):
+
+```
+/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
+
+# for Google Chrome you'll need to escape spaces like so:
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
+## Take a screenshot
+
+`cmd + shift + P` -> "Capture Screenshot"
+
+## Empty Devtools Popups
+
+Clear cache in `chrome://appcache-internals/`: [https://github.com/googlearchive/ADBPlugin/issues/14](reference) 
+
 ## Vimium
 
-<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium" target="_blank" alt="vimium">dotfile</a>
+[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium)
 
+## Reference
+
+[Keyboard shortcuts reference](https://developers.google.com/web/tools/chrome-devtools/shortcuts)
 
 # Firefox
 
@@ -48,21 +71,28 @@ In Applications -> Storage
 
 ## Locations
 
+Help -> Troubleshooting Information
+
 - `about:config`
 - `about:support`
+- `about:plugins`
+- `about:buildconfig`
+- `about:memory`
+- `about:performance`
+- `about:serviceworkers`
 - `~/Library/Application Support/Firefox/Profiles/`
 - `~/Library/Mozilla/Firefox/Profiles/`
 
 ## Cookies
 
-<a href="https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies" target="_blank">Reference</a>
+[Reference](https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies)
 
 In the Storage panel.
 
 
 ## Vimperator
 
-<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc" target="_blank" alt="vimperatorrc">dotfile</a>
+[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc)
 
 |||
 |-|-|

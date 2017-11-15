@@ -68,6 +68,21 @@ dpkg --get-selections | grep -v deinstall
 dpkg --get-selections | grep -i php
 ```
 
+## elasticsearch
+
+[docs](https://www.elastic.co/guide/en/elasticsearch/reference/current/_cluster_health.html)
+
+```sh
+curl 'localhost:9200/_cat/health?v'
+curl 'localhost:9200/_cat/nodes?v'
+curl 'localhost:9200/_cat/indices?v'
+
+# deletion
+curl -XDELETE localhost:9200/app_name/resource/123
+curl -XDELETE localhost:9200/app_name
+curl -XDELETE localhost:9200/_all
+```
+
 ## gems
 
 ```sh
@@ -105,6 +120,13 @@ npm config set prefix '~/.npm-global' # updates ~/.npmrc
 
 Then add `~/.npm-global/bin` to path.
 
+## pm2
+
+```sh
+pm2 list
+pm2 restart [name]
+```
+
 ## rbenv
 
 ```sh
@@ -136,12 +158,29 @@ Range specifiers:
 ~ | minor | `~1.2.3 ≈ 1.2.x` | `~1.2.3 ≉ 1.3.0`
 ^ | major | `^1.2.3 ≈ 1.x.x` | `^1.2.3 ≉ 2.0.0`
 
+## ssh
 
+```sh
+eval `ssh-agent`
+ssh-add ~/.ssh/my_id_rsa
+ssh-add -l
+kill [ssh-agent pid]
+```
+
+
+
+# docker
+
+Docker's changing IP address on macOS is `docker.for.mac.localhost` ([reference](https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds)).
+
+## Reference
+
+[common mistakes](https://runnable.com/blog/9-common-dockerfile-mistakes)
 
 
 # macOS
 
-settings/options defaults from <a href="https://github.com/mathiasbynens/dotfiles/blob/master/.macos" target="_blank" alt="macOS options">Mathias Bynens</a> 
+settings/options defaults from [Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) 
 
 ## Observe USB in the GUI:
 - open Audio MIDI Setup application
@@ -197,12 +236,14 @@ Launched at login: `~/Library/LaunchAgents`
 ```sh
 history -c
 
-identify -format '%w %h' img.png ## get img pixel dims
+identify -format '%w %h' img.png ## measure/get img pixel dims
 
 scp -r <local_spec> <remote_spec>
 
 # vagrant
 vagrant ssh-config # see hostname, port, SSH Key location
+
 ```
 
 Vagrant insecure key: `~/.vagrant.d/insecure_private_key`
+

@@ -9,7 +9,7 @@ path: "/command-line/"
 
 ## ack
 
-<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc" target="_blank" alt="ackrc">dotfile</a>
+[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc)
 
 ```bash
 ack --help | less
@@ -24,6 +24,27 @@ ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched
 ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 ```
 
+## ag
+
+To search `node_modules/` use `-a`. For absolutely everything (including binaries/hidden), use `-u`. Use `-U` to disrepect `.gitignore`.
+
+|                                |                                                             |
+|--------------------------------|-------------------------------------------------------------|
+| `-a` `--all-files`             | doesn't respect ignore files; excludes hidden files, though |
+| `-c`                           | count                                                       |
+| `-Cn`                          | context of `n` lines                                        |
+| `-ignore`                      |                                                             |
+| `-ignore-dir`                  |                                                             |
+| `-l` `--files-with-matches`    | only print filenames, not full output                       |
+| `-L` `--files-without-matches` |                                                             |
+| `-u` `--unrestricted           | all files, everything, including binaries and hidden files  |
+| `-U` `--skip-vcs-ignores`      | don't respect `.gitignore` (but still use `.agignore`)      |
+
+## curl
+
+Flags `-c` & `-b`: cookie stuff
+
+Flag `-d`, `--data <data>`: (HTTP)  Sends  the  specified data in a POST request to the HTTP server, in the same way that a browser does when a user has filled in an HTML form and presses the submit button. This will cause curl to pass the data to the server using the content-type application/x-www-form-urlencoded.  Compare to -F, --form.
 
 ## jobs
 
@@ -100,7 +121,7 @@ cp my-custom-sound.mp3 ~/Library/Sounds/
 
 ## zsh
 
-<a href="https://github.com/cozywigwam/dotfiles/blob/master/.zshrc" target="_blank" alt="zsh dotfile">dotfile</a>
+[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.zshrc)
 
 ```bash
 man zsh
@@ -119,7 +140,7 @@ bindkeys
 
 ### ZLE
 
-<a href="http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/" target="_blank" alt="reference">Reference</a> from Serge Gebhardt's site.
+[Reference](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/) from Serge Gebhardt's site.
 
 ```bash
 man zsh
@@ -176,14 +197,18 @@ Modes: `viins`, `vicmd`, `emacs`, others.
 
 #### alias
 
+Emacs Wiki: https://www.emacswiki.org/emacs/EshellAlias
+
+For the aliases file, see `eshell-aliases-file`: `~/.emacs.d/eshell/alias`
+
 ```sh
 alias customls 'ls -la $*'
-which customls
+which customls # see it
 ```
 
 #### reference
 
-Mickey Peterson's <a href="https://www.masteringemacs.org/article/complete-guide-mastering-eshell" target="_blank">Mastering Eshell</a>
+Mickey Peterson's [Mastering Eshell](https://www.masteringemacs.org/article/complete-guide-mastering-eshell)
 
 ### man/woman
 

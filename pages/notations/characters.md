@@ -12,9 +12,39 @@ path: "/characters/"
 `C-x 8 RET` | `insert-char` [for normal mode] (unicode name, hex, or code point with `#`-specified radix)
 `C-q` | `quoted-insert` [for insert mode] insert literally
 
+## Emacs
+
+[Mastering Emacs](https://www.masteringemacs.org/article/diacritics-in-emacs) reference
+
+
+| `C-\`            | `toggle-input-method`   | notice the appearance of `1>` in the mode line |
+| `f1 C-\`, `f1 I` | `describe-input-method` |                                                |
+|                  | `default-input-method`  | see what you're toggling on/off                |
+
+When the `latin-1-prefix` "input method" is activated (this is the input method recommended by EmacsWiki & Mastering Emacs), the following accent characters can be entered by typing the desired prefix and then the character (see this with `describe-input-method`):
+
+| effect     | prefix | examples                                             |
+|------------|--------|------------------------------------------------------|
+| acute      | \='    | \='a -> á, \='\=' -> ´                               |
+| grave      | \=`    | \=`a -> à                                            |
+| circumflex | ^      | ^a -> â                                              |
+| diaeresis  | "      | "a -> ä  "" -> ¨                                     |
+| tilde      | ~      | ~a -> ã                                              |
+| cedilla    | ~      | ~c -> ç                                              |
+| breve      | ~      | ~a -> ă                                              |
+| caron      | ~      | ~c -> č                                              |
+| dot above  | ~ / .  | ~o -> ġ   /o -> ġ   .o -> ġ                          |
+| misc       | " ~ /  | "s -> ß  ~d -> ð  ~t -> þ  /a -> å  /e -> æ  /o -> ø |
+| symbol     | ~      | ~> -> »  ~< -> «  ~! -> ¡  ~? -> ¿  ~~ -> ¸          |
+| symbol     | _ /    | _o -> º  _a -> ª  // -> °  /\ -> ×  _y -> ¥          |
+| symbol     | ^      | ^r -> ®  ^c -> ©  ^1 -> ¹  ^2 -> ²  ^3 -> ³          |
+
+Note: when the input method is toggled off, the key chord bindings stop functioning. Turn `key-chord-mode` off and back on to regain use of the bindings.
+
+
 # "What character is this?"
 
-<a href="http://unicodelookup.com/#119082" target="_blank" alt="Double sharp at unicodelookup.com">unicodelookup.com</a>
+[unicodelookup.com](http://unicodelookup.com/#119082)
 
 |||
 |-|-|
@@ -67,54 +97,54 @@ There are text properties here:
 ```
 # Make characters macOS (hold ⌥)
 
-|||
-|-|-|
-| ` | *modifier to create grave accent* |
-| 1 | ¡ |
-| 2 | ™ |
-| 4 | ¢ |
-| 5 | ∞ |
-| 6 | § |
-| 7 | ¶ |
-| 8 | • |
-| 9 | ª |
-| 0 | º |
-| - | – |
-| = | ≠ |
-| q | œ |
-| w | ∑ |
-| e | *modifier to create acute accent* |
-| r | ® |
-| t | † |
-| y | ¥ |
-| u | *modifier to create umlaut* |
-| i | *modifier to create circumflex* |
-| o | ø |
-| p | π |
-| [ | “ |
-| * | ‘ |
-| \ | « |
-| a | å |
-| s | ß |
-| d | ∂ |
-| f | ƒ |
-| g | © |
-| h | ˙ |
-| j | ∆ |
-| k | ˚ |
-| l | ¬ |
-| ; | … |
-| ' | æ |
-| z | Ω |
-| x | ≈ |
-| c | ç |
-| v | √ |
-| b | ∫ |
-| n | *modifier to add énye* |
-| m | µ |
-| , | ≤ |
-| . | ≥ |
-| / | ÷ |
+|   |                                   |                                  |
+|---|-----------------------------------|----------------------------------|
+| ` | *modifier to create grave accent* | accent grave                     |
+| 1 | ¡                                 |                                  |
+| 2 | ™                                 |                                  |
+| 4 | ¢                                 |                                  |
+| 5 | ∞                                 |                                  |
+| 6 | §                                 |                                  |
+| 7 | ¶                                 |                                  |
+| 8 | •                                 |                                  |
+| 9 | ª                                 |                                  |
+| 0 | º                                 |                                  |
+| - | –                                 |                                  |
+| = | ≠                                 |                                  |
+| q | œ                                 |                                  |
+| w | ∑                                 |                                  |
+| e | *modifier to create acute accent* |                                  |
+| r | ®                                 |                                  |
+| t | †                                 |                                  |
+| y | ¥                                 |                                  |
+| u | *modifier to create umlaut*       |                                  |
+| i | *modifier to create circumflex*   |                                  |
+| o | ø                                 |                                  |
+| p | π                                 |                                  |
+| [ | “                                 |                                  |
+| * | ‘                                 |                                  |
+| \ | «                                 |                                  |
+| a | å                                 |                                  |
+| s | ß                                 |                                  |
+| d | ∂                                 |                                  |
+| f | ƒ                                 |                                  |
+| g | ©                                 |                                  |
+| h | ˙                                 |                                  |
+| j | ∆                                 |                                  |
+| k | ˚                                 |                                  |
+| l | ¬                                 |                                  |
+| ; | …                                 |                                  |
+| ' | æ                                 | æsc or ash grapheme, ae ligature |
+| z | Ω                                 | omega                            |
+| x | ≈                                 |                                  |
+| c | ç                                 | c with cedilla                   |
+| v | √                                 | square root                      |
+| b | ∫                                 |                                  |
+| n | *modifier to add énye*            | énye                             |
+| m | µ                                 | mu                               |
+| , | ≤                                 | less than or equals              |
+| . | ≥                                 | greater than or equals           |
+| / | ÷                                 | obelus                           |
 
 # Misc
 
@@ -129,5 +159,9 @@ There are text properties here:
 | 𝄪 | double sharp |
 | ∯ | surface integral |
 
-<a href="http://ascii-code.com/" target="_blank" alt="ascii-code.com">ascii-code.com</a>
+[ascii-code.com](http://ascii-code.com/)
 
+
+# Reference
+
+[Ogonek vs. Cedilla](http://www.personal.psu.edu/ejp10/blogs/gotunicode/2009/01/ogonek-vs-cedilla-accent.html)
