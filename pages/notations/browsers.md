@@ -63,6 +63,21 @@ Clear cache in `chrome://appcache-internals/`: [https://github.com/googlearchive
 
 [Keyboard shortcuts reference](https://developers.google.com/web/tools/chrome-devtools/shortcuts)
 
+# Chromium
+
+## [Chromium Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
+
+| Release | 	 Estimated Week of Stable               |
+|---------|---------------------------------------------|
+|      64 | Jan 23rd, 2018 (Jan 30th for Chrome OS)     |
+|      65 | Mar 6th, 2018 (Mar 13th for Chrome OS)      |
+|      66 | April 17th, 2018 (April 24th for Chrome OS) |
+|      67 | May 29th, 2018 (June 5th for Chrome OS)     |
+|      68 | July 24th, 2018 (July 31st for Chrome OS)   |
+|      69 | Sept 4th, 2018 (Sept 11th for Chrome OS)    |
+|      70 | Oct 16th, 2018 (Oct 23rd for Chrome OS)     |
+|      71 | Dec 4th, 2018 (Dec 11th for Chrome OS)      |
+
 # Firefox
 
 ## Shortcuts

@@ -61,7 +61,13 @@ Vim lookup (`ga`):
 <🥑> 129361, Hex 0001f951, Octal 374521
 ```
 
-Spacemacs lookup (`SPC h d c` | `describe-char`):
+Emacs quick lookup (`C-x =` | `what-cursor-position`):
+
+```
+Char: 🥑 (129361, #o374521, #x1f951, file ...) point=2539 of 7775 (33%) column=19
+```
+
+Emacs full lookup (`SPC h d c` | `describe-char`):
 
 ```
              position: 1475 of 1476 (100%), column: 0

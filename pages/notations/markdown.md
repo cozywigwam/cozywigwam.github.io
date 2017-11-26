@@ -45,7 +45,7 @@ Uses "[GitHub flavored markdown]( target=)," aka GFM:
 - [Kramdown parse info](http://kramdown.gettalong.org/parser/gfm.html)
 
 
-## Stack Overfow
+## Stack Overflow
 
 Code blocks are four indented spaces.
 
@@ -74,6 +74,8 @@ Use single backticks for inline code/monospace, and triple backticks (fencing) f
   "text": "*This will not be bold.* It will be surrounded gloriously with stars."
 }
 ```
+
+> Note: Hyperlinking words and terms in a Slack message isn't supported. ([link](https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack))
 
 ### quotes/blockquotes
 

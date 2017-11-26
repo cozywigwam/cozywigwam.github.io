@@ -37,18 +37,16 @@ To search `node_modules/` use `-a`. For absolutely everything (including binarie
 | `-ignore-dir`                  |                                                             |
 | `-l` `--files-with-matches`    | only print filenames, not full output                       |
 | `-L` `--files-without-matches` |                                                             |
-| `-u` `--unrestricted           | all files, everything, including binaries and hidden files  |
+| `-u` `--unrestricted`          | all files, everything, including binaries and hidden files  |
 | `-U` `--skip-vcs-ignores`      | don't respect `.gitignore` (but still use `.agignore`)      |
 
 ## curl
 
 Flags `-c` & `-b`: cookie stuff
 
-Flag `-d`, `--data <data>`: (HTTP)  Sends  the  specified data in a POST request to the HTTP server, in the same way that a browser does when a user has filled in an HTML form and presses the submit button. This will cause curl to pass the data to the server using the content-type application/x-www-form-urlencoded.  Compare to -F, --form.
+Flag `-d`, `--data <data>`: (HTTP)  Sends  the  specified data in a POST request to the HTTP server, in the same way that a browser does when a user has filled in an HTML form and presses the submit button. This will cause curl to pass the data to the server using the content-type `application/x-www-form-urlencoded`.  Compare to `-F`, `--form`.
 
 ## jobs
-
-[Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
 
 |||
 |-|-|
@@ -60,6 +58,31 @@ Flag `-d`, `--data <data>`: (HTTP)  Sends  the  specified data in a POST request
 %1 & # shorthand for `bg %1`
 jobs -l # show PID
 ```
+
+## signals
+
+from [Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
+
+| Signal  |    Value | Action | Comment                                    |
+|---------|----------|--------|--------------------------------------------|
+| SIGINT  |        2 | Term   | Interrupt from keyboard                    |
+| SIGQUIT |        3 | Core   | Quit from keyboard                         |
+| SIGILL  |        4 | Core   | Illegal Instruction                        |
+| SIGABRT |        6 | Core   | Abort signal from abort(3)                 |
+| SIGFPE  |        8 | Core   | Floating point exception                   |
+| SIGKILL |        9 | Term   | Kill signal                                |
+| SIGSEGV |       11 | Core   | Invalid memory reference                   |
+| SIGPIPE |       13 | Term   | Broken pipe: write to pipe with no readers |
+| SIGALRM |       14 | Term   | Timer signal from alarm(2)                 |
+| SIGTERM |       15 | Term   | Termination signal                         |
+| SIGUSR1 | 30,10,16 | Term   | User-defined signal 1                      |
+| SIGUSR2 | 31,12,17 | Term   | User-defined signal 2                      |
+| SIGCHLD | 20,17,18 | Ign    | Child stopped or terminated                |
+| SIGCONT | 19,18,25 |        | Continue if stopped                        |
+| SIGSTOP | 17,19,23 | Stop   | Stop process                               |
+| SIGTSTP | 18,20,24 | Stop   | Stop typed at tty                          |
+| SIGTTIN | 21,21,26 | Stop   | tty input for background process           |
+| SIGTTOU | 22,22,27 | Stop   | tty output for background process          |
 
 
 ## less
@@ -140,7 +163,7 @@ bindkeys
 
 ### ZLE
 
-[Reference](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/) from Serge Gebhardt's site.
+> The `bindkey` command manipulates keymaps and key bindings ([link](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins))
 
 ```bash
 man zsh
@@ -171,6 +194,14 @@ Modes: `viins`, `vicmd`, `emacs`, others.
 |-|-|
 `<M-x>` | emacs & [mapped] viins: execute `execute-named-cmd`
 `:` | vicmd: execute `execute-named-cmd`
+
+#### Reference
+
+[ZLE](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zsh-Line-Editor)
+
+[docs - ZLE Builtins](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins)
+
+[Serge Gebhardt](https://chaseonline.chase.com/) regarding [ZLE & creating custom widgets](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/)
 
 
 
