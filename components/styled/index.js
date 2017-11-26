@@ -21,11 +21,10 @@ injectGlobal`
   body {
     margin: 0;
     font-family: ${Font.family.default};
+    ${Mixins.fontSizer(16, Constants.multipliers.regular)}
     line-height: ${Font.lineHeight.regular};
     color: ${Colors.white};
     background: ${Colors.gray};
-
-    ${Mixins.fontSizer(18, Constants.multipliers.regular)}
   }
 
   table + p, pre + p, ul + p {
@@ -55,7 +54,7 @@ injectGlobal`
     margin-left: 0;
     margin-bottom: 2rem;
     padding: 0.5rem 0 0.5rem 2rem;
-    ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
     font-style: italic;
     border-left: 1px solid ${Colors.yellow};
   }
@@ -95,7 +94,7 @@ injectGlobal`
     margin: 0 3px;
     padding: 5px 6px;
     font-family: ${Font.family.monospace};
-    ${Mixins.fontSizer(16, Constants.multipliers.regular)}
+    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};
     border-right: 2px solid ${Colors.grayLighter};
     border-bottom: 2px solid ${Colors.grayLighter};
@@ -148,6 +147,9 @@ injectGlobal`
     margin-bottom: 0.6rem;
     border-bottom: 2px solid ${Colors.blue}
   }
+  blockquote code {
+    ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+  }
   blockquote p:first-child {
     margin-top: 0;
   }
@@ -166,11 +168,10 @@ injectGlobal`
 
 
   h1, h2, h3, h4, h5, h6 {
-    margin: 1.4em 0 0.8em;
+    margin: 4em 0 1em;
     font-family: ${Font.family.heading};
     font-weight: normal;
     line-height: 1.8;
-    margin: 1.4em 0 .8em;
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
     cursor: default;
@@ -221,7 +222,7 @@ injectGlobal`
       Constants.multipliers.heading
     )}
   }
-  table + h1, p + h1, ul + h1, pre + h1 {
+  table + h1, p + h1, ul + h1 {
     margin-top: 3.4em;
   }
   table + h2, p + h2, ul + h2, pre + h2,
