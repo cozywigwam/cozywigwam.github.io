@@ -17,27 +17,30 @@ path: "/characters/"
 [Mastering Emacs](https://www.masteringemacs.org/article/diacritics-in-emacs) reference
 
 
-| `C-\`            | `toggle-input-method`   | notice the appearance of `1>` in the mode line |
-| `f1 C-\`, `f1 I` | `describe-input-method` |                                                |
-|                  | `default-input-method`  | see what you're toggling on/off                |
+|                   |                         |                                                |
+|-------------------|-------------------------|------------------------------------------------|
+| `C-\\`            | `toggle-input-method`   | notice the appearance of `1>` in the mode line |
+| `f1 C-\\`, `f1 I` | `describe-input-method` |                                                |
 
-When the `latin-1-prefix` "input method" is activated (this is the input method recommended by EmacsWiki & Mastering Emacs), the following accent characters can be entered by typing the desired prefix and then the character (see this with `describe-input-method`):
 
-| effect     | prefix | examples                                             |
-|------------|--------|------------------------------------------------------|
-| acute      | \='    | \='a -> á, \='\=' -> ´                               |
-| grave      | \=`    | \=`a -> à                                            |
-| circumflex | ^      | ^a -> â                                              |
-| diaeresis  | "      | "a -> ä  "" -> ¨                                     |
-| tilde      | ~      | ~a -> ã                                              |
-| cedilla    | ~      | ~c -> ç                                              |
-| breve      | ~      | ~a -> ă                                              |
-| caron      | ~      | ~c -> č                                              |
-| dot above  | ~ / .  | ~o -> ġ   /o -> ġ   .o -> ġ                          |
-| misc       | " ~ /  | "s -> ß  ~d -> ð  ~t -> þ  /a -> å  /e -> æ  /o -> ø |
-| symbol     | ~      | ~> -> »  ~< -> «  ~! -> ¡  ~? -> ¿  ~~ -> ¸          |
-| symbol     | _ /    | _o -> º  _a -> ª  // -> °  /\ -> ×  _y -> ¥          |
-| symbol     | ^      | ^r -> ®  ^c -> ©  ^1 -> ¹  ^2 -> ²  ^3 -> ³          |
+When the `latin-1-prefix` "input method" is activated (this is the input method recommended by EmacsWiki & Mastering Emacs), the following accent characters can be entered by typing the desired prefix and then the character (see this with `describe-input-method` (edited)):
+
+| effect     | prefix           | examples                                                                                |
+|------------|------------------|-----------------------------------------------------------------------------------------|
+| acute      | `'`              | `á`                                                                                     |
+| circumflex | `^`              | `â`                                                                                     |
+| diaeresis  | `"`              | `ä`, `¨` (`""`)                                                                         |
+| tilde      | `~`              | `ã`                                                                                     |
+| cedilla    | `~`              | `ç`                                                                                     |
+| breve      | `~`              | `ă`                                                                                     |
+| caron      | `~`              | `č`                                                                                     |
+| dot above  | `~`, `/`, or `.` | `ġ`                                                                                     |
+| misc       | `"`              | `ß` (`"s`)                                                                              |
+| misc       | `~`              | `ð` (`~d`),  `þ` (`~t`), `»` (`~>`),  `«` (`~<`),  `¡` (`~!`),  `¿` (`~?`),  `¸` (`~~`) |
+| misc       | `/`              | `å`,  `æ`,  `ø`,  `°` (`//`),  `×` (`\\`)                                               |
+| symbol     | `_`              | `º` (`_o`),  `ª` (`_a`),  `¥` (`_y`)                                                    |
+| symbol     | `^`              | `®` (`^r`),  `©` (`^c`),  `¹` (`^1`),  `²` (`^2`),  `³` (`^3`)                          |
+|            |                  |                                                                                         |
 
 Note: when the input method is toggled off, the key chord bindings stop functioning. Turn `key-chord-mode` off and back on to regain use of the bindings.
 
