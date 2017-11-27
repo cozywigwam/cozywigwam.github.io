@@ -12,3 +12,5 @@ categories: notation
 /var/log/apache/access.log
 
 /etc/fstab
+
+/usr/local/var

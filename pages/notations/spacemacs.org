@@ -41,40 +41,35 @@ path: "/spacemacs/"
 
 *** buffers/files
 
-#+BEGIN_EXAMPLE
-|||
-|-|-|
-| `SPC p h` | `helm-projectile`                                   | recent, buffers, files          |
-| `SPC f r` | `helm-recentf`                                      | recent files                    |
-| `SPC p r` | `helm-projectile-recentf`                           | project recent files            |
-| `SPC p b` | `helm-projectile-switch-to-buffer`                  | project buffers                 |
-| `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | global buffers                  |
-| `SPC f j` | `dired-jump`                                        | dired to file                   |
-| `SPC p p` | `helm-projectile/switch-project`                    | projects                        |
-| `SPC p F` | `helm-projectile-find-file-dwim`                    | find file with dwim             |
-| `SPC f L` | `helm-locate`                                       | like `find ` -type f -name [x]` |
-| `SPC /`   | `spacemacs/helm-project-smart-do-search`            | ag from project root            |
-| `SPC s f` | `spacemacs/helm-files-smart-do-search`              | ag from current/arbitrary dir   |
-| `SPC f D` | `spacemacs/delete-current-buffer-file`              | delete current buffer           |
-| `C-]`     | [in helm find dir] `helm-ff-run-toggle-basename`    |                                 |
-#+END_EXAMPLE
+|           |                                                     |                                           |
+|-----------+-----------------------------------------------------+-------------------------------------------|
+| `SPC p h` | `helm-projectile`                                   | recent, buffers, files                    |
+| `SPC f r` | `helm-recentf`                                      | recent files                              |
+| `SPC p r` | `helm-projectile-recentf`                           | project recent files                      |
+| `SPC p b` | `helm-projectile-switch-to-buffer`                  | project buffers                           |
+| `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | global buffers                            |
+| `SPC f j` | `dired-jump`                                        | dired to file                             |
+| `SPC p p` | `helm-projectile/switch-project`                    | projects                                  |
+| `SPC p F` | `helm-projectile-find-file-dwim`                    | find file with dwim                       |
+| `SPC f L` | `helm-locate`                                       | like `find ` -type f -name [x]`           |
+| `SPC /`   | `spacemacs/helm-project-smart-do-search`            | ag from project root                      |
+| `SPC s f` | `spacemacs/helm-files-smart-do-search`              | ag from current/arbitrary dir             |
+| `SPC f D` | `spacemacs/delete-current-buffer-file`              | delete current buffer                     |
+| `C-x C-b` | `list-buffers `                                     | list in `*Buffer List*`, Buffer Menu mode |
+| `C-]`     | [in helm find dir] `helm-ff-run-toggle-basename`    |                                           |
 
 *** get to dired
 
-#+BEGIN_EXAMPLE
-|||
-|-|-|
-| `SPC f j` | `dired-jump`                                        | dired at current file                           |
-#+END_EXAMPLE
+|           |              |                       |
+|-----------+--------------+-----------------------|
+| `SPC f j` | `dired-jump` | dired at current file |
 
 *** buffers
 
-#+BEGIN_EXAMPLE
 | `SPC p d` | `helm-projectile-find-ini includes recentf`         | &nbsp;                                          |
 | `C-x b`   | `helm-buffers-list`                                 | &nbsp;                                          |
 | `SPC b W` | `spacemacs/goto-buffer-workspace`                   | go to where that buffer is displayed (if it is) |
 | `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | &nbsp;                                          |
-#+END_EXAMPLE
 
 *** projects
 
