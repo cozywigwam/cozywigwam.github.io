@@ -94,7 +94,6 @@ path: "/spacemacs/"
 | `SPC p F` | `helm-projectile-find-file-dwim` | find file with dwim       |
 #+END_EXAMPLE
 
-
 * help
 
 #+BEGIN_EXAMPLE
@@ -125,7 +124,6 @@ In info:
 |-|-|
 | `<f1> ?` | `help-for-help` |
 #+END_EXAMPLE
-
 
 * search
 
@@ -182,7 +180,6 @@ Break opening HTML tags to new line:
 #+END_EXAMPLE
 
 regex and character classes and syntax classes: [[https://www.emacswiki.org/emacs/RegularExpression][Emacs Wiki]]
-
 
 * interface
 
@@ -350,8 +347,6 @@ Registers can hold text, rectangles, positions, window configurations, and buffe
 
 tab-width: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Display.html#Text-Display][manual]]
 
-
-
 * modes
 
 #+BEGIN_EXPORT html
@@ -390,7 +385,6 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 | `SPC v/V/s/S`   | split or split with focus |
 #+END_EXAMPLE
 
-
 * kill & yank
 
 Use arguements with `yank-pop`:
@@ -398,7 +392,6 @@ Use arguements with `yank-pop`:
 > With no argument, the previous kill is inserted.
 > With argument N, insert the Nth previous kill.
 > If N is negative, this is a more recent kill.
-
 
 * neotree
 
@@ -414,8 +407,6 @@ Use arguements with `yank-pop`:
 | `-`             | split                 |        |
 | `s`             | toggle hidden         |        |
 #+END_EXAMPLE
-
-
 
 * dired
 
@@ -505,8 +496,6 @@ directory in another window."
 [[https://www.emacswiki.org/emacs/DiredSorting][Emacs Wiki]]
 
 
-
-
 * keybindings
 
 [Spacemacs Guide](https://github.com/syl20bnr/spacemacs/wiki/Keymaps-guide)
@@ -582,8 +571,6 @@ doubt, use whitespace.
 #+END_SRC
 
 `C-m` acts as `<return>`.
-
-
 
 * color
 
@@ -1008,8 +995,6 @@ Ignore stuff with `.agignore`. Make searches oase sensitive with `-s`.
 | `*!dired` | filter exclude major-mode dired |
 #+END_EXAMPLE
 
-
-
 * company
 
 #+BEGIN_EXAMPLE
@@ -1037,11 +1022,9 @@ Discussion about removing snippets: https://github.com/joaotavora/yasnippet/issu
 
 My snippets are in ~.emacs.d/private/snippets/~. Add ~.yas-parents~ file in a dir to pull in its snippets. Add ~.yas-skip~ to ignore snippets in a directory.
 
-
 * git
 
 See <a href="/git">git</a>
-
 
 * tags/ctags
 
@@ -1143,7 +1126,6 @@ List basics at <a href="https://www.emacswiki.org/emacs/ListStructure" target="_
 | `j` `k`   | navigate         |
 | `C-[`     | exit             |
 #+END_EXAMPLE
-
 
 * misc
 
