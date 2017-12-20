@@ -30,13 +30,17 @@ path: "/browsers/"
 `monitorEvents(object[, events])` |
 `F2` | (with element selected) edit as HTML
 
+### Performance
+
+[Emulate slow network connections](https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling)
+
 ## Cookies
 
 [reference](https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies)
 
 In Applications -> Storage
 
-## Run Chromium with flags
+## Run Chrome with flags
 
 From [The Chromium Projects](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):
 
@@ -64,6 +68,18 @@ Clear cache in `chrome://appcache-internals/`: [https://github.com/googlearchive
 [Keyboard shortcuts reference](https://developers.google.com/web/tools/chrome-devtools/shortcuts)
 
 # Chromium
+
+## Run Chromium with flags
+
+From [The Chromium Projects](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):
+
+```
+/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
+
+# for Google Chrome you'll need to escape spaces like so:
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
 
 ## [Chromium Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
 

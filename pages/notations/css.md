@@ -7,16 +7,12 @@ path: "/css/"
 
 
 # General
-
-
 ## Reference
 
 [CSS spec](https://www.w3.org/Style/CSS/specs.en.html)
 
 
 ## Custom Properties
-
-
 ### Spec
 
 [W3](https://www.w3.org/TR/css-variables/)
@@ -170,6 +166,10 @@ div {
 ```
 
 
+# Transforms
+
+Re SVG, it's their oject bounding box that gets transformed.
+
 # CSS Modules
 
 [GitHub](https://github.com/css-modules/css-modules)
@@ -276,7 +276,7 @@ Each class gets all the styles it needs...
 
 Directory setup (with the global styles file renamed and moved to `styles/`):
 
-```sh
+```shell
 .
 ├── content
 │   ├── assets

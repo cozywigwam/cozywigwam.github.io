@@ -13,6 +13,16 @@ From <a href="http://orgmode.org/manual/Emphasis-and-monospace.html" target="_bl
 *bold*, /italic/, _underlined_, =verbatim= and ~code~, and, if you must, ‘+strike-through+’
 #+END_EXAMPLE
 
+* Babel
+
+** Results variables
+
+http://orgmode.org/manual/results.html
+
+#+BEGIN_SRC shell :results value code
+curl 127.0.0.1 --head
+#+END_SRC
+
 * Spreadsheet tables
 
 [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]

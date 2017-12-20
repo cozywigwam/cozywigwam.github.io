@@ -256,6 +256,13 @@ export default class PostLink extends React.Component {
 #+END_SRC
 
 
+* Ramda
+
+Same lookup on two data sets:
+
+#+BEGIN_SRC js
+
+#+END_SRC
 * Misc
 
 "Module request format," /a la node/: starts-with-dot is local.

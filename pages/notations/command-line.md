@@ -130,6 +130,8 @@ ytdl --extract-audio --audio-format mp3 <url>
 
 ### macOS
 
+[macOS Default Values Command Reference](https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md)
+
 ```sh
 # sed requires `-i`
 sed -i '.bak' 's/oldterm/newterm/g' [filename] 

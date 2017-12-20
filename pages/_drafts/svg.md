@@ -71,3 +71,7 @@ From [W3C: Embedded Content](http://w3c.github.io/html/semantics-embedded-conten
 
 
 [W3C SVG Primer - Embedding SVG in HTML documents](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html#SVG_in_HTML)
+
+# Misc
+
+SVG's object bounding box sets CSS's transformation boundaries.
