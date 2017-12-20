@@ -68,6 +68,11 @@ Here's a very readable link to [Yahoo!][yahoo].
 
 Use single backticks for inline code/monospace, and triple backticks (fencing) for code blocks. Shift+enter for line breaks. Disable markup processing with `mrkdwn` set to `false`:
 
+```
+> to blockquote one paragraph
+>>> to blockquote multiple paragraphs
+```
+
 ```json
 {
   "mrkdwn": false,
@@ -98,12 +103,25 @@ Use single backticks for inline code/monospace, and triple backticks (fencing) f
 
 link to [this site|https://thissite.com]
 
+h1. heading 1
+
+h2. heading 2
+
 bq. This is one line of block quote
 
 {quote}
 This is multiple lines
 of block quote
 {quote}
+
+- bullet
+- bullet
+
+* also bullet
+* also bullet
+
+# numbered
+# numbered
 ```
 
 

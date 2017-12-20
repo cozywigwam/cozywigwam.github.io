@@ -145,6 +145,12 @@ git update-index --skip-worktree constants.js
 
 Then when I want to actually add a new constant down the raod, I can use `--no-skip-worktree`.
 
+## recover from `reset --hard`
+Not that I would ever need this. Not that anyone would ever need this. But, you know, just in case... to find that missing ref after resetting `--hard` away from an unmerged branch:
+
+```
+git reflog [show] # `show` is default
+```
 ### Difference between \`skip-worktree\` and \`assume-unchanged\`
 
 From `git man update-index`:
@@ -236,7 +242,7 @@ gitroot() {
 |             |                                         |                               |
 |-------------|-----------------------------------------|-------------------------------|
 | `O`         | [in log] `magit-reset-popup`            | reset popup                   |
-| `SPC g m t` | [in log] (custom) `magit-toggle-margin` | toggle name & date side panel |
+| `L l` | [in log] (custom) `magit-toggle-margin` | toggle name & date side panel |
 
 #### from commit
 
@@ -257,6 +263,21 @@ gitroot() {
 ```emacs-lisp
 (magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
 ```
+
+### refs
+
+[manual](https://magit.vc/manual/magit/References-Buffer.html)
+
+`y` is evilified, so use `C-- y` for `magit-show-refs-popup`. `@` indicates current comparison point, which is also HEAD. `#` indicates current comparison point that is not HEAD.
+
+In status, `C-- y r` for `magit-show-refs-popup`, `? y` for `magit-show-refs`. Custom keybindings:
+
+| `SPC g m y` | `magit-show-refs-popup`
+| `SPC g y y` | `magit-show-refs-head`
+| `SPC g y c` | `magit-show-refs-current`
+| `SPC g y o` | `magit-show-refs`
+
+Use `L` for `magit-margin-popup`.
 
 ### reference
 
