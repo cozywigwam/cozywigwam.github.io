@@ -13,7 +13,7 @@ import { Mixins } from './Mixins';
  * Global Styles
  */
 injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans|Source+Code+Pro');
+  @import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans:400,400i,700,700i|Source+Code+Pro');
 
   html {
     background: ${Colors.gray};
@@ -67,7 +67,25 @@ injectGlobal`
     border-bottom: 2px solid ${Colors.magenta};
   }
   thead {
-    display: none;
+  }
+  th {
+    padding: 0 1rem;
+    color: ${Colors.grayLightest};
+    ${Mixins.fontSizer(11, Constants.multipliers.regular)}
+    font-weight: normal;
+
+    @media (min-width: ${Constants.MQ.sm}px) {
+      padding: 0 1.2rem;
+    }
+    @media (min-width: ${Constants.MQ.md}px) {
+      padding: 0 1.3rem;
+    }
+    @media (min-width: ${Constants.MQ.lg}px) {
+      padding: 0 1.4rem;
+    }
+  }
+  th + th {
+    border-left: 1px solid ${Colors.grayLighter};
   }
   td {
     padding: 0.5rem 1rem;
