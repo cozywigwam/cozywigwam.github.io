@@ -327,7 +327,7 @@ If N is negative, this is a more recent kill.
 
 * dired
 
-[Quick ref PDF](https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf)
+[[https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf][Quick ref PDF]]
 
 | ~K~, ~gr~   | hide/kill and show/revert       |                              |
 | ~w~         | ~dired-copy-filename-as-kill~   | copy filename                |
@@ -547,16 +547,6 @@ prevent/don't auto-add quotes/quotation marks after typing ~=~ in JSX attributes
 
 | ~(setq-local web-mode-enable-auto-quoting nil)~ |
 
-
-
-# Links
-
-[[http://oss.io/p/trishume/spacemacs][Spacemacs Advanced Kit]]
-
-[[https://emacsclub.github.io/html/org_tutorial.html#sec-8-1][Org Cheat Sheet]]
-
-
-
 ** Emacs Lisp
 
 | ~SPC m h h~ | ~elisp-slime-nav-describe-elisp-thing-at-point~ | help with thing at point |
@@ -712,7 +702,7 @@ My snippets are in ~.emacs.d/private/snippets/~. Add ~.yas-parents~ file in a di
 
 * git
 
-See [[file:git.md][git]]
+See [[/git/][git]]
 
 * comments
 
@@ -836,7 +826,7 @@ Reference: http://justinsboringpage.blogspot.com/2009/04/running-elisp-function-
 (define-key evil-normal-state-map (kbd ",N") (lambda () (interactive) (evil-ex "-")))
 #+END_SRC
 
-*** TODO figure out how to "press enter" after an ex command
+*** TODO figure out how to "press enter" after an ex command :no_export:
 
 #+BEGIN_SRC emacs-lisp
 ;; https://emacs.stackexchange.com/questions/14163/how-create-keybindings-for-evil-command-line/14165
@@ -873,6 +863,8 @@ Substitute out the literal return key (~C-q C-m~): ~,s C-q C-m/~
 
 ** TRAMP
 
-Fix remote zsh prompt to permit TRAMP (from [github](https://github.com/syl20bnr/spacemacs/issues/1945)):
+Fix remote zsh prompt to permit TRAMP (from [[https://github.com/syl20bnr/spacemacs/issues/1945][github]]):
 
-~[ [ $TERM == "dumb" ] ] && unsetopt zle && PS1='$ ' && return~ (remove space between brackets)
+#+BEGIN_SRC shell
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+#+END_SRC

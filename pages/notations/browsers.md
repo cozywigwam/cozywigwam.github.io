@@ -64,7 +64,7 @@ From [The Chromium Projects](http://www.chromium.org/developers/how-tos/run-chro
 
 ## Empty Devtools Popups
 
-Clear cache in `chrome://appcache-internals/`: [https://github.com/googlearchive/ADBPlugin/issues/14](reference) 
+Clear cache in `chrome://appcache-internals/` ([reference](https://github.com/googlearchive/ADBPlugin/issues/14))
 
 ## Vimium
 
@@ -128,9 +128,9 @@ Help -> Troubleshooting Information
 In the Storage panel.
 
 
-## Vimperator
+## ~~Vimperator~~
 
-[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc)
+~~[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc)~~
 
 |||
 |-|-|
@@ -167,4 +167,5 @@ To add "confirm on quit": `about:config`, `browser.showQuitWarning`
 
 |||
 |-|-|
-`cmd + opt + r` | responsive
+~~`cmd + opt + r`~~ | ~~responsive~~
+Develop -> Enter Responsive Design Mode | responsive

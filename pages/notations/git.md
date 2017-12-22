@@ -105,7 +105,7 @@ alias gc="git clone"
 alias l="logg --no-merges -40" # see Logging
 ```
 
-Note to the reader: if you are using Git at the command line at this level and you're not using Magit, I would encourage you to look into it.
+Note to the reader: if you are using Git at the command line at this level and you're not using [Magit](https://magit.vc/), I would encourage you to look into it.
 
 ## update-index
 
@@ -137,7 +137,7 @@ From `git man update-index`:
 >
 >         Although this bit looks similar to assume-unchanged bit, its goal is different from assume-unchanged bit's. Skip-worktree also takes precedence over assume-unchanged bit when both are set.
 
-This is where git shines: literal bit-flippin' to solve problems:
+This is where git shines: literal bit-flippin' to solve problems.
 
 ```sh
 git update-index --skip-worktree constants.js
@@ -145,12 +145,6 @@ git update-index --skip-worktree constants.js
 
 Then when I want to actually add a new constant down the raod, I can use `--no-skip-worktree`.
 
-## recover from `reset --hard`
-Not that I would ever need this. Not that anyone would ever need this. But, you know, just in case... to find that missing ref after resetting `--hard` away from an unmerged branch:
-
-```
-git reflog [show] # `show` is default
-```
 ### Difference between \`skip-worktree\` and \`assume-unchanged\`
 
 From `git man update-index`:
@@ -167,6 +161,12 @@ From a [blog post](http://fallengamer.livejournal.com/93321.html) found from [St
 
 > Assume-unchanged assumes that a developer shouldn’t change a file. If a file was changed – than that change is not important. This flag is meant for improving performance for not-changing folders like SDKs. But if the promise is broken and a file is actually changed, git reverts the flag to reflect the reality. Probably it’s ok to have some inconsistent flags in generally not-meant-to-be-changed folders. On the other hand skip-worktree is useful when you instruct git not to touch a specific file ever. That is useful for an already tracked config file. Upstream main repository hosts some production-ready config but you would like to change some settings in the config to be able to do some local testing. And you don’t want to accidentally check the changes in such file to affect the production config. In that case skip-worktree makes perfect scene.
 
+## recover from reset --hard
+Not that I would ever need this. Not that anyone would ever need this. But, you know, just in case... to find that missing ref after resetting `--hard` away from an unmerged branch:
+
+```
+git reflog [show] # `show` is default
+```
 ## Hooks/Deployment
 
 [Branch targeting](https://github.com/typicode/husky/issues/186):
@@ -296,10 +296,48 @@ Compare ediff/emerge.
 
 |           |                        |
 |-----------|------------------------|
-| <ret>     | [on `unmerged`] smerge |
+| `<ret>`     | [on `unmerged`] smerge |
 | `C-c ^ m` | keep mine              |
 | `C-c ^ o` | keep other             |
 | `C-c ^ n` | next                   |
+
+## Version-Control layer
+
+(Spacemacs)
+
+|             |                            |                                                |
+|-------------|----------------------------|------------------------------------------------|
+| `]h`, `[h`  | next/prev hunk             |                                                |
+
+From `.emacs.d/layers/+source-control/version-control/README.org`:
+
+| Key Binding | Description                     |
+|-------------|---------------------------------|
+| `SPC g .`   | version control transient-state |
+| `SPC T d`   | toggle diff margins             |
+| `SPC T C-d` | toggle diff margins globally    |
+
+### Version Control Transient-state
+
+| Key Binding | Description                  |
+|-------------|------------------------------|
+| `SPC g . h` | Show diff of hunk            |
+| `SPC g . n` | Next hunk                    |
+| `SPC g . N` | Previous hunk                |
+| `SPC g . p` | Previous hunk                |
+| `SPC g . r` | Revert hunk                  |
+| `SPC g . s` | Stage hunk                   |
+| `SPC g . t` | Toggle margin indicators     |
+| `SPC g . w` | Stage file                   |
+| `SPC g . u` | Unstage file                 |
+| `SPC g . d` | Repo diff popup              |
+| `SPC g . D` | Show diffs of unstaged hunks |
+| `SPC g . c` | Commit with popup            |
+| `SPC g . C` | Commit                       |
+| `SPC g . P` | Push repo with popup         |
+| `SPC g . f` | Fetch for repo with popup    |
+| `SPC g . F` | Pull repo with popup         |
+| `SPC g . l` | Show repo log                |
 
 # Vim
 

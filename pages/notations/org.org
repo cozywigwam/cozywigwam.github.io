@@ -80,6 +80,18 @@ curl 127.0.0.1 --head
 | ~M-RET c~   | ~org-edit-src-exit~                  | close sub-editing buffer and return to source buffer |
 | ~SPC t C-c~ | ~my-toggle-org-babel-no-eval-ctrl-c~ | [custom] toggle no-eval/ctrl-c-ctrl-c on/off         |
 
+~my-toggle-org-babel-no-eval-ctrl-c~ evaluation controls ~org-confirm-babel-evaluate~ and ~org-babel-no-eval-on-ctrl-c-ctrl-c~.
+
+#+BEGIN_SRC emacs-lisp
+(defun my-toggle-org-babel-no-eval-ctrl-c()
+  (interactive)
+  (if (eq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
+      (setq org-babel-no-eval-on-ctrl-c-ctrl-c 't)
+      (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)))
+
+(spacemacs/set-leader-keys "t C-c" 'my-toggle-org-babel-no-eval-ctrl-c)
+#+END_SRC
+
 In order to ~ctrl-c-ctrl-c~ (execute) a code block, it needs to be in ~org-babel-load-languages~:
 
 #+BEGIN_SRC emacs-lisp
@@ -106,21 +118,9 @@ let test = [1, 2];
 console.log(Math.max(...test));
 #+END_SRC
 
-Evaluation controls: ~org-confirm-babel-evaluate~, ~org-babel-no-eval-on-ctrl-c-ctrl-c~.
+** node adjustment
 
-| ~SPC t C-c~ | [custom] ~my-toggle-org-babel-no-eval-ctrl-c~ |
-
-#+BEGIN_SRC emacs-lisp
-  (defun my-toggle-org-babel-no-eval-ctrl-c()
-    (interactive)
-    (if (eq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
-      (setq org-babel-no-eval-on-ctrl-c-ctrl-c 't)
-      (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)))
-
-  (spacemacs/set-leader-keys "t C-c" 'my-toggle-org-babel-no-eval-ctrl-c)
-#+END_SRC
-
- ~setenv "NODE_PATH"~ specifically to ~/org/node_modules~: [[http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/]]. Install babel presets to ~/org~, symlink ~/org/node_modules/babel-cli/bin/babel-node.js~ as ~org-babel-node~ to path.
+~setenv "NODE_PATH"~ specifically to ~/org/node_modules~: [[http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/]]. Install babel presets to ~/org~, symlink ~/org/node_modules/babel-cli/bin/babel-node.js~ as ~org-babel-node~ to path.
 
 #+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
 let obj = {
@@ -205,19 +205,10 @@ The #+OPTIONS keyword is a compact form. To configure multiple options, use seve
 
 ** links
 
-[[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][WORG publishing org-mode -> HTML]]
-
-[[http://orgmode.org/worg/org-tutorials/org-jekyll.html][WORG org -> jekyll]]
-
-[[https://github.com/bmaland/happyblogger][happyblogger]]
-
-[[https://github.com/ardumont/org2jekyll][org2jekyll]]
-
-[[https://github.com/juanre/org-jekyll][org-jekyll]]
-
-[[https://emacsclub.github.io/html/org_tutorial.html][cheatsheet]]
-
-[[http://gongzhitaao.org/orgcss/][CSS for Org-exported HTML example/walkthrough]]
+- [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][WORG publishing org-mode -> HTML]]
+- [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][WORG org -> jekyll]]
+- [[https://emacsclub.github.io/html/org_tutorial.html][cheatsheet]]
+- [[http://gongzhitaao.org/orgcss/][CSS for Org-exported HTML example/walkthrough]]
 
 ** "publishing projects" examples
 
@@ -252,11 +243,9 @@ The #+OPTIONS keyword is a compact form. To configure multiple options, use seve
 
 * Spreadsheet tables
 
-[[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]
-
-[[https://emacs.stackexchange.com/a/20506/15295][Helpful SO answer]]
-
-[[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][Formula Syntax for Calc]]
+- [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]
+- [[https://emacs.stackexchange.com/a/20506/15295][Helpful SO answer]]
+- [[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][Formula Syntax for Calc]]
 
 #+BEGIN_SRC org
 :=vsum($2..$3) ;; do a calculation

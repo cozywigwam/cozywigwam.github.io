@@ -85,9 +85,9 @@ Note that you cannot overwrite a root variable used by a mixin:
 
 ### Reference
 
-Customization examples from a [GitHub issue](https://github.com/syl20bnr/spacemacs/issues/6649).
-
-Serg Hespodarets' [custom props in depth](https://blog.hospodarets.com/css_properties_in_depth), [native CSS mixins](https://blog.hospodarets.com/css_apply_rule), and on [Smashing Magazine](https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/).
+- [Serg Hespodarets'](https://twitter.com/malyw) [custom props in depth](https://blog.hospodarets.com/css_properties_in_depth)
+- [native CSS mixins](https://blog.hospodarets.com/css_apply_rule)
+- [Smashing Magazine](https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/)
 
 ## Nesting
 
@@ -168,12 +168,12 @@ div {
 
 # Transforms
 
-Re SVG, it's their oject bounding box that gets transformed.
+Re SVG, it's their object bounding box that gets transformed.
 
 # CSS Modules
 
-[GitHub](https://github.com/css-modules/css-modules)
-[Interoperable CSS (ICSS)](https://github.com/css-modules/icss)
+- [https://github.com/css-modules/css-modules](https://github.com/css-modules/css-modules)
+- [Interoperable CSS (ICSS)](https://github.com/css-modules/icss)
 
 
 ## Glen Maddern's intro
@@ -439,15 +439,6 @@ Proper main-content line lengths, in em, [ref](http://maxdesign.com.au/articles/
 
 > As you can see, the average seems to suggest that your container width should be set between the narrowest width of 21em (approx 49 characters per line) to the widest width of 30em (approx 71 characters per line).
 
-
-## blockquote
-
-```html
-<figure class="quote">
-	<blockquote><p>...the author hopes to be held guiltless by those to whom the work is addressed—enlightened souls who prefer dry wines to sweet, sense to sentiment, wit to humor and clean English to slang.</p></blockquote>
-	<figcaption>Ambrose Bierce, <cite>The Devil's Dictionary</cite></figcaption>
-</figure>
-```
 
 ## clearfix
 

@@ -216,7 +216,7 @@ To convert the full document's tabs to spaces, `:set expandtab` and then `:retab
 `<C-p> <C-n>` | prev/next searches
 
 
-## Vimium & Vimperator
+## Vimium ~~& Vimperator~~
 
 See [Browsers](/browsers/)
 

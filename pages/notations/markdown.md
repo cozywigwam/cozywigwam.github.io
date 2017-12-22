@@ -10,23 +10,59 @@ path: "/markdown/"
 ## Basics
 
 ```
-*italics,* and _more italics_
-**bold**
-***bold italic***
-```
-
-## Tables
-
-3 dash minimum, columns for alignment, line begin/end pipes optional. Header not required for gfm, but is seemeingly everywhere else.
-
-```
-| th | th | th |
-| --- |:---:| ---:|
+| th   | th     | th    |
+| :--- | :---:  | ---:  |
 | left | middle | right |
+
+*italics*, _alt italics_
+
+**bold**, __alt bold__
+
+***bold italic***, ___alt bold italic___
+
+> quote
+
+~~strike through~~
+
+`code`
+
+[site](example.com)
 ```
+
+| th   | th     | th    |
+| :--- | :---:  | ---:  |
+| left | middle | right |
+
+*italics*, _alt italics_
+
+**bold**, __alt bold__
+
+***bold italic***, ___alt bold italic___
+
+> quote
+
+~~strike through~~
+
+`code`
+
+[site](example.com)
 
 
 # Dialects, variations
+
+## Chart
+
+| daring fireball          | Slack     | JIRA                   | SO                  |
+|--------------------------|-----------|------------------------|---------------------|
+| *italics*, _alt italics_ |           |                        |                     |
+| __double underscore__    |           |                        |                     |
+| **bold**                 |           |                        |                     |
+| ***bold italic***        |           |                        |                     |
+| > quote                  | >         | {quote}..{quote}       |                     |
+| ~~strike through~~       |           |                        |                     |
+| `code`                   | `inline`  | {{inline}}             | `inline`            |
+| code block               | backticks | {code}..{code}         | indent              |
+| [site](example.com)      | n/a       | [site\vertexample.com] | [site](example.com) |
 
 ## Markdown
 
@@ -52,15 +88,24 @@ Code blocks are four indented spaces.
 - Stack Overflow's [Markdown help](http://stackoverflow.com/editing-help).
 
 ```
-Here's an inline link to [Google](http://www.google.com/).
-Here's a reference-style link to [Google][1].
-Here's a very readable link to [Yahoo!][yahoo].
+Here's an inline link to [duckduckgo](http://www.duckduckgo.com/).
 
-  [1]: http://www.google.com/
-  [yahoo]: http://www.yahoo.com/
+Here's a reference-style link to [duckduckgo][1].
+
+Here's a very readable link to [duckduckgo][ddg].
+
+  [1]: https://www.duckduckgo.com/
+  [ddg]: https://www.duckduckgo.com/
 ```
 
+Here's an inline link to [duckduckgo](http://www.duckduckgo.com/).
 
+Here's a reference-style link to [duckduckgo][1].
+
+Here's a very readable link to [duckduckgo][ddg].
+
+  [1]: https://www.duckduckgo.com/
+  [ddg]: https://www.duckduckgo.com/
 
 ## Slack
 
@@ -80,14 +125,7 @@ Use single backticks for inline code/monospace, and triple backticks (fencing) f
 }
 ```
 
-> Note: Hyperlinking words and terms in a Slack message isn't supported. ([link](https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack))
-
-### quotes/blockquotes
-
-```
-> one long line
->>> multiline paragraphs
-```
+Note: Hyperlinking words and terms in a Slack message isn't supported. ([link](https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack))
 
 
 ## JIRA
