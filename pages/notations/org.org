@@ -50,6 +50,17 @@ path: "/org/"
 *bold*, /italic/, _underline_, =verbatim=, ~code~, +strike-through+
 #+END_SRC
 
+* local variables
+
+# -*- org-use-tag-inheritance: nil; -*-
+
+#+BEGIN_EXAMPLE
+# local variables:
+:# org-attach-directory: "./data"
+:# org-id-method: uuid
+# end:
+#+END_EXAMPLE
+
 * Babel
 
 ** Results variables
