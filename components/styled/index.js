@@ -86,6 +86,9 @@ injectGlobal`
       padding: 0.6rem 1.4rem;
     }
   }
+  td:first-child {
+    min-width: 120px;
+  }
 
   /*
    * Three types of code...

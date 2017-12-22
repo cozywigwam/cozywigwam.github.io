@@ -9,7 +9,7 @@ path: "/org/"
 ---
 #+END_EXAMPLE
 
-* keys/basics
+* keys/misc
 
 |                              |                                                               |                                                                        |
 |------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ path: "/org/"
 
 * Syntax
 
-From <a href="http://orgmode.org/manual/Emphasis-and-monospace.html" target="_blank">the manual</a>:
+[[http://orgmode.org/manual/Emphasis-and-monospace.html][manual]]
 
 #+BEGIN_EXAMPLE
 *bold*, /italic/, _underlined_, =verbatim= and ~code~, and, if you must, ‘+strike-through+’
@@ -129,73 +129,68 @@ console.log(restItem);
 [[http://orgmode.org/manual/Easy-templates.html#Easy-templates][Easy Templates]]
 
 
-** basics
-
-#+BEGIN_EXAMPLE
-|||
-|-|-|
 | ~C-c C-e #~          | insert default export options from template |
 | ~#+OPTIONS: toc:nil~ | don't export table of contents              |
-#+END_EXAMPLE
 
 To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~no_export~, and add ~:no_export:~ after the heading/node.
 
-*** export exclusion example                                      :no_export:
+** export exclusion example                                       :no_export:
 
 This section is not exported.
 
-*** export settings
+** export settings
 
 [[http://orgmode.org/manual/Export-settings.html#Export-settings][Manual]]
 
-|                    |
-|--------------------|
-| ‘AUTHOR’           |
-| ‘CREATOR’          |
-| ‘DATE’             |
-| ‘EMAIL’            |
-| ‘LANGUAGE’         |
-| ‘SELECT_TAGS’      |
-| ‘EXCLUDE_TAGS’     |
-| ‘TITLE’            |
-| ‘EXPORT_FILE_NAME’ |
+|                      |
+|----------------------|
+| ~‘AUTHOR’~           |
+| ~‘CREATOR’~          |
+| ~‘DATE’~             |
+| ~‘EMAIL’~            |
+| ~‘LANGUAGE’~         |
+| ~‘SELECT_TAGS’~      |
+| ~‘EXCLUDE_TAGS’~     |
+| ~‘TITLE’~            |
+| ~‘EXPORT_FILE_NAME’~ |
 
-> The #+OPTIONS keyword is a compact form. To configure multiple options, use several #+OPTIONS lines. #+OPTIONS recognizes the following arguments.
+#+BEGIN_QUOTE
+The #+OPTIONS keyword is a compact form. To configure multiple options, use several #+OPTIONS lines. #+OPTIONS recognizes the following arguments.
+#+END_QUOTE
 
-|               |
-|---------------|
-| ':            |
-| *:            |
-| -:            |
-| ::            |
-| <:            |
-| \n:           |
-| ^:            |
-| arch:         |
-| author:       |
-| broken-links: |
-| c:            |
-| creator:      |
-| d:            |
-| date:         |
-| e:            |
-| email:        |
-| f:            |
-| H:            |
-| inline:       |
-| num:          |
-| p:            |
-| pri:          |
-| prop:         |
-| stat:         |
-| tags:         |
-| tasks:        |
-| tex:          |
-| timestamp:    |
-| title:        |
-| toc:          |
-| todo:         |
-| \\vert        |
+|                 |
+|-----------------|
+| ~*:~            |
+| ~-:~            |
+| ~::~            |
+| ~<:~            |
+| ~\n:~           |
+| ~^:~            |
+| ~arch:~         |
+| ~author:~       |
+| ~broken-links:~ |
+| ~c:~            |
+| ~creator:~      |
+| ~d:~            |
+| ~date:~         |
+| ~e:~            |
+| ~email:~        |
+| ~f:~            |
+| ~H:~            |
+| ~inline:~       |
+| ~num:~          |
+| ~p:~            |
+| ~pri:~          |
+| ~prop:~         |
+| ~stat:~         |
+| ~tags:~         |
+| ~tasks:~        |
+| ~tex:~          |
+| ~timestamp:~    |
+| ~title:~        |
+| ~toc:~          |
+| ~todo:~         |
+| ~\vert:~            |
 
 ** links
 
@@ -275,11 +270,9 @@ This section is not exported.
 
 * tables
 
-#+BEGIN_EXAMPLE
 |               |                       |
 |---------------+-----------------------|
-| ~SPC m t d c~ | ~table-delete-column' |
-#+END_EXAMPLE
+| ~SPC m t d c~ | ~table-delete-column~ |
 
 * org as spreadsheet
 
@@ -287,13 +280,14 @@ This section is not exported.
 
 [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheet intro]]
 
-| ~C-c ?~           | org-table-field-info                           |
-| ~C-c }~           | org-table-toggle-coordinate-overlays           |
+| ~C-c ?~           | ~org-table-field-info~                         |
+| ~C-c }~           | ~org-table-toggle-coordinate-overlays~         |
 | ~C-u C-c *~       | reapply formulas                               |
 | ~:=vmean($2..$3)~ | row formula, mean of columns 2 & 3             |
 | ~=vsum($2..$3)~   | column formula, sum of all rows' columns 2 & 3 |
+|                   |                                                |
 
-* My Project Setup
+* My Project Setup :no_export:
 
 ** Example Tree
 
@@ -393,13 +387,15 @@ Jonathan Magen's talk on [[https://www.youtube.com/watch?v=KdcXu_RdKI0][youtube]
 | ~%i~       | active region                                                  |
 | ~%?~       | final cursor position                                          |
 
-org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-capture-html)
+~org-protocol-capture-html~ on [[https://github.com/alphapapa/org-protocol-capture-html][github]]
 
- > With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
- >
- > For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
- >
- > I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
+#+BEGIN_QUOTE
+With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
+
+For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
+
+I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
+#+END_QUOTE
 
 * links
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][examples and cookbook]]
@@ -417,3 +413,7 @@ Control visibility on startup:
 
 (setq org-startup-folded nil)
 #+END_SRC
+
+** pipe character in tables
+
+Use ~\vert~ (backslash-v-e-r-t). [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][Special symbols]] in the manual. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.

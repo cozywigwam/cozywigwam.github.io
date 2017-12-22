@@ -47,13 +47,13 @@ ERE all:
 
 ## [Special Characters](https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Special.html#Regexp-Special)
 
-| `.`              |
+| `.`              | any except newline |
 | `*`              |
 | `+`              |
 | `?`              |
-| `*?`, `+?`, `??` |
-| `[` ... `]`      |
-| `[^` ... `]`     |
+| `*?`, `+?`, `??` | non-greedy |
+| `[` ... `]`      | character alternative |
+| `[^` ... `]`     | "complemented" (non-matching) character alternative |
 | `^`              |
 | `$`              |
 | `\`              |
