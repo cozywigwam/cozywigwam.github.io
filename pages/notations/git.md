@@ -183,6 +183,15 @@ done
 
 [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks) hook reference
 
+## .git/
+### info/exclude
+
+Ignore files from config level (overrides `.gitignore`). I keep symlinks here. Handy, 'cause:
+
+- I want them ignored
+- I don't want to clutter the project's `.gitignore`
+- they're project-specific, so not suited for `~/.gitignore_global`
+
 ## Misc
 
 To force push to `master` on GitLab: Settings -> Repository -> Protected Branches
@@ -296,7 +305,7 @@ Compare ediff/emerge.
 
 |           |                        |
 |-----------|------------------------|
-| `<ret>`     | [on `unmerged`] smerge |
+| `<ret>`   | [on `unmerged`] smerge |
 | `C-c ^ m` | keep mine              |
 | `C-c ^ o` | keep other             |
 | `C-c ^ n` | next                   |
