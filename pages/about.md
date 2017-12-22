@@ -14,15 +14,14 @@ This website is a notebook where I record tech-related shortcuts, reminders, and
 |||
 |-|-|
 [Sunflower Sea Star](/) | technology
-<a href="https://sinistrocular.com" target="_blank" alt="Sinistrocular">Sinistrocular</a> | photo 
-<a href="https://soundcloud.com/cyaneyedvireo" target="_blank" alt="Cyan-Eyed Vireo Music">Cyan-Eyed Vireo</a> | music
-<a href="https://portfolio.logodaedalus.com" target="_blank" alt="Logodaedalus">Logodaedalus</a> | restricted
+[Sinistrocular](https://sinistrocular.com) | photo 
+[Cyan-Eyed Vireo](https://soundcloud.com/cyaneyedvireo) | music
 
 <section class="table-cyan">
 
 ||||
 |-|-|-|
-<a href="https://twitter.com/cozywigwam" target="_blank" alt="Twitter">Twitter</a> | <a href="https://github.com/cozywigwam" target="_blank" alt="GitHub">GitHub</a> | <a href="https://www.linkedin.com/in/grantsurratt" target="_blank" alt="LinkedIn">LinkedIn</a>
+[Twitter](https://twitter.com/cozywigwam) | [GitHub](https://github.com/cozywigwam) | [LinkedIn](https://www.linkedin.com/in/grantsurratt)
 
 </section>
 <section class="table-green">

@@ -56,6 +56,23 @@ WHATWG says, "Attribution for the quotation, if any, must be placed outside the 
 *** [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote][<blockquote> - HTML | MDN]]
 
 
+** `<script>`
+
+[[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script][MDN]]
+
+[[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Browser_compatibility][Browser Compatibility]]
+
+| `async`       |
+| `crossorigin` |
+| `defer`       |
+| `integrity`   |
+| `nomodule`    |
+| `nonce`       |
+| `src`         |
+| `text`        |
+| `type`        |
+| `language`    |
+
 * HTML examples
 ** Head
 

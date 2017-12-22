@@ -9,12 +9,13 @@ path: "/browsers/"
 
 ## dev tools
 
-<a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" alt="Console API Reference">Console API Reference</a>
+[Console API Reference](https://developers.google.com/web/tools/chrome-devtools/console/console-reference)
 
-<a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference" target="_blank" alt="Command Line API Reference">Command Line API Reference</a>
+[Command Line API Reference](https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference)
 
 |||
 |-|-|
+`cmd + shift + P` | [command menu](https://developers.google.com/web/tools/chrome-devtools/ui#command-menu)
 `$_` | previous expression's evaluation
 `$0` – `$4` | most recently inspected elements
 `$('img')` | `document.querySelector()` alias
@@ -29,16 +30,69 @@ path: "/browsers/"
 `monitorEvents(object[, events])` |
 `F2` | (with element selected) edit as HTML
 
+### Performance
+
+[Emulate slow network connections](https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling)
+
 ## Cookies
 
-<a href="https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies" target="_blank">reference</a>
+[reference](https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies)
 
 In Applications -> Storage
 
+## Run Chrome with flags
+
+From [The Chromium Projects](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):
+
+```
+/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
+
+# for Google Chrome you'll need to escape spaces like so:
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
+## Take a screenshot
+
+`cmd + shift + P` -> "Capture Screenshot"
+
+## Empty Devtools Popups
+
+Clear cache in `chrome://appcache-internals/`: [https://github.com/googlearchive/ADBPlugin/issues/14](reference) 
+
 ## Vimium
 
-<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium" target="_blank" alt="vimium">dotfile</a>
+[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium)
 
+## Reference
+
+[Keyboard shortcuts reference](https://developers.google.com/web/tools/chrome-devtools/shortcuts)
+
+# Chromium
+
+## Run Chromium with flags
+
+From [The Chromium Projects](http://www.chromium.org/developers/how-tos/run-chromium-with-flags):
+
+```
+/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
+
+# for Google Chrome you'll need to escape spaces like so:
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
+```
+
+
+## [Chromium Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
+
+| Release | 	 Estimated Week of Stable               |
+|---------|---------------------------------------------|
+|      64 | Jan 23rd, 2018 (Jan 30th for Chrome OS)     |
+|      65 | Mar 6th, 2018 (Mar 13th for Chrome OS)      |
+|      66 | April 17th, 2018 (April 24th for Chrome OS) |
+|      67 | May 29th, 2018 (June 5th for Chrome OS)     |
+|      68 | July 24th, 2018 (July 31st for Chrome OS)   |
+|      69 | Sept 4th, 2018 (Sept 11th for Chrome OS)    |
+|      70 | Oct 16th, 2018 (Oct 23rd for Chrome OS)     |
+|      71 | Dec 4th, 2018 (Dec 11th for Chrome OS)      |
 
 # Firefox
 
@@ -48,21 +102,28 @@ In Applications -> Storage
 
 ## Locations
 
+Help -> Troubleshooting Information
+
 - `about:config`
 - `about:support`
+- `about:plugins`
+- `about:buildconfig`
+- `about:memory`
+- `about:performance`
+- `about:serviceworkers`
 - `~/Library/Application Support/Firefox/Profiles/`
 - `~/Library/Mozilla/Firefox/Profiles/`
 
 ## Cookies
 
-<a href="https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies" target="_blank">Reference</a>
+[Reference](https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies)
 
 In the Storage panel.
 
 
 ## Vimperator
 
-<a href="https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc" target="_blank" alt="vimperatorrc">dotfile</a>
+[dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc)
 
 |||
 |-|-|

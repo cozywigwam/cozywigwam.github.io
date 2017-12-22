@@ -14,7 +14,13 @@ path: "/git/"
 `git help -a` | see commands
 `git help -p` | concept guides
 
-## diff differences
+## get file from SHA/commit
+
+`git checkout 7c9e5d -- file1/to/restore file2/to/restore`
+
+One workflow is to go to the log, open the commit where the file was changed/removed, use `M-w` to kill the hash/SHA, then `git checkout [SHA]~1 -- restore-me.txt`.
+
+## différance
 
 |||
 |-|-|
@@ -101,7 +107,85 @@ alias l="logg --no-merges -40" # see Logging
 
 Note to the reader: if you are using Git at the command line at this level and you're not using Magit, I would encourage you to look into it.
 
+## update-index
+
+I have a local global constant that I use for debugging. Loading the videos slows me down, so I want this toggle on pretty much all the time, unless I'm either A) specifically working on videos, or B) working on the site as a whole.
+
+```js
+// constants.js
+
+module.exports = {
+  SERVER_HOST: process.env.REACT_APP_SERVER_HOST,
+  API_VERSION: 'v1',
+  DEV_DISABLE_VIDEO: true,
+};
+```
+
+I don't want `true` to be the setting that a developer would receive when pulling this project down; I want the committed version of the file to be `DEV_DISABLE_VIDEO: false`. However, since I always want it locally to be `true`, it's going to nag all my git statuses with a change in that file.
+
+I can't ignore it, because ignores are whether or not to track a file—not to ignore new changes to a tracked file. But I can use the `update-index` command with `--skip-worktree`:
+
+From `git man update-index`:
+
+>     SKIP-WORKTREE BIT
+>         Skip-worktree bit can be defined in one (long) sentence: When reading an entry, if it is marked as skip-worktree, then Git pretends its working directory version is up to date and read the index version
+>         instead.
+>
+>         To elaborate, "reading" means checking for file existence, reading file attributes or file content. The working directory version may be present or absent. If present, its content may match against the index
+>         version or not. Writing is not affected by this bit, content safety is still first priority. Note that Git can update working directory file, that is marked skip-worktree, if it is safe to do so (i.e.
+>         working directory version matches index version)
+>
+>         Although this bit looks similar to assume-unchanged bit, its goal is different from assume-unchanged bit's. Skip-worktree also takes precedence over assume-unchanged bit when both are set.
+
+This is where git shines: literal bit-flippin' to solve problems:
+
+```sh
+git update-index --skip-worktree constants.js
+```
+
+Then when I want to actually add a new constant down the raod, I can use `--no-skip-worktree`.
+
+## recover from `reset --hard`
+Not that I would ever need this. Not that anyone would ever need this. But, you know, just in case... to find that missing ref after resetting `--hard` away from an unmerged branch:
+
+```
+git reflog [show] # `show` is default
+```
+### Difference between \`skip-worktree\` and \`assume-unchanged\`
+
+From `git man update-index`:
+
+>        --[no-]assume-unchanged
+>            When this flag is specified, the object names recorded for the paths are not updated. Instead, this option sets/unsets the "assume unchanged" bit for the paths. When the "assume unchanged" bit is on, the
+>            user promises not to change the file and allows Git to assume that the working tree file matches what is recorded in the index. If you want to change the working tree file, you need to unset the bit to
+>            tell Git. This is sometimes helpful when working with a big project on a filesystem that has very slow lstat(2) system call (e.g. cifs).
+>
+>            Git will fail (gracefully) in case it needs to modify this file in the index e.g. when merging in a commit; thus, in case the assumed-untracked file is changed upstream, you will need to handle the
+>            situation manually.
+
+From a [blog post](http://fallengamer.livejournal.com/93321.html) found from [Stack Overflow](https://stackoverflow.com/a/13631525/1052412):
+
+> Assume-unchanged assumes that a developer shouldn’t change a file. If a file was changed – than that change is not important. This flag is meant for improving performance for not-changing folders like SDKs. But if the promise is broken and a file is actually changed, git reverts the flag to reflect the reality. Probably it’s ok to have some inconsistent flags in generally not-meant-to-be-changed folders. On the other hand skip-worktree is useful when you instruct git not to touch a specific file ever. That is useful for an already tracked config file. Upstream main repository hosts some production-ready config but you would like to change some settings in the config to be able to do some local testing. And you don’t want to accidentally check the changes in such file to affect the production config. In that case skip-worktree makes perfect scene.
+
+## Hooks/Deployment
+
+[Branch targeting](https://github.com/typicode/husky/issues/186):
+
+```sh
+branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  if [ "master" == "$branch" ]; then
+
+  # shenanigans
+
+  fi
+done
+```
+
+[Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks) hook reference
+
 ## Misc
+
+To force push to `master` on GitLab: Settings -> Repository -> Protected Branches
 
 |||
 |-|-|
@@ -112,8 +196,8 @@ A shell function to jump to the root of the project:
 
 ```
 gitroot() {
- gitroot=$(git rev-parse --show-toplevel)
- cd $gitroot
+  gitroot=$(git rev-parse --show-toplevel)
+  cd $gitroot
 }
 ```
 
@@ -127,14 +211,16 @@ gitroot() {
 
 #### general
 
-|||
-|-|-|
-| `SPC g s` | `magit-status` | existing or create new |
-| `]h`, `[h`  | next/prev hunk            |                                                |
-| `SPC g f f` | `magit-find-file`         | open revision                                  |
-| `SPC g f h` | `magit-log-buffer-file`   | history/log for current buffer                 |
-| `SPC g d w` | `magit-diff-working-tree` | all changes - quickly check if branch is clean |
-| `SPC g f c` | `magit-file-checkout` | revert |
+|             |                            |                                                |
+|-------------|----------------------------|------------------------------------------------|
+| `SPC g i`   | [custom] `helm-info-magit` | manual lookup                                  |
+| `SPC g s`   | `magit-status`             | existing or create new                         |
+| `]h`, `[h`  | next/prev hunk             |                                                |
+| `SPC g f f` | `magit-find-file`          | open revision                                  |
+| `SPC g f h` | `magit-log-buffer-file`    | history/log for current buffer                 |
+| `SPC g d w` | `magit-diff-working-tree`  | all changes - quickly check if branch is clean |
+| `SPC g f c` | `magit-file-checkout`      | revert                                         |
+| `SPC g e b` | `ediff-buffers`            | diff files                                     |
 
 #### from status
 
@@ -143,7 +229,7 @@ gitroot() {
 | `C-u s`                    | [point at untracked file] track without staging ("git add --intent-to-add") |                                                    |
 | `M-1`, `M-2`, `M-3`, `M-4` | outline expansion                                                           |                                                    |
 | `^`                        | up                                                                          |                                                    |
-| `M-w`                      | copy (kill) hash/revision                                                   |                                                    |
+| `M-w`                      | copy (kill) hash/revision/commit/SHA                                        |                                                    |
 | `d`                        | diff options (e.g. whitespace)                                              |                                                    |
 | `d s`                      | `magit-diff-staged`                                                         | see everything that would commit                   |
 | `E i`                      | `magit-ediff-show-staged`                                                   | ediff a file that has staged changes (`SPC g e s`) |
@@ -153,9 +239,10 @@ gitroot() {
 
 #### from log
 
-|||
-|-|-|
-| `O` | [in log] reset popup |
+|             |                                         |                               |
+|-------------|-----------------------------------------|-------------------------------|
+| `O`         | [in log] `magit-reset-popup`            | reset popup                   |
+| `L l` | [in log] (custom) `magit-toggle-margin` | toggle name & date side panel |
 
 #### from commit
 
@@ -176,6 +263,23 @@ gitroot() {
 ```emacs-lisp
 (magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
 ```
+
+### refs
+
+[manual](https://magit.vc/manual/magit/References-Buffer.html)
+
+`y` is evilified, so use `C-- y` for `magit-show-refs-popup`. `@` indicates current comparison point, which is also HEAD. `#` indicates current comparison point that is not HEAD.
+
+In status, `C-- y r` for `magit-show-refs-popup`, `? y` for `magit-show-refs`. Custom keybindings:
+
+|||
+|-|-|
+| `SPC g m y` | `magit-show-refs-popup`   |
+| `SPC g y y` | `magit-show-refs-head`    |
+| `SPC g y c` | `magit-show-refs-current` |
+| `SPC g y o` | `magit-show-refs`         |
+
+Use `L` for `magit-margin-popup`.
 
 ### reference
 

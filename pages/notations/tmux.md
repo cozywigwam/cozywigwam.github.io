@@ -6,7 +6,7 @@ path: "/tmux/"
 ---
 
 
-<a href="https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf" target="_blank" alt="tmux dotfile">dotfile</a>
+[dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf)
 
 
 # Key bindings
@@ -52,7 +52,7 @@ unbind-key -a # unbind everything*
 tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default keys
 ```
 
-\* (see <a href="http://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative" target="_blank" alt="stack exchange">Stack Exchange</a>)
+\* (see [Stack Exchange](http://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative))
 
 
 # Options
@@ -76,7 +76,7 @@ tmux setw
 
 # Plugins
 
-<a href="https://github.com/tmux-plugins/tpm" target="_blank">Tmux Plugin Manager</a>
+[Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
 Plugins live in `~/.tmux/plugins`. Install with with `[prefix] + I`. Update with `~/.tmux/plugins/tpm/bin/update_plugins all`.
 
@@ -85,10 +85,12 @@ Plugins live in `~/.tmux/plugins`. Install with with `[prefix] + I`. Update with
 
 Hold `⌥` when click + dragging mouse to enable selection/copying to macOS clipboard.
 
-|||
-|-|-|
-`[session][:window][.pane]` | target syntax
-`<leader>z` | zoom
-`<leader>q` | display pane numbers
-`<leader>{` & `<leader>}` | swap (move) panes
-`attach-session -c ~/new-dir` | change current working-directory
+|                               |                                                             |
+|-------------------------------|-------------------------------------------------------------|
+| `[session][:window][.pane]`   | target syntax                                               |
+| `<leader>z`                   | zoom                                                        |
+| `<leader>q`                   | display pane numbers                                        |
+| `<leader>{` & `<leader>}`     | swap (move) panes                                           |
+| `attach-session -c ~/new-dir` | change current working-directory                            |
+| `<leader> m-4`                | [custom] `select-layout even-vertical`                      |
+| `<leader> m-5`                | [custom] `select-layout even-horizontal` (like Vim `C-w =`) |

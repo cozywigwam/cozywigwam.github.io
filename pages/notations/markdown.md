@@ -32,24 +32,24 @@ path: "/markdown/"
 
 Daring Fireball's:
 
-- <a href="http://daringfireball.net/projects/markdown/basics" target="_blank" alt="syntax/basics">basics</a>
-- <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank" alt="syntax/basics">syntax</a>
+- [basics](http://daringfireball.net/projects/markdown/basics)
+- [syntax](http://daringfireball.net/projects/markdown/syntax)
 
 ## GitHub
 
-Uses "<a href="https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/" target="_blank" alt="GitHub flavored markdown">GitHub flavored markdown</a>," aka GFM:
+Uses "[GitHub flavored markdown]( target=)," aka GFM:
 
-- <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/" target="_blank" alt="syntax">syntax</a>
-- <a href="https://help.github.com/categories/writing-on-github/" target="_blank" alt="Writing on GitHub">Writing on GitHub</a>
-- <a href="http://kramdown.gettalong.org/" target="_blank" alt="Kramdown">Kramdown</a>
-- <a href="http://kramdown.gettalong.org/parser/gfm.html" target="_blank" alt="Kramdown parse info">Kramdown parse info</a>
+- [syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
+- [Writing on GitHub](https://help.github.com/categories/writing-on-github/)
+- [Kramdown](http://kramdown.gettalong.org/)
+- [Kramdown parse info](http://kramdown.gettalong.org/parser/gfm.html)
 
 
-## Stack Overfow
+## Stack Overflow
 
 Code blocks are four indented spaces.
 
-- Stack Overflow's <a href="http://stackoverflow.com/editing-help" target="_blank" alt="Markdown help">Markdown help</a>.
+- Stack Overflow's [Markdown help](http://stackoverflow.com/editing-help).
 
 ```
 Here's an inline link to [Google](http://www.google.com/).
@@ -64,12 +64,35 @@ Here's a very readable link to [Yahoo!][yahoo].
 
 ## Slack
 
-Slack API <a href="https://api.slack.com/docs/message-formatting" target="_blank" alt="basic message formatting">basic message formatting</a>.
+[syntax](https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages) and [formatting](https://api.slack.com/docs/message-formatting)
+
+Use single backticks for inline code/monospace, and triple backticks (fencing) for code blocks. Shift+enter for line breaks. Disable markup processing with `mrkdwn` set to `false`:
+
+```
+> to blockquote one paragraph
+>>> to blockquote multiple paragraphs
+```
+
+```json
+{
+  "mrkdwn": false,
+  "text": "*This will not be bold.* It will be surrounded gloriously with stars."
+}
+```
+
+> Note: Hyperlinking words and terms in a Slack message isn't supported. ([link](https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack))
+
+### quotes/blockquotes
+
+```
+> one long line
+>>> multiline paragraphs
+```
 
 
 ## JIRA
 
-<a href="https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all" target="_blank" alt="JIRA formatting">Formatting</a>
+[JIRA formatting](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)
 
 ```
 {{inline-code}}
@@ -80,12 +103,25 @@ Slack API <a href="https://api.slack.com/docs/message-formatting" target="_blank
 
 link to [this site|https://thissite.com]
 
+h1. heading 1
+
+h2. heading 2
+
 bq. This is one line of block quote
 
 {quote}
 This is multiple lines
 of block quote
 {quote}
+
+- bullet
+- bullet
+
+* also bullet
+* also bullet
+
+# numbered
+# numbered
 ```
 
 
@@ -94,6 +130,10 @@ of block quote
 
 An attempt "to specify Markdown syntax unambiguously."
 
-- <a href="https://github.com/jgm/CommonMark" target="_blank" alt="CommonMark">CommonMark on GitHub</a>
-- <a href="http://spec.commonmark.org/0.26/" target="_blank" alt="CommonMark spec">CommonMark Spec</a>
-- <a href="http://spec.commonmark.org/dingus/" target="_blank" alt="Dingus">"Dingus" (live tester)</a>
+- [CommonMark on GitHub](https://github.com/jgm/CommonMark)
+- [CommonMark Spec](http://spec.commonmark.org/0.26/)
+- ["Dingus" (live tester)](http://spec.commonmark.org/dingus/)
+
+# Misc
+
+Ambiguity: https://meta.stackexchange.com/a/99637

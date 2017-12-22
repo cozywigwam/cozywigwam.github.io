@@ -9,7 +9,6 @@ import { MQ } from './MQ';
 import { Constants } from './Constants';
 import { Mixins } from './Mixins';
 
-
 /*
  * Global Styles
  */
@@ -22,11 +21,10 @@ injectGlobal`
   body {
     margin: 0;
     font-family: ${Font.family.default};
+    ${Mixins.fontSizer(16, Constants.multipliers.regular)}
     line-height: ${Font.lineHeight.regular};
     color: ${Colors.white};
     background: ${Colors.gray};
-
-    ${Mixins.fontSizer(18, Constants.multipliers.regular)}
   }
 
   table + p, pre + p, ul + p {
@@ -55,8 +53,8 @@ injectGlobal`
   blockquote {
     margin-left: 0;
     margin-bottom: 2rem;
-    padding: 0.5rem 2rem;
-    ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+    padding: 0.5rem 0 0.5rem 2rem;
+    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
     font-style: italic;
     border-left: 1px solid ${Colors.yellow};
   }
@@ -88,6 +86,9 @@ injectGlobal`
       padding: 0.6rem 1.4rem;
     }
   }
+  td:first-child {
+    min-width: 120px;
+  }
 
   /*
    * Three types of code...
@@ -96,7 +97,7 @@ injectGlobal`
     margin: 0 3px;
     padding: 5px 6px;
     font-family: ${Font.family.monospace};
-    ${Mixins.fontSizer(16, Constants.multipliers.regular)}
+    ${Mixins.fontSizer(14, Constants.multipliers.regular)}
     background: ${Colors.grayDarker};
     border-right: 2px solid ${Colors.grayLighter};
     border-bottom: 2px solid ${Colors.grayLighter};
@@ -144,6 +145,20 @@ injectGlobal`
   pre + table {
     // margin-top: 3.2rem;
   }
+  blockquote pre {
+    margin-top: 0.2rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 2px solid ${Colors.blue}
+  }
+  blockquote code {
+    ${Mixins.fontSizer(13, Constants.multipliers.regular)}
+  }
+  blockquote p:first-child {
+    margin-top: 0;
+  }
+  blockquote p:last-child {
+    margin-bottom: 0.3rem;
+  }
   pre + blockquote {
     margin-top: 3rem;
   }
@@ -156,12 +171,12 @@ injectGlobal`
 
 
   h1, h2, h3, h4, h5, h6 {
-    margin: 1.4em 0 0.8em;
+    margin: 4em 0 1em;
     font-family: ${Font.family.heading};
     font-weight: normal;
     line-height: 1.8;
-    margin: 1.4em 0 .8em;
     letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
     cursor: default;
 
     a {
@@ -170,29 +185,47 @@ injectGlobal`
   }
 
   h1 {
-    ${Mixins.fontSizer(Font.size.base.heading.h1, Constants.multipliers.heading)}
+    ${Mixins.fontSizer(
+      Font.size.base.heading.h1,
+      Constants.multipliers.heading
+    )}
     color: ${Colors.white};
   }
   h2 {
-    ${Mixins.fontSizer(Font.size.base.heading.h2, Constants.multipliers.heading)}
+    ${Mixins.fontSizer(
+      Font.size.base.heading.h2,
+      Constants.multipliers.heading
+    )}
     color: ${Colors.blue};
   }
   h3 {
-    ${Mixins.fontSizer(Font.size.base.heading.h3, Constants.multipliers.heading)}
+    ${Mixins.fontSizer(
+      Font.size.base.heading.h3,
+      Constants.multipliers.heading
+    )}
     color: ${Colors.green};
   }
   h4 {
-    ${Mixins.fontSizer(Font.size.base.heading.h4, Constants.multipliers.heading)}
+    ${Mixins.fontSizer(
+      Font.size.base.heading.h4,
+      Constants.multipliers.heading
+    )}
     color: ${Colors.yellow};
   }
   h5 {
-    ${Mixins.fontSizer(Font.size.base.heading.h5, Constants.multipliers.heading)}
+    ${Mixins.fontSizer(
+      Font.size.base.heading.h5,
+      Constants.multipliers.heading
+    )}
     color: ${Colors.cyan};
   }
   h6 {
-    ${Mixins.fontSizer(Font.size.base.heading.h6, Constants.multipliers.heading)}
+    ${Mixins.fontSizer(
+      Font.size.base.heading.h6,
+      Constants.multipliers.heading
+    )}
   }
-  table + h1, p + h1, ul + h1, pre + h1 {
+  table + h1, p + h1, ul + h1 {
     margin-top: 3.4em;
   }
   table + h2, p + h2, ul + h2, pre + h2,
@@ -205,6 +238,13 @@ injectGlobal`
     margin-top: 0;
   }
 
+.pull-right {
+  float: right;
+}
+img.pull-right {
+  margin: 0 0 1em 1em;
+  padding: 0;
+}
 
   .table-cyan table {
     border-bottom: 2px solid ${Colors.cyan} !important;
@@ -226,7 +266,7 @@ export const Wrapper = styled.div`
 
   ${MQ.lg`
     padding-left: ${Constants.headerWidthMqDesktop};
-  `}
+  `};
 `;
 
 export const Hr = styled.hr`
@@ -242,8 +282,7 @@ export const Footer = styled.footer`
 
   ${MQ.lg`
     padding-left: ${Constants.headerWidthMqDesktop};
-  `}
-  img {
+  `} img {
     padding: 0;
   }
 `;
@@ -253,30 +292,30 @@ export const Header = styled.header`
   img {
     padding: 0;
   }
- `;
+`;
 
 export const Logo = styled(Link)`
-    position: fixed;
-    top: -80px;
-    right: 16px;
-    display: block;
-    transform: scaleX(-1);
- `;
+  position: fixed;
+  top: -80px;
+  right: 16px;
+  display: block;
+  transform: scaleX(-1);
+`;
 
 export const ReturnHomeLink = styled(Link)`
-    display: inline-block;
-    margin: 10% auto 22%;
-    padding: 2.6em 7em;
-    color: ${Colors.blue};
-    font-size: 15px;
+  display: inline-block;
+  margin: 10% auto 22%;
+  padding: 2.6em 7em;
+  color: ${Colors.blue};
+  font-size: 15px;
 
-    &:hover {
-      color: ${Colors.gray};
-      background: ${Colors.magenta};
-    }
+  &:hover {
+    color: ${Colors.gray};
+    background: ${Colors.magenta};
+  }
 `;
 export const StyledLink = styled(Link)`
-  ${props => props.white ? `color: ${Colors.white};` : '' }
+  ${props => (props.white ? `color: ${Colors.white};` : '')};
 `;
 
 export const Message = styled.h2`
@@ -288,7 +327,7 @@ export const Message = styled.h2`
  * Button
  */
 export const Button = styled.button`
-  padding: ${props => props.large ? '16px 48px' : '8px 24px'};
+  padding: ${props => (props.large ? '16px 48px' : '8px 24px')};
   color: ${Colors.white};
   font-size: 16px;
   font-weight: 600;
@@ -299,7 +338,7 @@ export const Button = styled.button`
 export const Input = styled.input`
   color: ${props => props.color};
   font-size: 16px;
-  padding: ${props => props.large ? '16px 48px' : '8px 24px'};
+  padding: ${props => (props.large ? '16px 48px' : '8px 24px')};
   border: 2px solid ${props => props.color};
   background: transparent;
 `;
@@ -308,10 +347,10 @@ export const PostHeader = styled.div`
 `;
 export const H1 = styled.h1`
   color: ${Colors.white};
-  margin: 0.4em 0 .02em;
+  margin: 0.4em 0 0.02em;
   line-height: 1.4;
 `;
 export const PostDescription = styled.h2`
-  margin: 0 0 .02em;
+  margin: 0 0 0.02em;
   line-height: 1.4;
 `;
