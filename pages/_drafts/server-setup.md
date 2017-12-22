@@ -1,8 +1,6 @@
 ---
 title: "Server Setup"
-layout: notation
 description: Installation Reminders
-path: "/server-setup/"
 ---
 
 # curl & git are dpkg

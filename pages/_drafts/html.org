@@ -26,6 +26,13 @@ WHATWG says, "Attribution for the quotation, if any, must be placed outside the 
 </figure>
 #+END_SRC
 
+#+BEGIN_EXPORT html
+<figure class="quote">
+	<blockquote><p>...the author hopes to be held guiltless by those to whom the work is addressed—enlightened souls who prefer dry wines to sweet, sense to sentiment, wit to humor and clean English to slang.</p></blockquote>
+	<figcaption>Ambrose Bierce, <cite>The Devil's Dictionary</cite></figcaption>
+</figure>
+#+END_EXPORT
+
 **** Multi-Line
 #+BEGIN_SRC html
 <figure class="quote">
