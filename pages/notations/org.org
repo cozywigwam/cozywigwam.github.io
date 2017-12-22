@@ -1,15 +1,18 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-layout: post
 title: "Org"
-categories: notation
-subtitle: Slouching Toward Bablyon
+layout: notation
+description: Slouching  Toward Bablyon
+path: "/org/"
 ---
+#+END_EXAMPLE
 
 * keys/basics
 
-#+BEGIN_EXAMPLE
-|||
-|-|-|
+|                              |                                                               |                                                                        |
+|------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
 | ~C-c C-l~                    | ~org-insert-link~                                             | insert link                                                            |
 | ~C-c .~                      | ~org-time-stamp~                                              | insert stamp                                                           |
 | ~< s~ + ~<tab>~              | [snippet] expands ~#+BEGIN_SRC~ ... ~#+END_SRC~ ('s' for src) |                                                                        |
@@ -28,7 +31,6 @@ subtitle: Slouching Toward Bablyon
 | ~M-S-<left>~ & ~M-S-<right>~ | promote/demote heading or list element                        |                                                                        |
 | ~: [[http://example.com][ex]]~                       | use ~:~ at ^ to preserve no-formatting                        |                                                                        |
 | ~C-c -~                      | ~org-ctrl-c-minus~                                            | rotate list state (~org-cycle-list-bullet~) or other, context-senstive |
-#+END_EXAMPLE
 
 * Syntax
 
@@ -124,6 +126,9 @@ console.log(restItem);
 
 * export
 
+[[http://orgmode.org/manual/Easy-templates.html#Easy-templates][Easy Templates]]
+
+
 ** basics
 
 #+BEGIN_EXAMPLE
@@ -138,6 +143,59 @@ To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~no_export~, and a
 *** export exclusion example                                      :no_export:
 
 This section is not exported.
+
+*** export settings
+
+[[http://orgmode.org/manual/Export-settings.html#Export-settings][Manual]]
+
+|                    |
+|--------------------|
+| ‘AUTHOR’           |
+| ‘CREATOR’          |
+| ‘DATE’             |
+| ‘EMAIL’            |
+| ‘LANGUAGE’         |
+| ‘SELECT_TAGS’      |
+| ‘EXCLUDE_TAGS’     |
+| ‘TITLE’            |
+| ‘EXPORT_FILE_NAME’ |
+
+> The #+OPTIONS keyword is a compact form. To configure multiple options, use several #+OPTIONS lines. #+OPTIONS recognizes the following arguments.
+
+|               |
+|---------------|
+| ':            |
+| *:            |
+| -:            |
+| ::            |
+| <:            |
+| \n:           |
+| ^:            |
+| arch:         |
+| author:       |
+| broken-links: |
+| c:            |
+| creator:      |
+| d:            |
+| date:         |
+| e:            |
+| email:        |
+| f:            |
+| H:            |
+| inline:       |
+| num:          |
+| p:            |
+| pri:          |
+| prop:         |
+| stat:         |
+| tags:         |
+| tasks:        |
+| tex:          |
+| timestamp:    |
+| title:        |
+| toc:          |
+| todo:         |
+| \\vert        |
 
 ** links
 
@@ -199,21 +257,21 @@ This section is not exported.
 :=vsum($2..$3);%.2f ;; set format to 2 decimal places
 #+END_SRC
 
-| `C-c }`       | show row & column nubmers |
-| `C-c {`       | toggle debugging          |
-| `C-c C-c`     | "run" at point            |
-| `C-c u C-c *` | re-calc table             |
+| ~C-c }~       | show row & column nubmers |
+| ~C-c {~       | toggle debugging          |
+| ~C-c C-c~     | "run" at point            |
+| ~C-c u C-c *~ | re-calc table             |
 
 
-| `::`    | separate formulas                                |
-| `$x`    | column number x                                  |
-| `@x`    | row number x                                     |
-| `@#`    | current row                                      |
-| `$#`    | current column                                   |
-| `@>`    | last row                                         |
-| `x..y`  | range between x and y (top-left to bottom-right) |
-| `vsum`  | vector sum                                       |
-| `vmean` | average                                          |
+| ~::~    | separate formulas                                |
+| ~$x~    | column number x                                  |
+| ~@x~    | row number x                                     |
+| ~@#~    | current row                                      |
+| ~$#~    | current column                                   |
+| ~@>~    | last row                                         |
+| ~x..y~  | range between x and y (top-left to bottom-right) |
+| ~vsum~  | vector sum                                       |
+| ~vmean~ | average                                          |
 
 * tables
 
@@ -229,17 +287,17 @@ This section is not exported.
 
 [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheet intro]]
 
-| `C-c ?`           | `org-table-field-info`                         |
-| `C-c }`           | `org-table-toggle-coordinate-overlays`         |
-| `C-u C-c *`       | reapply formulas                               |
-| `:=vmean($2..$3)` | row formula, mean of columns 2 & 3             |
-| `=vsum($2..$3)`   | column formula, sum of all rows' columns 2 & 3 |
+| ~C-c ?~           | org-table-field-info                           |
+| ~C-c }~           | org-table-toggle-coordinate-overlays           |
+| ~C-u C-c *~       | reapply formulas                               |
+| ~:=vmean($2..$3)~ | row formula, mean of columns 2 & 3             |
+| ~=vsum($2..$3)~   | column formula, sum of all rows' columns 2 & 3 |
 
 * My Project Setup
 
 ** Example Tree
 
-This is a sample project code root. It excludes possible additional directories like `config` and `scripts`, and is showing files in `_org`:
+This is a sample project code root. It excludes possible additional directories like config and scripts, and is showing files in _org:
 
 #+BEGIN_SRC shell
 .
@@ -257,7 +315,7 @@ This is a sample project code root. It excludes possible additional directories 
 
 *** [project-name].org
 
-This contains TODOs. If they should be tracked in the global agenda, then they need to be added to `org-agenda-files`:
+This contains TODOs. If they should be tracked in the global agenda, then they need to be added to org-agenda-files:
 
 #+BEGIN_SRC emacs-lisp
   (setq org-agenda-files (list "~/org/work.org"
@@ -266,11 +324,11 @@ This contains TODOs. If they should be tracked in the global agenda, then they n
                                "~/org/todo.org"))
 #+END_SRC
 
-I symlink this particular file to `~/org/` for easy access, but that's just me.
+I symlink this particular file to ~/org/ for easy access, but that's just me.
 
 *** notes.org
 
-When I research something, I'm trying to either learn it or just figure it out to get something done. If it's something that's general or applicable to all of my other projects, I'll try to record the salient bits in the SFSS notations. If it's project-specific, or something I want handy and close by, I'll put it in `notes.org`.
+When I research something, I'm trying to either learn it or just figure it out to get something done. If it's something that's general or applicable to all of my other projects, I'll try to record the salient bits in the SFSS notations. If it's project-specific, or something I want handy and close by, I'll put it in notes.org.
 
 *** sitemap.org
 
@@ -304,15 +362,10 @@ ls
 | type.md         |
 | vim.md          |
 
-
 * todos
 
-#+BEGIN_EXAMPLE
-|||
-|-|-|
 | ~S-M-<ret>~                    | new TODO                |
 | ~C-c C-t~ & ~S-<right>/<left>~ | rotate/cycle TODO state |
-#+END_EXAMPLE
 
 ** TODO clean-up required, from ~.spacemacs~                      :no_export:
 #+BEGIN_SRC emacs-lisp
@@ -334,17 +387,11 @@ ls
 
 Jonathan Magen's talk on [[https://www.youtube.com/watch?v=KdcXu_RdKI0][youtube]]
 
-
-
-#+BEGIN_EXAMPLE
-|||
-|-|-|
 | ~%U~       | inactive timestamp                                             |
 | ~%^{Name}~ | prompt/read                                                    |
 | ~%a~       | annotation ~org-store-link~ (takes you back to where you were) |
 | ~%i~       | active region                                                  |
 | ~%?~       | final cursor position                                          |
-#+END_EXAMPLE
 
 org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-capture-html)
 

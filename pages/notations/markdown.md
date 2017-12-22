@@ -133,3 +133,7 @@ An attempt "to specify Markdown syntax unambiguously."
 - [CommonMark on GitHub](https://github.com/jgm/CommonMark)
 - [CommonMark Spec](http://spec.commonmark.org/0.26/)
 - ["Dingus" (live tester)](http://spec.commonmark.org/dingus/)
+
+# Misc
+
+Ambiguity: https://meta.stackexchange.com/a/99637

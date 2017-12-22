@@ -25,6 +25,7 @@ type ls
 #+END_SRC
 
 
+| ~M-x~               | [insert-mode] ~helm-M-x~                    |
 | ~C-y~               | [isearch-mode] ~yank-kill~                  |
 | ~SPC g f w~         | [custom] ~magit-find-current-file-from-rev~ |
 | ~SPC x o~           | ace link                                    |
@@ -674,6 +675,8 @@ prevent/don't auto-add quotes/quotation marks after typing ~=~ in JSX attributes
 | ~SPC m h h~ | ~elisp-slime-nav-describe-elisp-thing-at-point~ | help with thing at point |
 
 * helm and helm-projectile
+
+[[https://github.com/emacs-helm/helm/wiki][Wiki]]
 
 ** set defaults
 
