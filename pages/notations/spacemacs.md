@@ -871,5 +871,3 @@ Fix remote zsh prompt to permit TRAMP (from [github](<https://github.com/syl20bn
 ```
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 ```
-
-
