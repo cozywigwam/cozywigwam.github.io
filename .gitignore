@@ -1,8 +1,8 @@
-.DS_Store
-node_modules/
-public/
-*.log
 .gatsby-context.js
-test.md
+
+# dev
 test.org
-scripts/
+
+# exports
+spacemacs.md
+test.md
