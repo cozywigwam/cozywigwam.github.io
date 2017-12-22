@@ -16,68 +16,75 @@ path: "/spacemacs/"
 | Layouts    | Perspectives | iTerm2 tabs              |
 | Workspaces | Eyebrowse    | tmux windows or vim tabs |
 
-| `C-y`               | [isearch-mode] `yank-kill`                  |
-| `SPC g f w`         | [custom] `magit-find-current-file-from-rev` |
-| `SPC x o`           | ace link                                    |
-| `C-S-h`             | [kill ring, etc.] describe-key              |
-| `SPC x w d`         | `osx-dictionary-search-pointer`             |
-| `M-h`, `M-l`        | `org-metaright`, like `<M-right>`           |
-| `amen`              | escape holy-mode                            |
-| `set-initial-state` | gimme normal, not iedit                     |
-| `C-x M-:`           | `repeat-complex-command`                    |
-| `SPC v`             | `er-expand-region`                          |
-| `C-M-SPC`           | `mark-sexp`                                 |
-| `C-p`               | `evil-paste-pop`                            |
-| -                   | `evil-set-initial-state`                    |
-| `SPC r e`           | `evil-show-registers`                       |
-| `SPC m g h`         | `helm-css-scss`                             |
-| `SPC b e`           | delete full buffer contents                 |
-| `SPC w u`           | `winner-undo`                               |
-| `% m`, `* %`        | [dired] `dired-mark-files-regexp`           |
-| `C-S-o`             | [dired] (custom) open in external app       |
-| `F5`                | [in helm locate] open dired                 |
-| `C-x C-b`           | [in helm] resume different helm buffer      |
-| `C-c >`, `C-c <`    | [in helm] next/prev file                    |
+Format code execution results with ~:results~:
+
+defun
+
+#+BEGIN_SRC shell :results value code
+type ls
+#+END_SRC
+
+
+| ~C-y~               | [isearch-mode] ~yank-kill~                  |
+| ~SPC g f w~         | [custom] ~magit-find-current-file-from-rev~ |
+| ~SPC x o~           | ace link                                    |
+| ~C-S-h~             | [kill ring, etc.] describe-key              |
+| ~SPC x w d~         | ~osx-dictionary-search-pointer~             |
+| ~M-h~, ~M-l~        | ~org-metaright~, like ~<M-right>~           |
+| ~amen~              | escape holy-mode                            |
+| ~set-initial-state~ | gimme normal, not iedit                     |
+| ~C-x M-:~           | ~repeat-complex-command~                    |
+| ~SPC v~             | ~er-expand-region~                          |
+| ~C-M-SPC~           | ~mark-sexp~                                 |
+| ~C-p~               | ~evil-paste-pop~                            |
+| ~SPC m g h~         | ~helm-css-scss~                             |
+| ~SPC b e~           | delete full buffer contents                 |
+| ~SPC w u~           | ~winner-undo~                               |
+| ~% m~, ~* %~        | [dired] ~dired-mark-files-regexp~           |
+| ~C-S-o~             | [dired] (custom) open in external app       |
+| ~F5~                | [in helm locate] open dired                 |
+| ~C-x C-b~           | [in helm] resume different helm buffer      |
+| ~C-c >~, ~C-c <~    | [in helm] next/prev file                    |
 
 *** buffers/files
 
 |           |                                                     |                                           |
 |-----------+-----------------------------------------------------+-------------------------------------------|
-| `SPC p h` | `helm-projectile`                                   | recent, buffers, files                    |
-| `SPC f r` | `helm-recentf`                                      | recent files                              |
-| `SPC p r` | `helm-projectile-recentf`                           | project recent files                      |
-| `SPC p b` | `helm-projectile-switch-to-buffer`                  | project buffers                           |
-| `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | global buffers                            |
-| `SPC f j` | `dired-jump`                                        | dired to file                             |
-| `SPC p p` | `helm-projectile/switch-project`                    | projects                                  |
-| `SPC p F` | `helm-projectile-find-file-dwim`                    | find file with dwim                       |
-| `SPC f L` | `helm-locate`                                       | like `find ` -type f -name [x]`           |
-| `SPC /`   | `spacemacs/helm-project-smart-do-search`            | ag from project root                      |
-| `SPC s f` | `spacemacs/helm-files-smart-do-search`              | ag from current/arbitrary dir             |
-| `SPC f D` | `spacemacs/delete-current-buffer-file`              | delete current buffer                     |
-| `C-x C-b` | `list-buffers `                                     | list in `*Buffer List*`, Buffer Menu mode |
-| `C-]`     | [in helm find dir] `helm-ff-run-toggle-basename`    |                                           |
+| ~SPC p h~ | ~helm-projectile~                                   | recent, buffers, files                    |
+| ~SPC f r~ | ~helm-recentf~                                      | recent files                              |
+| ~SPC p r~ | ~helm-projectile-recentf~                           | project recent files                      |
+| ~SPC p b~ | ~helm-projectile-switch-to-buffer~                  | project buffers                           |
+| ~SPC B b~ | ~spacemacs-layouts/non-restricted-buffer-list-helm~ | global buffers                            |
+| ~SPC f j~ | ~dired-jump~                                        | dired to file                             |
+| ~SPC p p~ | ~helm-projectile/switch-project~                    | projects                                  |
+| ~SPC p F~ | ~helm-projectile-find-file-dwim~                    | find file with dwim                       |
+| ~SPC f L~ | ~helm-locate~                                       | like ~find ~ -type f -name [x]~           |
+| ~SPC /~   | ~spacemacs/helm-project-smart-do-search~            | ag from project root                      |
+| ~SPC s f~ | ~spacemacs/helm-files-smart-do-search~              | ag from current/arbitrary dir             |
+| ~SPC f D~ | ~spacemacs/delete-current-buffer-file~              | delete current buffer                     |
+| ~C-x C-b~ | ~list-buffers ~                                     | list in ~*Buffer List*~, Buffer Menu mode |
+| ~C-]~     | [in helm find dir] ~helm-ff-run-toggle-basename~    |                                           |
 
 *** get to dired
 
 |           |              |                       |
 |-----------+--------------+-----------------------|
-| `SPC f j` | `dired-jump` | dired at current file |
+| ~SPC f j~ | ~dired-jump~ | dired at current file |
 
 *** buffers
 
-| `SPC p d` | `helm-projectile-find-ini includes recentf`         | &nbsp;                                          |
-| `C-x b`   | `helm-buffers-list`                                 | &nbsp;                                          |
-| `SPC b W` | `spacemacs/goto-buffer-workspace`                   | go to where that buffer is displayed (if it is) |
-| `SPC B b` | `spacemacs-layouts/non-restricted-buffer-list-helm` | &nbsp;                                          |
+| ~SPC p d~ | ~helm-projectile-find-ini includes recentf~         | &nbsp;                                          |
+| ~C-x b~   | ~helm-buffers-list~                                 | &nbsp;                                          |
+| ~SPC b W~ | ~spacemacs/goto-buffer-workspace~                   | go to where that buffer is displayed (if it is) |
+| ~SPC B b~ | ~spacemacs-layouts/non-restricted-buffer-list-helm~ | &nbsp;                                          |
 
 *** projects
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC p`   | projects                           |
-| `SPC p b` | `helm-projectile-switch-to-buffer` |
+| ~SPC p~   | projects                           |
+| ~SPC p b~ | ~helm-projectile-switch-to-buffer~ |
 #+END_EXAMPLE
 
 *** files
@@ -85,13 +92,13 @@ path: "/spacemacs/"
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC f f` | `helm-find-files`                | open files (helm)         |
-| `SPC f F` | `spacemacs/helm-find-files`      | open files (helm)         |
-| `SPC f r` | `helm-recentf`                   | recent files (helm)       |
-| `C-c p e` | `projectile-recentf`             | recent files (projectile) |
-| `SPC p r` | `helm-projectile-recentf `       |                           |
-| `SPC p f` | `helm-projectile-find-file`      |                           |
-| `SPC p F` | `helm-projectile-find-file-dwim` | find file with dwim       |
+| ~SPC f f~ | ~helm-find-files~                | open files (helm)         |
+| ~SPC f F~ | ~spacemacs/helm-find-files~      | open files (helm)         |
+| ~SPC f r~ | ~helm-recentf~                   | recent files (helm)       |
+| ~C-c p e~ | ~projectile-recentf~             | recent files (projectile) |
+| ~SPC p r~ | ~helm-projectile-recentf ~       |                           |
+| ~SPC p f~ | ~helm-projectile-find-file~      |                           |
+| ~SPC p F~ | ~helm-projectile-find-file-dwim~ | find file with dwim       |
 #+END_EXAMPLE
 
 * help
@@ -99,22 +106,22 @@ path: "/spacemacs/"
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC h m`            | helm man-woman                                      |
-| `emacs --no-desktop` | restart when desktop is borked                      |
-| `[`, `]`             | back/forward                                        |
-| `SPC h`              | help                                                |
-| `SPC h k`            | show top level keys                                 |
-| `SPC h d`            | describe...                                         |
-| `SPC h d c`          | ...char                                             |
-| `SPC h d k`          | ...key                                              |
-| `SPC h d f`          | ...function                                         |
-| `SPC h d m`          | ...mode (with keybindings)                          |
-| `SPC h d t`          | ...theme                                            |
-| `SPC h d v`          | `describe-variable`                                 |
+| ~SPC h m~            | helm man-woman                                      |
+| ~emacs --no-desktop~ | restart when desktop is borked                      |
+| ~[~, ~]~             | back/forward                                        |
+| ~SPC h~              | help                                                |
+| ~SPC h k~            | show top level keys                                 |
+| ~SPC h d~            | describe...                                         |
+| ~SPC h d c~          | ...char                                             |
+| ~SPC h d k~          | ...key                                              |
+| ~SPC h d f~          | ...function                                         |
+| ~SPC h d m~          | ...mode (with keybindings)                          |
+| ~SPC h d t~          | ...theme                                            |
+| ~SPC h d v~          | ~describe-variable~                                 |
 
-| `SPC h SPC`          | lookup doc, layers, packages, dotfile, toggles, faq |
-| `SPC ?`              | `helm-descbinds`                                    |
-| `C-h e`              | see startup error messages                          |
+| ~SPC h SPC~          | lookup doc, layers, packages, dotfile, toggles, faq |
+| ~SPC ?~              | ~helm-descbinds~                                    |
+| ~C-h e~              | see startup error messages                          |
 #+END_EXAMPLE
 
 In info:
@@ -122,28 +129,28 @@ In info:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `<f1> ?` | `help-for-help` |
+| ~<f1> ?~ | ~help-for-help~ |
 #+END_EXAMPLE
 
 * search
 
-When using ag, `-s` is the case-sensitive flag.
+When using ag, ~-s~ is the case-sensitive flag.
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC t x` | [custom] `toggle-case-fold-search` case sensitive/insensitive|
-| `SPC /`             | search project - spacemacs/helm-project-smart-do-search    |
-| `SPC s f`           | ag (smart-do-search) from current (or arbitrary) directory |
-| `SPC s s`           | ag current file (swoop)                                    |
-| `SPC s b`           | ag open buffers                                            |
-| `helm-ag`           | ag and then helm the results                               |
-| `helm-ag-this-file` | " this file                                                |
-| `SPC *`             | search project at point                                    |
-| `g;`                | go to last edit                                            |
-| `gf`                | go to file at point                                        |
-| `\s-`               | white space [ ] (<Tab> and <Space>)                        |
-| `\S-`               | non-white characters [^ ] (not <Tab> and <Space>)          |
+| ~SPC t x~ | [custom] ~toggle-case-fold-search~ case sensitive/insensitive|
+| ~SPC /~             | search project - spacemacs/helm-project-smart-do-search    |
+| ~SPC s f~           | ag (smart-do-search) from current (or arbitrary) directory |
+| ~SPC s s~           | ag current file (swoop)                                    |
+| ~SPC s b~           | ag open buffers                                            |
+| ~helm-ag~           | ag and then helm the results                               |
+| ~helm-ag-this-file~ | " this file                                                |
+| ~SPC *~             | search project at point                                    |
+| ~g;~                | go to last edit                                            |
+| ~gf~                | go to file at point                                        |
+| ~\s-~               | white space [ ] (<Tab> and <Space>)                        |
+| ~\S-~               | non-white characters [^ ] (not <Tab> and <Space>)          |
 #+END_EXAMPLE
 
 Delete/remove trailing whitespace:
@@ -151,7 +158,7 @@ Delete/remove trailing whitespace:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC x d w` | `delete-trailing-whitespace` |
+| ~SPC x d w~ | ~delete-trailing-whitespace~ |
 #+END_EXAMPLE
 
 Delete/remove unwanted/empty/blank lines:
@@ -159,24 +166,24 @@ Delete/remove unwanted/empty/blank lines:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-x C-o`     | `delete-blank-lines` |
-| `flush-lines` |                      |
+| ~C-x C-o~     | ~delete-blank-lines~ |
+| ~flush-lines~ |                      |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `:g/^$/d`     |
-| `:v/./d`      |
-| `:g/^\s-*$/d` |
-| `:v/\S-/d`    |
+| ~:g/^$/d~     |
+| ~:v/./d~      |
+| ~:g/^\s-*$/d~ |
+| ~:v/\S-/d~    |
 #+END_EXAMPLE
 
 Break opening HTML tags to new line:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `:%s/<\([:alpha:]\)/<\n<\1` |
+| ~:%s/<\([:alpha:]\)/<\n<\1~ |
 #+END_EXAMPLE
 
 regex and character classes and syntax classes: [[https://www.emacswiki.org/emacs/RegularExpression][Emacs Wiki]]
@@ -186,8 +193,8 @@ regex and character classes and syntax classes: [[https://www.emacswiki.org/emac
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC T M` | maximize                                       |
-| `f11`     | `spacemacs/toggle-frame-fullscreen-non-native` |
+| ~SPC T M~ | maximize                                       |
+| ~f11~     | ~spacemacs/toggle-frame-fullscreen-non-native~ |
 #+END_EXAMPLE
 
 ** Default
@@ -228,13 +235,13 @@ Customization examples from a <a href="https://github.com/syl20bnr/spacemacs/iss
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-x n`   | prefix            |
-| `C-x n d` | narrow to block   |
-| `C-x n e` | narrow to element |
-| `C-x n r` | narrow to region  |
-| `C-x n s` | narrow to subtree |
-| `C-x n w` | widen             |
-| `SPC n w` | widen             |
+| ~C-x n~   | prefix            |
+| ~C-x n d~ | narrow to block   |
+| ~C-x n e~ | narrow to element |
+| ~C-x n r~ | narrow to region  |
+| ~C-x n s~ | narrow to subtree |
+| ~C-x n w~ | widen             |
+| ~SPC n w~ | widen             |
 #+END_EXAMPLE
 
 * layouts
@@ -244,8 +251,8 @@ Customization examples from a <a href="https://github.com/syl20bnr/spacemacs/iss
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC l`     | `spacemacs/layouts-transient-state/body ` |      |
-| `SPC C-s a` | `persp-load-state-from-file`              | load |
+| ~SPC l~     | ~spacemacs/layouts-transient-state/body ~ |      |
+| ~SPC C-s a~ | ~persp-load-state-from-file~              | load |
 #+END_EXAMPLE
 
 
@@ -255,11 +262,11 @@ Customization examples from a <a href="https://github.com/syl20bnr/spacemacs/iss
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-M-\`   | indent-region                          |
-| `C-x TAB` | indent-rigidly                         |
-| `TAB`     | indent-for-tab-command                 |
-| `M-)`     | move-past-close-and-reindent           |
-| `>>`      | shifts right `evil-shift-width` amount |
+| ~C-M-\~   | indent-region                          |
+| ~C-x TAB~ | indent-rigidly                         |
+| ~TAB~     | indent-for-tab-command                 |
+| ~M-)~     | move-past-close-and-reindent           |
+| ~>>~      | shifts right ~evil-shift-width~ amount |
 #+END_EXAMPLE
 
 #+BEGIN_SRC emacs-lisp
@@ -271,28 +278,28 @@ Customization examples from a <a href="https://github.com/syl20bnr/spacemacs/iss
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC , t 2` | set                                                     |
-| `SPC = j`   | format                                                  |
-| `SPC t h i` | `spacemacs/toggle-highlight-indentation`                |
-| `SPC t h c` | `spacemacs/toggle-highlight-indentation-current-column` |
+| ~SPC , t 2~ | set                                                     |
+| ~SPC = j~   | format                                                  |
+| ~SPC t h i~ | ~spacemacs/toggle-highlight-indentation~                |
+| ~SPC t h c~ | ~spacemacs/toggle-highlight-indentation-current-column~ |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-x h`                     | select all                                  |
-| `M-S-;`                     | eval-experssion                             |
-| `M-x list-packages`         | see all packages                            |
-| `q`                         | exit debugger                               |
-| `g c c`                     | toggle comment                              |
-| `SPC t n`                   | line numbers                                |
-| `SPC t r`                   | relative line numbers                       |
-| `SPC tab`                   | alternate buffer                            |
-| `SPC f y`                   | kill/get path & filename                    |
-| `SPC f j` + `SPC f y` + `q` | kill/get path only (from dired)             |
-| `SPC r y`                   | see kill ring                               |
-| `SPC r r`                   | see registers, different format than `:reg` |
-| `SPC x w d`                 | `osx-dictionary-search-pointer`             |
+| ~C-x h~                     | select all                                  |
+| ~M-S-;~                     | eval-experssion                             |
+| ~M-x list-packages~         | see all packages                            |
+| ~q~                         | exit debugger                               |
+| ~g c c~                     | toggle comment                              |
+| ~SPC t n~                   | line numbers                                |
+| ~SPC t r~                   | relative line numbers                       |
+| ~SPC tab~                   | alternate buffer                            |
+| ~SPC f y~                   | kill/get path & filename                    |
+| ~SPC f j~ + ~SPC f y~ + ~q~ | kill/get path only (from dired)             |
+| ~SPC r y~                   | see kill ring                               |
+| ~SPC r r~                   | see registers, different format than ~:reg~ |
+| ~SPC x w d~                 | ~osx-dictionary-search-pointer~             |
 #+END_EXAMPLE
 
 ** bookmarks
@@ -300,9 +307,9 @@ Customization examples from a <a href="https://github.com/syl20bnr/spacemacs/iss
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-x r M`, `SPC r M` [custom] | bookmark-set-no-overwrite | set bookmark   |
-| `C-x r l`, `SPC r L` [custom] | `bookmark-bmenu-list`     | bookmark list  |
-| `SPC f b`, `SPC r b` [custom] | `helm-filtered-bookmarks` | helm bookmarks |
+| ~C-x r M~, ~SPC r M~ [custom] | bookmark-set-no-overwrite | set bookmark   |
+| ~C-x r l~, ~SPC r L~ [custom] | ~bookmark-bmenu-list~     | bookmark list  |
+| ~SPC f b~, ~SPC r b~ [custom] | ~helm-filtered-bookmarks~ | helm bookmarks |
 #+END_EXAMPLE
 
 In *Bookmark List*:
@@ -310,15 +317,15 @@ In *Bookmark List*:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `?`             | help                                              |
-| `d`, `x`        | like dired, mark and delete                       |
-| `RET`, `1`, `2` | different ways to open                            |
-| `C-o`           | switch other window to this bookmark              |
-| `r`             | rename                                            |
-| `R`             | relocate                                          |
-| `t`             | toggle info                                       |
-| `s`             | save default bookmark file, prefix to non-default |
-| `l`             | load bookmark file                                |
+| ~?~             | help                                              |
+| ~d~, ~x~        | like dired, mark and delete                       |
+| ~RET~, ~1~, ~2~ | different ways to open                            |
+| ~C-o~           | switch other window to this bookmark              |
+| ~r~             | rename                                            |
+| ~R~             | relocate                                          |
+| ~t~             | toggle info                                       |
+| ~s~             | save default bookmark file, prefix to non-default |
+| ~l~             | load bookmark file                                |
 #+END_EXAMPLE
 
 ** registers
@@ -327,11 +334,11 @@ Registers can hold text, rectangles, positions, window configurations, and buffe
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC r r`                     | `helm-register`                         | register list |
-| `C-x r w`, `SPC r w` [custom] | `window-configuration-to-register`      | store         |
-| `C-x r j`, `SPC r j` [custom] | `jump-to-register`                      | restore       |
-| `C-x r u`                     | `undo-tree-save-state-to-register`      |               |
-| `C-x r U`                     | `undo-tree-restore-state-from-register` |               |
+| ~SPC r r~                     | ~helm-register~                         | register list |
+| ~C-x r w~, ~SPC r w~ [custom] | ~window-configuration-to-register~      | store         |
+| ~C-x r j~, ~SPC r j~ [custom] | ~jump-to-register~                      | restore       |
+| ~C-x r u~                     | ~undo-tree-save-state-to-register~      |               |
+| ~C-x r U~                     | ~undo-tree-restore-state-from-register~ |               |
 #+END_EXAMPLE
 
 
@@ -340,7 +347,7 @@ Registers can hold text, rectangles, positions, window configurations, and buffe
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC t \`` | `spacemacs/toggle-evil-visual-mark-mode` |
+| ~SPC t \~~ | ~spacemacs/toggle-evil-visual-mark-mode~ |
 #+END_EXAMPLE
 
 ** tabs/indents
@@ -360,10 +367,10 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC h d m`        | `spacemacs-describe-mode`            | describe mode |
-| `C-h v major-mode` | see current major mode               |               |
-| `M-: major-mode`   | see current major mode               |               |
-| `M-x normal-mode`  | revert to the buffer's original mode |               |
+| ~SPC h d m~        | ~spacemacs-describe-mode~            | describe mode |
+| ~C-h v major-mode~ | see current major mode               |               |
+| ~M-: major-mode~   | see current major mode               |               |
+| ~M-x normal-mode~  | revert to the buffer's original mode |               |
 #+END_EXAMPLE
 
 ** JSON
@@ -371,7 +378,7 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-c C-f` | beautify/auto-format TODO bind/normalize this |
+| ~C-c C-f~ | beautify/auto-format TODO bind/normalize this |
 #+END_EXAMPLE
 
 * windows
@@ -379,15 +386,15 @@ manual 23.3 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/C
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC w d`       | delete                    |
-| `SPC w h/j/k/l` | move                      |
-| `SPC w m`       | toggle maximize           |
-| `SPC v/V/s/S`   | split or split with focus |
+| ~SPC w d~       | delete                    |
+| ~SPC w h/j/k/l~ | move                      |
+| ~SPC w m~       | toggle maximize           |
+| ~SPC v/V/s/S~   | split or split with focus |
 #+END_EXAMPLE
 
 * kill & yank
 
-Use arguements with `yank-pop`:
+Use arguements with ~yank-pop~:
 
 > With no argument, the previous kill is inserted.
 > With argument N, insert the Nth previous kill.
@@ -398,14 +405,14 @@ Use arguements with `yank-pop`:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC p t`       | start at project root |        |
-| `SPC f t`, `f3` | toggle                |        |
-| `J`, `K`        | navigate down/up      |        |
-| `H`, `L`        | navigate siblings     |        |
-| `R`             | make root             |        |
-| `               | `                     | vsplit |
-| `-`             | split                 |        |
-| `s`             | toggle hidden         |        |
+| ~SPC p t~       | start at project root |        |
+| ~SPC f t~, ~f3~ | toggle                |        |
+| ~J~, ~K~        | navigate down/up      |        |
+| ~H~, ~L~        | navigate siblings     |        |
+| ~R~             | make root             |        |
+| ~               | ~                     | vsplit |
+| ~-~             | split                 |        |
+| ~s~             | toggle hidden         |        |
 #+END_EXAMPLE
 
 * dired
@@ -415,42 +422,42 @@ Use arguements with `yank-pop`:
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `K`, `gr`   | hide/kill and show/revert       |                              |
-| `w`         | `dired-copy-filename-as-kill`   | copy filename                |
-| `SPC u 0 w` | copy filename with full path    |                              |
-| `o`         | open in other window            |                              |
-| `C-o`       | open in new window              |                              |
-| `+`         | `dired-create-directory`        | create directory             |
-| `m` & `u`   | mark & unmark                   |                              |
-| `* !`       | `dired-unmark-all-files`        | unmark all                   |
-| `t`         | toggle all                      |                              |
-| `* s`       | mark all                        |                              |
-| `* /`       | mark directories                |                              |
-| `* .`       | mark extensions                 |                              |
-| `* @`       | mark symlinks                   |                              |
-| `* / t`     | mark all files                  |                              |
-| `% g`       | mark files that contain REGEXP  |                              |
-| `% m`, `* %`       |`dired-mark-files-regexp`| mark filename that match Emacs regexp                              |
-| `d`         | mark for deletion               |                              |
-| `x`         | `dired-do-flagged-delete`       | delete deletion-marked files |
-| `!`         | run shell command               |                              |
-| `SPC f f`   | new file (at current directory) |                              |
-| `C`         | copy                            |                              |
-| `R`         | rename/move                     |                              |
-| `D`         | delete                          |                              |
-| `S`         | symlink                         |                              |
-| `g`         | refresh ("read aGain")          |                              |
-| `l`         | relist file at point            |                              |
-| `s`         | sort toggle (`C-u` to pass switches)                     |                              |
-| `(`         | toggle details                  |                              |
-| `A`         | search marked                   |                              |
-| `C-x C-q`   | switch to wdired                |                              |
-| `C-c C-c`   | save wdired changes             |                              |
-| `(`         | toggle details                  |                              |
-| `J`         | find files from here            |                              |
-| `C-x M-o`   | hide/toggle uninteresting files |                              |
-| `i` | `dired-maybe-insert-subdir` | open subdir inside same window |
-| `SPC u K` | `dired-do-kill-lines` | [from subdir's line] remove that subdir |
+| ~K~, ~gr~   | hide/kill and show/revert       |                              |
+| ~w~         | ~dired-copy-filename-as-kill~   | copy filename                |
+| ~SPC u 0 w~ | copy filename with full path    |                              |
+| ~o~         | open in other window            |                              |
+| ~C-o~       | open in new window              |                              |
+| ~+~         | ~dired-create-directory~        | create directory             |
+| ~m~ & ~u~   | mark & unmark                   |                              |
+| ~* !~       | ~dired-unmark-all-files~        | unmark all                   |
+| ~t~         | toggle all                      |                              |
+| ~* s~       | mark all                        |                              |
+| ~* /~       | mark directories                |                              |
+| ~* .~       | mark extensions                 |                              |
+| ~* @~       | mark symlinks                   |                              |
+| ~* / t~     | mark all files                  |                              |
+| ~% g~       | mark files that contain REGEXP  |                              |
+| ~% m~, ~* %~       |~dired-mark-files-regexp~| mark filename that match Emacs regexp                              |
+| ~d~         | mark for deletion               |                              |
+| ~x~         | ~dired-do-flagged-delete~       | delete deletion-marked files |
+| ~!~         | run shell command               |                              |
+| ~SPC f f~   | new file (at current directory) |                              |
+| ~C~         | copy                            |                              |
+| ~R~         | rename/move                     |                              |
+| ~D~         | delete                          |                              |
+| ~S~         | symlink                         |                              |
+| ~g~         | refresh ("read aGain")          |                              |
+| ~l~         | relist file at point            |                              |
+| ~s~         | sort toggle (~C-u~ to pass switches)                     |                              |
+| ~(~         | toggle details                  |                              |
+| ~A~         | search marked                   |                              |
+| ~C-x C-q~   | switch to wdired                |                              |
+| ~C-c C-c~   | save wdired changes             |                              |
+| ~(~         | toggle details                  |                              |
+| ~J~         | find files from here            |                              |
+| ~C-x M-o~   | hide/toggle uninteresting files |                              |
+| ~i~ | ~dired-maybe-insert-subdir~ | open subdir inside same window |
+| ~SPC u K~ | ~dired-do-kill-lines~ | [from subdir's line] remove that subdir |
 #+END_EXAMPLE
 
 ** hide unwanted files workflow
@@ -466,7 +473,7 @@ Use arguements with `yank-pop`:
 *** TODO find attribution for this
 
 #+BEGIN_SRC emacs-lisp
-  ;; Same as `dired-up-directory', except for wrapping with `file-truename'.
+  ;; Same as ~dired-up-directory', except for wrapping with ~file-truename'.
   ;; ref. https://emacs.stackexchange.com/questions/29908/dired-up-to-parent-directory-on-symlink/29910
   (defun my-dired-up-directory (&optional other-window)
     "Run Dired on parent directory of current directory.
@@ -495,7 +502,6 @@ directory in another window."
 
 [[https://www.emacswiki.org/emacs/DiredSorting][Emacs Wiki]]
 
-
 * keybindings
 
 [Spacemacs Guide](https://github.com/syl20bnr/spacemacs/wiki/Keymaps-guide)
@@ -503,7 +509,7 @@ directory in another window."
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `evil-insert-state-map` |
+| ~evil-insert-state-map~ |
 #+END_EXAMPLE
 
 #+BEGIN_SRC emacs-lisp
@@ -514,7 +520,7 @@ directory in another window."
 
 ** format of keyboard macros during editing
 
-From `[[help:edmacro-mode][edmacro-mode]]` help.
+From ~[[help:edmacro-mode][edmacro-mode]]~ help.
 
 #+BEGIN_SRC help
 Format of keyboard macros during editing:
@@ -570,84 +576,157 @@ doubt, use whitespace.
 
 #+END_SRC
 
-`C-m` acts as `<return>`.
+~C-m~ acts as ~<return>~.
 
 * color
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `custom-enabled-themes` | [variable]      |                   |
-| `(get-faces (point))`   | all faces       |                   |
-| `, f h`                   | `describe-face` | [custom shortcut] |
-| `, f l` | `list-faces-display` | [custom] see all faces/colors |
+| ~custom-enabled-themes~ | [variable]      |                   |
+| ~(get-faces (point))~   | all faces       |                   |
+| ~, f h~                   | ~describe-face~ | [custom shortcut] |
+| ~, f l~ | ~list-faces-display~ | [custom] see all faces/colors |
 #+END_EXAMPLE
 
+* Modes
+** markdown
 
-* markdown
+|               |                                                                                      |
+|---------------+--------------------------------------------------------------------------------------|
+| ~orgtbl-mode~ | "hijacks" tab.                                                                       |
+| ~SPC m i l~   | ~markdown-insert-link~                                                               |
+| ~SPC m i f~   | insert footnote                                                                      |
+| ~SPC m i i~   | insert image                                                                         |
+| ~SPC m i I~   | insert reference image                                                               |
+| ~SPC m x C~   | make region code or insert code (Github Flavored Markdown format)                    |
+| ~SPC m x Q~   | blockquote region                                                                    |
+| ~SPC m x p~   | make region or insert pre                                                            |
+| ~gj~          | outline forward same level                                                           |
+| ~gk~          | outline backward same level                                                          |
+| ~gh~          | outline up one level                                                                 |
+| ~gl~          | outline next visible heading                                                         |
+| ~SPC m {~     | backward paragraph                                                                   |
+| ~SPC m }~     | forward paragraph                                                                    |
+| ~SPC m N~     | next link                                                                            |
+| ~SPC m P~     | previous link                                                                        |
+| ~M-k~         | markdown-move-up                                                                     |
+| ~M-j~         | markdown-move-down                                                                   |
+| ~M-h~         | markdown-promote                                                                     |
+| ~M-l~         | markdown-demote                                                                      |
+| ~SPC m c p~   | preview                                                                              |
+| ~SPC m c P~   | live preview using engine defined with layer variable =markdown-live-preview-engine= |
+| ~SPC m c e~   | export                                                                               |
+| ~SPC m c v~   | export and preview                                                                   |
+
+** JS
+
+
+[[https://github.com/felipeochoa/rjsx-mode][rjxs-mode]]
+
+*** js2-mode
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `orgtbl-mode`        | "hijacks" tab. |
-| `SPC m N`, `SPC m P` | next/prev link |
-| `SPC m i l` | `markdown-insert-link`  |
+| ~SPC m w~ | ~js2-mode-toggle-warnings-and-errors~ | toggle errors (e.g. underline missing semicolons |
 #+END_EXAMPLE
 
-* org-mode
-** syntax
+see [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][emacs stack exchange]]
+
+
+
+*** JSX-IDE mode
+
+#+BEGIN_EXAMPLE
+|||
+|-|-|
+| ~C-c C-o~                | toggle element                   |                 |
+| ~C-c C-f~                | toggle all funtions              |                 |
+| ~C-c @ C-c~              | ~hs-toggle-hiding~               | toggle block (like folding)    |
+| ~C-c @ C-h~, ~C-c @ C-s~ | ~hs-hide-block~, ~hs-show-block~ | hide/show block |
+#+END_EXAMPLE
+
+
+
+*** React
+
+prevent/don't auto-add quotes/quotation marks after typing ~=~ in JSX attributes
+
+#+BEGIN_EXAMPLE
+|||
+|-|-|
+| ~(setq-local web-mode-enable-auto-quoting nil)~ |
+#+END_EXAMPLE
+
+
+
+# Links
+
+[Spacemacs Advanced Kit](http://oss.io/p/trishume/spacemacs)
+
+[Org Cheat Sheet](https://emacsclub.github.io/html/org_tutorial.html#sec-8-1)
+
+
+
+** Emacs Lisp
+
+| ~SPC m h h~ | ~elisp-slime-nav-describe-elisp-thing-at-point~ | help with thing at point |
+
+** org-mode
+*** syntax
 
 [[http://orgmode.org/org.html#Markup][Markup for rich export (manual)]]
 
 #+BEGIN_SRC org
 [[https://example.com][link example]]
 
-*bold*, /italic/, _underline_, =verbatim=, `code`, +strike-through+
+*bold*, /italic/, _underline_, =verbatim=, ~code~, +strike-through+
 #+END_SRC
 
-** keys/basics
+*** keys/basics
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-c C-l`                    | `org-insert-link`                                             | insert link                                                            |
-| `C-c .`                      | `org-time-stamp`                                              | insert stamp                                                           |
-| `< s` + `<tab>`              | [snippet] expands `#+BEGIN_SRC` ... `#+END_SRC` ('s' for src) |                                                                        |
-| `C-c C-o`                    | `org-open-at-point`                                           | open at point                                                          |
-| `SPC x o`                    | `link-hint-open-link`                                         | open link                                                              |
-| `org-version`                | version                                                       |                                                                        |
-| `<S-tab>`                    | cycle all                                                     |                                                                        |
-| `C-c C-p` & `C-c C-n`        | prev/next headline                                            |                                                                        |
-| `C-c C-f` & `C-c C-b`        | prev/next same-level headline                                 |                                                                        |
-| `C-c C-u`                    | up level                                                      |                                                                        |
-| `M-h`, `M-l`                 | `org-metaright`, like `<M-right>`                             |                                                                        |
-| `M-<ret>`                    | new headline or list elements                                 |                                                                        |
-| `C-<ret>`                    | new same-level headline below current headline group          |                                                                        |
-| `M-<up>` & `M-<down>`        | move subtree or list element                                  |                                                                        |
-| `M-<left>` & `M-<right>`     | promote/demote heading or list element                        |                                                                        |
-| `M-S-<left>` & `M-S-<right>` | promote/demote heading or list element                        |                                                                        |
-| `: [[http://example.com][ex]]`                       | use `:` at ^ to preserve no-formatting                        |                                                                        |
-| `C-c -`                      | `org-ctrl-c-minus`                                            | rotate list state (`org-cycle-list-bullet`) or other, context-senstive |
+| ~C-c C-l~                    | ~org-insert-link~                                             | insert link                                                            |
+| ~C-c .~                      | ~org-time-stamp~                                              | insert stamp                                                           |
+| ~< s~ + ~<tab>~              | [snippet] expands ~#+BEGIN_SRC~ ... ~#+END_SRC~ ('s' for src) |                                                                        |
+| ~C-c C-o~                    | ~org-open-at-point~                                           | open at point                                                          |
+| ~SPC x o~                    | ~link-hint-open-link~                                         | open link                                                              |
+| ~org-version~                | version                                                       |                                                                        |
+| ~<S-tab>~                    | cycle all                                                     |                                                                        |
+| ~C-c C-p~ & ~C-c C-n~        | prev/next headline                                            |                                                                        |
+| ~C-c C-f~ & ~C-c C-b~        | prev/next same-level headline                                 |                                                                        |
+| ~C-c C-u~                    | up level                                                      |                                                                        |
+| ~M-h~, ~M-l~                 | ~org-metaright~, like ~<M-right>~                             |                                                                        |
+| ~M-<ret>~                    | new headline or list elements                                 |                                                                        |
+| ~C-<ret>~                    | new same-level headline below current headline group          |                                                                        |
+| ~M-<up>~ & ~M-<down>~        | move subtree or list element                                  |                                                                        |
+| ~M-<left>~ & ~M-<right>~     | promote/demote heading or list element                        |                                                                        |
+| ~M-S-<left>~ & ~M-S-<right>~ | promote/demote heading or list element                        |                                                                        |
+| ~: [[http://example.com][ex]]~                       | use ~:~ at ^ to preserve no-formatting                        |                                                                        |
+| ~C-c -~                      | ~org-ctrl-c-minus~                                            | rotate list state (~org-cycle-list-bullet~) or other, context-senstive |
 #+END_EXAMPLE
 
-** tables
+*** tables
 
 #+BEGIN_EXAMPLE
 |               |                       |
 |---------------+-----------------------|
-| `SPC m t d c` | `table-delete-column' |
+| ~SPC m t d c~ | ~table-delete-column' |
 #+END_EXAMPLE
 
-** todos
+*** todos
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `S-M-<ret>`                    | new TODO                |
-| `C-c C-t` & `S-<right>/<left>` | rotate/cycle TODO state |
+| ~S-M-<ret>~                    | new TODO                |
+| ~C-c C-t~ & ~S-<right>/<left>~ | rotate/cycle TODO state |
 #+END_EXAMPLE
 
-*** TODO clean-up required, from `.spacemacs` :no_export:
+**** TODO clean-up required, from ~.spacemacs~                    :no_export:
 #+BEGIN_SRC emacs-lisp
   ;; (setq org-todo-keywords '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
   ;; (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE"))) ;; http://orgmode.org/manual/TODO-types.html#TODO-types
@@ -663,7 +742,7 @@ doubt, use whitespace.
   ;;         ("CANCELED" . (:foreground "blue" :weight bold))))
 #+END_SRC
 
-** capture template placeholders
+*** capture template placeholders
 
 Jonathan Magen's talk on [[https://www.youtube.com/watch?v=KdcXu_RdKI0][youtube]]
 
@@ -672,28 +751,29 @@ Jonathan Magen's talk on [[https://www.youtube.com/watch?v=KdcXu_RdKI0][youtube]
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `%U`       | inactive timestamp                                             |
-| `%^{Name}` | prompt/read                                                    |
-| `%a`       | annotation `org-store-link` (takes you back to where you were) |
-| `%i`       | active region                                                  |
-| `%?`       | final cursor position                                          |
+| ~%U~       | inactive timestamp                                             |
+| ~%^{Name}~ | prompt/read                                                    |
+| ~%a~       | annotation ~org-store-link~ (takes you back to where you were) |
+| ~%i~       | active region                                                  |
+| ~%?~       | final cursor position                                          |
 #+END_EXAMPLE
 
 org-protocol-capture-html on [github](https://github.com/alphapapa/org-protocol-capture-html)
 
-> With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
->
-> For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
->
-> I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
+ > With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
+ >
+ > For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
+ >
+ > I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
 
-** code blocks/babel
+*** code blocks/babel
 
 [[http://orgmode.org/manual/Working-with-source-code.html#Working-with-source-code][manual 14 - Working with source code]]
 
-| ~C-c C-c~   | evaluate                                     |
-| ~C-c '~     | open/close major mode editing buffer         |
-| ~SPC t C-c~ | [custom] toggle no-eval/ctrl-c-ctrl-c on/off |
+| ~C-c C-c~   | ~org-ctrl-c-ctrl-c~                  | evaluate                                             |
+| ~C-c '~     | ~org-edit-special~                   | open sub-editing buffer                              |
+| ~M-RET c~   | ~org-edit-src-exit~                  | close sub-editing buffer and return to source buffer |
+| ~SPC t C-c~ | ~my-toggle-org-babel-no-eval-ctrl-c~ | [custom] toggle no-eval/ctrl-c-ctrl-c on/off         |
 
 In order to ~ctrl-c-ctrl-c~ (execute) a code block, it needs to be in ~org-babel-load-languages~:
 
@@ -723,7 +803,7 @@ console.log(Math.max(...test));
 
 Evaluation controls: ~org-confirm-babel-evaluate~, ~org-babel-no-eval-on-ctrl-c-ctrl-c~.
 
-| `SPC t C-c` | [custom] `my-toggle-org-babel-no-eval-ctrl-c` |
+| ~SPC t C-c~ | [custom] ~my-toggle-org-babel-no-eval-ctrl-c~ |
 
 #+BEGIN_SRC emacs-lisp
   (defun my-toggle-org-babel-no-eval-ctrl-c()
@@ -735,7 +815,7 @@ Evaluation controls: ~org-confirm-babel-evaluate~, ~org-babel-no-eval-on-ctrl-c-
   (spacemacs/set-leader-keys "t C-c" 'my-toggle-org-babel-no-eval-ctrl-c)
 #+END_SRC
 
-~setenv "NODE_PATH"~ specifically to ~/org/node_modules~: [[http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/]]. Install babel presets to ~/org~, symlink ~/org/node_modules/babel-cli/bin/babel-node.js~ as ~org-babel-node~ to path.
+ ~setenv "NODE_PATH"~ specifically to ~/org/node_modules~: [[http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/]]. Install babel presets to ~/org~, symlink ~/org/node_modules/babel-cli/bin/babel-node.js~ as ~org-babel-node~ to path.
 
 #+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
 let obj = {
@@ -750,24 +830,24 @@ console.log(fruit);
 console.log(restItem);
 #+END_SRC
 
-** export
+*** export
 
-*** basics
+**** basics
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-c C-e #`          | insert default export options from template |
-| `#+OPTIONS: toc:nil` | don't export table of contents              |
+| ~C-c C-e #~          | insert default export options from template |
+| ~#+OPTIONS: toc:nil~ | don't export table of contents              |
 #+END_EXAMPLE
 
 To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~no_export~, and add ~:no_export:~ after the heading/node.
 
-**** export exclusion example :no_export:
+***** export exclusion example                                    :no_export:
 
 This section is not exported.
 
-*** links
+**** links
 
 [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][WORG publishing org-mode -> HTML]]
 
@@ -783,7 +863,7 @@ This section is not exported.
 
 [[http://gongzhitaao.org/orgcss/][CSS for Org-exported HTML example/walkthrough]]
 
-*** "publishing projects" examples
+**** "publishing projects" examples
 
 #+BEGIN_SRC emacs-lisp
 (require 'ox-publish)
@@ -791,9 +871,9 @@ This section is not exported.
       '(
 
         ("org-notes"
-         :base-directory "`/scratch/org-test/org/"
+         :base-directory "~/scratch/org-test/org/"
          :base-extension "org"
-         :publishing-directory "`/scratch/org-test/public_html/"
+         :publishing-directory "~/scratch/org-test/public_html/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4             ; Just the default for this project.
@@ -802,9 +882,9 @@ This section is not exported.
 
 
         ("org-static"
-         :base-directory "`/scratch/org-test/org/"
+         :base-directory "~/scratch/org-test/org/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "`/scratch/org-test/public_html/"
+         :publishing-directory "~/scratch/org-test/public_html/"
          :recursive t
          :publishing-function org-publish-attachment
          )
@@ -814,12 +894,12 @@ This section is not exported.
         ))
 #+END_SRC
 
-** links
+*** links
 [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][examples and cookbook]]
 
 [[https://emacsclub.github.io/html/org_tutorial.html#sec-8-1][cheatsheet]]
 
-** misc
+*** misc
 
 Control visibility on startup:
 
@@ -888,47 +968,47 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `(define-key helm-map (kbd "C-<return>") 'universal-argument)` |
+| ~(define-key helm-map (kbd "C-<return>") 'universal-argument)~ |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-c ?` | help                 |
-| `C-S-h` | describe key binding |
+| ~C-c ?~ | help                 |
+| ~C-S-h~ | describe key binding |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-o`               | jump to next section                                            |
-| `M-P`, `M-N`        | prev/next search                                                |
-| `<left>`, `<right>`, `C-c <`, `C-c >` | prev/next file in results, `helm-ag--next-file`|
-| `F3`                | (for helm search) open results in buffer/promote to buffer      |
-| `C-s`               | grep highlighted dir/file                                       |
-| `C-z`               | show actions                                                    |
-| `C-SPC`             | toggle mark                                                     |
-| `M-a`               | toggle all                                                      |
-| `C-c o`             | open other window                                               |
-| `C-]`               | toggle info                                                     |
-| `C-c >`             | truncate line (TODO where is this available?)                   |
-| `M-D`               | delete                                                          |
-| `C-t`               | toggle display horizontal/vertical                              |
-| `SPC .`, `M-m r l`  | resume last completion buffer, use universal argument to choose |
-| `SPC r s`           | resume last search buffer                                       |
-| `SPC s \``          | go to last place reached with helm ag                           |
-| `C-o`               | next source                                                     |
-| `C-c =`             | ediff file                                                      |
-| `C-c X`             | open with default app (also see `C-c C-x`)                      |
-| `C-c TAB`           | copy to buffer                                                  |
-| `C-c C-y`           | helm yank selection (sorta like hippie-expand)                  |
+| ~C-o~               | jump to next section                                            |
+| ~M-P~, ~M-N~        | prev/next search                                                |
+| ~<left>~, ~<right>~, ~C-c <~, ~C-c >~ | prev/next file in results, ~helm-ag--next-file~|
+| ~F3~                | (for helm search) open results in buffer/promote to buffer      |
+| ~C-s~               | grep highlighted dir/file                                       |
+| ~C-z~               | show actions                                                    |
+| ~C-SPC~             | toggle mark                                                     |
+| ~M-a~               | toggle all                                                      |
+| ~C-c o~             | open other window                                               |
+| ~C-]~               | toggle info                                                     |
+| ~C-c >~             | truncate line (TODO where is this available?)                   |
+| ~M-D~               | delete                                                          |
+| ~C-t~               | toggle display horizontal/vertical                              |
+| ~SPC .~, ~M-m r l~  | resume last completion buffer, use universal argument to choose |
+| ~SPC r s~           | resume last search buffer                                       |
+| ~SPC s \~~          | go to last place reached with helm ag                           |
+| ~C-o~               | next source                                                     |
+| ~C-c =~             | ediff file                                                      |
+| ~C-c X~             | open with default app (also see ~C-c C-x~)                      |
+| ~C-c TAB~           | copy to buffer                                                  |
+| ~C-c C-y~           | helm yank selection (sorta like hippie-expand)                  |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-x C-b` | (in helm) resume different helm buffer                          |
-| `C-s`     | (from helm-projectile `SPC p p`) start ag search from directory |
+| ~C-x C-b~ | (in helm) resume different helm buffer                          |
+| ~C-s~     | (from helm-projectile ~SPC p p~) start ag search from directory |
 #+END_EXAMPLE
 
 ** helm projectile project
@@ -936,22 +1016,22 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC p I` | `projectile-invalidate-cache` | empty `projectile-projects-cache` |
-| `C-d`     | jump to dired                 |                                   |
+| ~SPC p I~ | ~projectile-invalidate-cache~ | empty ~projectile-projects-cache~ |
+| ~C-d~     | jump to dired                 |                                   |
 #+END_EXAMPLE
 
 ** helm ag
 
-Ignore stuff with `.agignore`. Make searches oase sensitive with `-s`.
+Ignore stuff with ~.agignore~. Make searches oase sensitive with ~-s~.
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `C-x C-s`        | Save ag results to buffer (Ask save buffer name if prefix key is specified) |
-| `C-c C-f`        | Enable helm-follow-mode                                                     |
-| `C-c >`, `right` | Move to next file                                                           |
-| `C-c <`, `left`  | Move to previous file                                                       |
-| `C-c C-e`        | Switch to edit mode                                                         |
+| ~C-x C-s~        | Save ag results to buffer (Ask save buffer name if prefix key is specified) |
+| ~C-c C-f~        | Enable helm-follow-mode                                                     |
+| ~C-c >~, ~right~ | Move to next file                                                           |
+| ~C-c <~, ~left~  | Move to previous file                                                       |
+| ~C-c C-e~        | Switch to edit mode                                                         |
 #+END_EXAMPLE
 
 ** helm misc
@@ -960,9 +1040,9 @@ Ignore stuff with `.agignore`. Make searches oase sensitive with `-s`.
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC s w g` | google suggest                       |
-| `SPC s w w` | wikipedia suggest                    |
-| `f2`        | [in file & projectile] jump to dired |
+| ~SPC s w g~ | google suggest                       |
+| ~SPC s w w~ | wikipedia suggest                    |
+| ~f2~        | [in file & projectile] jump to dired |
 #+END_EXAMPLE
 
 *** use ag instead of grep
@@ -979,8 +1059,8 @@ Ignore stuff with `.agignore`. Make searches oase sensitive with `-s`.
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC e n`, `SPC e p` | next/previous         |
-| `SPC e`              | error transient state |
+| ~SPC e n~, ~SPC e p~ | next/previous         |
+| ~SPC e~              | error transient state |
 #+END_EXAMPLE
 
 #+BEGIN_SRC emacs-lisp
@@ -991,8 +1071,8 @@ Ignore stuff with `.agignore`. Make searches oase sensitive with `-s`.
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `*dired`  | filter major-mode dired         |
-| `*!dired` | filter exclude major-mode dired |
+| ~*dired~  | filter major-mode dired         |
+| ~*!dired~ | filter exclude major-mode dired |
 #+END_EXAMPLE
 
 * company
@@ -1000,8 +1080,8 @@ Ignore stuff with `.agignore`. Make searches oase sensitive with `-s`.
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `M-h`          | [company is active] show help popup/tooltip |
-| `pos-tip-hide` | hide the popup/tooltip                      |
+| ~M-h~          | [company is active] show help popup/tooltip |
+| ~pos-tip-hide~ | hide the popup/tooltip                      |
 #+END_EXAMPLE
 
 * yasnippet
@@ -1011,9 +1091,9 @@ Spacelayers' ~auto-completion~ mode adds ~indent-for-tab-command~ to TAB (~(kbd 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC i s v` | `helm-yas-visit-snippet-file` |                     |
-| `SPC i s n` | `yas-new-snippet`             |                     |
-| `SPC i s h` | `spacemacs/helm-yas`          | major mode snippets |
+| ~SPC i s v~ | ~helm-yas-visit-snippet-file~ |                     |
+| ~SPC i s n~ | ~yas-new-snippet~             |                     |
+| ~SPC i s h~ | ~spacemacs/helm-yas~          | major mode snippets |
 #+END_EXAMPLE
 
 YASnippet documentation: http://joaotavora.github.io/yasnippet/snippet-development.html
@@ -1026,11 +1106,17 @@ My snippets are in ~.emacs.d/private/snippets/~. Add ~.yas-parents~ file in a di
 
 See <a href="/git">git</a>
 
+* comments
+
+Toggle ~auto-fill-mode~ with ~SPC t F~ to "wrap" as you type; ~comment-auto-fill-only-comments~ for it to work only when inside comments. Use ~refill-mode~ to adjust all adjacent lines while inserting.
+
+[[https://stackoverflow.com/a/11969862/1052412][SO reference]]
+
 * tags/ctags
 
 See variable ~tags-table-list~. 
 
-+Add tags file with ~ctags -f tagsfilename~.+ Add tags with `SPC p C-g` (`projectile-regenerate-tags`).
++Add tags file with ~ctags -f tagsfilename~.+ Add tags with ~SPC p C-g~ (~projectile-regenerate-tags~).
 
 Global ~.ctags~ file is in dotfiles, local ~.ctags~ file per project is respected, too. For instance, to exclude massive json files in a project:
 
@@ -1038,59 +1124,9 @@ Global ~.ctags~ file is in dotfiles, local ~.ctags~ file per project is respecte
 --exclude=*.json
 #+END_SRC
 
-* JS
-
-
-[[https://github.com/felipeochoa/rjsx-mode][rjxs-mode]]
-
-** js2-mode
-
-#+BEGIN_EXAMPLE
-|||
-|-|-|
-| `SPC m w` | `js2-mode-toggle-warnings-and-errors` | toggle errors (e.g. underline missing semicolons |
-#+END_EXAMPLE
-
-see [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][emacs stack exchange]]
-
-
-
-** JSX-IDE mode
-
-#+BEGIN_EXAMPLE
-|||
-|-|-|
-| `C-c C-o`                | toggle element                   |                 |
-| `C-c C-f`                | toggle all funtions              |                 |
-| `C-c @ C-c`              | `hs-toggle-hiding`               | toggle block (like folding)    |
-| `C-c @ C-h`, `C-c @ C-s` | `hs-hide-block`, `hs-show-block` | hide/show block |
-#+END_EXAMPLE
-
-
-
-** React
-
-prevent/don't auto-add quotes/quotation marks after typing `=` in JSX attributes
-
-#+BEGIN_EXAMPLE
-|||
-|-|-|
-| `(setq-local web-mode-enable-auto-quoting nil)` |
-#+END_EXAMPLE
-
-
-
-# Links
-
-[Spacemacs Advanced Kit](http://oss.io/p/trishume/spacemacs)
-
-[Org Cheat Sheet](https://emacsclub.github.io/html/org_tutorial.html#sec-8-1)
-
-
 * other configs
 
 [[https://github.com/r-darwish/dcp/blob/000856dc0622e70b576cceb87322c45d37b7d73f/.spacemacs][r-darwish]]
-
 
 * Emacs Lisp
 
@@ -1122,9 +1158,9 @@ List basics at <a href="https://www.emacswiki.org/emacs/ListStructure" target="_
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC k .` | enter lisp state |
-| `j` `k`   | navigate         |
-| `C-[`     | exit             |
+| ~SPC k .~ | enter lisp state |
+| ~j~ ~k~   | navigate         |
+| ~C-[~     | exit             |
 #+END_EXAMPLE
 
 * misc
@@ -1132,21 +1168,21 @@ List basics at <a href="https://www.emacswiki.org/emacs/ListStructure" target="_
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `align-regexp` | arbitrary alignment |
-| `C-x C-o` | `delete-blank-lines` |
-| `SPC t C-d`, `SPC T f`        | toggle fringe                                                                |
-| `SPC , i`                     | [custom] helm imenu                                                          |
-| `C-s )`                       | (in insert mode) insert literal parenthesis (don't allow smart entry)        |
-| `SPC u SPC b d`               | close window along with buffer delete                                        |
-| `SPC u SPC w d`               | delete buffer along with close window                                        |
-| `SPC b e`                     | erase buffer contents                                                        |
-| `SPC b P`                     | paste clipbaord contents over all buffer content                             |
-| `SPC b Y`                     | copy entire/full buffer to clipboard                                         |
-| `SPC o` and `SPC m o`         | reserved for the user                                                        |
-| `SPC j u`                     | jump to URL                                                                  |
-| `-*-`                         | use to surround a (commented) first line in a file to specify file variables |
-| `; -*- mode: Emacs-Lisp; -*-` | specify major mode in first line of a file                                   |
-| `SPC u SPC !`                 | shell command into current buffer                                            |
+| ~align-regexp~ | arbitrary alignment |
+| ~C-x C-o~ | ~delete-blank-lines~ |
+| ~SPC t C-d~, ~SPC T f~        | toggle fringe                                                                |
+| ~SPC , i~                     | [custom] helm imenu                                                          |
+| ~C-s )~                       | (in insert mode) insert literal parenthesis (don't allow smart entry)        |
+| ~SPC u SPC b d~               | close window along with buffer delete                                        |
+| ~SPC u SPC w d~               | delete buffer along with close window                                        |
+| ~SPC b e~                     | erase buffer contents                                                        |
+| ~SPC b P~                     | paste clipbaord contents over all buffer content                             |
+| ~SPC b Y~                     | copy entire/full buffer to clipboard                                         |
+| ~SPC o~ and ~SPC m o~         | reserved for the user                                                        |
+| ~SPC j u~                     | jump to URL                                                                  |
+| ~-*-~                         | use to surround a (commented) first line in a file to specify file variables |
+| ~; -*- mode: Emacs-Lisp; -*-~ | specify major mode in first line of a file                                   |
+| ~SPC u SPC !~                 | shell command into current buffer                                            |
 #+END_EXAMPLE
 
 ** perform action on current buffer (example)
@@ -1210,11 +1246,13 @@ Reference: http://justinsboringpage.blogspot.com/2009/04/running-elisp-function-
 
 ** vertical & horizontal splits
 
-See `split-height-threshold`, `split-width-threshold`, and `split-window-preferred-function`. If Magit splits horizontally instead of vertically on a large monitor, bump up the `split-height-threshold`, e.g. `(setq split-height-threshold 120)`.
+See ~split-height-threshold~, ~split-width-threshold~, and ~split-window-preferred-function~. If Magit splits horizontally instead of vertically on a large monitor, bump up the ~split-height-threshold~, e.g. ~(setq split-height-threshold 120)~.
 
 ** line endings
 
-<a href="https://www.emacswiki.org/emacs/EndOfLineTips" target="_blank">Emacs Wiki</a>
+[[https://www.emacswiki.org/emacs/EndOfLineTips][Emacs Wiki EOL tips]]
+
+~revert-buffer-with-coding-system~
 
 *** Remove
 
@@ -1229,16 +1267,16 @@ Substitute out the literal return key (~C-q C-m~): ~,s C-q C-m/~
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `SPC t n` | toggle line numbers          |
-| `SPC t r` | toggle relative line numbers |
-| `SPC t l` | toggle line wrap             |
-| `SPC t W` | [custom] toggle word wrap    |
+| ~SPC t n~ | toggle line numbers          |
+| ~SPC t r~ | toggle relative line numbers |
+| ~SPC t l~ | toggle line wrap             |
+| ~SPC t W~ | [custom] toggle word wrap    |
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
 |||
 |-|-|
-| `audo-mode-alist` | list of regex file extensions to determine the major mode |
+| ~audo-mode-alist~ | list of regex file extensions to determine the major mode |
 #+END_EXAMPLE
 
 ** TRAMP
