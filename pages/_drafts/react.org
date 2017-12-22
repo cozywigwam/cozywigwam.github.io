@@ -103,8 +103,17 @@ class Parent extends component {
     )
   }
 }
+#+END_SRC
 
 
+** use unicode
+
+#+BEGIN_SRC js
+// no: html character entity reference
+<span>{'9 &ndash; 5'}</span>
+
+// yes: unicode
+<span>{'9 \u2013 5'}</span>
 #+END_SRC
 
 * 3rd-party
@@ -299,78 +308,6 @@ import Button from "../../components/Button"
     }
 #+END_SRC
 
-* Misc
-** Skeleton component
+* Redux
 
-Old-school:
-
-#+BEGIN_SRC js
-
-import React from 'react'
-
-export default class Component extends React.Component {
-}
-
-#+END_SRC
-
-Newer-school:
-
-#+BEGIN_SRC js
-// component/index.js
-
-import React, { Component } from 'react'
-
-import cx from 'classnames'
-
-import styles from './index.css'
-
-class Component extends Main {
-    constructor(props, { metadata }) {
-      super(...arguments)
-
-      this.state = {
-        metadata: metadata,
-        data: [],
-        string: '',
-        isToggle: false,
-        isStoreToggle: MyStore.isStoreToggle(),
-      }
-    }
-
-    // lifecycle
-    render() {
-      const content = (
-        <div className={ styles.wrapper }>
-          <div className={ cx({
-              [styles.isToggle]: this.state.isToggle,
-            })
-          }>
-
-          <BodyContainer>
-            { this.props.body }
-            { this.renderCollectionNav() }
-          </BodyContainer>
-        </div>
-      return (
-        <div>
-          { this.state.isStoreToggle ? content : '' }
-        </div>
-      )
-    }
-  }
-}
-
-#+END_SRC
-
-#+BEGIN_SRC css
-/* component/index.css */
-@import '../../styles/media-queries.css';
-
-.wrapper {
-  position: relative;
-  z-index: 1;
-}
-.wrapper.isToggle {
-  background: green;
-}
-#+END_SRC
+Reducer function - the pure function that takes the previous state & and the dispatching action, and returns the next state.

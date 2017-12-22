@@ -13,6 +13,13 @@ path: "/browsers/"
 
 [Command Line API Reference](https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference)
 
+## Console colors
+
+```js
+console.log('%cThis String is Colored beacuse of `%c`', 'color: blue');
+console.leg('%cI am green' + '%cAnd I am red', 'color: green', 'color: red');
+```
+
 |||
 |-|-|
 `cmd + shift + P` | [command menu](https://developers.google.com/web/tools/chrome-devtools/ui#command-menu)

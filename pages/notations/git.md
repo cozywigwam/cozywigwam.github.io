@@ -292,11 +292,14 @@ Use `L` for `magit-margin-popup`.
 
 ## smerge
 
-|||
-|-|-|
-| `C-c ^ m` | keep mine  |
-| `C-c ^ o` | keep other |
+Compare ediff/emerge.
 
+|           |                        |
+|-----------|------------------------|
+| <ret>     | [on `unmerged`] smerge |
+| `C-c ^ m` | keep mine              |
+| `C-c ^ o` | keep other             |
+| `C-c ^ n` | next                   |
 
 # Vim
 
