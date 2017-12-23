@@ -155,6 +155,22 @@ There are text properties here:
 | . | ≥                                 | greater than or equals           |
 | / | ÷                                 | obelus                           |
 
+# ASCII control characters
+
+|     |                 |              |                 |      |
+|-----|-----------------|--------------|-----------------|------|
+|   0 | null            | `NUL`        | `\0`            | `^@` |
+|   7 | bell            | `BEL`        | `\a`            | `^G` |
+|   8 | backspace       | `BS`         | `\b`            | `^H` |
+|   9 | horizontal tab  | `HT`         | `\t`            | `^I` |
+|  10 | line feed       | `LF`         | `\n`            | `^J` |
+|  11 | vertical tab    | `VT`         | `\v`            | `^K` |
+|  12 | form feed       | `FF`         | `\f`            | `^L` |
+|  13 | carriage return | `CR`         | `\r`            | `^M` |
+|  26 | Control-Z       | `SUB`, `EOF` |                 | `^Z` |
+|  27 | escape          | `ESC`        | `\e` (GCC only) | `^[` |
+| 127 | delete          | `DEL`        |                 | `^?` |
+
 # Misc
 
 |||
@@ -169,6 +185,24 @@ There are text properties here:
 | ∯ | surface integral |
 
 [ascii-code.com](http://ascii-code.com/)
+
+[ISO 639 language codes](https://en.wikipedia.org/wiki/ISO_639)
+
+---
+
+Gaiji: external characters
+
+Mojibake: incorrectly encoded/garbled characters
+
+Tofu: WHITE SQUARE (`□`) (9633, #o22641, #x25a1) [substitute character](https://en.wikipedia.org/wiki/Substitute_character)
+
+---
+
+Use the right meta key in Spacemacs for typing characters macOS style:
+
+```emacs-lisp
+(setq-default mac-right-option-modifier nil)
+```
 
 
 # Reference

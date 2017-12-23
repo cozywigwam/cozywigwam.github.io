@@ -180,7 +180,7 @@ Docker's changing IP address on macOS is `docker.for.mac.localhost` ([reference]
 
 # macOS
 
-settings/options defaults from [Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) 
+settings/options defaults from [Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
 
 ## Observe USB in the GUI:
 - open Audio MIDI Setup application
@@ -223,6 +223,13 @@ Launched at boot: `/Library/LaunchDaemons`
 
 Launched at login: `~/Library/LaunchAgents`
 
+## Dictionary
+
+Written in [RELAX NG](http://www.relaxng.org/)
+
+- [Apple documentation](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/DictionaryServicesProgGuide/Introduction/Introduction.html)
+- [Andrew Fischer's repo](https://github.com/afischer/osx-dictionaries)
+
 ## Misc
 
 |||
@@ -246,4 +253,3 @@ vagrant ssh-config # see hostname, port, SSH Key location
 ```
 
 Vagrant insecure key: `~/.vagrant.d/insecure_private_key`
-

@@ -9,6 +9,8 @@ path: "/spacemacs/"
 ---
 #+END_EXAMPLE
 
+ch2
+
 * get around
 ** quick reference/favorites/main
 *** misc/hard to remember
@@ -24,6 +26,7 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
+| ~c~                 | [Info mode] ~Info-copy-current-node-name~   |
 | ~M-x~               | [insert-mode] ~helm-M-x~                    |
 | ~C-y~               | [isearch-mode] ~yank-kill~                  |
 | ~SPC g f w~         | [custom] ~magit-find-current-file-from-rev~ |
@@ -286,12 +289,9 @@ tab-width: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Disp
 
 [[http://ergoemacs.org/emacs/emacs_minor_mode.html][Ergo Emacs]]
 
-manual 23.3 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing-Modes.html][Choosing File Modes]]
+manual 23.3 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing-Modes.html][Choosing File Modes]]. See vars ~major-mode~ and ~normal-mode~.
 
 | ~SPC h d m~        | ~spacemacs-describe-mode~            | describe mode |
-| ~C-h v major-mode~ | see current major mode               |               |
-| ~M-: major-mode~   | see current major mode               |               |
-| ~M-x normal-mode~  | revert to the buffer's original mode |               |
 
 ** JSON
 
@@ -774,6 +774,14 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 | ~-*-~                         | use to surround a (commented) first line in a file to specify file variables |
 | ~; -*- mode: Emacs-Lisp; -*-~ | specify major mode in first line of a file                                   |
 | ~SPC u SPC !~                 | shell command into current buffer                                            |
+
+** hello file
+
+[[file:/usr/local/Cellar/emacs-plus/25.2/share/emacs/25.2/etc/HELLO::Emacs%20emacs%20--no-splash%20-f%20view-hello-file][file]]
+
+#+BEGIN_SRC shell
+emacs --no-splash -f view-hello-file
+#+END_SRC
 
 ** text (not buffer) is read only
 

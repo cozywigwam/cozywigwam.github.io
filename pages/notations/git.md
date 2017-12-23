@@ -169,6 +169,17 @@ git reflog [show] # `show` is default
 ```
 ## Hooks/Deployment
 
+[docs](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
+
+Client-side "committing-workflow" hooks in `.git/hooks/`:
+
+- `pre-commit`: lint, etc. (`git commit --no-verify` bypasses)
+- `prepare-commit-msg`: programmatically insert message info
+- `commit-msg`: validate project state or commit message
+- `post-commit`: notifications
+
+### husky
+
 [Branch targeting](https://github.com/typicode/husky/issues/186):
 
 ```sh
