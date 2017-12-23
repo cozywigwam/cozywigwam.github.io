@@ -775,6 +775,24 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 | ~; -*- mode: Emacs-Lisp; -*-~ | specify major mode in first line of a file                                   |
 | ~SPC u SPC !~                 | shell command into current buffer                                            |
 
+** text (not buffer) is read only
+
+[[https://stackoverflow.com/a/30906336/1052412][SO answer]]
+
+[[info:elisp#Special%20Properties][elisp manual]]
+
+Force erase buffer:
+
+#+BEGIN_SRC emacs-lisp
+(let ((inhibit-read-only t)) (erase-buffer))
+#+END_SRC
+
+Remove all properties:
+
+#+BEGIN_SRC emacs-lisp
+(let ((inhibit-read-only t)) (set-text-properties (point-min) (point-max) ()))
+#+END_SRC
+
 ** perform action on current buffer (example)
 
 #+BEGIN_SRC emacs-lisp
