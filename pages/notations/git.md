@@ -310,6 +310,17 @@ Use `L` for `magit-margin-popup`.
 [macOS - use emacs-plus to reduce sluggishness](https://magit.vc/manual/magit/MacOS-Performance.html)
 
 
+### misc
+
+```emacs-lisp
+;; (setq magit-commit-show-diff nil)
+
+;; ediff freeze problem, ref: https://github.com/syl20bnr/spacemacs/issues/4730
+;; (add-hook 'ediff-before-setup-hook 'spacemacs/toggle-mode-line-off)
+;; (add-hook 'ediff-quit-hook 'spacemacs/toggle-mode-line-on)
+
+```
+
 ## smerge
 
 Compare ediff/emerge.

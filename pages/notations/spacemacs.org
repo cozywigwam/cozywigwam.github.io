@@ -9,8 +9,6 @@ path: "/spacemacs/"
 ---
 #+END_EXAMPLE
 
-ch2
-
 * get around
 ** quick reference/favorites/main
 *** misc/hard to remember
@@ -329,42 +327,42 @@ If N is negative, this is a more recent kill.
 
 [[https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf][Quick ref PDF]]
 
-| ~K~, ~gr~   | hide/kill and show/revert       |                              |
-| ~w~         | ~dired-copy-filename-as-kill~   | copy filename                |
-| ~SPC u 0 w~ | copy filename with full path    |                              |
-| ~o~         | open in other window            |                              |
-| ~C-o~       | open in new window              |                              |
-| ~+~         | ~dired-create-directory~        | create directory             |
-| ~m~ & ~u~   | mark & unmark                   |                              |
-| ~* !~       | ~dired-unmark-all-files~        | unmark all                   |
-| ~t~         | toggle all                      |                              |
-| ~* s~       | mark all                        |                              |
-| ~* /~       | mark directories                |                              |
-| ~* .~       | mark extensions                 |                              |
-| ~* @~       | mark symlinks                   |                              |
-| ~* / t~     | mark all files                  |                              |
-| ~% g~       | mark files that contain REGEXP  |                              |
-| ~% m~, ~* %~       |~dired-mark-files-regexp~| mark filename that match Emacs regexp                              |
-| ~d~         | mark for deletion               |                              |
-| ~x~         | ~dired-do-flagged-delete~       | delete deletion-marked files |
-| ~!~         | run shell command               |                              |
-| ~SPC f f~   | new file (at current directory) |                              |
-| ~C~         | copy                            |                              |
-| ~R~         | rename/move                     |                              |
-| ~D~         | delete                          |                              |
-| ~S~         | symlink                         |                              |
-| ~g~         | refresh ("read aGain")          |                              |
-| ~l~         | relist file at point            |                              |
-| ~s~         | sort toggle (~C-u~ to pass switches)                     |                              |
-| ~(~         | toggle details                  |                              |
-| ~A~         | search marked                   |                              |
-| ~C-x C-q~   | switch to wdired                |                              |
-| ~C-c C-c~   | save wdired changes             |                              |
-| ~(~         | toggle details                  |                              |
-| ~J~         | find files from here            |                              |
-| ~C-x M-o~   | hide/toggle uninteresting files |                              |
-| ~i~ | ~dired-maybe-insert-subdir~ | open subdir inside same window |
-| ~SPC u K~ | ~dired-do-kill-lines~ | [from subdir's line] remove that subdir |
+| ~K~, ~gr~    | hide/kill and show/revert            |                                         |
+| ~w~          | ~dired-copy-filename-as-kill~        | copy filename                           |
+| ~SPC u 0 w~  | copy filename with full path         |                                         |
+| ~o~          | open in other window                 |                                         |
+| ~C-o~        | open in new window                   |                                         |
+| ~+~          | ~dired-create-directory~             | create directory                        |
+| ~m~ & ~u~    | mark & unmark                        |                                         |
+| ~* !~        | ~dired-unmark-all-files~             | unmark all                              |
+| ~t~          | toggle all                           |                                         |
+| ~* s~        | mark all                             |                                         |
+| ~* /~        | mark directories                     |                                         |
+| ~* .~        | mark extensions                      |                                         |
+| ~* @~        | mark symlinks                        |                                         |
+| ~* / t~      | mark all files                       |                                         |
+| ~% g~        | mark files that contain REGEXP       |                                         |
+| ~% m~, ~* %~ | ~dired-mark-files-regexp~            | mark filename that match Emacs regexp   |
+| ~d~          | mark for deletion                    |                                         |
+| ~x~          | ~dired-do-flagged-delete~            | delete deletion-marked files            |
+| ~!~          | run shell command                    |                                         |
+| ~SPC f f~    | new file (at current directory)      |                                         |
+| ~C~          | copy                                 |                                         |
+| ~R~          | rename/move                          |                                         |
+| ~D~          | delete                               |                                         |
+| ~S~          | symlink                              |                                         |
+| ~g~          | refresh ("read aGain")               |                                         |
+| ~l~          | relist file at point                 |                                         |
+| ~s~          | sort toggle (~C-u~ to pass switches) |                                         |
+| ~(~          | toggle details                       |                                         |
+| ~A~          | search marked                        |                                         |
+| ~C-x C-q~    | switch to wdired                     |                                         |
+| ~C-c C-c~    | save wdired changes                  |                                         |
+| ~(~          | toggle details                       |                                         |
+| ~J~          | find files from here                 |                                         |
+| ~C-x M-o~    | hide/toggle uninteresting files      |                                         |
+| ~i~          | ~dired-maybe-insert-subdir~          | open subdir inside same window          |
+| ~SPC u K~    | ~dired-do-kill-lines~                | [from subdir's line] remove that subdir |
 
 ** hide unwanted files workflow
 
@@ -482,12 +480,17 @@ doubt, use whitespace.
 
 ~C-m~ acts as ~<return>~.
 
-* color
+* color & theming
 
-| ~custom-enabled-themes~ | [variable]      |                   |
-| ~(get-faces (point))~   | all faces       |                   |
-| ~, f h~                   | ~describe-face~ | [custom shortcut] |
-| ~, f l~ | ~list-faces-display~ | [custom] see all faces/colors |
+| ~custom-enabled-themes~ | [variable]           |                               |
+| ~(get-faces (point))~   | all faces            |                               |
+| ~, f h~                 | ~describe-face~      | [custom shortcut]             |
+| ~, f l~                 | ~list-faces-display~ | [custom] see all faces/colors |
+
+** reference
+
+- [[https://github.com/PhilipDaniels][Philip Daniels]]' [[http://philipdaniels.com/blog/2017/02/spacemacs---configuring-the-solarized-theme/][blog post]] on configuration.
+- [[https://magit.vc/manual/magit/Theming-Faces.html][magit manual on theming]]
 
 * Modes
 ** markdown

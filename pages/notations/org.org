@@ -9,7 +9,9 @@ path: "/org/"
 ---
 #+END_EXAMPLE
 
-* keys/misc
+* keys/misc, quick ref, hard to remember
+
+[[info:org#Specific%20header%20arguments][info:org#Specific header arguments]]
 
 |                              |                                                               |                                                                        |
 |------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
@@ -31,6 +33,16 @@ path: "/org/"
 | ~M-S-<left>~ & ~M-S-<right>~ | promote/demote heading or list element                        |                                                                        |
 | ~: [[http://example.com][ex]]~                       | use ~:~ at ^ to preserve no-formatting                        |                                                                        |
 | ~C-c -~                      | ~org-ctrl-c-minus~                                            | rotate list state (~org-cycle-list-bullet~) or other, context-senstive |
+
+** links
+
+[[info:org#Handling%20links][info:org#Handling links]]
+
+| ~C-c l~       | ~SPC a o l~ | ~org-store-link~    |
+| ~C-c C-l~     | ~SPC m i l~ | ~org-insert-link~   |
+| ~C-c C-o~     | ~SPC m l~   | ~org-open-at-point~ |
+| ~C-c C-x C-n~ |             | ~org-next-link~     |
+| ~C-c C-x C-p~ |             | ~org-previous-link~ |
 
 * Syntax
 
@@ -63,14 +75,6 @@ path: "/org/"
 
 * Babel
 
-** Results variables
-
-http://orgmode.org/manual/results.html
-
-#+BEGIN_SRC shell :results value code
-curl 127.0.0.1 --head
-#+END_SRC
-
 * code blocks/babel
 
 [[http://orgmode.org/manual/Working-with-source-code.html#Working-with-source-code][manual 14 - Working with source code]]
@@ -79,6 +83,10 @@ curl 127.0.0.1 --head
 | ~C-c '~     | ~org-edit-special~                   | open sub-editing buffer                              |
 | ~M-RET c~   | ~org-edit-src-exit~                  | close sub-editing buffer and return to source buffer |
 | ~SPC t C-c~ | ~my-toggle-org-babel-no-eval-ctrl-c~ | [custom] toggle no-eval/ctrl-c-ctrl-c on/off         |
+
+** code execution/ctrl-c-ctrl-c
+
+*** setup
 
 ~my-toggle-org-babel-no-eval-ctrl-c~ evaluation controls ~org-confirm-babel-evaluate~ and ~org-babel-no-eval-on-ctrl-c-ctrl-c~.
 
@@ -109,13 +117,17 @@ Change how ~ctrl-c-ctrl-c~ windows behave:
 (setq org-src-window-setup 'current-window)
 #+END_SRC
 
-[[https://org-babel.readthedocs.io/en/latest/eval/][org-babel.readthedocs.io]]
+*** reference
 
-[[http://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments][header arguments for code blocks]]
+- [[https://org-babel.readthedocs.io/en/latest/eval/][org-babel.readthedocs.io]]
+- [[http://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments][header arguments for code blocks]]
 
-#+BEGIN_SRC js
-let test = [1, 2];
-console.log(Math.max(...test));
+*** Results variables
+
+http://orgmode.org/manual/results.html
+
+#+BEGIN_SRC shell :results value code
+curl 127.0.0.1 --head
 #+END_SRC
 
 ** node adjustment
@@ -133,6 +145,16 @@ let { fruit, ...restItem } = obj;
 
 console.log(fruit);
 console.log(restItem);
+#+END_SRC
+
+* tangle
+
+[[info:org#Extracting%20source%20code][info:org#Extracting source code]]
+
+| ~C-c C-v t~ | ~org-babel-tangle~ |
+
+#+BEGIN_SRC js :tangle yes
+console.log('will be tangled');
 #+END_SRC
 
 * export
@@ -397,10 +419,9 @@ For example, to capture your comment into Org, I just highlight it in Pentadacty
 I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
 #+END_QUOTE
 
-* links
-[[http://ehneilsen.net/notebook/orgExamples/org-examples.html][examples and cookbook]]
-
-[[https://emacsclub.github.io/html/org_tutorial.html#sec-8-1][cheatsheet]]
+* reference
+- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][examples and cookbook]]
+- [[https://emacsclub.github.io/html/org_tutorial.html#sec-8-1][cheatsheet]]
 
 * misc
 
