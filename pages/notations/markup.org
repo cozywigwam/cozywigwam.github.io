@@ -1,15 +1,19 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-title: "Markdowns & Similar"
+title: "Markup"
 layout: notation
-description: Dialect Roundup
-path: "/markdown/"
+description: Wow, Riveting
+path: "/markup/"
 ---
+#+END_EXAMPLE
 
-# Quick Syntax Reference
+* Quick Syntax Reference
 
-## Basics
+** Basics
 
-```
+#+BEGIN_SRC
 | th   | th     | th    |
 | :--- | :---:  | ---:  |
 | left | middle | right |
@@ -27,30 +31,12 @@ path: "/markdown/"
 `code`
 
 [site](example.com)
-```
-
-| th   | th     | th    |
-| :--- | :---:  | ---:  |
-| left | middle | right |
-
-*italics*, _alt italics_
-
-**bold**, __alt bold__
-
-***bold italic***, ___alt bold italic___
-
-> quote
-
-~~strike through~~
-
-`code`
-
-[site](example.com)
+#+END_SRC
 
 
-# Dialects, variations
+* Dialects, variations
 
-## Chart
+** Chart
 
 | daring fireball          | Slack     | JIRA                   | SO                  |
 |--------------------------|-----------|------------------------|---------------------|
@@ -64,30 +50,29 @@ path: "/markdown/"
 | code block               | backticks | {code}..{code}         | indent              |
 | [site](example.com)      | n/a       | [site\vertexample.com] | [site](example.com) |
 
-## Markdown
+** Markdown
 
 Daring Fireball's:
 
-- [basics](http://daringfireball.net/projects/markdown/basics)
-- [syntax](http://daringfireball.net/projects/markdown/syntax)
+- [[http://daringfireball.net/projects/markdown/basics][basics]]
+- [[http://daringfireball.net/projects/markdown/syntax][syntax]]
 
-## GitHub
+** GitHub
 
-Uses "[GitHub flavored markdown]( target=)," aka GFM:
+[[https://github.github.com/gfm/][gfm spec]]
 
-- [syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
-- [Writing on GitHub](https://help.github.com/categories/writing-on-github/)
-- [Kramdown](http://kramdown.gettalong.org/)
-- [Kramdown parse info](http://kramdown.gettalong.org/parser/gfm.html)
+- [[https://help.github.com/articles/basic-writing-and-formatting-syntax/][syntax]]
+- [[https://help.github.com/categories/writing-on-github/][Writing on GitHub]]
+- [[http://kramdown.gettalong.org/][Kramdown]]
+- [[http://kramdown.gettalong.org/parser/gfm.html][Kramdown parse info]]
 
-
-## Stack Overflow
+** Stack Overflow
 
 Code blocks are four indented spaces.
 
-- Stack Overflow's [Markdown help](http://stackoverflow.com/editing-help).
+- Stack Overflow's [[http://stackoverflow.com/editing-help][Markdown help]].
 
-```
+#+BEGIN_SRC
 Here's an inline link to [duckduckgo](http://www.duckduckgo.com/).
 
 Here's a reference-style link to [duckduckgo][1].
@@ -96,43 +81,34 @@ Here's a very readable link to [duckduckgo][ddg].
 
   [1]: https://www.duckduckgo.com/
   [ddg]: https://www.duckduckgo.com/
-```
+#+END_SRC
 
-Here's an inline link to [duckduckgo](http://www.duckduckgo.com/).
+** Slack
 
-Here's a reference-style link to [duckduckgo][1].
-
-Here's a very readable link to [duckduckgo][ddg].
-
-  [1]: https://www.duckduckgo.com/
-  [ddg]: https://www.duckduckgo.com/
-
-## Slack
-
-[syntax](https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages) and [formatting](https://api.slack.com/docs/message-formatting)
+[[https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages][syntax]] and [[https://api.slack.com/docs/message-formatting][formatting]]
 
 Use single backticks for inline code/monospace, and triple backticks (fencing) for code blocks. Shift+enter for line breaks. Disable markup processing with `mrkdwn` set to `false`:
 
-```
+#+BEGIN_SRC
 > to blockquote one paragraph
 >>> to blockquote multiple paragraphs
-```
+#+END_SRC
 
-```json
+#+BEGIN_SRC json
 {
   "mrkdwn": false,
   "text": "*This will not be bold.* It will be surrounded gloriously with stars."
 }
-```
+#+END_SRC
 
-Note: Hyperlinking words and terms in a Slack message isn't supported. ([link](https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack))
+Note: Hyperlinking words and terms in a Slack message isn't supported. [[https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack][link]]
 
 
-## JIRA
+** JIRA
 
-[JIRA formatting](https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all)
+[[https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all][JIRA formatting]]
 
-```
+#+BEGIN_SRC
 {{inline-code}}
 
 {code} or {code:javascript}
@@ -158,20 +134,20 @@ of block quote
 * also bullet
 * also bullet
 
-# numbered
-# numbered
-```
+* numbered
+* numbered
+#+END_SRC
 
 
 
-## CommonMark
+** CommonMark
 
 An attempt "to specify Markdown syntax unambiguously."
 
-- [CommonMark on GitHub](https://github.com/jgm/CommonMark)
-- [CommonMark Spec](http://spec.commonmark.org/0.26/)
-- ["Dingus" (live tester)](http://spec.commonmark.org/dingus/)
+- [[https://github.com/jgm/CommonMark][CommonMark on GitHub]]
+- [[http://spec.commonmark.org/0.26/][CommonMark Spec]]
+- [[http://spec.commonmark.org/dingus/]["Dingus" (live tester)]]
 
-# Misc
+* Misc
 
 Ambiguity: https://meta.stackexchange.com/a/99637
