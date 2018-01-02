@@ -1,0 +1,37 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Graphs"
+layout: notation
+description: Start Small
+path: "/graphs/"
+---
+#+END_EXAMPLE
+
+* Graphviz & DOT
+
+#+BEGIN_SRC dot :file digraph-1.png :cmdline -Kdot -Tpng
+digraph {
+  "Zonotrichia leucophrys" -> Zonotrichia;
+  "Zonotrichia atricapilla" -> Zonotrichia;
+  "Melospiza melodia" -> Melospiza;
+  Zonotrichia -> Emberizidae;
+  Melospiza -> Emberizidae;
+  "Piranga ludoviciana" -> Piranga;
+  "Piranga olivacea" -> Piranga;
+  Piranga -> Thraupidae;
+  Emberizidae -> Passeridae;
+  Thraupidae -> Passeridae;
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:digraph-1.png]]
+
+
+** Reference
+
+[[https://graphviz.gitlab.io/_pages/doc/info/lang.html][DOT Language]]
+
+[[http://joy.pm/post/2017-09-17-a_graphviz_primer/][blog post]] by [[https://github.com/rafadc][Rafa de Castro]]
