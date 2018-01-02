@@ -350,6 +350,9 @@ If N is negative, this is a more recent kill.
 | ~C~          | copy                                 |                                         |
 | ~R~          | rename/move                          |                                         |
 | ~D~          | delete                               |                                         |
+| ~O~          | ~dired-do-chown~                     |                                         |
+| ~G~          | ~dired-do-chgrp~                     |                                         |
+| ~M~          | ~dired-do-chmod~                     | chmod                                   |
 | ~S~          | symlink                              |                                         |
 | ~g~          | refresh ("read aGain")               |                                         |
 | ~l~          | relist file at point                 |                                         |
