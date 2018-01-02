@@ -171,6 +171,10 @@ There are text properties here:
 |  27 | escape          | `ESC`        | `\e` (GCC only) | `^[` |
 | 127 | delete          | `DEL`        |                 | `^?` |
 
+# Emoji
+
+[Cheat sheet](https://www.youtube.com/watch?v=KdcXu_RdKI0)
+
 # Misc
 
 |||
