@@ -1,0 +1,25 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Algorithms"
+layout: notation
+description: Basics
+path: "/algorithms/"
+---
+#+END_EXAMPLE
+
+* Big O
+
+O(n) - linear time, e.g. simple search
+O(log n) - log time, e.g. binary search
+O(n * log n) - fast sorting algorithm, e.g. quicksort
+O(n2
+
+* Binary Search
+
+Split the results in half, and ask higher or lower?
+
+* Selection Sort
+
+Run through the whole list to select the highest/lowest, and repeat /n/ times.

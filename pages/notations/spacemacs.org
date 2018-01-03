@@ -733,7 +733,6 @@ Global ~.ctags~ file is in dotfiles, local ~.ctags~ file per project is respecte
 [[https://github.com/r-darwish/dcp/blob/000856dc0622e70b576cceb87322c45d37b7d73f/.spacemacs][r-darwish]]
 
 * Emacs Lisp
-
 ** lists
 
 Delete an item with:
@@ -743,7 +742,6 @@ Delete an item with:
 #+END_SRC
 
 List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list Structure]] and [[https://www.emacswiki.org/emacs/ListModification][Emacs Wiki List Modifications]].
-
 
 ** Local variables
 
@@ -756,12 +754,15 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 # end:
 #+END_EXAMPLE
 
-
 ** lisp state
 
 | ~SPC k .~ | enter lisp state |
 | ~j~ ~k~   | navigate         |
 | ~C-[~     | exit             |
+
+** Reference
+
+[[https://twitter.com/ErgoEmacs][ErgoEmacs/Xah Lee]]'s [[http://ergoemacs.org/emacs/elisp_basics.html][Emacs Lisp Basics]]
 
 * misc
 

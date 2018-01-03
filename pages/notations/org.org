@@ -157,6 +157,25 @@ console.log(restItem);
 console.log('will be tangled');
 #+END_SRC
 
+** tangle all files in a directory
+
+[[https://emacs.stackexchange.com/a/20733/15295][SO answer]]
+
+#+BEGIN_SRC emacs-lisp
+(defun my/tangle-dotfiles ()
+  "If the current file is in '~/.dotfiles', the code blocks are tangled"
+  (when (equal (file-name-directory (directory-file-name buffer-file-name))
+               (concat (getenv "HOME") "/.dotfiles/"))
+    (org-babel-tangle)
+    (message "%s tangled" buffer-file-name)))
+
+(add-hook 'after-save-hook #'my/tangle-dotfiles)
+#+END_SRC
+
+** Reference
+
+[[https://twitter.com/fredgiasson][Frederick Giasson]]'s blog post [[http://fgiasson.com/blog/index.php/2016/10/26/literate-clojure-programming-tangle-all-in-org-mode/][Literate {Clojure} Programming: Tangle All in Org-mode]]
+
 * export
 
 [[http://orgmode.org/manual/Easy-templates.html#Easy-templates][Easy Templates]]
