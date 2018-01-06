@@ -2,10 +2,7 @@
 public/
 
 # dev
-test.org
+test.*
 
 # exports
-markup.md
-org.md
-spacemacs.md
-test.md
+pages/notations/*.md

@@ -1,0 +1,331 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "System"
+layout: notation
+description: Self-discovery
+path: "/system/"
+---
+#+END_EXAMPLE
+
+* Know thyself
+  :PROPERTIES:
+  :CUSTOM_ID: know-thyself
+  :END:
+
+#+BEGIN_SRC sh
+    printenv
+    history
+    id
+    w
+    uname a
+    who -a
+    last -a
+    getent passwd
+    whoami
+    pwd
+    cat /etc/issue
+    cat /etc/*release*
+    cat /proc/version
+    dpkg -get-selections
+    mount
+    df -h
+    iostat -c 2
+
+    # macOS
+    dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
+    dscl . list /Users | grep -v '_'
+#+END_SRC
+
+* Examination
+  :PROPERTIES:
+  :CUSTOM_ID: examination
+  :END:
+
+** Bower
+   :PROPERTIES:
+   :CUSTOM_ID: bower
+   :END:
+
+#+BEGIN_SRC sh
+    bower list
+    bower search
+    bower install
+    bower uninstall
+    bower prune
+#+END_SRC
+
+** Brew
+   :PROPERTIES:
+   :CUSTOM_ID: brew
+   :END:
+
+#+BEGIN_SRC sh
+    man brew
+    brew list
+    brew list postgres
+    brew search TERM
+    brew leaves # "Show installed formulae that are not dependencies of another installed formula."
+#+END_SRC
+
+** composer
+   :PROPERTIES:
+   :CUSTOM_ID: composer
+   :END:
+
+#+BEGIN_SRC sh
+    composer # see commands
+    composer show # because list would be too easy
+#+END_SRC
+
+** dpkg / apt-get
+   :PROPERTIES:
+   :CUSTOM_ID: dpkg-apt-get
+   :END:
+
+#+BEGIN_SRC sh
+    dpkg --get-selections | grep -v deinstall
+    dpkg --get-selections | grep -i php
+#+END_SRC
+
+** elasticsearch
+   :PROPERTIES:
+   :CUSTOM_ID: elasticsearch
+   :END:
+
+[[https://www.elastic.co/guide/en/elasticsearch/reference/current/_cluster_health.html][docs]]
+
+#+BEGIN_SRC sh
+    curl 'localhost:9200/_cat/health?v'
+    curl 'localhost:9200/_cat/nodes?v'
+    curl 'localhost:9200/_cat/indices?v'
+
+    # deletion
+    curl -XDELETE localhost:9200/app_name/resource/123
+    curl -XDELETE localhost:9200/app_name
+    curl -XDELETE localhost:9200/_all
+#+END_SRC
+
+** gems
+   :PROPERTIES:
+   :CUSTOM_ID: gems
+   :END:
+
+#+BEGIN_SRC sh
+    gem env
+#+END_SRC
+
+** n (instead of nvm)
+   :PROPERTIES:
+   :CUSTOM_ID: n-instead-of-nvm
+   :END:
+
+#+BEGIN_SRC sh
+    n # arrow keys and select
+    n --help
+    n list
+    n stable # use/install stable
+    n latest # use/install latest
+    n rm 0.9.4 v0.10.0 # remove
+#+END_SRC
+
+** npm
+   :PROPERTIES:
+   :CUSTOM_ID: npm
+   :END:
+
+#+BEGIN_SRC sh
+    npm help
+    npm help <cmd>
+    npm list -g --depth=0
+    npm outdated -g --depth=0
+    sudo npm update -g npm
+#+END_SRC
+
+*** Change global path
+    :PROPERTIES:
+    :CUSTOM_ID: change-global-path
+    :END:
+
+Originally, the global path is =/usr/local/lib/node_modules/=. Change it
+with:
+
+#+BEGIN_SRC sh
+    npm config set prefix '~/.npm-global' # updates ~/.npmrc
+#+END_SRC
+
+Then add =~/.npm-global/bin= to path.
+
+** pm2
+   :PROPERTIES:
+   :CUSTOM_ID: pm2
+   :END:
+
+#+BEGIN_SRC sh
+    pm2 list
+    pm2 restart [name]
+#+END_SRC
+
+** rbenv
+   :PROPERTIES:
+   :CUSTOM_ID: rbenv
+   :END:
+
+#+BEGIN_SRC sh
+    rbenv # quick help
+    rbenv install -l # list
+    rbenv install 2.3.1
+    rbenv version # see current version
+    rbenv versions # like `ls ~/.rbenv/versions/`
+
+    rbenv shell # just a helper for RBENV_VERSION
+    rbenv local # adds .ruby-version project file
+    rbenv global
+#+END_SRC
+
+** rvm
+   :PROPERTIES:
+   :CUSTOM_ID: rvm
+   :END:
+
+#+BEGIN_SRC sh
+    ruby -v
+    rvm list
+    gem list
+#+END_SRC
+
+** semver
+   :PROPERTIES:
+   :CUSTOM_ID: semver
+   :END:
+
+Range specifiers:
+
+| ~    | minor   | =~1.2.3 ≈ 1.2.x=   | =~1.2.3 ≉ 1.3.0=   |
+| \^   | major   | =^1.2.3 ≈ 1.x.x=   | =^1.2.3 ≉ 2.0.0=   |
+
+** ssh
+   :PROPERTIES:
+   :CUSTOM_ID: ssh
+   :END:
+
+#+BEGIN_SRC sh
+    eval `ssh-agent`
+    ssh-add ~/.ssh/my_id_rsa
+    ssh-add -l
+    kill [ssh-agent pid]
+#+END_SRC
+
+* docker
+  :PROPERTIES:
+  :CUSTOM_ID: docker
+  :END:
+
+Docker's changing IP address on macOS is =docker.for.mac.localhost=
+([[https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds][reference]]).
+
+** Reference
+   :PROPERTIES:
+   :CUSTOM_ID: reference
+   :END:
+
+[[https://runnable.com/blog/9-common-dockerfile-mistakes][common
+mistakes]]
+
+* macOS
+  :PROPERTIES:
+  :CUSTOM_ID: macos
+  :END:
+
+settings/options defaults from
+[[https://github.com/mathiasbynens/dotfiles/blob/master/.macos][Mathias
+Bynens]]
+
+** Observe USB in the GUI:
+   :PROPERTIES:
+   :CUSTOM_ID: observe-usb-in-the-gui
+   :END:
+
+- open Audio MIDI Setup application
+- cmd + 1 - Audio Devices (input/output, built-in microphone)
+- cmd + 2 - MIDI Studio - see USB, Bluetooth, and Network-connected
+  devices... test MIDI
+
+#+BEGIN_SRC sh
+    # observe USB
+    system_profiler SPUSBDataType
+
+    # routing table
+    netstat -rn # like Linux `route -n`
+
+    # when camera stops working
+    ps -ax | grep i vdcassistant
+    kill [pid]
+
+    # users with uid 5xx
+    dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
+    dscl # then `cd Contact`, `cd Users`, `read [username]`
+
+    # hide/show directories in Finder
+    chflags hidden Pictures
+    chflags nohidden Pictures
+
+    # safely remove a volume
+    diskutil list
+    diskutil eject disk2 # disk2 is [device]
+#+END_SRC
+
+** Daemons & Agents
+   :PROPERTIES:
+   :CUSTOM_ID: daemons-agents
+   :END:
+
+=brew services list=
+
+=brew services run|start|stop|restart formula|-all=
+
+Daemons: =launchd= and =launchctl=. =brew= plugs into =launchctl= via
+=brew services=.
+
+Launched at boot: =/Library/LaunchDaemons=
+
+Launched at login: =~/Library/LaunchAgents=
+
+** Dictionary
+   :PROPERTIES:
+   :CUSTOM_ID: dictionary
+   :END:
+
+Written in [[http://www.relaxng.org/][RELAX NG]]
+
+- [[https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/DictionaryServicesProgGuide/Introduction/Introduction.html][Apple
+  documentation]]
+- [[https://github.com/afischer/osx-dictionaries][Andrew Fischer's
+  repo]]
+
+** Misc
+   :PROPERTIES:
+   :CUSTOM_ID: misc
+   :END:
+
+| =cmd + shift + V=       | paste with stripped formatting (might need alt sometimes, not sure here)   |
+| =~/Library/Services/=   | Location of AppleScript services (.workflow files)                         |
+
+* Misc
+  :PROPERTIES:
+  :CUSTOM_ID: misc-1
+  :END:
+
+#+BEGIN_SRC sh
+    history -c
+
+    identify -format '%w %h' img.png ## measure/get img pixel dims
+
+    scp -r <local_spec> <remote_spec>
+
+    # vagrant
+    vagrant ssh-config # see hostname, port, SSH Key location
+#+END_SRC
+
+Vagrant insecure key: =~/.vagrant.d/insecure_private_key=
