@@ -248,3 +248,18 @@ Mickey Peterson's [Mastering Eshell](https://www.masteringemacs.org/article/comp
 |||
 |-|-|
 | `(customize-group 'man)` |
+
+# Scripting
+
+```sh
+#! /bin/bash
+
+FILE=$1
+ANOTHER_FILE=$2
+
+exec 4> "$ANOTHER_FILE"
+
+while read -ru 3 LINE; do
+    echo "$LINE" >&4
+done 3< "$FILE"
+```
