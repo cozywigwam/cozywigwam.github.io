@@ -313,6 +313,20 @@ Eshell]]
   :CUSTOM_ID: scripting
   :END:
 
+** Write each line to stdout
+
+#+BEGIN_SRC sh
+    #! /bin/bash
+
+    FILE=$1
+
+    while read -ru 3 LINE; do
+        echo "$LINE"
+    done 3< "$FILE"
+#+END_SRC
+
+** Write each line to another file
+
 #+BEGIN_SRC sh
     #! /bin/bash
 
