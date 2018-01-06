@@ -11,7 +11,7 @@ path: "/command-line/"
 
 [dotfile](https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc)
 
-```bash
+``` bash
 ack --help | less
 
 # ack [options] PATTERN [FILE...]
@@ -26,10 +26,12 @@ ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 
 ## ag
 
-To search `node_modules/` use `-a`. For absolutely everything (including binaries/hidden), use `-u`. Use `-U` to disrepect `.gitignore`.
+To search `node_modules/` use `-a`. For absolutely everything (including
+binaries/hidden), use `-u`. Use `-U` to disrepect
+`.gitignore`.
 
 |                                |                                                             |
-|--------------------------------|-------------------------------------------------------------|
+| ------------------------------ | ----------------------------------------------------------- |
 | `-a` `--all-files`             | doesn't respect ignore files; excludes hidden files, though |
 | `-c`                           | count                                                       |
 | `-Cn`                          | context of `n` lines                                        |
@@ -44,16 +46,20 @@ To search `node_modules/` use `-a`. For absolutely everything (including binarie
 
 Flags `-c` & `-b`: cookie stuff
 
-Flag `-d`, `--data <data>`: (HTTP)  Sends  the  specified data in a POST request to the HTTP server, in the same way that a browser does when a user has filled in an HTML form and presses the submit button. This will cause curl to pass the data to the server using the content-type `application/x-www-form-urlencoded`.  Compare to `-F`, `--form`.
+Flag `-d`, `--data <data>`: (HTTP) Sends the specified data in a POST
+request to the HTTP server, in the same way that a browser does when a
+user has filled in an HTML form and presses the submit button. This will
+cause curl to pass the data to the server using the content-type
+`application/x-www-form-urlencoded`. Compare to `-F`, `--form`.
 
 ## jobs
 
-|||
-|-|-|
-| `<C-z>` | "suspend" character |
+|         |                             |
+| ------- | --------------------------- |
+| `<C-z>` | "suspend" character         |
 | `<C-y>` | "delayed suspend" character |
 
-```bash
+``` bash
 %1 # shorthand for `fg %1`
 %1 & # shorthand for `bg %1`
 jobs -l # show PID
@@ -61,20 +67,21 @@ jobs -l # show PID
 
 ## signals
 
-from [Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
+from [Linux Signal command
+library](http://linux.about.com/od/commands/l/blcmdl7_signal.htm)
 
-| Signal  |    Value | Action | Comment                                    |
-|---------|----------|--------|--------------------------------------------|
-| SIGINT  |        2 | Term   | Interrupt from keyboard                    |
-| SIGQUIT |        3 | Core   | Quit from keyboard                         |
-| SIGILL  |        4 | Core   | Illegal Instruction                        |
-| SIGABRT |        6 | Core   | Abort signal from abort(3)                 |
-| SIGFPE  |        8 | Core   | Floating point exception                   |
-| SIGKILL |        9 | Term   | Kill signal                                |
-| SIGSEGV |       11 | Core   | Invalid memory reference                   |
-| SIGPIPE |       13 | Term   | Broken pipe: write to pipe with no readers |
-| SIGALRM |       14 | Term   | Timer signal from alarm(2)                 |
-| SIGTERM |       15 | Term   | Termination signal                         |
+| Signal  | Value    | Action | Comment                                    |
+| ------- | -------- | ------ | ------------------------------------------ |
+| SIGINT  | 2        | Term   | Interrupt from keyboard                    |
+| SIGQUIT | 3        | Core   | Quit from keyboard                         |
+| SIGILL  | 4        | Core   | Illegal Instruction                        |
+| SIGABRT | 6        | Core   | Abort signal from abort(3)                 |
+| SIGFPE  | 8        | Core   | Floating point exception                   |
+| SIGKILL | 9        | Term   | Kill signal                                |
+| SIGSEGV | 11       | Core   | Invalid memory reference                   |
+| SIGPIPE | 13       | Term   | Broken pipe: write to pipe with no readers |
+| SIGALRM | 14       | Term   | Timer signal from alarm(2)                 |
+| SIGTERM | 15       | Term   | Termination signal                         |
 | SIGUSR1 | 30,10,16 | Term   | User-defined signal 1                      |
 | SIGUSR2 | 31,12,17 | Term   | User-defined signal 2                      |
 | SIGCHLD | 20,17,18 | Ign    | Child stopped or terminated                |
@@ -84,17 +91,15 @@ from [Linux Signal command library](http://linux.about.com/od/commands/l/blcmdl7
 | SIGTTIN | 21,21,26 | Stop   | tty input for background process           |
 | SIGTTOU | 22,22,27 | Stop   | tty output for background process          |
 
-
 ## less
 
-|||
-|-|-|
+|       |                                          |
+| ----- | ---------------------------------------- |
 | `M-u` | toggle search highlighting (like `:noh`) |
-
 
 ## lsof
 
-```bash
+``` bash
 lsof -h
 
 lsof /dir/or/file
@@ -111,10 +116,9 @@ lsof -u charadriidae # user
 kill -9 `lsof -t -u charadriidae`
 ```
 
-
 ## Misc
 
-```bash
+``` bash
 # dir tree
 tree -I node
 tree -d .
@@ -130,9 +134,10 @@ ytdl --extract-audio --audio-format mp3 <url>
 
 ### macOS
 
-[macOS Default Values Command Reference](https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md)
+[macOS Default Values Command
+Reference](https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md)
 
-```sh
+``` bash
 # sed requires `-i`
 sed -i '.bak' 's/oldterm/newterm/g' [filename] 
 sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
@@ -141,14 +146,13 @@ sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
 cp my-custom-sound.mp3 ~/Library/Sounds/
 ```
 
-
 # shells
 
 ## zsh
 
 [dotfile](https://github.com/cozywigwam/dotfiles/blob/master/.zshrc)
 
-```bash
+``` bash
 man zsh
 man zshbuiltins
 man zshoptions
@@ -162,12 +166,12 @@ bindkeys
 # setopt HIST_IGNORE_SPACE
 ```
 
-
 ### ZLE
 
-> The `bindkey` command manipulates keymaps and key bindings ([link](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins))
+> The `bindkey` command manipulates keymaps and key bindings
+> ([link](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins))
 
-```bash
+``` bash
 man zsh
 man zshbuiltins
 man zshoptions
@@ -192,66 +196,69 @@ Use `\e` or `^[` to indicate Meta key.
 
 Modes: `viins`, `vicmd`, `emacs`, others.
 
-|||
-|-|-|
-`<M-x>` | emacs & [mapped] viins: execute `execute-named-cmd`
-`:` | vicmd: execute `execute-named-cmd`
+|         |                                                       |
+| ------- | ----------------------------------------------------- |
+| `<M-x>` | emacs & \[mapped\] viins: execute `execute-named-cmd` |
+| `:`     | vicmd: execute `execute-named-cmd`                    |
 
 #### Reference
 
 [ZLE](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zsh-Line-Editor)
 
-[docs - ZLE Builtins](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins)
+[docs - ZLE
+Builtins](http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins)
 
-[Serge Gebhardt](https://chaseonline.chase.com/) regarding [ZLE & creating custom widgets](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/)
-
-
+[Serge Gebhardt](https://chaseonline.chase.com/) regarding [ZLE &
+creating custom
+widgets](http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/)
 
 ## emacs
 
 ### term
 
-|||
-|-|-|
+|           |                     |
+| --------- | ------------------- |
 | `C-c C-j` | switch to line mode |
 | `C-c C-k` | switch to char mode |
 
 ### eshell
 
 |                      |                                                               |
-|----------------------|---------------------------------------------------------------|
-| `C-p`, `C-n`         | previous/next input [custom]                                  |
+| -------------------- | ------------------------------------------------------------- |
+| `C-p`, `C-n`         | previous/next input \[custom\]                                |
 | `M-p`, `M-n`         | previous/next match                                           |
 | `C-c C-p`, `C-c C-n` | previous/next prompt                                          |
 | `C-u 0 C-l`          | recenter prompt to top with zero arg to `recenter-top-bottom` |
-| `C-u`                | [insert mode] universal-argument                              |
-| `f1 k`               | [insert mode] `describe-key`                                  |
+| `C-u`                | \[insert mode\] universal-argument                            |
+| `f1 k`               | \[insert mode\] `describe-key`                                |
 | `SPC b C-r`          | `rename-buffer`                                               |
 
 #### alias
 
-Emacs Wiki: https://www.emacswiki.org/emacs/EshellAlias
+Emacs Wiki: <https://www.emacswiki.org/emacs/EshellAlias>
 
-For the aliases file, see `eshell-aliases-file`: `~/.emacs.d/eshell/alias`
+For the aliases file, see `eshell-aliases-file`:
+`~/.emacs.d/eshell/alias`
 
-```sh
+``` bash
 alias customls 'ls -la $*'
 which customls # see it
 ```
 
 #### reference
 
-Mickey Peterson's [Mastering Eshell](https://www.masteringemacs.org/article/complete-guide-mastering-eshell)
+Mickey Peterson's [Mastering
+Eshell](https://www.masteringemacs.org/article/complete-guide-mastering-eshell)
 
 ### man/woman
 
-|||
-|-|-|
-| `(customize-group 'man)` |
+|                          |  |
+| ------------------------ |  |
+| `(customize-group 'man)` |  |
 
 # Scripting
 
-```sh
+``` bash
 #! /bin/bash
 
 FILE=$1
