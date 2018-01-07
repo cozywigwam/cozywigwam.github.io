@@ -24,6 +24,8 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
+| ~f1 l~              | ~view-lossage~                              |
+| ~SPC h d l~         | ~spacemacs/describe-last-keys~              |
 | ~c~                 | [Info mode] ~Info-copy-current-node-name~   |
 | ~M-x~               | [insert-mode] ~helm-M-x~                    |
 | ~C-y~               | [isearch-mode] ~yank-kill~                  |
