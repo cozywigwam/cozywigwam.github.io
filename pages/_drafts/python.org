@@ -1,0 +1,23 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Python"
+layout: notation
+description: Better Than Nokia Snake
+path: "/python/"
+---
+#+END_EXAMPLE
+
+* Math
+** Rounding up
+
+[[https://stackoverflow.com/a/23590097/1052412][SO answer]] to avoid ~import math~
+
+#+BEGIN_SRC python
+int(21 / 5)
+int(21 / 5) + (21 % 5 > 0)
+
+# integer division
+21 // 5 + (21 % 5 > 0)
+#+END_SRC
