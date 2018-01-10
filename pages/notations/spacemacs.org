@@ -80,6 +80,8 @@ type ls
 | ~C-x b~   | ~helm-buffers-list~                                 | &nbsp;                                          |
 | ~SPC b W~ | ~spacemacs/goto-buffer-workspace~                   | go to where that buffer is displayed (if it is) |
 | ~SPC B b~ | ~spacemacs-layouts/non-restricted-buffer-list-helm~ | &nbsp;                                          |
+| -C-x C-b~ | ~list-buffer~                                       | Buff mode                                       |
+| ~~        | [custom] ~ibuffer~                                  | buffer dired                                    |
 
 *** projects
 

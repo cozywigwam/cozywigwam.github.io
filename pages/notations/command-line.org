@@ -308,6 +308,61 @@ Eshell]]
 
 | =(customize-group 'man)=   |    |
 
+* path
+
+#+BEGIN_SRC shell
+
+[[https://superuser.com/a/753948/450439][SO answer]]
+
+# from https://superuser.com/a/753948/450439
+pathappend() {
+    for ARG in "$@"
+    do
+        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+            PATH="${PATH:+"$PATH:"}$ARG"
+        fi
+    done
+}
+pathprepend() {
+    for ARG in "$@"
+    do
+        if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+            PATH="$ARG${PATH:+":$PATH"}"
+        fi
+    done
+}
+
+pathappend $HOME/local/bin /usr/local/bin /opt/local/bin /opt/local/sbin
+#+END_SRC
+
+* startup
+
+From [[https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/][The Lumber Room]] post
+
+|                  | int. login | int. non-login | script |
+|------------------+------------+----------------+--------|
+| /etc/profile     | A          |                |        |
+| /etc/bash.bashrc |            | A              |        |
+| ~/.bashrc        |            | B              |        |
+| ~/.bash_profile  | B1         |                |        |
+| ~/.bash_login    | B2         |                |        |
+| ~/.profile       | B3         |                |        |
+| BASH_ENV         |            |                | A      |
+| ~/.bash_logout   | C          |                |        |
+
+|               | int. login | int. non-login | script |
+|---------------+------------+----------------+--------|
+| /etc/zshenv   | A          | A              | A      |
+| ~/.zshenv     | B          | B              | B      |
+| /etc/zprofile | C          |                |        |
+| ~/.zprofile   | D          |                |        |
+| /etc/zshrc    | E          | C              |        |
+| ~/.zshrc      | F          | D              |        |
+| /etc/zlogin   | G          |                |        |
+| ~/.zlogin     | H          |                |        |
+| ~/.zlogout    | I          |                |        |
+| /etc/zlogout  | J          |                |        |
+
 * Scripting
   :PROPERTIES:
   :CUSTOM_ID: scripting
