@@ -736,6 +736,10 @@ Toggle ~auto-fill-mode~ with ~SPC t F~ to "wrap" as you type; ~comment-auto-fill
 
 [[https://stackoverflow.com/a/11969862/1052412][SO reference]]
 
+* skewer
+
+sample setup with html: [[https://emacs.stackexchange.com/a/2515/15295][SO]]
+
 * tags/ctags
 
 See variable ~tags-table-list~. 
