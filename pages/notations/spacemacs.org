@@ -561,7 +561,7 @@ prevent/don't auto-add quotes/quotation marks after typing ~=~ in JSX attributes
 
 | ~SPC m h h~ | ~elisp-slime-nav-describe-elisp-thing-at-point~ | help with thing at point |
 
-* helm and helm-projectile
+* helm
 
 [[https://github.com/emacs-helm/helm/wiki][Wiki]]
 
@@ -647,11 +647,6 @@ NOTE: seems like marking multiple files and then opening all buffers in their ow
 | ~C-x C-b~ | (in helm) resume different helm buffer                          |
 | ~C-s~     | (from helm-projectile ~SPC p p~) start ag search from directory |
 
-** helm projectile project
-
-| ~SPC p I~ | ~projectile-invalidate-cache~ | empty ~projectile-projects-cache~ |
-| ~C-d~     | jump to dired                 |                                   |
-
 ** helm ag
 
 Ignore stuff with ~.agignore~. Make searches oase sensitive with ~-s~.
@@ -690,6 +685,12 @@ Ignore stuff with ~.agignore~. Make searches oase sensitive with ~-s~.
 
 | ~*dired~  | filter major-mode dired         |
 | ~*!dired~ | filter exclude major-mode dired |
+
+* projectile
+
+| -         | ~projectile-discover-projects-in-directory~ | add projects contained in dir     |
+| ~SPC p I~ | ~projectile-invalidate-cache~               | empty ~projectile-projects-cache~ |
+| ~C-d~     | jump to dired                               |                                   |
 
 * company
 
