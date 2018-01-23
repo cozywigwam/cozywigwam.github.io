@@ -1,5 +1,10 @@
-#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
 #+EXCLUDE_TAGS: no_export
+* COMMENT Local Variables
+  # Local Variables:
+  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
+  # End:
 #+BEGIN_EXAMPLE
 ---
 title: "Algorithms"
@@ -11,10 +16,10 @@ path: "/algorithms/"
 
 * Big O
 
-O(n) - linear time, e.g. simple search
-O(log n) - log time, e.g. binary search
-O(n * log n) - fast sorting algorithm, e.g. quicksort
-O(n2
+- O(n) - linear time, e.g. simple search
+- O(log n) - log time, e.g. binary search
+- O(n * log n) - fast sorting algorithm, e.g. quicksort
+- O(n2
 
 * Binary Search
 
@@ -45,9 +50,11 @@ print binary_search(my_list, 9)
 
 Run through the whole list to select the highest/lowest, and repeat /n/ times.
 
+** python
+
 #+BEGIN_SRC python
 def findSmallest(arr):
-  smallest = arr[0]
+  # smallest = arr[0]
   smallest_index = 0
   for i in range(1, len(arr)):
     if arr[i] < smallest:
@@ -65,6 +72,40 @@ def selectionSort(arr):
 print selectionSort([5, 3, 6, 2, 10])
 #+END_SRC
 
+** javascript
+
+#+BEGIN_SRC js
+  // array to sort
+  var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+
+  // swap function helper
+  function swap(array, i, j) {
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  function selectionSort(array) {
+    for(var i = 0; i < array.length; i++) {
+      var min = i;
+      for(var j = i + 1; j < array.length; j++) {
+        if(array[j] < array[min]) {
+          min = j;
+        }
+      }
+      if(i !== min) {
+        swap(array, i, min);
+      }
+    }
+    return array;
+  }
+
+  console.log(selectionSort(array));
+#+END_SRC
+
+#+RESULTS:
+: [1 (\, 2) (\, 3) (\, 4) (\, 5) (\, 6) (\, 7) (\, 8) (\, 9) (\, 10)]
+
 * Quicksort
 
 #+BEGIN_SRC python
@@ -79,5 +120,5 @@ def quicksort(array):
 
     return quicksort(less) + [pivot] + quicksort(greater)
 
-  print quicksor([10, 5, 2, 3])
+  print quicksort([10, 5, 2, 3])
 #+END_SRC
