@@ -704,11 +704,27 @@ Spacelayers' ~auto-completion~ mode adds ~indent-for-tab-command~ to TAB (~(kbd 
 | ~SPC i s n~ | ~yas-new-snippet~             |                     |
 | ~SPC i s h~ | ~spacemacs/helm-yas~          | major mode snippets |
 
+** placeholder syntax
+
+[[joaotavora.github.io/yasnippet/snippet-development.html][manual]]
+
+#+BEGIN_SRC
+# -*- mode: snippet -*-
+# name: duck-wiki
+# key: dw
+# --
+https://duckduckgo.com/?q=!ducky+site:en.wikipedia.org+${0:query}
+#+END_SRC
+
+** Misc
+
+My snippets are in ~.emacs.d/private/snippets/~. Add ~.yas-parents~ file in a dir to pull in its snippets. Add ~.yas-skip~ to ignore snippets in a directory.
+
+** Reference
+
 [[http://joaotavora.github.io/yasnippet/snippet-development.html][docs]]
 
 [[https://github.com/joaotavora/yasnippet/issues/585][removing snippets]]
-
-My snippets are in ~.emacs.d/private/snippets/~. Add ~.yas-parents~ file in a dir to pull in its snippets. Add ~.yas-skip~ to ignore snippets in a directory.
 
 * git
 

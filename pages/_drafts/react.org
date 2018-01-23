@@ -675,3 +675,7 @@ This article was peer reviewed by Tim Severien and Giulio Mainardi. Thanks to al
 Pavels Jelisejevs
 
 Pavels is a software developer from Riga, Latvia, with a keen interest for everything web-related. His interests range from back-end to front-end development, as well as analysis and automation. If you have something to discuss, you can always reach him via Facebook or LinkedIn.
+
+* performance
+
+benchmarks comparison generator: https://necolas.github.io/react-native-web/benchmarks/
