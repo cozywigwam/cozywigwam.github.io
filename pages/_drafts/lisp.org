@@ -1,0 +1,14 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Lisp"
+layout: notation
+description: More Parens
+path: "/lisp/"
+---
+#+END_EXAMPLE
+
+#+BEGIN_SRC emacs-lisp
+(setq x 3)
+#+END_SRC

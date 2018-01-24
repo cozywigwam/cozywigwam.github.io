@@ -1,0 +1,22 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Functional"
+layout: notation
+description: Compy
+path: "/functional/"
+---
+#+END_EXAMPLE
+
+* Functional Programming in Javascript
+Luis Atencio, Manning
+
+[[https://manning-content.s3.amazonaws.com/download/f/3b00e17-1d45-4091-a86d-35b31222699a/Atencio_FuntionalProgrammingInJavaScript_Err13.html][errata]]
+
+** 5 - Design Patterns Against Complexity
+
+*** 5.2.1 - Wrapping Unsafe Values
+
+#+BEGIN_SRC js
+#+END_SRC

@@ -1,0 +1,29 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Databases"
+layout: notation
+description: bit byte
+path: "/databases/"
+---
+#+END_EXAMPLE
+
+* MySQL
+
+** config
+
+- /etc/mysql/mysql.cnf
+- /etc/mysql/conf.d/mysql.cnf
+
+** See charset/collation
+
+from [[https://stackoverflow.com/a/38996782/1052412][SO]]
+
+#+BEGIN_SRC sql
+SELECT SCHEMA_NAME 'database', default_character_set_name 'charset', DEFAULT_COLLATION_NAME 'collation' FROM information_schema.SCHEMATA;
+#+END_SRC
+
+*** ref
+
+[[https://truongtx.me/2014/08/23/setup-emacs-as-an-sql-database-client][blog post]]
