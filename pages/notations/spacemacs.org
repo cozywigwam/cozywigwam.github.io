@@ -487,6 +487,11 @@ doubt, use whitespace.
 
 ~C-m~ acts as ~<return>~.
 
+** info + keymap
+
+Malabarba answer on [[https://emacs.stackexchange.com/a/654/15295][SO]]:
+
+
 * color & theming
 
 | ~custom-enabled-themes~ | [variable]           |                               |
@@ -691,6 +696,12 @@ Ignore stuff with ~.agignore~. Make searches oase sensitive with ~-s~.
 | -         | ~projectile-discover-projects-in-directory~ | add projects contained in dir     |
 | ~SPC p I~ | ~projectile-invalidate-cache~               | empty ~projectile-projects-cache~ |
 | ~C-d~     | jump to dired                               |                                   |
+
+* latex
+
+** ref
+
+[[https://mssun.me/][blog post]] by Dr. Mingshen Sun.
 
 * company
 
