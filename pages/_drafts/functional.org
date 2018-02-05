@@ -9,6 +9,40 @@ path: "/functional/"
 ---
 #+END_EXAMPLE
 
+* Ramda
+
+** Identity
+
+#+BEGIN_SRC js
+function _isPlaceholder(a) {
+  return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
+}
+
+function _identity(x) {
+  return x;
+}
+
+function _curry1(fn) {
+  return function f1(a) {
+    if (arguments.length === 0 || _isPlaceholder(a)) {
+      return f1;
+    } else {
+      return fn.apply(this, arguments);
+    }
+  };
+}
+
+var identity = _curry1(_identity);
+
+const val = 5;
+const iVal = identity(val);
+console.log('iVal', iVal);
+#+END_SRC
+
+#+RESULTS:
+: iVal 5
+: undefined
+
 * Functional Programming in Javascript
 Luis Atencio, Manning
 

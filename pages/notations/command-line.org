@@ -22,16 +22,11 @@ path: "/command-line/"
 [[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc][dotfile]]
 
 #+BEGIN_SRC sh
-    ack --help | less
+ack --dump # see ignores
 
-    # ack [options] PATTERN [FILE...]
-    # ack -f [options] [DIRECTORY...]
+ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched)
 
-    ack --dump # see ignores
-
-    ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched)
-
-    ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
+ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 #+END_SRC
 
 ** ag

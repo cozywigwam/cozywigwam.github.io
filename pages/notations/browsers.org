@@ -50,10 +50,14 @@ Line API Reference]]
 | =monitorEvents(object[, events])=   |                                                                                             |
 | =F2=                                | (with element selected) edit as HTML                                                        |
 
-*** Performance
-    :PROPERTIES:
-    :CUSTOM_ID: performance
-    :END:
+** copy "raw" json/objects from console.log
+
+Right click, "Store as global variable", then `copy(temp1)`.
+
+** Performance
+   :PROPERTIES:
+   :CUSTOM_ID: performance
+   :END:
 
 [[https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling][Emulate
 slow network connections]]
