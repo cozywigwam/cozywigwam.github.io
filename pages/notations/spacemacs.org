@@ -24,6 +24,7 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
+| ~C-x n e~           | ~org-narrow-to-element~                     |
 | ~f1 l~              | ~view-lossage~                              |
 | ~SPC h d l~         | ~spacemacs/describe-last-keys~              |
 | ~c~                 | [Info mode] ~Info-copy-current-node-name~   |
@@ -156,6 +157,8 @@ Break opening HTML tags to new line:
 
 | ~:%s/<\([:alpha:]\)/<\n<\1~ |
 
+** Character Classes
+
 regex and character classes and syntax classes: [[https://www.emacswiki.org/emacs/RegularExpression][Emacs Wiki]]
 
 * interface
@@ -200,13 +203,12 @@ If you want to change an entire entry:
 
 * buffer narrowing
 
-| ~C-x n~   | prefix            |
-| ~C-x n d~ | narrow to block   |
-| ~C-x n e~ | narrow to element |
-| ~C-x n r~ | narrow to region  |
-| ~C-x n s~ | narrow to subtree |
-| ~C-x n w~ | widen             |
-| ~SPC n w~ | widen             |
+| ~C-x n~              | prefix            |
+| ~C-x n d~            | narrow to block   |
+| ~C-x n e~            | narrow to element |
+| ~C-x n r~            | narrow to region  |
+| ~C-x n s~            | narrow to subtree |
+| ~C-x n w~, ~SPC n w~ | widen             |
 
 * layouts
 
@@ -217,7 +219,7 @@ If you want to change an entire entry:
 
 
 
-** formatting/indenting/auto-format/autoformat
+** formatting/indenting/auto-format/autoformat/beautify/prettify
 
 | ~C-M-\~   | ~indent-region~                        |
 | ~C-x TAB~ | ~indent-rigidly~                       |
@@ -335,7 +337,7 @@ If N is negative, this is a more recent kill.
 | ~w~          | ~dired-copy-filename-as-kill~        | copy filename                           |
 | ~SPC u 0 w~  | copy filename with full path         |                                         |
 | ~o~          | open in other window                 |                                         |
-| ~C-o~        | open in new window                   |                                         |
+| ~C-o~        | open in other window, stay in dired  |                                         |
 | ~+~          | ~dired-create-directory~             | create directory                        |
 | ~m~ & ~u~    | mark & unmark                        |                                         |
 | ~* !~        | ~dired-unmark-all-files~             | unmark all                              |
@@ -490,7 +492,6 @@ doubt, use whitespace.
 ** info + keymap
 
 Malabarba answer on [[https://emacs.stackexchange.com/a/654/15295][SO]]:
-
 
 * color & theming
 
@@ -802,8 +803,8 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 
 * misc
 
-| ~align-regexp~ | arbitrary alignment |
-| ~C-x C-o~ | ~delete-blank-lines~ |
+| ~align-regexp~                | arbitrary alignment                                                          |
+| ~C-x C-o~                     | ~delete-blank-lines~                                                         |
 | ~SPC t C-d~, ~SPC T f~        | toggle fringe                                                                |
 | ~SPC , i~                     | [custom] helm imenu                                                          |
 | ~C-s )~                       | (in insert mode) insert literal parenthesis (don't allow smart entry)        |
@@ -817,6 +818,7 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 | ~-*-~                         | use to surround a (commented) first line in a file to specify file variables |
 | ~; -*- mode: Emacs-Lisp; -*-~ | specify major mode in first line of a file                                   |
 | ~SPC u SPC !~                 | shell command into current buffer                                            |
+| ~exec-path~                   | path var                                                                     |
 
 ** hello file
 

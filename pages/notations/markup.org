@@ -59,12 +59,37 @@ Daring Fireball's:
 
 ** GitHub
 
+Guide: [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
+
 [[https://github.github.com/gfm/][gfm spec]]
 
 - [[https://help.github.com/articles/basic-writing-and-formatting-syntax/][syntax]]
 - [[https://help.github.com/categories/writing-on-github/][Writing on GitHub]]
 - [[http://kramdown.gettalong.org/][Kramdown]]
 - [[http://kramdown.gettalong.org/parser/gfm.html][Kramdown parse info]]
+
+*** Emoji
+
+[[https://www.webpagefx.com/tools/emoji-cheat-sheet/][webpagefx.com emoji cheat sheet]], [[https://www.webpagefx.com/tools/emoji-cheat-sheet/][`emoji-cheat-sheet`]]
+
+#+BEGIN_SRC md
+:sparkles:
+#+END_SRC
+
+*** Notify
+
+#+BEGIN_SRC md
+@username plz review
+#+END_SRC
+
+*** Task List
+
+> When you include a task list in the first comment of an Issue, you will see a helpful progress bar in your list of issues. It works in Pull Requests, too!
+
+#+BEGIN_SRC md
+- [x] This is a complete item
+- [ ] This is an incomplete item
+#+END_SRC
 
 ** Stack Overflow
 
@@ -108,7 +133,7 @@ Note: Hyperlinking words and terms in a Slack message isn't supported. [[https:/
 
 [[https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all][JIRA formatting]]
 
-#+BEGIN_SRC
+#+BEGIN_EXAMPLE
 {{inline-code}}
 
 {code} or {code:javascript}
@@ -136,8 +161,7 @@ of block quote
 
 * numbered
 * numbered
-#+END_SRC
-
+#+END_EXAMPLE
 
 
 ** CommonMark
@@ -147,6 +171,42 @@ An attempt "to specify Markdown syntax unambiguously."
 - [[https://github.com/jgm/CommonMark][CommonMark on GitHub]]
 - [[http://spec.commonmark.org/0.26/][CommonMark Spec]]
 - [[http://spec.commonmark.org/dingus/]["Dingus" (live tester)]]
+
+#+BEGIN_EXAMPLE
+*strong*
+
+	Makes text strong.
+
+_emphasis_
+
+	Makes text emphasis..
+
+??citation??
+
+	Makes text in citation.
+
+-deleted-
+
+	Makes text as deleted.
+
++inserted+
+
+	Makes text as inserted.
+
+^superscript^
+
+	Makes text in superscript.
+
+~subscript~
+
+	Makes text in subscript.
+
+{{monospaced}}
+
+	Makes text as monospaced.
+
+bq. Some block quoted text
+#+END_EXAMPLE
 
 * Misc
 

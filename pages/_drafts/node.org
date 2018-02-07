@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Node"
+categories: notation
+---
+
+* Debugging
+
+[[https://nodejs.org/en/docs/inspector/][nodejs.org docs - Inspector]]
+
+[[https://nodejs.org/dist/latest-v8.x/docs/api/][Node.js v8.10.0 Documentation]]

@@ -37,15 +37,16 @@ ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 To search =node_modules/= use =-a=. For absolutely everything (including
 binaries/hidden), use =-u=. Use =-U= to disrepect =.gitignore=.
 
-| =-a= =--all-files=               | doesn't respect ignore files; excludes hidden files, though   |
-| =-c=                             | count                                                         |
-| =-Cn=                            | context of =n= lines                                          |
-| =-ignore=                        |                                                               |
-| =-ignore-dir=                    |                                                               |
-| =-l= =--files-with-matches=      | only print filenames, not full output                         |
-| =-L= =--files-without-matches=   |                                                               |
-| =-u= =--unrestricted=            | all files, everything, including binaries and hidden files    |
-| =-U= =--skip-vcs-ignores=        | don't respect =.gitignore= (but still use =.agignore=)        |
+| =-a= =--all-files=             | doesn't respect ignore files; excludes hidden files, though |
+| =-c=                           | count                                                       |
+| =-Cn=                          | context of =n= lines                                        |
+| =-ignore=                      |                                                             |
+| =-ignore-dir=                  |                                                             |
+| =-l= =--files-with-matches=    | only print filenames, not full output                       |
+| =-L= =--files-without-matches= |                                                             |
+| =-s=                           | case sensitive                                              |
+| =-u= =--unrestricted=          | all files, everything, including binaries and hidden files  |
+| =-U= =--skip-vcs-ignores=      | don't respect =.gitignore= (but still use =.agignore=)      |
 
 ** curl
    :PROPERTIES:

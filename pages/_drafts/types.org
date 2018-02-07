@@ -1,0 +1,12 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Types"
+layout: notation
+description: Compy
+path: "/types/"
+---
+#+END_EXAMPLE
+
+Hindley-Milner (HM)

@@ -10,33 +10,17 @@ categories: notation
 
 https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md
 
-#+BEGIN_SRC js
-import React from 'react'
-import PropTypes from 'prop-types'
+Add `withRouter` and wrap export:
+
+#+BEGIN_SRC
 import { withRouter } from 'react-router'
 
-// A simple component that shows the pathname of the current location
-class ShowTheLocation extends React.Component {
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  }
+// class ... { ... )
 
-  render() {
-    const { match, location, history } = this.props
-
-    return (
-      <div>You are now at {location.pathname}</div>
-    )
-  }
-}
-
-// Create a new component that is "connected" (to borrow redux
-// terminology) to the router.
-const ShowTheLocationWithRouter = withRouter(ShowTheLocation)
+export default withRouter(App);
 #+END_SRC
 
+You gain props: `history`, `location`, `match`.
 
 ** npm/package
 
@@ -115,7 +99,7 @@ Matching routes get `match` object:
 #+BEGIN_SRC js
 const Child = props => (
   <div>
-    <button onClick={props.onClickToggle}
+    <button onClick={props.onClickToggle}>
   </div>
 )
 class Parent extends component {
@@ -128,7 +112,7 @@ class Parent extends component {
   render() {
     return (
         <div>
-        <Child onClickToggle={() => onToggle().bind(this)}/>
+        <Child onClickToggle={() => this.onToggle().bind(this)}/>
         </div>
     )
   }
@@ -145,6 +129,10 @@ class Parent extends component {
 // yes: unicode
 <span>{'9 \u2013 5'}</span>
 #+END_SRC
+
+* environment variables (env)
+
+[[https://stackoverflow.com/a/46367006/1052412][SO answer]]
 
 * 3rd-party
 ** react-transition-group

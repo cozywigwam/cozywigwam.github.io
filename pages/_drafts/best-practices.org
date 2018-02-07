@@ -1,0 +1,17 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
+#+EXCLUDE_TAGS: no_export
+* COMMENT Local Variables
+  # Local Variables:
+  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
+  # End:
+#+BEGIN_EXAMPLE
+---
+title: "Best Practices"
+layout: notation
+description: Basics
+path: "/best-practices/"
+---
+#+END_EXAMPLE
+
+http://blog.arvidandersson.se/2014/06/17/best-practices-in-modern-web-projects

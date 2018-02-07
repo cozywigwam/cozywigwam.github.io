@@ -494,6 +494,17 @@ write-up]]
 }
 #+END_SRC
 
+## Sass variable interpolation
+
+[[http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_][ref]]
+
+#+BEGIN_SRC sass
+$multiplier-sm: #f00;
+
+.el {
+  width: calc(10% * #{$multiplier-sm});
+}
+#+END_SRC
 ## Styles in HTML
 
 #+BEGIN_HTML

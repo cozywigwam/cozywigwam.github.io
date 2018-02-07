@@ -1,0 +1,53 @@
+---
+layout: post
+title: "Misc"
+categories: notation
+---
+
+* ascii art
+
+#+BEGIN_SRC js
+console.log('%c \n\
+⎜       @@@&       @@@@@@\n\
+⎜    #@@@@@@@    &@@@@@@@@       Built using:\n\
+⎜  #@@@@@@@@@.  %%&@@@@@@@        • React + Flux\n\
+⎜      &@@@@@%     (@@@@@(       • ES6\n\
+⎜       @@@@@@     @@@@@@        • Fetch API\n\
+⎜       %@@@@@(  .@@@@@(         • Flexbox\n\
+⎜        @@@@@@(@@@@@@\n\
+⎜        /@@@@@@@@@@%            Like playing with new technology, too?\n\
+⎜         &@@@@@@@%              https://vimeo.com/jobs\n\
+⎜          @@@@@#\n\
+\n\
+', 'color: #00adef;');
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+%c
+⎜       @@@&       @@@@@@
+⎜    #@@@@@@@    &@@@@@@@@       Built using:
+⎜  #@@@@@@@@@.  %&@@@@@@@        • React + Flux
+⎜      &@@@@@%     (@@@@@(       • ES6
+⎜       @@@@@@     @@@@@@        • Fetch API
+⎜       %@@@@@(  .@@@@@(         • Flexbox
+⎜        @@@@@@(@@@@@@
+⎜        /@@@@@@@@@@%            Like playing with new technology, too?
+⎜         &@@@@@@@%              https://vimeo.com/jobs
+⎜          @@@@@#
+
+ color: #00adef;
+undefined
+#+end_example
+
+
+* .cups file in root `~/.cups/lpoptions`
+
+
+#+BEGIN_SRC sh
+  /Users/recurvirostridae/.cups:
+  total used in directory 4.0K available 4289603487
+  drwx------    3 recurvirostridae staff  102 Aug 28  2017 .
+  drwxr-xr-x+ 275 recurvirostridae staff 9.2K Mar 15 12:28 ..
+  -rw-r--r--    1 recurvirostridae staff   30 Sep 23 12:40 lpoptions
+#+END_SRC

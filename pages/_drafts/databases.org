@@ -1,29 +1,34 @@
-#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
 #+EXCLUDE_TAGS: no_export
+* COMMENT Local Variables
+  # Local Variables:
+  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
+  # End:
 #+BEGIN_EXAMPLE
 ---
 title: "Databases"
 layout: notation
-description: bit byte
+description: Basics
 path: "/databases/"
 ---
 #+END_EXAMPLE
 
-* MySQL
+* couch
 
-** config
+http://couchdb.apache.org/
 
-- /etc/mysql/mysql.cnf
-- /etc/mysql/conf.d/mysql.cnf
+[[http://docs.couchdb.org/en/2.1.1/intro/tour.html][Getting started docs]]
 
-** See charset/collation
+Web access: http://127.0.0.1:5984/_utils/
 
-from [[https://stackoverflow.com/a/38996782/1052412][SO]]
+#+BEGIN_SRC sh
+# running?
+curl http://127.0.0.1:5984/
 
-#+BEGIN_SRC sql
-SELECT SCHEMA_NAME 'database', default_character_set_name 'charset', DEFAULT_COLLATION_NAME 'collation' FROM information_schema.SCHEMATA;
+# list dbs
+curl -X GET http://127.0.0.1:5984/_all_dbs
+
+# create db
+curl -X PUT http://127.0.0.1:5984/baseball
 #+END_SRC
-
-*** ref
-
-[[https://truongtx.me/2014/08/23/setup-emacs-as-an-sql-database-client][blog post]]

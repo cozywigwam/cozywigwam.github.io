@@ -1,0 +1,41 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
+#+EXCLUDE_TAGS: no_export
+* COMMENT Local Variables
+  # Local Variables:
+  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
+  # End:
+#+BEGIN_EXAMPLE
+---
+title: "Code"
+layout: notation
+description: Basics
+path: "/code/"
+---
+#+END_EXAMPLE
+
+
+* Prime numbers
+
+find primes ([[https://www.sitepoint.com/functional-reactive-programming-rxjs/][ref]])
+
+#+BEGIN_SRC js
+function (start, end) {
+  var n = start - 1;
+
+  while (n++ < end) {
+    var k = Math.sqrt(n);
+    var found = false;
+
+    for (var i = 2; !found && i <= k; ++i) {
+      found = n % i === 0;
+    }
+
+    if (!found) {
+      return n;
+    }
+  }
+}
+#+END_SRC
+
+#+RESULTS:

@@ -62,31 +62,31 @@ path: "/vim/"
 
 Delete unwanted lines:
 
-| =:g/^$/d=      |
-| =:v/./d=       |
-| =:g/^\s*$/d=   |
-| =:v/\S/d=      |
+| =:g/^$/d=    |
+| =:v/./d=     |
+| =:g/^\s*$/d= |
+| =:v/\S/d=    |
 
-| =:h pattern-atoms=   | help                                                    |
-| =:h whitespace=      | and more help                                           |
-| =\d=                 | digit [0-9]                                             |
-| =\D=                 | non-digit [\^0-9]                                       |
-| =\s=                 | white space [ ] ( and )                                 |
-| =\_s=                | white space with newline                                |
-| =\S=                 | non-white characters [\^ ] (not and )                   |
-| =\l=                 | lowercase alpha [a-z]                                   |
-| =\L=                 | non-lowercase alpha [\^a-z]                             |
-| =\u=                 | uppercase alpha [A-Z]                                   |
-| =\U=                 | non-uppercase alpha [\^A-Z]                             |
-| =\w=                 | word character [0-9a-fA-F\_]                            |
-| =\W=                 | non-word character [\^0-9a-fA-F\_]                      |
-| =\_x=                | "x" is any character class character but with newline   |
-| =\t=                 | <tab>                                                   |
-| =\r=                 | <cr>, good for substitution                             |
-| =\n=                 | end-of-line, good for search                            |
-| =~=                  | last substitution string                                |
-| =\1=, =\2=, ...      | parenthetical sub-expression/submatch                   |
-| =\zs=, =ze=          | set start/end of match                                  |
+| =:h pattern-atoms= | help                                                  |
+| =:h whitespace=    | and more help                                         |
+| =\d=               | digit [0-9]                                           |
+| =\D=               | non-digit [\^0-9]                                     |
+| =\s=               | white space [ ] ( and )                               |
+| =\_s=              | white space with newline                              |
+| =\S=               | non-white characters [\^ ] (not and )                 |
+| =\l=               | lowercase alpha [a-z]                                 |
+| =\L=               | non-lowercase alpha [\^a-z]                           |
+| =\u=               | uppercase alpha [A-Z]                                 |
+| =\U=               | non-uppercase alpha [\^A-Z]                           |
+| =\w=               | word character [0-9a-fA-F\_]                          |
+| =\W=               | non-word character [\^0-9a-fA-F\_]                    |
+| =\_x=              | "x" is any character class character but with newline |
+| =\t=               | <tab>                                                 |
+| =\r=               | <cr>, good for substitution                           |
+| =\n=               | end-of-line, good for search                          |
+| =~=                | last substitution string                              |
+| =\1=, =\2=, ...    | parenthetical sub-expression/submatch                 |
+| =\zs=, =ze=        | set start/end of match                                |
 
 ** Marks
    :PROPERTIES:

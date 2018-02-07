@@ -123,52 +123,53 @@ Emacs full lookup (=SPC h d c= | =describe-char=):
   :CUSTOM_ID: make-characters-macos-hold
   :END:
 
-| `   | /modifier to create grave accent/   | accent grave                       |
-| 1   | ¡                                   |                                    |
-| 2   | ™                                   |                                    |
-| 4   | ¢                                   |                                    |
-| 5   | ∞                                   |                                    |
-| 6   | §                                   |                                    |
-| 7   | ¶                                   |                                    |
-| 8   | •                                   |                                    |
-| 9   | ª                                   |                                    |
-| 0   | º                                   |                                    |
-| -   | --                                  |                                    |
-| =   | ≠                                   |                                    |
-| q   | œ                                   |                                    |
-| w   | ∑                                   |                                    |
-| e   | /modifier to create acute accent/   |                                    |
-| r   | ®                                   |                                    |
-| t   | †                                   |                                    |
-| y   | ¥                                   |                                    |
-| u   | /modifier to create umlaut/         |                                    |
-| i   | /modifier to create circumflex/     |                                    |
-| o   | ø                                   |                                    |
-| p   | π                                   |                                    |
-| [   | “                                   |                                    |
-| *   | ‘                                   |                                    |
-| \   | «                                   |                                    |
-| a   | å                                   |                                    |
-| s   | ß                                   |                                    |
-| d   | ∂                                   |                                    |
-| f   | ƒ                                   |                                    |
-| g   | ©                                   |                                    |
-| h   | ˙                                   |                                    |
-| j   | ∆                                   |                                    |
-| k   | ˚                                   |                                    |
-| l   | ¬                                   |                                    |
-| ;   | ...                                 |                                    |
-| '   | æ                                   | æsc or ash grapheme, ae ligature   |
-| z   | Ω                                   | omega                              |
-| x   | ≈                                   |                                    |
-| c   | ç                                   | c with cedilla                     |
-| v   | √                                   | square root                        |
-| b   | ∫                                   |                                    |
-| n   | /modifier to add énye/              | énye                               |
-| m   | µ                                   | mu                                 |
-| ,   | ≤                                   | less than or equals                |
-| .   | ≥                                   | greater than or equals             |
-| /   | ÷                                   | obelus                             |
+| ` | /modifier to create grave accent/ | accent grave                       |
+| 1 | ¡                                 |                                    |
+| 2 | ™                                 |                                    |
+| 4 | ¢                                 |                                    |
+| 5 | ∞                                 |                                    |
+| 6 | §                                 |                                    |
+| 7 | ¶                                 |                                    |
+| 8 | •                                 |                                    |
+| 9 | ª                                 |                                    |
+| 0 | º                                 |                                    |
+| - | --                                |                                    |
+| = | ≠                                 |                                    |
+| q | œ                                 |                                    |
+| w | ∑                                 |                                    |
+| e | /modifier to create acute accent/ |                                    |
+| r | ®                                 |                                    |
+| t | †                                 |                                    |
+| y | ¥                                 |                                    |
+| u | /modifier to create umlaut/       |                                    |
+| i | /modifier to create circumflex/   |                                    |
+| o | ø                                 |                                    |
+| O | Ø                                 | LATIN CAPITAL LETTER O WITH STROKE |
+| p | π                                 |                                    |
+| [ | “                                 |                                    |
+| * | ‘                                 |                                    |
+| \ | «                                 |                                    |
+| a | å                                 |                                    |
+| s | ß                                 |                                    |
+| d | ∂                                 |                                    |
+| f | ƒ                                 |                                    |
+| g | ©                                 |                                    |
+| h | ˙                                 |                                    |
+| j | ∆                                 |                                    |
+| k | ˚                                 |                                    |
+| l | ¬                                 |                                    |
+| ; | ...                               |                                    |
+| ' | æ                                 | æsc or ash grapheme, ae ligature   |
+| z | Ω                                 | omega                              |
+| x | ≈                                 |                                    |
+| c | ç                                 | c with cedilla                     |
+| v | √                                 | square root                        |
+| b | ∫                                 |                                    |
+| n | /modifier to add énye/            | énye                               |
+| m | µ                                 | mu                                 |
+| , | ≤                                 | less than or equals                |
+| . | ≥                                 | greater than or equals             |
+| / | ÷                                 | obelus                             |
 
 * ASCII control characters
   :PROPERTIES:

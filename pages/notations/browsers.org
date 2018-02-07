@@ -109,6 +109,15 @@ Clear cache in =chrome://appcache-internals/=
 
 [[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium][dotfile]]
 
+** Focus
+
+=chrome://settings/searchEngines= -> Other search engines -> ADD:
+
+|-------------------------------+-------------|
+| Search engine                 | ~focus~     |
+| Keyword                       | ~f~         |
+| URL with %s in place of query | ~javascript |
+
 ** Reference
    :PROPERTIES:
    :CUSTOM_ID: reference
@@ -193,6 +202,106 @@ Help -> Troubleshooting Information
 [[https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies][Reference]]
 
 In the Storage panel.
+
+** Tridactyl
+
+https://github.com/cmcaine/tridactyl
+
+| ~o~  | ~fillcmdline open~           |
+| ~O~  | ~current_url open~           |
+| ~w~  | ~fillcmdline winopen~        |
+| ~W~  | ~current_url winopen~        |
+| ~t~  | ~fillcmdline tabopen~        |
+| ~]]~ | ~followpage next~            |
+| ~[[~ | ~followpage prev~            |
+| ~[c~ | ~urlincrement -1~            |
+| ~]c~ | ~urlincrement 1~             |
+| ~T~  | ~current_url tabopen~        |
+| ~yy~ | ~clipboard yank~             |
+| ~ys~ | ~clipboard yankshort~        |
+| ~yc~ | ~clipboard yankcanon~        |
+| ~gh~ | ~home~                       |
+| ~gH~ | ~home true~                  |
+| ~p~  | ~clipboard open~             |
+| ~P~  | ~clipboard tabopen~          |
+| ~j~  | ~scrollline 10~              |
+| ~k~  | ~scrollline -10~             |
+| ~h~  | ~scrollpx -50~               |
+| ~l~  | ~scrollpx 50~                |
+| ~G~  | ~scrollto 100~               |
+| ~gg~ | ~scrollto 0~                 |
+| ~$~  | ~scrollto 100 x~             |
+| ~0~  | // ~scrollto 0 x~            |
+| ~^~  | ~buffer #~                   |
+| ~H~  | ~back~                       |
+| ~L~  | ~forward~                    |
+| ~d~  | ~tabclose~                   |
+| ~u~  | ~undo~                       |
+| ~r~  | ~reload~                     |
+| ~R~  | ~reloadhard~                 |
+| ~gi~ | ~focusinput -l~              |
+| ~gt~ | ~tabnext_gt~                 |
+| ~gT~ | ~tabprev~                    |
+| ~g^~ | ~tabfirst~                   |
+| ~g$~ | ~tablast~                    |
+| ~gr~ | ~reader~                     |
+| ~gu~ | ~urlparent~                  |
+| ~gU~ | ~urlroot~                    |
+| ~:~  | ~fillcmdline~                |
+| ~s~  | ~fillcmdline open search~    |
+| ~S~  | ~fillcmdline tabopen search~ |
+| ~/~  | // ~find~                    |
+| ~?~  | // ~find -1~                 |
+| ~n~  | // ~findnext 1~              |
+| ~N~  | // ~findnext -1~             |
+| ~M~  | // ~gobble 1 quickmark~      |
+| ~B~  | ~fillcmdline bufferall~      |
+| ~b~  | // ~fillcmdline buffer~      |
+| ~ZZ~ | ~qall~                       |
+| ~f~  | ~hint~                       |
+| ~F~  | ~hint -b~                    |
+| ~;i~ | ~hint -i~                    |
+| ~;I~ | ~hint -I~                    |
+| ~;k~ | ~hint -k~                    |
+| ~;y~ | ~hint -y~                    |
+| ~;p~ | ~hint -p~                    |
+| ~;r~ | ~hint -r~                    |
+| ~;s~ | ~hint -s~                    |
+| ~;S~ | ~hint -S~                    |
+| ~;a~ | ~hint -a~                    |
+| ~;A~ | ~hint -A~                    |
+| ~;;~ | ~hint -;~                    |
+| ~;#~ | ~hint -#~                    |
+| ~I~  | ~mode ignore~                |
+| ~a~  | ~current_url bmark~          |
+| ~A~  | ~bmark~                      |
+| ~zi~ | ~zoom 0.1 true~              |
+| ~zo~ | ~zoom -0.1 true~             |
+| ~zz~ | ~zoom 1~                     |
+| ~.~  | ~REPEAT~                     |
+
+| ~alias~   | ~command~    |
+| ~au~      | ~autocmd~    |
+| ~b~       | ~buffer~     |
+| ~o~       | ~open~       |
+| ~w~       | ~winopen~    |
+| ~t~       | ~tabopen~    |
+| ~tn~      | ~tabnext_gt~ |
+| ~bn~      | ~tabnext_gt~ |
+| ~tnext~   | ~tabnext_gt~ |
+| ~bnext~   | ~tabnext_gt~ |
+| ~tp~      | ~tabprev~    |
+| ~tN~      | ~tabprev~    |
+| ~bp~      | ~tabprev~    |
+| ~bN~      | ~tabprev~    |
+| ~tprev~   | ~tabprev~    |
+| ~bprev~   | ~tabprev~    |
+| ~bfirst~  | ~tabfirst~   |
+| ~blast~   | ~tablast~    |
+| ~tfirst~  | ~tabfirst~   |
+| ~tlast~   | ~tablast~    |
+| ~bd~      | ~tabclose~   |
+| ~bdelete~ | ~tabclose~   |
 
 ** +Vimperator+
    :PROPERTIES:
