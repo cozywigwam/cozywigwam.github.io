@@ -280,8 +280,7 @@ custom widgets]]
 
 Emacs Wiki: https://www.emacswiki.org/emacs/EshellAlias
 
-For the aliases file, see =eshell-aliases-file=:
-=~/.emacs.d/eshell/alias=
+For the aliases file, see =eshell-aliases-file=: =~/.emacs.d/eshell/alias=. Refresh alias file with =eshell-read-aliases-list=.
 
 #+BEGIN_SRC sh
     alias customls 'ls -la $*'

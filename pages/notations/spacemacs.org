@@ -291,16 +291,6 @@ tab-width: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Disp
 
 * modes
 
-[[http://ergoemacs.org/emacs/emacs_minor_mode.html][Ergo Emacs]]
-
-manual 23.3 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing-Modes.html][Choosing File Modes]]. See vars ~major-mode~ and ~normal-mode~.
-
-| ~SPC h d m~        | ~spacemacs-describe-mode~            | describe mode |
-
-** JSON
-
-| ~C-c C-f~ | beautify/auto-format TODO bind/normalize this |
-
 * windows
 
 | ~SPC w d~       | delete                    |
@@ -506,6 +496,17 @@ Malabarba answer on [[https://emacs.stackexchange.com/a/654/15295][SO]]:
 - [[https://magit.vc/manual/magit/Theming-Faces.html][magit manual on theming]]
 
 * Modes
+
+[[http://ergoemacs.org/emacs/emacs_minor_mode.html][Ergo Emacs]]
+
+manual 23.3 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing-Modes.html][Choosing File Modes]]. See vars ~major-mode~ and ~normal-mode~.
+
+| ~SPC h d m~        | ~spacemacs-describe-mode~            | describe mode |
+
+** clojure/cider
+
+| ~C-c C-z~ | ~cider-switch-to-[last-clojure|repl]-buffer~ |
+
 ** markdown
 
 |               |                                                                                      |
@@ -536,6 +537,9 @@ Malabarba answer on [[https://emacs.stackexchange.com/a/654/15295][SO]]:
 | ~SPC m c v~   | export and preview                                                                   |
 
 ** JS
+** JSON
+
+| ~C-c C-f~ | beautify/auto-format TODO bind/normalize this |
 
 
 [[https://github.com/felipeochoa/rjsx-mode][rjxs-mode]]
