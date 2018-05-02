@@ -15,6 +15,7 @@ path: "/org/"
 
 |                              |                                                               |                                                                        |
 |------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
+| ~SPC m ^~                   | ~org-sort~                                                    | alphabetize org headings                                               |
 | ~C-c C-l~                    | ~org-insert-link~                                             | insert link                                                            |
 | ~C-c .~                      | ~org-time-stamp~                                              | insert stamp                                                           |
 | ~< s~ + ~<tab>~              | [snippet] expands ~#+BEGIN_SRC~ ... ~#+END_SRC~ ('s' for src) |                                                                        |
