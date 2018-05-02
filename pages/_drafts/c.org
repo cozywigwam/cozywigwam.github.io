@@ -1,0 +1,12 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "C"
+layout: notation
+description: I Kill Me
+path: "/c/"
+---
+#+END_EXAMPLE
+
+[[https://github.com/Sarcasm/irony-mode][irony-mode]]
