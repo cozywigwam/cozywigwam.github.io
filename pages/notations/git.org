@@ -10,69 +10,16 @@ path: "/git/"
 #+END_EXAMPLE
 
 * Command Line
+** .git/
 
-** Help
+*** info/exclude
 
-| =git help -a=   | see commands     |
-| =git help -p=   | concept guides   |
+Ignore files from config level (overrides =.gitignore=). I keep symlinks
+here. Handy, 'cause:
 
-** get file from SHA/commit
-
-=git checkout 7c9e5d -- file1/to/restore file2/to/restore=
-
-One workflow is to go to the log, open the commit where the file was
-changed/removed, use =M-w= to kill the hash/SHA, then
-=git checkout [SHA]~1 -- restore-me.txt=.
-
-** différance
-
-| =git diff=            | working to index                                 |
-| =git diff HEAD=       | working to HEAD                                  |
-| =git diff --cached=   | index to HEAD (cached is a synonym for staged)   |
-
-** submodules
-
-#+BEGIN_EXAMPLE
-    git submodule add git@github.com:cozywigwam/my-submodule.git my-submodule-path
-    git submodule update --init
-#+END_EXAMPLE
-
-#+BEGIN_EXAMPLE
-    # list merged branches
-    for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
-
-    # ...unmerged
-    for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
-#+END_EXAMPLE
-
-** Logging
-
-via =~/.gitconfig=:
-
-#+BEGIN_EXAMPLE
-[alias]
-   logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
-   loggg = log --graph --decorate --oneline --abbrev-commit --all
-#+END_EXAMPLE
-
-via =~/.bash_aliases=:
-
-#+BEGIN_EXAMPLE
-# main log format
-alias logg="git --no-pager log --date-order --graph --decorate --pretty=format:'%C(green)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d%Creset - %s' --all"
-
-# alternate format
-alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
-
-alias l="logg --no-merges -40" # trunc. at 40 lines
-alias lf="logg --no-merges" # full
-alias ld="logg --no-merges --date=local -40" # show date
-alias lm="logg -30" # with merges
-
-# with merges and full date
-alias lmdf="logg --date=local"
-alias ldmf="logg --date=local"
-#+END_EXAMPLE
+- I want them ignored
+- I don't want to clutter the project's =.gitignore=
+- they're project-specific, so not suited for =~/.gitignore_global=
 
 ** Aliases
 
@@ -108,6 +55,124 @@ alias l="logg --no-merges -40" # see Logging
 Note to the reader: if you are using Git at the command line at this
 level and you're not using [[https://magit.vc/][Magit]], I would
 encourage you to look into it.
+
+** différance
+
+| =git diff=            | working to index                                 |
+| =git diff HEAD=       | working to HEAD                                  |
+| =git diff --cached=   | index to HEAD (cached is a synonym for staged)   |
+
+** get file from SHA/commit
+
+=git checkout 7c9e5d -- file1/to/restore file2/to/restore=
+
+One workflow is to go to the log, open the commit where the file was
+changed/removed, use =M-w= to kill the hash/SHA, then
+=git checkout [SHA]~1 -- restore-me.txt=.
+
+** Help
+
+| =git help -a=   | see commands     |
+| =git help -p=   | concept guides   |
+
+** Hooks/Deployment
+
+[[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][docs]]
+
+Client-side "committing-workflow" hooks in =.git/hooks/=:
+
+- =pre-commit=: lint, etc. (=git commit --no-verify= bypasses)
+- =prepare-commit-msg=: programmatically insert message info
+- =commit-msg=: validate project state or commit message
+- =post-commit=: notifications
+
+*** husky
+
+[[https://github.com/typicode/husky/issues/186][Branch targeting]]:
+
+#+BEGIN_SRC sh
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+      if [ "master" == "$branch" ]; then
+
+      # shenanigans
+
+      fi
+    done
+#+END_SRC
+
+[[https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks][Digital
+Ocean]] hook reference
+
+** Logging
+
+via =~/.gitconfig=:
+
+#+BEGIN_EXAMPLE
+[alias]
+   logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
+   loggg = log --graph --decorate --oneline --abbrev-commit --all
+#+END_EXAMPLE
+
+via =~/.bash_aliases=:
+
+#+BEGIN_EXAMPLE
+# main log format
+alias logg="git --no-pager log --date-order --graph --decorate --pretty=format:'%C(green)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d%Creset - %s' --all"
+
+# alternate format
+alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
+
+alias l="logg --no-merges -40" # trunc. at 40 lines
+alias lf="logg --no-merges" # full
+alias ld="logg --no-merges --date=local -40" # show date
+alias lm="logg -30" # with merges
+
+# with merges and full date
+alias lmdf="logg --date=local"
+alias ldmf="logg --date=local"
+#+END_EXAMPLE
+
+** Misc
+
+To force push to =master= on GitLab: Settings -> Repository -> Protected
+Branches
+
+| =git add -p # --patch=         | interactive chunk-adding is your friend   |
+| =git ls-tree -r --name-only=   | cf. =tree -I node= and =tree -d .=        |
+
+A shell function to jump to the root of the project:
+
+#+BEGIN_EXAMPLE
+    gitroot() {
+      gitroot=$(git rev-parse --show-toplevel)
+      cd $gitroot
+    }
+#+END_EXAMPLE
+
+** recover from reset --hard
+
+Not that I would ever need this. Not that anyone would ever need this.
+But, you know, just in case... to find that missing ref after resetting
+=--hard= away from an unmerged branch:
+
+#+BEGIN_EXAMPLE
+git reflog [show] # `show` is default
+#+END_EXAMPLE
+
+** submodules
+
+#+BEGIN_EXAMPLE
+    git submodule add git@github.com:cozywigwam/my-submodule.git my-submodule-path
+    git submodule update --init
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+    # list merged branches
+    for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+
+    # ...unmerged
+    for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+#+END_EXAMPLE
 
 ** update-index
 
@@ -195,72 +260,6 @@ able to do some local testing. And you don't want to accidentally
 check the changes in such file to affect the production config. In
 that case skip-worktree makes perfect scene.
 #+END_QUOTE
-
-** recover from reset --hard
-
-Not that I would ever need this. Not that anyone would ever need this.
-But, you know, just in case... to find that missing ref after resetting
-=--hard= away from an unmerged branch:
-
-#+BEGIN_EXAMPLE
-git reflog [show] # `show` is default
-#+END_EXAMPLE
-
-** Hooks/Deployment
-
-[[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][docs]]
-
-Client-side "committing-workflow" hooks in =.git/hooks/=:
-
-- =pre-commit=: lint, etc. (=git commit --no-verify= bypasses)
-- =prepare-commit-msg=: programmatically insert message info
-- =commit-msg=: validate project state or commit message
-- =post-commit=: notifications
-
-*** husky
-
-[[https://github.com/typicode/husky/issues/186][Branch targeting]]:
-
-#+BEGIN_SRC sh
-    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
-      if [ "master" == "$branch" ]; then
-
-      # shenanigans
-
-      fi
-    done
-#+END_SRC
-
-[[https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks][Digital
-Ocean]] hook reference
-
-** .git/
-
-*** info/exclude
-
-Ignore files from config level (overrides =.gitignore=). I keep symlinks
-here. Handy, 'cause:
-
-- I want them ignored
-- I don't want to clutter the project's =.gitignore=
-- they're project-specific, so not suited for =~/.gitignore_global=
-
-** Misc
-
-To force push to =master= on GitLab: Settings -> Repository -> Protected
-Branches
-
-| =git add -p # --patch=         | interactive chunk-adding is your friend   |
-| =git ls-tree -r --name-only=   | cf. =tree -I node= and =tree -d .=        |
-
-A shell function to jump to the root of the project:
-
-#+BEGIN_EXAMPLE
-    gitroot() {
-      gitroot=$(git rev-parse --show-toplevel)
-      cd $gitroot
-    }
-#+END_EXAMPLE
 
 * Emacs
 
