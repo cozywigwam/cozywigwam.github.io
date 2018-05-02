@@ -10,22 +10,13 @@ path: "/git/"
 #+END_EXAMPLE
 
 * Command Line
-  :PROPERTIES:
-  :CUSTOM_ID: command-line
-  :END:
 
 ** Help
-   :PROPERTIES:
-   :CUSTOM_ID: help
-   :END:
 
 | =git help -a=   | see commands     |
 | =git help -p=   | concept guides   |
 
 ** get file from SHA/commit
-   :PROPERTIES:
-   :CUSTOM_ID: get-file-from-shacommit
-   :END:
 
 =git checkout 7c9e5d -- file1/to/restore file2/to/restore=
 
@@ -34,18 +25,12 @@ changed/removed, use =M-w= to kill the hash/SHA, then
 =git checkout [SHA]~1 -- restore-me.txt=.
 
 ** différance
-   :PROPERTIES:
-   :CUSTOM_ID: différance
-   :END:
 
 | =git diff=            | working to index                                 |
 | =git diff HEAD=       | working to HEAD                                  |
 | =git diff --cached=   | index to HEAD (cached is a synonym for staged)   |
 
 ** submodules
-   :PROPERTIES:
-   :CUSTOM_ID: submodules
-   :END:
 
 #+BEGIN_EXAMPLE
     git submodule add git@github.com:cozywigwam/my-submodule.git my-submodule-path
@@ -61,41 +46,35 @@ changed/removed, use =M-w= to kill the hash/SHA, then
 #+END_EXAMPLE
 
 ** Logging
-   :PROPERTIES:
-   :CUSTOM_ID: logging
-   :END:
 
 via =~/.gitconfig=:
 
 #+BEGIN_EXAMPLE
-    [alias]
-       logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
-       loggg = log --graph --decorate --oneline --abbrev-commit --all
+[alias]
+   logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
+   loggg = log --graph --decorate --oneline --abbrev-commit --all
 #+END_EXAMPLE
 
 via =~/.bash_aliases=:
 
 #+BEGIN_EXAMPLE
-    # main log format
-    alias logg="git --no-pager log --date-order --graph --decorate --pretty=format:'%C(green)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d%Creset - %s' --all"
+# main log format
+alias logg="git --no-pager log --date-order --graph --decorate --pretty=format:'%C(green)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d%Creset - %s' --all"
 
-    # alternate format
-    alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
+# alternate format
+alias glog="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
 
-    alias l="logg --no-merges -40" # trunc. at 40 lines
-    alias lf="logg --no-merges" # full
-    alias ld="logg --no-merges --date=local -40" # show date
-    alias lm="logg -30" # with merges
+alias l="logg --no-merges -40" # trunc. at 40 lines
+alias lf="logg --no-merges" # full
+alias ld="logg --no-merges --date=local -40" # show date
+alias lm="logg -30" # with merges
 
-    # with merges and full date
-    alias lmdf="logg --date=local"
-    alias ldmf="logg --date=local"
+# with merges and full date
+alias lmdf="logg --date=local"
+alias ldmf="logg --date=local"
 #+END_EXAMPLE
 
 ** Aliases
-   :PROPERTIES:
-   :CUSTOM_ID: aliases
-   :END:
 
 Common aliases found in =~/.gitconfig=:
 
@@ -112,18 +91,18 @@ Common aliases found in =~/.gitconfig=:
 My personal aliases in =~/.bash_aliases=:
 
 #+BEGIN_EXAMPLE
-    alias a="git add"
-    alias s="git st"
-    alias c="git commit"
-    alias b="git branch"
-    alias m="git br --merged"
-    alias co="git co"
-    alias bd="git co develop"
-    alias bm="git co master"
-    alias gp="git pull"
-    alias gf="git fetch"
-    alias gc="git clone"
-    alias l="logg --no-merges -40" # see Logging
+alias a="git add"
+alias s="git st"
+alias c="git commit"
+alias b="git branch"
+alias m="git br --merged"
+alias co="git co"
+alias bd="git co develop"
+alias bm="git co master"
+alias gp="git pull"
+alias gf="git fetch"
+alias gc="git clone"
+alias l="logg --no-merges -40" # see Logging
 #+END_EXAMPLE
 
 Note to the reader: if you are using Git at the command line at this
@@ -131,9 +110,6 @@ level and you're not using [[https://magit.vc/][Magit]], I would
 encourage you to look into it.
 
 ** update-index
-   :PROPERTIES:
-   :CUSTOM_ID: update-index
-   :END:
 
 I have a local global constant that I use for debugging. Loading the
 videos slows me down, so I want this toggle on pretty much all the time,
@@ -141,13 +117,13 @@ unless I'm either A) specifically working on videos, or B) working on
 the site as a whole.
 
 #+BEGIN_SRC js
-    // constants.js
+// constants.js
 
-    module.exports = {
-      SERVER_HOST: process.env.REACT_APP_SERVER_HOST,
-      API_VERSION: 'v1',
-      DEV_DISABLE_VIDEO: true,
-    };
+module.exports = {
+  SERVER_HOST: process.env.REACT_APP_SERVER_HOST,
+  API_VERSION: 'v1',
+  DEV_DISABLE_VIDEO: true,
+};
 #+END_SRC
 
 I don't want =true= to be the setting that a developer would receive
@@ -163,23 +139,21 @@ file---not to ignore new changes to a tracked file. But I can use the
 From =git man update-index=:
 
 #+BEGIN_QUOTE
-  #+BEGIN_EXAMPLE
-      SKIP-WORKTREE BIT
-          Skip-worktree bit can be defined in one (long) sentence: When reading an entry, if it is marked as skip-worktree, then Git pretends its working directory version is up to date and read the index version
-          instead.
+SKIP-WORKTREE BIT
+    Skip-worktree bit can be defined in one (long) sentence: When reading an entry, if it is marked as skip-worktree, then Git pretends its working directory version is up to date and read the index version
+    instead.
 
-          To elaborate, "reading" means checking for file existence, reading file attributes or file content. The working directory version may be present or absent. If present, its content may match against the index
-          version or not. Writing is not affected by this bit, content safety is still first priority. Note that Git can update working directory file, that is marked skip-worktree, if it is safe to do so (i.e.
-          working directory version matches index version)
+    To elaborate, "reading" means checking for file existence, reading file attributes or file content. The working directory version may be present or absent. If present, its content may match against the index
+    version or not. Writing is not affected by this bit, content safety is still first priority. Note that Git can update working directory file, that is marked skip-worktree, if it is safe to do so (i.e.
+    working directory version matches index version)
 
-          Although this bit looks similar to assume-unchanged bit, its goal is different from assume-unchanged bit's. Skip-worktree also takes precedence over assume-unchanged bit when both are set.
-  #+END_EXAMPLE
+    Although this bit looks similar to assume-unchanged bit, its goal is different from assume-unchanged bit's. Skip-worktree also takes precedence over assume-unchanged bit when both are set.
 #+END_QUOTE
 
 This is where git shines: literal bit-flippin' to solve problems.
 
 #+BEGIN_SRC sh
-    git update-index --skip-worktree constants.js
+git update-index --skip-worktree constants.js
 #+END_SRC
 
 Then when I want to actually add a new constant down the raod, I can use
@@ -193,15 +167,13 @@ Then when I want to actually add a new constant down the raod, I can use
 From =git man update-index=:
 
 #+BEGIN_QUOTE
-  #+BEGIN_EXAMPLE
-         --[no-]assume-unchanged
-             When this flag is specified, the object names recorded for the paths are not updated. Instead, this option sets/unsets the "assume unchanged" bit for the paths. When the "assume unchanged" bit is on, the
-             user promises not to change the file and allows Git to assume that the working tree file matches what is recorded in the index. If you want to change the working tree file, you need to unset the bit to
-             tell Git. This is sometimes helpful when working with a big project on a filesystem that has very slow lstat(2) system call (e.g. cifs).
+--[no-]assume-unchanged
+    When this flag is specified, the object names recorded for the paths are not updated. Instead, this option sets/unsets the "assume unchanged" bit for the paths. When the "assume unchanged" bit is on, the
+    user promises not to change the file and allows Git to assume that the working tree file matches what is recorded in the index. If you want to change the working tree file, you need to unset the bit to
+    tell Git. This is sometimes helpful when working with a big project on a filesystem that has very slow lstat(2) system call (e.g. cifs).
 
-             Git will fail (gracefully) in case it needs to modify this file in the index e.g. when merging in a commit; thus, in case the assumed-untracked file is changed upstream, you will need to handle the
-             situation manually.
-  #+END_EXAMPLE
+    Git will fail (gracefully) in case it needs to modify this file in the index e.g. when merging in a commit; thus, in case the assumed-untracked file is changed upstream, you will need to handle the
+    situation manually.
 #+END_QUOTE
 
 From a [[http://fallengamer.livejournal.com/93321.html][blog post]]
@@ -209,38 +181,32 @@ found from [[https://stackoverflow.com/a/13631525/1052412][Stack
 Overflow]]:
 
 #+BEGIN_QUOTE
-  Assume-unchanged assumes that a developer shouldn't change a file. If
-  a file was changed -- than that change is not important. This flag is
-  meant for improving performance for not-changing folders like SDKs.
-  But if the promise is broken and a file is actually changed, git
-  reverts the flag to reflect the reality. Probably it's ok to have some
-  inconsistent flags in generally not-meant-to-be-changed folders. On
-  the other hand skip-worktree is useful when you instruct git not to
-  touch a specific file ever. That is useful for an already tracked
-  config file. Upstream main repository hosts some production-ready
-  config but you would like to change some settings in the config to be
-  able to do some local testing. And you don't want to accidentally
-  check the changes in such file to affect the production config. In
-  that case skip-worktree makes perfect scene.
+Assume-unchanged assumes that a developer shouldn't change a file. If
+a file was changed -- than that change is not important. This flag is
+meant for improving performance for not-changing folders like SDKs.
+But if the promise is broken and a file is actually changed, git
+reverts the flag to reflect the reality. Probably it's ok to have some
+inconsistent flags in generally not-meant-to-be-changed folders. On
+the other hand skip-worktree is useful when you instruct git not to
+touch a specific file ever. That is useful for an already tracked
+config file. Upstream main repository hosts some production-ready
+config but you would like to change some settings in the config to be
+able to do some local testing. And you don't want to accidentally
+check the changes in such file to affect the production config. In
+that case skip-worktree makes perfect scene.
 #+END_QUOTE
 
 ** recover from reset --hard
-   :PROPERTIES:
-   :CUSTOM_ID: recover-from-reset-hard
-   :END:
 
 Not that I would ever need this. Not that anyone would ever need this.
 But, you know, just in case... to find that missing ref after resetting
 =--hard= away from an unmerged branch:
 
 #+BEGIN_EXAMPLE
-    git reflog [show] # `show` is default
+git reflog [show] # `show` is default
 #+END_EXAMPLE
 
 ** Hooks/Deployment
-   :PROPERTIES:
-   :CUSTOM_ID: hooksdeployment
-   :END:
 
 [[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][docs]]
 
@@ -252,9 +218,6 @@ Client-side "committing-workflow" hooks in =.git/hooks/=:
 - =post-commit=: notifications
 
 *** husky
-    :PROPERTIES:
-    :CUSTOM_ID: husky
-    :END:
 
 [[https://github.com/typicode/husky/issues/186][Branch targeting]]:
 
@@ -272,14 +235,8 @@ Client-side "committing-workflow" hooks in =.git/hooks/=:
 Ocean]] hook reference
 
 ** .git/
-   :PROPERTIES:
-   :CUSTOM_ID: git
-   :END:
 
 *** info/exclude
-    :PROPERTIES:
-    :CUSTOM_ID: infoexclude
-    :END:
 
 Ignore files from config level (overrides =.gitignore=). I keep symlinks
 here. Handy, 'cause:
@@ -289,9 +246,6 @@ here. Handy, 'cause:
 - they're project-specific, so not suited for =~/.gitignore_global=
 
 ** Misc
-   :PROPERTIES:
-   :CUSTOM_ID: misc
-   :END:
 
 To force push to =master= on GitLab: Settings -> Repository -> Protected
 Branches
@@ -309,26 +263,14 @@ A shell function to jump to the root of the project:
 #+END_EXAMPLE
 
 * Emacs
-  :PROPERTIES:
-  :CUSTOM_ID: emacs
-  :END:
 
 ** Magit
-   :PROPERTIES:
-   :CUSTOM_ID: magit
-   :END:
 
 [[https://magit.vc/manual/magit.html][manual]]
 
 *** commands
-    :PROPERTIES:
-    :CUSTOM_ID: commands
-    :END:
 
 **** general
-     :PROPERTIES:
-     :CUSTOM_ID: general
-     :END:
 
 | =SPC g i=     | [custom] =helm-info-magit=   | manual lookup                                    |
 | =SPC g s=     | =magit-status=               | existing or create new                           |
@@ -340,9 +282,6 @@ A shell function to jump to the root of the project:
 | =SPC g e b=   | =ediff-buffers=              | diff files                                       |
 
 **** from status
-     :PROPERTIES:
-     :CUSTOM_ID: from-status
-     :END:
 
 | =C-u s=                      | [point at untracked file] track without staging ("git add --intent-to-add")   |
 | =M-1=, =M-2=, =M-3=, =M-4=   | outline expansion                                                             |
@@ -356,41 +295,26 @@ A shell function to jump to the root of the project:
 | =0=                          | reset file's hunk qty/size                                                    |
 
 **** from log
-     :PROPERTIES:
-     :CUSTOM_ID: from-log
-     :END:
 
 | =O=     | [in log] =magit-reset-popup=              | reset popup                     |
 | =L l=   | [in log] (custom) =magit-toggle-margin=   | toggle name & date side panel   |
 
 **** from commit
-     :PROPERTIES:
-     :CUSTOM_ID: from-commit
-     :END:
 
 | =M-p=   | [in commit window] pull up previously used commit messages   |
 
 **** from popup
-     :PROPERTIES:
-     :CUSTOM_ID: from-popup
-     :END:
 
 | =?=     | describe key      |
 | =C-t=   | show popup menu   |
 
 *** add a flag
-    :PROPERTIES:
-    :CUSTOM_ID: add-a-flag
-    :END:
 
 #+BEGIN_SRC emacs-lisp
     (magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
 #+END_SRC
 
 *** refs
-    :PROPERTIES:
-    :CUSTOM_ID: refs
-    :END:
 
 [[https://magit.vc/manual/magit/References-Buffer.html][manual]]
 
@@ -409,9 +333,6 @@ In status, =C-- y r= for =magit-show-refs-popup=, =? y= for
 Use =L= for =magit-margin-popup=.
 
 *** reference
-    :PROPERTIES:
-    :CUSTOM_ID: reference
-    :END:
 
 [[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit
 workflows]]
@@ -423,9 +344,6 @@ arguements and suffix commands]]
 emacs-plus to reduce sluggishness]]
 
 *** misc
-    :PROPERTIES:
-    :CUSTOM_ID: misc-1
-    :END:
 
 #+BEGIN_SRC emacs-lisp
     ;; (setq magit-commit-show-diff nil)
@@ -436,9 +354,6 @@ emacs-plus to reduce sluggishness]]
 #+END_SRC
 
 ** smerge
-   :PROPERTIES:
-   :CUSTOM_ID: smerge
-   :END:
 
 Compare ediff/emerge.
 
@@ -448,9 +363,6 @@ Compare ediff/emerge.
 | =C-c ^ n=   | next                     |
 
 ** Version-Control layer
-   :PROPERTIES:
-   :CUSTOM_ID: version-control-layer
-   :END:
 
 (Spacemacs)
 
@@ -465,9 +377,6 @@ From =.emacs.d/layers/+source-control/version-control/README.org=:
 | =SPC T C-d=   | toggle diff margins globally      |
 
 *** Version Control Transient-state
-    :PROPERTIES:
-    :CUSTOM_ID: version-control-transient-state
-    :END:
 
 | Key Binding   | Description                    |
 |---------------+--------------------------------|
@@ -490,23 +399,14 @@ From =.emacs.d/layers/+source-control/version-control/README.org=:
 | =SPC g . l=   | Show repo log                  |
 
 * Vim
-  :PROPERTIES:
-  :CUSTOM_ID: vim
-  :END:
 
 ** Fugitive
-   :PROPERTIES:
-   :CUSTOM_ID: fugitive
-   :END:
 
 | =:Gwrite=    | add %                              |
 | =:Gread=     | overwrite working with index       |
 | =:Gbrowse=   | inspect current object on GitHub   |
 
 *** :Gstatus
-    :PROPERTIES:
-    :CUSTOM_ID: gstatus
-    :END:
 
 | =:Gstatus=   | status                                             |
 | =g?=         | show help                                          |
@@ -518,9 +418,6 @@ From =.emacs.d/layers/+source-control/version-control/README.org=:
 | =q=          | quit                                               |
 
 *** :Gdiff
-    :PROPERTIES:
-    :CUSTOM_ID: gdiff
-    :END:
 
 | =:[range]diffget [bufspec]=   | obtain diff                                                         |
 | =:[range]diffput [bufspec]=   | put diff                                                            |
@@ -531,9 +428,6 @@ From =.emacs.d/layers/+source-control/version-control/README.org=:
 | =:Gwrite!=                    | (from target or merge branch) resolve conflicts with this version   |
 
 *** :Gedit
-    :PROPERTIES:
-    :CUSTOM_ID: gedit
-    :END:
 
 | =:Gedit [revision]=   | e.g. =:Gedit HEAD^:%=                                |
 | =<Enter>=             | go to object corresponding to SHA on cursor's line   |
@@ -541,9 +435,6 @@ From =.emacs.d/layers/+source-control/version-control/README.org=:
 | =-=                   | jump to tree object                                  |
 
 *** [revision]
-    :PROPERTIES:
-    :CUSTOM_ID: revision
-    :END:
 
 | =:h fugitive-revision=   | =HEAD=, =master=, etc.                        |
 | =HEAD^{}=                | commit referenced by HEAD                     |
