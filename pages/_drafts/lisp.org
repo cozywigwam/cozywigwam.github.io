@@ -12,3 +12,42 @@ path: "/lisp/"
 #+BEGIN_SRC emacs-lisp
 (setq x 3)
 #+END_SRC
+
+* Scheme
+
+** debugging
+
+| ? | help, list command letters                                               |
+| A | show All bindings in current environment and its ancestors               |
+| B | move (Back) to next reduction (earlier in time)                          |
+| C | show bindings of identifiers in the Current environment                  |
+| D | move (Down) to the previous subproblem (later in time)                   |
+| E | Enter a read-eval-print loop in the current environment                  |
+| F | move (Forward) to previous reduction (later in time)                     |
+| G | Go to a particular subproblem                                            |
+| H | prints a summary (History) of all subproblems                            |
+| I | redisplay the error message Info                                         |
+| J | return TO the current subproblem with a value                            |
+| K | continue the program using a standard restart option                     |
+| L | (List expression) pretty print the current expression                    |
+| M | (Frame elements) show the contents of the stack frame, in raw form       |
+| O | pretty print the procedure that created the current environment          |
+| P | move to environment that is Parent of current environment                |
+| Q | Quit (exit debugger)                                                     |
+| R | print the execution history (Reductions) of the current subproblem level |
+| S | move to child of current environment (in current chain)                  |
+| T | print the current subproblem or reduction                                |
+| U | move (Up) to the next subproblem (earlier in time)                       |
+| V | eValuate expression in current environment                               |
+| W | enter environment inspector (Where) on the current environment           |
+| X | create a read eval print loop in the debugger environment                |
+| Y | display the current stack frame                                          |
+| Z | return FROM the current subproblem with a value                          |
+
+*** reference
+
+[[https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/][MIT/GNY Scheme 9.4 documentation]]
+
+[[http://www.neilvandyke.org/quack/quack.el][quack.el]]
+
+[[https://groups.csail.mit.edu/mac/users/gjs/6.945/dont-panic/][Don't Panic!]] by rlm, larsj re debugging
