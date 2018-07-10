@@ -10,57 +10,42 @@ path: "/css/"
 #+END_EXAMPLE
 
 * General
-  :PROPERTIES:
-  :CUSTOM_ID: general
-  :END:
 
 ** Reference
-   :PROPERTIES:
-   :CUSTOM_ID: reference
-   :END:
 
 [[https://www.w3.org/Style/CSS/specs.en.html][CSS spec]]
 
 ** Custom Properties
-   :PROPERTIES:
-   :CUSTOM_ID: custom-properties
-   :END:
 
 *** Spec
-    :PROPERTIES:
-    :CUSTOM_ID: spec
-    :END:
 
 [[https://www.w3.org/TR/css-variables/][W3]]
 
 *** Syntax Examples
-    :PROPERTIES:
-    :CUSTOM_ID: syntax-examples
-    :END:
 
 There are regular variables...:
 
 #+BEGIN_SRC css
-    :root {
-      --site-red: #f00;
-    }
-    h1 {
-      var(--site-red);
-    }
+:root {
+  --site-red: #f00;
+}
+h1 {
+  color: var(--site-red);
+}
 #+END_SRC
 
 ...and mixin-esque custom properties:
 
 #+BEGIN_SRC css
-    :root {
-      --an-argumentless-mixin: {
-        color: red;
-        border: 1px solid pink;
-      }
-    }
-    .an-unargumentative-element {
-      @apply --an-argumentless-mixin;
-    }
+:root {
+  --an-argumentless-mixin: {
+    color: red;
+    border: 1px solid pink;
+  }
+}
+.an-unargumentative-element {
+  @apply --an-argumentless-mixin;
+}
 #+END_SRC
 
 These mixins might require the =Experimental Web Platform features= flag
@@ -103,10 +88,23 @@ Note that you cannot overwrite a root variable used by a mixin:
     }
 #+END_SRC
 
+*** JavaScript read/write
+
+The custom properties get/set methods are ~getPropertyValue()~ and ~setProperty()~ on the ~document.documentElement.style~ object.
+
+#+BEGIN_SRC css
+:root {
+  --myProp: red;
+}
+#+END_SRC
+
+#+BEGIN_SRC js
+const styles = document.documentElement.style
+const myProp = styles.getPropertyValue('--myProp')
+styles.setProperty('--myProp', 'blue')
+#+END_SRC
+
 *** Reference
-    :PROPERTIES:
-    :CUSTOM_ID: reference-1
-    :END:
 
 - [[https://twitter.com/malyw][Serg Hespodarets']]
   [[https://blog.hospodarets.com/css_properties_in_depth][custom props
@@ -484,9 +482,6 @@ write-up]]
 #+END_SRC
 
 * Misc
-  :PROPERTIES:
-  :CUSTOM_ID: misc
-  :END:
 
 #+BEGIN_SRC css
 .why-is-this-hard-for-me-to-remember {
@@ -505,24 +500,26 @@ $multiplier-sm: #f00;
   width: calc(10% * #{$multiplier-sm});
 }
 #+END_SRC
-## Styles in HTML
+
+** Styles in HTML
 
 #+BEGIN_HTML
   <head>
 #+END_HTML
 
 CSS Styles in the head
+
 [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style][MDN]]
 
-#+BEGIN_EXAMPLE
-    <link href="styles/main.css" rel="stylesheet">
+#+BEGIN_SRC html
+<link href="styles/main.css" rel="stylesheet">
 
-    <style>
-        body { display: none; }
-    </style>
+<style>
+    body { display: none; }
+</style>
 
-    <!-- optional [MIME] `type` attribute defauts to `text/css`, i.e. <style type="text/css" /> -->
-#+END_EXAMPLE
+<!-- optional [MIME] `type` attribute defauts to `text/css`, i.e. <style type="text/css" /> -->
+#+END_SRC
 
 ** Paragraph line width in em
    :PROPERTIES:
@@ -553,8 +550,7 @@ Proper main-content line lengths, in em,
 #+END_EXAMPLE
 
 ** text selection
-   :PROPERTIES:
-   :CUSTOM_ID: text-selection
-   :END:
 
-=::selection { ... }=
+#+BEGIN_SRC css
+::selection { ... }
+#+END_SRC

@@ -6,3 +6,5 @@ test.*
 
 # exports
 pages/notations/*.md
+pages/_drafts/*.md
+pages/_drafts/*.html

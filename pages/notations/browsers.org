@@ -10,14 +10,8 @@ path: "/browsers/"
 #+END_EXAMPLE
 
 * Chrome
-  :PROPERTIES:
-  :CUSTOM_ID: chrome
-  :END:
 
 ** dev tools
-   :PROPERTIES:
-   :CUSTOM_ID: dev-tools
-   :END:
 
 [[https://developers.google.com/web/tools/chrome-devtools/console/console-reference][Console
 API Reference]]
@@ -26,55 +20,43 @@ API Reference]]
 Line API Reference]]
 
 ** Console colors
-   :PROPERTIES:
-   :CUSTOM_ID: console-colors
-   :END:
 
 #+BEGIN_SRC js
     console.log('%cThis String is Colored beacuse of `%c`', 'color: blue');
     console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red');
 #+END_SRC
 
-| =cmd + shift + P=                   | [[https://developers.google.com/web/tools/chrome-devtools/ui#command-menu][command menu]]   |
-| =$_=                                | previous expression's evaluation                                                            |
-| =$0= -- =$4=                        | most recently inspected elements                                                            |
-| =$('img')=                          | =document.querySelector()= alias                                                            |
-| =$$('img')=                         | =document.querySelectorAll()= alias                                                         |
-| =$x("//p[a]")=                      | XPath                                                                                       |
-| =copy($0)=                          | copy to clipboard                                                                           |
-| =debug(myFuncName)= & =undebug()=   | break on =myFuncName()=                                                                     |
-| =dir(document.body)= & =dirxml()=   | list properties                                                                             |
-| =inspect(object/function)=          | go to Elements or Profiles                                                                  |
-| =keys(object)= & =values(object)=   |                                                                                             |
-| =getEventListeners(object)=         |                                                                                             |
-| =monitorEvents(object[, events])=   |                                                                                             |
-| =F2=                                | (with element selected) edit as HTML                                                        |
+| =cmd + shift + P=                 | [[https://developers.google.com/web/tools/chrome-devtools/ui#command-menu][command menu]]                         |
+| =$_=                              | previous expression's evaluation     |
+| =$0= -- =$4=                      | most recently inspected elements     |
+| =$('img')=                        | =document.querySelector()= alias     |
+| =$$('img')=                       | =document.querySelectorAll()= alias  |
+| =$x("//p[a]")=                    | XPath                                |
+| =copy($0)=                        | copy to clipboard                    |
+| =debug(myFuncName)= & =undebug()= | break on =myFuncName()=              |
+| =dir(document.body)= & =dirxml()= | list properties                      |
+| =inspect(object/function)=        | go to Elements or Profiles           |
+| =keys(object)= & =values(object)= |                                      |
+| =getEventListeners(object)=       |                                      |
+| =monitorEvents(object[, events])= |                                      |
+| =F2=                              | (with element selected) edit as HTML |
 
 ** copy "raw" json/objects from console.log
 
 Right click, "Store as global variable", then `copy(temp1)`.
 
 ** Performance
-   :PROPERTIES:
-   :CUSTOM_ID: performance
-   :END:
 
 [[https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling][Emulate
 slow network connections]]
 
 ** Cookies
-   :PROPERTIES:
-   :CUSTOM_ID: cookies
-   :END:
 
 [[https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies][reference]]
 
 In Applications -> Storage
 
 ** Run Chrome with flags
-   :PROPERTIES:
-   :CUSTOM_ID: run-chrome-with-flags
-   :END:
 
 From
 [[http://www.chromium.org/developers/how-tos/run-chromium-with-flags][The
@@ -88,24 +70,15 @@ Chromium Projects]]:
 #+END_EXAMPLE
 
 ** Take a screenshot
-   :PROPERTIES:
-   :CUSTOM_ID: take-a-screenshot
-   :END:
 
 =cmd + shift + P= -> "Capture Screenshot"
 
 ** Empty Devtools Popups
-   :PROPERTIES:
-   :CUSTOM_ID: empty-devtools-popups
-   :END:
 
 Clear cache in =chrome://appcache-internals/=
 ([[https://github.com/googlearchive/ADBPlugin/issues/14][reference]])
 
 ** Vimium
-   :PROPERTIES:
-   :CUSTOM_ID: vimium
-   :END:
 
 [[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium][dotfile]]
 
@@ -113,28 +86,19 @@ Clear cache in =chrome://appcache-internals/=
 
 =chrome://settings/searchEngines= -> Other search engines -> ADD:
 
-|-------------------------------+-------------|
-| Search engine                 | ~focus~     |
-| Keyword                       | ~f~         |
-| URL with %s in place of query | ~javascript |
+|-------------------------------+---------------|
+| Search engine                 | ~focus~       |
+| Keyword                       | ~f~           |
+| URL with %s in place of query | ~javascript:~ |
 
 ** Reference
-   :PROPERTIES:
-   :CUSTOM_ID: reference
-   :END:
 
 [[https://developers.google.com/web/tools/chrome-devtools/shortcuts][Keyboard
 shortcuts reference]]
 
 * Chromium
-  :PROPERTIES:
-  :CUSTOM_ID: chromium
-  :END:
 
 ** Run Chromium with flags
-   :PROPERTIES:
-   :CUSTOM_ID: run-chromium-with-flags
-   :END:
 
 From
 [[http://www.chromium.org/developers/how-tos/run-chromium-with-flags][The
@@ -148,10 +112,8 @@ Chromium Projects]]:
 #+END_EXAMPLE
 
 ** [[https://www.chromium.org/developers/calendar][Chromium Development
+
 Calendar and Release Info]]
-   :PROPERTIES:
-   :CUSTOM_ID: chromium-development-calendar-and-release-info
-   :END:
 
 | Release   | Estimated Week of Stable                      |
 |-----------+-----------------------------------------------|
@@ -165,22 +127,13 @@ Calendar and Release Info]]
 | 71        | Dec 4th, 2018 (Dec 11th for Chrome OS)        |
 
 * Firefox
-  :PROPERTIES:
-  :CUSTOM_ID: firefox
-  :END:
 
 ** Shortcuts
-   :PROPERTIES:
-   :CUSTOM_ID: shortcuts
-   :END:
 
 [[https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts][Mozilla
 keyboard shortcuts]]
 
 ** Locations
-   :PROPERTIES:
-   :CUSTOM_ID: locations
-   :END:
 
 Help -> Troubleshooting Information
 
@@ -195,9 +148,6 @@ Help -> Troubleshooting Information
 - =~/Library/Mozilla/Firefox/Profiles/=
 
 ** Cookies
-   :PROPERTIES:
-   :CUSTOM_ID: cookies-1
-   :END:
 
 [[https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies][Reference]]
 
@@ -304,9 +254,6 @@ https://github.com/cmcaine/tridactyl
 | ~bdelete~ | ~tabclose~   |
 
 ** +Vimperator+
-   :PROPERTIES:
-   :CUSTOM_ID: vimperator
-   :END:
 
 +[[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc][dotfile]]+
 
@@ -332,16 +279,10 @@ https://github.com/cmcaine/tridactyl
 | =:qmarks j=       | see "j"                                                        |
 
 ** Misc
-   :PROPERTIES:
-   :CUSTOM_ID: misc
-   :END:
 
 To add "confirm on quit": =about:config=, =browser.showQuitWarning=
 
 * Safari
-  :PROPERTIES:
-  :CUSTOM_ID: safari
-  :END:
 
 | +=cmd + opt + r=+                         | +responsive+   |
 | Develop -> Enter Responsive Design Mode   | responsive     |

@@ -1,0 +1,32 @@
+#+BEGIN_EXAMPLE
+---
+layout: post
+title: "CDN"
+description: hey, can you go to the store for me?
+categories: notation
+---
+#+END_EXAMPLE
+
+
+* expect
+
+https://cdnjs.cloudflare.com/ajax/libs/expect/1.20.2/expect.js
+https://wzrd.in/standalone/expect@latest
+
+#+BEGIN_SRC html
+<script src="https://wzrd.in/standalone/expect@latest"></script>
+#+END_SRC
+
+* ramda
+
+https://cdn.jsdelivr.net/npm/ramda@0.25.0/dist/ramda.min.js
+
+* rxjs
+
+https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.8/Rx.js
+https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.8/Rx.min.js
+
+#+BEGIN_SRC html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.8/Rx.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.5.8/Rx.min.js"></script>
+#+END_SRC

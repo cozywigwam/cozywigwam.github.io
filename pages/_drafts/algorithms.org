@@ -1,10 +1,6 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
 #+EXCLUDE_TAGS: no_export
-* COMMENT Local Variables
-  # Local Variables:
-  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
-  # End:
 #+BEGIN_EXAMPLE
 ---
 title: "Algorithms"
@@ -22,6 +18,8 @@ path: "/algorithms/"
 - O(n2
 
 * Binary Search
+
+Works for sorted arrays.
 
 Split the results in half, and ask higher or lower?
 
@@ -50,11 +48,13 @@ print binary_search(my_list, 9)
 
 Run through the whole list to select the highest/lowest, and repeat /n/ times.
 
+Define a mutable ~sorted~ array. Loop through the array, each time popping one "sorted" element (e.g. smallest), and appending it to ~sorted~. The sorting function returns the index indicating the smallest element.
+
 ** python
 
 #+BEGIN_SRC python
 def findSmallest(arr):
-  # smallest = arr[0]
+  smallest = arr[0]
   smallest_index = 0
   for i in range(1, len(arr)):
     if arr[i] < smallest:
@@ -68,8 +68,6 @@ def selectionSort(arr):
     smallest = findSmallest(arr)
     newArr.append(arr.pop(smallest))
   return newArr
-
-print selectionSort([5, 3, 6, 2, 10])
 #+END_SRC
 
 ** javascript
@@ -107,18 +105,448 @@ print selectionSort([5, 3, 6, 2, 10])
 : [1 (\, 2) (\, 3) (\, 4) (\, 5) (\, 6) (\, 7) (\, 8) (\, 9) (\, 10)]
 
 * Quicksort
+** C
+
+Credit: [[http://knking.com/books/c2/index.html][K. N. King, C Programming: A Modern Approach, Second Edition]]
+
+#+BEGIN_SRC c
+#include <stdio.h>
+
+#define N 10
+
+void quicksort(int a[], int low, int high);
+int split(int a[], int low, int high);
+
+int main(void)
+{
+  int a[N], i;
+
+  printf("Enter %d numbers to be sorted: ", N);
+  for (i = 0; i < N; i++)
+    scanf("%d", &a[i]);
+
+  quicksort(a, 0, N - 1);
+  printf("In sorted order: ");
+  for (i = 0; i < N; i++)
+    printf("%d ", a[i]);
+  printf("\n");
+
+  return 0;
+}
+
+void quicksort(int a[], int low, int high)
+{
+  int middle;
+
+  if (low >= high) return;
+  middle = split(a, low, high);
+  quicksort(a, low, middle - 1);
+  quicksort(a, middle + 1, high);
+}
+
+int split(int a[], int low, int high)
+{
+  int part_element = a[low];
+
+  for (;;) {
+    while (low < high && part_element <= a[high])
+      high--;
+    if (low >= high) break;
+    a[low++] = a[high];
+
+    while (low < high && a[low] <= part_element)
+      low++;
+    if (low >= high) break;
+    a[high--] = a[low];
+  }
+
+  a[high] = part_element;
+  return high;
+}
+#+END_SRC
+
+** java
+
+http://gauss.ececs.uc.edu/Courses/C321/html/quicksort.java.html
+
+University of Cincinatti
+
+#+BEGIN_SRC java
+import java.io.*;
+import java.util.*;
+
+public class QuickSort
+{
+  public static void swap (int A[], int x, int y)
+  {
+    int temp = A[x];
+    A[x] = A[y];
+    A[y] = temp;
+  }
+
+  // Reorganizes the given list so all elements less than the first are
+  // before it and all greater elements are after it.
+  public static int partition(int A[], int f, int l)
+  {
+    int pivot = A[f];
+    while (f < l)
+      {
+        if (A[f] == pivot || A[l] == pivot)
+          {
+            System.out.println("Only distinct integers allowed - C321");
+            System.out.println("students should ignore this if statement");
+            System.out.exit(0);
+          }
+        while (A[f] < pivot) f++;
+        while (A[l] > pivot) l--;
+        swap (A, f, l);
+      }
+    return f;
+  }
+
+  public static void Quicksort(int A[], int f, int l)
+  {
+    if (f >= l) return;
+    int pivot_index = partition(A, f, l);
+    Quicksort(A, f, pivot_index);
+    Quicksort(A, pivot_index+1, l);
+  }
+
+  // Usage: java QuickSort [integer] ...
+  // All integers must be distinct
+  public static void main(String argv[])
+  {
+    int A[] = new int[argv.length];
+    for (int i=0 ; i < argv.length ; i++)
+      A[i] = Integer.parseInt(argv[i]);
+
+    Quicksort(A, 0, argv.length-1);
+
+    for (int i=0 ; i < argv.length ; i++) System.out.print(A[i] + " ");
+    System.out.println();
+  }
+}
+#+END_SRC
+
+** javascript
+
+#+BEGIN_SRC js
+const qs3 = arr => {
+  if (!arr.length) return [];
+  const [head, ...tail] = arr,
+    lt = tail.filter(x => x < head),
+    gt = tail.filter(x => x >= head);
+  return qs3(lt).concat(head, qs3(gt));
+};
+#+END_SRC
+
+** python
 
 #+BEGIN_SRC python
 def quicksort(array):
   if len(array) < 2:
-    return arry
+    return array
   else:
     pivot = array[0]
     less = [i for i in array[1:] if i <= pivot]
-
     greater = [i for i in array[1:] if i > pivot]
 
     return quicksort(less) + [pivot] + quicksort(greater)
 
   print quicksort([10, 5, 2, 3])
 #+END_SRC
+
+** ruby
+
+Common-Sense Guide to Data Structures and Algorithms, by Jay Wengrow
+#+BEGIN_SRC ruby
+class SortableArray
+  attr_reader :array
+  def initialize(array)
+    @array = array
+  end
+  def partition!(left_pointer, right_pointer)
+    # right-most as pivot
+    pivot_position = right_pointer
+    pivot = @array[pivot_position]
+    # start right pointer immediately to left of pivot
+    right_pointer -= 1
+    while true do
+      whilte @array[left_pointer] < pivot do
+        left_pointer += 1
+      end
+      while @array[right_pointer] > pivot do
+        right_pointer -= 1
+      end
+      if left_pointer >= right_pointer
+        break
+      else
+        swap(left_pointer, right_pointer)
+      end
+    end
+
+    # swap left pointer with pivot
+    swap(left_pointer, pivot_position)
+    return left_pointer
+  end
+
+  def swap(pointer_1, pointer_2)
+    temp_value = @array[pointer_1]
+    @array[pointer_1] = @array[pointer_2]
+    @array[pointer_2] = temp_value
+  end
+end
+
+def quicksort!(left_index, right_index)
+  # base case: subarray has 0 or 1
+  if right_index - left_index <= 0
+    return
+  end
+  # partition array and grab position of pivot
+  pivot_position = partition!(left_index, right_index)
+  quicksort!(left_index, pivot_position - 1)
+  quicksort!(pivot_position + 1, right_index)
+end
+
+array = [0, 5, 2, 1, 6, 3]
+sortable_array = SortableArray.new(array)
+sortable_array.quicksort!(0, array.length - 1)
+p sortable_array.array
+#+END_SRC
+
+* Breadth-first search
+
+[[https://www.manning.com/books/grokking-algorithms][Grokking Algorithms by Aditya Y. Bhargava]]
+
+#+BEGIN_SRC python
+from collections import deque
+
+def person_is_seller(name):
+    return name[-1] == 'm'
+
+graph = {}
+graph["you"] = ["alice", "bob", "claire"]
+graph["bob"] = ["anuj", "peggy"]
+graph["alice"] = ["peggy"]
+graph["claire"] = ["thom", "jonny"]
+graph["anuj"] = []
+graph["peggy"] = []
+graph["thom"] = []
+graph["jonny"] = []
+
+def search(name):
+    search_queue = deque()
+    search_queue += graph[name]
+    searched = []
+    while search_queue:
+        person = search_queue.popleft()
+        if not person in searched:
+            if person_is_seller(person):
+                print person + ' found'
+                return True
+            else:
+                search_queue += graph[person]
+                searched.append(person)
+    return False
+#+END_SRC
+
+#+BEGIN_SRC python
+from collections import deque
+
+graph = {}
+graph["you"] = ["alice", "bob", "claire"]
+graph["bob"] = ["anuj", "peggy"]
+graph["alice"] = ["peggy"]
+graph["claire"] = ["thom", "jonny"]
+graph["anuj"] = []
+graph["peggy"] = []
+graph["thom"] = []
+graph["jonny"] = []
+
+def search(name, target):
+    search_queue = deque()
+    search_queue += graph[name]
+    searched = []
+    while search_queue:
+        person = search_queue.popleft()
+        if not person in searched:
+            if person == target:
+                print person + ' found'
+                return True
+            else:
+                search_queue += graph[person]
+                searched.append(person)
+    return False
+#+END_SRC
+
+* Misc
+** Add numbers recursively
+
+#+BEGIN_SRC python
+def sum(arr):
+  total = 0
+  for x in arr:
+    total += x
+  return total
+
+def rAdd(arr):
+  if (arr.length > 1):
+    rAdd(arr.pop + arr)
+  return arr
+#+END_SRC
+
+** Cube root
+
+** Factorial
+
+*** clojure
+
+#+BEGIN_SRC clojure
+(def factorial
+  (fn [n]
+    (loop [cnt n acc 1]
+      (if (zero? cnt)
+        acc
+        (recur (dec cnt) (* acc cnt))))))
+#+END_SRC
+
+*** common lisp
+
+#+BEGIN_SRC lisp
+(defun fact (n)
+  (if (zerop n) 1
+      (* n (fact (1- n)))))
+#+END_SRC
+*** emacs lisp
+
+#+BEGIN_SRC emacs-lisp
+(defun fact (n)
+  (if (zerop n) 1
+    (* n (fact2 (1- n)))))
+#+END_SRC
+
+*** js
+
+#+BEGIN_SRC js
+function fac(n) {
+  if (n === 0 || n === 1) {
+    return n
+  } else {
+    return n * fac(n - 1)
+  }
+}
+#+END_SRC
+
+*** python
+
+#+BEGIN_SRC python
+def fac(n):
+  if (n == 0):
+    return 1
+  else:
+    return n * fac(n - 1)
+#+END_SRC
+
+*** scheme
+
+#+BEGIN_SRC scheme
+(define (fac n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (* n (fac (- n 1))))))
+#+END_SRC
+
+#+BEGIN_SRC scheme
+(define (fac2 n)
+  (define (fac-iter count acc)
+    (if (= count 0)
+        acc
+        (fac-iter (- count 1) (* acc count))))
+  (fac-iter n 1))
+#+END_SRC
+
+** Fibonacci
+
+*** clojure
+
+#+BEGIN_SRC clojure
+(defn fib
+  [n]
+  (loop [a 0 b 1 i n]
+    (if (zero? i)
+      a
+      (recur b (+ a b) (dec i)))))
+#+END_SRC
+
+#+BEGIN_SRC clojure
+;; lazy infinite sequence
+(def fibs (cons 0 (cons 1 (lazy-seq (map +' fibs (rest fibs))))))
+
+;; list of first 10 Fibonacci numbers taken from infinite sequence
+(take 10 fibs)
+#+END_SRC
+
+*** js
+
+#+BEGIN_SRC js
+function fib(n) {
+  if (n === 0 || n === 1) {
+    return n
+  } else {
+    return fib(n - 1) + fib(n - 2)
+  }
+}
+#+END_SRC
+
+#+BEGIN_SRC js
+const fibIter = (a, b, n) => {
+  if (n === 0) {
+    return b
+  } else {
+    return fibIter(a + b, a, n - 1)
+  }
+}
+function fib2(n) {
+  return fibIter(1, 1, n)
+}
+#+END_SRC
+
+*** python
+
+#+BEGIN_SRC python
+def fib(n, first = 0, second = 1):
+  for _ in range(n):
+    first, second = second, first + second
+  return second
+#+END_SRC
+
+#+BEGIN_SRC python
+def fib2(n):
+  def fibi(a, b, n):
+    if n == 0:
+      return b
+    else:
+      return fibi(a + b, a, n - 1)
+  return fibi(1, 1, n)
+#+END_SRC
+
+*** scheme
+
+#+BEGIN_SRC scheme
+(define (fib n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (+ (fib (- n 1))
+                 (fib (- n 2))))))
+#+END_SRC
+
+#+BEGIN_SRC scheme
+(define (fib n)
+  (define (fib-iter a b count)
+    (if (= count 0)
+        b
+        (fib-iter (+ a b) a (- count 1))))
+  (fib-iter 1 1 n))
+#+END_SRC
+
+** Square Root

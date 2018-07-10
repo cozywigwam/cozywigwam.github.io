@@ -75,6 +75,13 @@ path: "/org/"
 # end:
 #+END_EXAMPLE
 
+#+BEGIN_EXAMPLE
+* COMMENT Local Variables
+  # Local Variables:
+  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
+  # End:
+#+END_EXAMPLE
+
 * Babel
 
 * code blocks/babel

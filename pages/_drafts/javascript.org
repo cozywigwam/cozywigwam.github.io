@@ -118,6 +118,74 @@ const makeRequest = async () => {
 makeRequest()
 #+END_SRC
 
+* Callbags
+
+https://github.com/staltz/callbag-basics
+
+https://www.youtube.com/watch?v=HssczgaY9BM
+
+"What I called the 'callbag pattern.'"
+
+"The idea is that the producer and consumer are symmetric: they have the same signature."
+
+#+BEGIN_SRC js
+function producer(type, payload) {
+  if (type === 'start') {
+    // on start, you know the payload is a callback
+    const consumer = payload;
+    let i = 0;
+    let handle;
+
+    // I can listen to the consumer with another function:
+    // it's a nested callback
+    consumer('start', (type, payload) => {
+      if (type === 'data') i = payload;
+      if (type === 'stop') clearInterval(incInt);
+    });
+
+    incInt = setInterval(() => {
+      consumer('data', i);
+      i++;
+    }, 1000);
+  }
+}
+
+function consumer(type, payload) {
+  // subscribe
+  if (type === 'start') {
+    // you know payload is a callback
+    const cb = payload;
+
+    setTimeout(() => {
+      console.log('hello')
+      cb('data', 17)
+    }, 1200);
+
+    setTimeout(() => {
+      // this calls the "nested callback" filtered by type === 'stop'
+      // (t,p)=>{if (t==='stop') clearInterval(handle)}
+      cb('stop');
+    }, 3500);
+  }
+  if (type === 'data') {
+    console.log(payload);
+  }
+}
+
+producer('start', consumer);
+#+END_SRC
+
+* Currying
+
+Function takes two:
+
+#+BEGIN_SRC js
+const everyOtherLetterTwoWords = (first, second) =>
+      R.compose(
+        R.tap(x => console.log('a: x', x);)
+        R.concat(first, second))
+#+END_SRC
+
 * Destructuring
 
 ** Arrays
@@ -163,6 +231,35 @@ console.log(restItem);
 
 #+RESULTS:
 
+* Iterators
+
+From [[https://nostarch.com/ecmascript6][Understanding ECMASCRIPT 6]] by [[https://twitter.com/slicknet][Nicholas Zakas]]
+
+ES5 iterator:
+
+#+BEGIN_SRC js
+const createIterator = items => {
+  let i = 0;
+
+  return {
+    next: () => {
+      const done = i <= items.length;
+      const value = !done && items[i++];
+
+      return {
+        value: value,
+        done: done,
+      };
+    },
+  };
+};
+#+END_SRC
+
+ES6 equivalent:
+
+#+BEGIN_SRC js
+const createIterator
+#+END_SRC
 
 * Styling
 
@@ -225,8 +322,6 @@ export default Button
 
 
 
-
-
 * React
 
 ** Components
@@ -276,7 +371,6 @@ export default class PostLink extends React.Component {
 }
 #+END_SRC
 
-
 * Ramda
 
 Same lookup on two data sets:
@@ -284,6 +378,7 @@ Same lookup on two data sets:
 #+BEGIN_SRC js
 
 #+END_SRC
+
 * Promises
 
 ** Nolan Lawson's Cheatsheet
@@ -531,7 +626,6 @@ function finally (promise, cb) {
 ** Other References
 
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-
 
 * Misc
 

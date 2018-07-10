@@ -1,10 +1,6 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
 #+EXCLUDE_TAGS: no_export
-* COMMENT Local Variables
-  # Local Variables:
-  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
-  # End:
 #+BEGIN_EXAMPLE
 ---
 title: "Code"
@@ -38,4 +34,21 @@ function (start, end) {
 }
 #+END_SRC
 
-#+RESULTS:
+* Fahrenheit to Celsius
+
+#+BEGIN_SRC c
+int main(void)
+{
+  float fahrenheit, celsius;
+
+  printf("Enter Fahrenheit: ");
+  scanf("%f", &fahrenheit);
+
+  celsius = (fahrenheit - FREEZING_PT) * SCALE_FACTOR;
+
+  printf("Calesius equivalent: %.1f\n", celsius);
+
+  return 0;
+}
+
+#+END_SRC

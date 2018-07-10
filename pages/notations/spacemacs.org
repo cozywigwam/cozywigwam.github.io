@@ -165,8 +165,16 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 ** quick reference/favorites/main
 *** misc/hard to remember
 
+evil states: https://github.com/noctuid/evil-guide#global-keybindings-and-evil-states
+
+#+BEGIN_SRC emacs-lisp
+(evil-set-initial-state 'term-mode 'normal)
+#+END_SRC
+
 | Layouts    | Perspectives | iTerm2 tabs              |
 | Workspaces | Eyebrowse    | tmux windows or vim tabs |
+
+Pretty print emacs-lisp with ~(pp-buffer)~ and ~(pp object)~. Also see ~elisp-format-buffer~ (custom ~C-=~).
 
 Format code execution results with ~:results~:
 
@@ -176,6 +184,7 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
+| ~C-c TAB~           | [helm] ~helm-copy-to-buffer~                |
 | ~C-x n e~           | ~org-narrow-to-element~                     |
 | ~SPC h d l~         | ~spacemacs/describe-last-keys~              |
 | ~c~                 | [Info mode] ~Info-copy-current-node-name~   |
@@ -233,7 +242,7 @@ type ls
 | ~SPC b W~ | ~spacemacs/goto-buffer-workspace~                   | go to where that buffer is displayed (if it is) |
 | ~SPC B b~ | ~spacemacs-layouts/non-restricted-buffer-list-helm~ | &nbsp;                                          |
 | -C-x C-b~ | ~list-buffer~                                       | Buff mode                                       |
-| ~~        | [custom] ~ibuffer~                                  | buffer dired                                    |
+| ~SPC b i~ | [custom] ~ibuffer~                                  | buffer dired                                    |
 
 *** projects
 
@@ -262,33 +271,35 @@ See [[/git/][git]]
 
 See ~helm-documentation~ for all helm docs concatenated to one org file.
 
-| ~C-c ?~                               | [from helm] ~helm-help~                                         |
-| ~C-S-h~                               | describe key binding                                            |
-| ~C-o~                                 | jump to next section                                            |
-| ~M-P~, ~M-N~                          | prev/next search                                                |
-| ~<left>~, ~<right>~, ~C-c <~, ~C-c >~ | prev/next file in results, ~helm-ag--next-file~                 |
-| ~F3~                                  | (for helm search) open results in buffer/promote to buffer      |
-| ~C-s~                                 | grep highlighted dir/file                                       |
-| ~C-z~                                 | show actions                                                    |
-| ~C-SPC~                               | toggle mark                                                     |
-| ~M-a~                                 | ~helm-mark-all~                                                 |
-| ~M-U~                                 | ~helm-unmark-all~                                               |
-| ~C-c o~                               | open other window                                               |
-| ~C-]~                                 | toggle info                                                     |
-| ~C-{~, ~C-}~                          | ~helm-enlarge-window~, ~helm-narrow-window~                     |
-| ~C-c >~                               | truncate line (TODO where is this available?)                   |
-| ~M-D~                                 | delete                                                          |
-| ~C-t~                                 | toggle display horizontal/vertical                              |
-| ~SPC .~, ~M-m r l~                    | resume last completion buffer, use universal argument to choose |
-| ~SPC r s~                             | resume last search buffer                                       |
-| ~SPC s \~~                            | go to last place reached with helm ag                           |
-| ~C-o~                                 | next source                                                     |
-| ~C-c =~                               | ediff file                                                      |
-| ~C-c X~                               | open with default app (also see ~C-c C-x~)                      |
-| ~C-c TAB~                             | copy to buffer                                                  |
-| ~C-c C-y~                             | helm yank selection (sorta like hippie-expand)                  |
-| ~C-x C-b~                             | (in helm) resume different helm buffer                          |
-| ~C-s~                                 | (from helm-projectile ~SPC p p~) start ag search from directory |
+| ~C-c ?~                               | [from helm] ~helm-help~                                             |
+| ~C-S-h~                               | describe key binding                                                |
+| ~C-c C-l~                             | ~helm-minibuffer-history~                                           |
+| ~C-o~                                 | jump to next section                                                |
+| ~M-P~, ~M-N~                          | prev/next search                                                    |
+| ~<left>~, ~<right>~, ~C-c <~, ~C-c >~ | prev/next file in results, ~helm-ag--next-file~                     |
+| ~F3~                                  | (for helm search) open results in buffer/promote to buffer          |
+| ~C-s~                                 | grep highlighted dir/file                                           |
+| ~C-z~                                 | show actions                                                        |
+| ~C-SPC~                               | toggle mark                                                         |
+| ~M-a~                                 | ~helm-mark-all~                                                     |
+| ~M-w~                                 | ~kill-ring-save~                                                    |
+| ~M-U~                                 | ~helm-unmark-all~                                                   |
+| ~C-c o~                               | open other window                                                   |
+| ~C-]~                                 | toggle info                                                         |
+| ~C-{~, ~C-}~                          | ~helm-enlarge-window~, ~helm-narrow-window~                         |
+| ~C-c >~                               | truncate line (TODO where is this available?), ~helm-ag--next-file~ |
+| ~M-D~                                 | delete                                                              |
+| ~C-t~                                 | toggle display horizontal/vertical                                  |
+| ~SPC .~, ~M-m r l~                    | resume last completion buffer, use universal argument to choose     |
+| ~SPC r s~                             | resume last search buffer                                           |
+| ~SPC s \~~                            | go to last place reached with helm ag                               |
+| ~C-o~                                 | next source                                                         |
+| ~C-c =~                               | ediff file                                                          |
+| ~C-c X~                               | open with default app (also see ~C-c C-x~)                          |
+| ~C-c TAB~                             | copy to buffer                                                      |
+| ~C-c C-y~                             | helm yank selection (sorta like hippie-expand)                      |
+| ~C-x C-b~                             | (in helm) resume different helm buffer                              |
+| ~C-s~                                 | (from helm-projectile ~SPC p p~) start ag search from directory     |
 
 ** set defaults
 
@@ -403,6 +414,26 @@ Ignore stuff with ~.agignore~. Make searches case sensitive with ~-s~.
 In info:
 
 | ~<f1> ?~ | ~help-for-help~ |
+
+* Ibuffer
+
+| ~M-DEL~      | clear marks      |
+| ~* <mark>    | mark             |
+| ~* e~        | no existing file |
+| ~* M~        | major mode       |
+| ~* m~        | modified         |
+| ~* r~        | read-only        |
+| ~* s~        | starred          |
+| ~* u~        | unsaved          |
+| ~/ <filter>~ | filter           |
+| ~/ /~        | remove           |
+| ~/ p~        | pop              |
+| ~/ f~        | file name        |
+| ~/ n~        | buffer name      |
+| ~s <sort>~   | sort             |
+| ~s i~        | reverse          |
+| ~s m~        | major mode       |
+| ~s v~        | recent           |
 
 * interface
 
@@ -627,7 +658,8 @@ tab-width: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Disp
 | ~SPC u SPC b d~               | close window along with buffer delete                                        |
 | ~SPC u SPC w d~               | delete buffer along with close window                                        |
 | ~SPC b e~                     | erase buffer contents                                                        |
-| ~SPC b P~                     | paste clipbaord contents over all buffer content                             |
+| ~SPC b P~                     | paste clipboard contents over all buffer content                             |
+| ~C-x h~, ~s-a~                | ~mark-whole-buffer~                                                          |
 | ~SPC b Y~                     | copy entire/full buffer to clipboard                                         |
 | ~SPC o~ and ~SPC m o~         | reserved for the user                                                        |
 | ~SPC j u~                     | jump to URL                                                                  |
@@ -777,10 +809,10 @@ manual 23.3 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing
 | ~SPC h d m~        | ~spacemacs-describe-mode~            | describe mode |
 
 ** JS
+
 ** JSON
 
 | ~C-c C-f~ | beautify/auto-format TODO bind/normalize this |
-
 
 [[https://github.com/felipeochoa/rjsx-mode][rjxs-mode]]
 
@@ -790,22 +822,22 @@ manual 23.3 [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Choosing
 
 see [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][emacs stack exchange]]
 
-
-
 *** JSX-IDE mode
 
-| ~C-c C-o~                | toggle element                   |                 |
-| ~C-c C-f~                | toggle all funtions              |                 |
-| ~C-c @ C-c~              | ~hs-toggle-hiding~               | toggle block (like folding)    |
-| ~C-c @ C-h~, ~C-c @ C-s~ | ~hs-hide-block~, ~hs-show-block~ | hide/show block |
-
-
+| ~C-c C-o~                | toggle element                   |                             |
+| ~C-c C-f~                | toggle all funtions              |                             |
+| ~C-c @ C-c~              | ~hs-toggle-hiding~               | toggle block (like folding) |
+| ~C-c @ C-h~, ~C-c @ C-s~ | ~hs-hide-block~, ~hs-show-block~ | hide/show block             |
 
 *** React
 
 prevent/don't auto-add quotes/quotation marks after typing ~=~ in JSX attributes
 
 | ~(setq-local web-mode-enable-auto-quoting nil)~ |
+
+*** reference
+
+CSRaghunandan's [[https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-files/setup-js.el][JS setup]]
 
 ** markdown
 
