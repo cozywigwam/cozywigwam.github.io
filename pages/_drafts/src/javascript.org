@@ -2,10 +2,10 @@
 #+EXCLUDE_TAGS: no_export
 #+BEGIN_EXAMPLE
 ---
-layout: post
 title: "JavaScript"
-categories: notation
-subtitle: JavaScript Wins
+layout: notation
+description:
+path: "/javascript/"
 ---
 #+END_EXAMPLE
 

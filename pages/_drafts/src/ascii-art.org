@@ -1,4 +1,13 @@
---------------
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Ascii Art"
+layout: notation
+description: asdf
+path: "/ascii-art/"
+---
+#+END_EXAMPLE
 
 ** layout: post title: "Ascii art" categories: notation subtitle: asdf
    :PROPERTIES:

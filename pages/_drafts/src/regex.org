@@ -1,4 +1,13 @@
---------------
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "RegExp"
+layout: notation
+description: Rolex & Rolodex
+path: "/regexp/"
+---
+#+END_EXAMPLE
 
 ** layout: post title: "Regex" categories: notation subtitle: Rolex &
 Rolodex

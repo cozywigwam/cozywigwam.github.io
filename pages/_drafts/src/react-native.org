@@ -1,5 +1,10 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-layout: post
 title: "React Native"
-categories: notation
+layout: notation
+description:
+path: "/react-native/"
 ---
+#+END_EXAMPLE

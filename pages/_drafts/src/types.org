@@ -4,7 +4,7 @@
 ---
 title: "Types"
 layout: notation
-description: Compy
+description:
 path: "/types/"
 ---
 #+END_EXAMPLE

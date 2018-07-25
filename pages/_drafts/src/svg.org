@@ -1,15 +1,18 @@
---------------
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "SVG"
+layout: notation
+description:
+path: "/svg/"
+---
+#+END_EXAMPLE
 
 ** layout: post title: "SVG" categories: notation subtitle: Embed
 options
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-svg-categories-notation-subtitle-embed-options
-   :END:
 
 * markup syntax
-  :PROPERTIES:
-  :CUSTOM_ID: markup-syntax
-  :END:
 
 #+BEGIN_EXAMPLE
     <!-- YES -->
@@ -83,8 +86,5 @@ Embedded Content]]
 SVG Primer - Embedding SVG in HTML documents]]
 
 * Misc
-  :PROPERTIES:
-  :CUSTOM_ID: misc
-  :END:
 
 SVG's object bounding box sets CSS's transformation boundaries.

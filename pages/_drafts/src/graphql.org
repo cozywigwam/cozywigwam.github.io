@@ -1,20 +1,14 @@
-#+TITLE: GraphQL
-#+DATE: <2017-05-18 Thu>
-#+CATEGORIES: notation
-#+SUBTITLE: Don't Be Last
-#+DESCRIPTION: Don't Be Last
-#+OPTIONS: toc:nil
-
-#+BEGIN_EXPORT markdown
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-title: GraphQL
+title: "GraphQL"
 layout: notation
 description: Don't Be Last
+path: "/graphql/"
 ---
-#+END_EXPORT
-
+#+END_EXAMPLE
 
 * IDL/SDL - Interface/Schema Definition Language
-
 
 A "schema definition" specifies a schema. The definitions are sometimes referred to as IDL or SDL. [ref](https://www.graph.cool/docs/faq/graphql-idl-schema-definition-language-kr84dktnp0/)

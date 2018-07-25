@@ -10,9 +10,6 @@ path: "/themes/"
 #+END_EXAMPLE
 
 * Vim
-  :PROPERTIES:
-  :CUSTOM_ID: vim
-  :END:
 
 [[https://github.com/cozywigwam/poly][Poly]] is a deviation from Chris
 Kempson's
@@ -49,9 +46,6 @@ variation]] (derived from
 It goes in =~/.vim/autoload/airline/themes=.
 
 * Emacs
-  :PROPERTIES:
-  :CUSTOM_ID: emacs
-  :END:
 
 As a warning, this theme is hacky. It is built on top of
 [[https://github.com/purcell/color-theme-sanityinc-tomorrow][sanityinc-tomorrow-eighties]]
@@ -69,9 +63,6 @@ front-end modes.
 [[/assets/unknotted-03.jpg]]
 
 * iTerm
-  :PROPERTIES:
-  :CUSTOM_ID: iterm
-  :END:
 
 I use a
 [[https://gist.github.com/cozywigwam/8cf85615375699ede084b500cd410b93][base16

@@ -1,9 +1,13 @@
---------------
-
-** layout: post title: "Sketch" categories: notation
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-sketch-categories-notation
-   :END:
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Sketch"
+layout: notation
+description:
+path: "/sketch/"
+---
+#+END_EXAMPLE
 
 =tab=, =shift + tab= | navigate layers =cmd + option + <up>/<down>= |
 move layer =cmd + shift + L= | toggle lock layer =cmd + shift + H= |

@@ -1,5 +1,4 @@
-#+OPTIONS: toc:nil -:nil H:6 ^:nil html-style:nil
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css" />
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: no_export
 #+BEGIN_EXAMPLE
 ---

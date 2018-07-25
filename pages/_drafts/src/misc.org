@@ -1,8 +1,13 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-layout: post
 title: "Misc"
-categories: notation
+layout: notation
+description:
+path: "/misc/"
 ---
+#+END_EXAMPLE
 
 * ascii art
 

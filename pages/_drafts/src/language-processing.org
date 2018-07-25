@@ -1,10 +1,12 @@
---------------
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Language Processing"
+layout: notation
+description:
+path: "/language-processing/"
+---
+#+END_EXAMPLE
 
-** layout: post title: "Language Processing" categories: notation
-subtitle: How Did It Come to This?
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-language-processing-categories-notation-subtitle-how-did-it-come-to-this
-   :END:
-
-Stop words - words filtered before/after NLP: e.g. /the/, /is/, /at/,
-/which/, and /on/.
+Stop words - words filtered before/after NLP: e.g. /the/, /is/, /at/, /which/, and /on/.

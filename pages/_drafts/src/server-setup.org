@@ -1,23 +1,21 @@
---------------
-
-** title: "Server Setup" description: Installation Reminders
-   :PROPERTIES:
-   :CUSTOM_ID: title-server-setup-description-installation-reminders
-   :END:
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Server Setup"
+layout: notation
+description: Installation Reminders
+path: "/server-setup/"
+---
+#+END_EXAMPLE
 
 * curl & git are dpkg
-  :PROPERTIES:
-  :CUSTOM_ID: curl--git-are-dpkg
-  :END:
 
 #+BEGIN_SRC sh
     sudo apt-get install curl git
 #+END_SRC
 
 * RVM & Ruby
-  :PROPERTIES:
-  :CUSTOM_ID: rvm--ruby
-  :END:
 
 #+BEGIN_SRC sh
     curl -L https://get.rvm.io | bash -s stable
@@ -29,18 +27,12 @@
 #+END_SRC
 
 * node is dpkg...
-  :PROPERTIES:
-  :CUSTOM_ID: node-is-dpkg
-  :END:
 
 #+BEGIN_SRC sh
     #sudo apt-get install nodejs npm
 #+END_SRC
 
 * ... but use n instead
-  :PROPERTIES:
-  :CUSTOM_ID: -but-use-n-instead
-  :END:
 
 #+BEGIN_SRC sh
     curl -L http://git.io/n-install | bash
@@ -48,9 +40,6 @@
 #+END_SRC
 
 * see installed packages
-  :PROPERTIES:
-  :CUSTOM_ID: see-installed-packages
-  :END:
 
 #+BEGIN_SRC sh
     dpkg --get-selections | grep -v deinstall
@@ -58,18 +47,12 @@
 #+END_SRC
 
 * jekyll is a gem
-  :PROPERTIES:
-  :CUSTOM_ID: jekyll-is-a-gem
-  :END:
 
 #+BEGIN_SRC sh
     gem install jekyll
 #+END_SRC
 
 * set up first user after installation
-  :PROPERTIES:
-  :CUSTOM_ID: set-up-first-user-after-installation
-  :END:
 
 #+BEGIN_SRC sh
     # brew install ssh-copy-id
@@ -78,9 +61,6 @@
 #+END_SRC
 
 * HTTPS SSL cert with Let's Encrypt
-  :PROPERTIES:
-  :CUSTOM_ID: https-ssl-cert-with-lets-encrypt
-  :END:
 
 Digital Ocean's
 [[https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04][tutorial]]

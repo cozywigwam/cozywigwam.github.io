@@ -1,9 +1,13 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
 ---
-layout: post
 title: "Node"
-categories: notation
+layout: notation
+description:
+path: "/node/"
 ---
-
+#+END_EXAMPLE
 
 * Debugging
 

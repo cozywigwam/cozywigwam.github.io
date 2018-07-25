@@ -1,9 +1,11 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
 #+BEGIN_EXAMPLE
 ---
-layout: post
 title: "CDN"
+layout: notation
 description: hey, can you go to the store for me?
-categories: notation
+path: "/cdn/"
 ---
 #+END_EXAMPLE
 

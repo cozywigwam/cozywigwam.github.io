@@ -4,7 +4,7 @@
 ---
 title: "Reactive"
 layout: notation
-description: Compy
+description:
 path: "/reactive/"
 ---
 #+END_EXAMPLE

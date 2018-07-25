@@ -1,4 +1,13 @@
---------------
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Accessibility"
+layout: notation
+description: All
+path: "/accessibility/"
+---
+#+END_EXAMPLE
 
 ** layout: post title: "Accessibility" categories: notation
    :PROPERTIES:

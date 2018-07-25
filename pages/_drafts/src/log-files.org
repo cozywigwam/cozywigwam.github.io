@@ -1,9 +1,15 @@
---------------
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Log Files"
+layout: notation
+description: Better than Bad
+path: "/log-files/"
+---
+#+END_EXAMPLE
 
 ** layout: post title: "Files" categories: notation
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-files-categories-notation
-   :END:
 
 /var/log
 

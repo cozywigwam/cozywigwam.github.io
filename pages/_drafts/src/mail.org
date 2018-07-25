@@ -1,3 +1,14 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: no_export
+#+BEGIN_EXAMPLE
+---
+title: "Mail"
+layout: notation
+description:
+path: "/mail/"
+---
+#+END_EXAMPLE
+
 * offlineimap
 
 had to create cert from zoho:
