@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gatsby develop -p 5000",
     "build": "gatsby build",
-    "develop": "gatsby develop"
+    "develop": "gatsby develop",
+    "pandoc": "scripts/export-org-to-md.sh"
   },
   "repository": {
     "type": "git",
