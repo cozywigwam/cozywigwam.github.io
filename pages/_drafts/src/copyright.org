@@ -9,11 +9,6 @@ path: "/copyright/"
 ---
 #+END_EXAMPLE
 
-** layout: post title: "Copyright" categories: notation
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-copyright-categories-notation
-   :END:
-
 #+BEGIN_QUOTE
   Royalty Free Sounds
 

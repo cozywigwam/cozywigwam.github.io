@@ -9,7 +9,6 @@ path: "/editor/"
 ---
 #+END_EXAMPLE
 
-** layout: post title: "IDE / Editing" categories: notation subtitle:
 Competency Requirements
 
 * interface

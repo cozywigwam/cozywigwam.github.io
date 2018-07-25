@@ -9,70 +9,63 @@ path: "/regexp/"
 ---
 #+END_EXAMPLE
 
-** layout: post title: "Regex" categories: notation subtitle: Rolex &
-Rolodex
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-regex-categories-notation-subtitle-rolex--rolodex
-   :END:
-
 BRE recognized metacharacters:
 
-- =^=
-- =$=
-- =.=
-- =[=
-- =]=
-- =*=
+- ~^~
+- ~$~
+- ~.~
+- ~[~
+- ~]~
+- ~*~
 
 ERE additions:
 
-- =(=
-- =)=
-- ={=
-- =}=
-- =?=
-- =+=
-- =|=
+- ~(~
+- ~)~
+- ~{~
+- ~}~
+- ~?~
+- ~+~
+- ~|~
 
 ERE all:
 
-- =^=
-- =$=
-- =.=
-- =[=
-- =]=
-- =*=
-- =(=
-- =)=
-- ={=
-- =}=
-- =?=
-- =+=
-- =|=
+- ~^~
+- ~$~
+- ~.~
+- ~[~
+- ~]~
+- ~*~
+- ~(~
+- ~)~
+- ~{~
+- ~}~
+- ~?~
+- ~+~
+- ~|~
 
 [[http://www.pcre.org/][PCRE home]]
 
 * Emacs
-  :PROPERTIES:
-  :CUSTOM_ID: emacs
-  :END:
 
 [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Syntax-of-Regexps.html#Syntax-of-Regexps][Emacs
 Lisp - syntax of regular expressions manual]]
 
-=(=, =)=, and =|= will match exactly, so they must be escaped: =\(=,
-=\)=, =\|=.
+~(~, ~)~, and ~|~ will match exactly, so they must be escaped: ~\(~, ~\)~, ~\|~.
 
 ** [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Special.html#Regexp-Special][Special
 Characters]]
-   :PROPERTIES:
-   :CUSTOM_ID: special-characters
-   :END:
 
-| =.= | any except newline | | =*= | | =+= | | =?= | | =*?=, =+?=, =??=
-| non-greedy | | =[= ... =]= | character alternative | | =[^= ... =]= |
-"complemented" (non-matching) character alternative | | =^= | | =$= | |
-=\= |
+| ~.~              | any except newline |
+| ~*~              |
+| ~+~              |
+| ~?~              |
+| ~*?~, ~+?~, ~??~ | non-greedy |
+| ~[~ ... ~]~      | character alternative |
+| ~[^~ ... ~]~     | "complemented" (non-matching) character alternative |
+| ~^~              |
+| ~$~              |
+| ~\~              |
 
 #+BEGIN_QUOTE
   Note that ‘\' also has special meaning in the read syntax of Lisp
@@ -85,30 +78,52 @@ Characters]]
 
 ** [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Char-Classes.html#Char-Classes][Character
 Classes]]
-   :PROPERTIES:
-   :CUSTOM_ID: character-classes
-   :END:
 
-| =[:ascii:]= | | =[:alnum:]= | | =[:alpha:]= | | =[:blank:]= | |
-=[:cntrl:]= | | =[:digit:]= | | =[:graph:]= | | =[:lower:]= | |
-=[:multibyte:]= | | =[:nonascii:]= | | =[:print:]= | | =[:punct:]= | |
-=[:space:]= | | =[:unibyte:]= | | =[:upper:]= | | =[:word:]= | |
-=[:zdigit:]= |
+| ~[:ascii:]~     |
+| ~[:alnum:]~     |
+| ~[:alpha:]~     |
+| ~[:blank:]~     |
+| ~[:cntrl:]~     |
+| ~[:digit:]~     |
+| ~[:graph:]~     |
+| ~[:lower:]~     |
+| ~[:multibyte:]~ |
+| ~[:nonascii:]~  |
+| ~[:print:]~     |
+| ~[:punct:]~     |
+| ~[:space:]~     |
+| ~[:unibyte:]~   |
+| ~[:upper:]~     |
+| ~[:word:]~      |
+| ~[:zdigit:]~    |
 
 ** [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Backslash.html#Regexp-Backslash][Backslash
 Constructs in Regular Expressions]]
-   :PROPERTIES:
-   :CUSTOM_ID: backslash-constructs-in-regular-expressions
-   :END:
 
-|
-=\ | |={m}=| |={m,n}=| |=(=...=)=| |=(?:=...=)=| |=(?num:=...=)=| |=\digit=| |=\w=| |=\W=| |=\scode=| |=\Scode=| |=\cc=| |=\Cc=| |=[backtick]=| |='=| |===| |=\b=| |=\B=| |=<=| |=>=| |=\_<=| |=\_>`
-|
+| ~\                 |
+| ~\{m\}~            |
+| ~\{m,n\}~          |
+| ~\(~ ... ~\)~      |
+| ~\(?:~ ... ~\)~    |
+| ~\(?num:~ ... ~\)~ |
+| ~\digit~           |
+| ~\w~               |
+| ~\W~               |
+| ~\scode~           |
+| ~\Scode~           |
+| ~\cc~              |
+| ~\Cc~              |
+| ~\[backtick]~      |
+| ~\'~               |
+| ~\=~               |
+| ~\b~               |
+| ~\B~               |
+| ~\<~               |
+| ~\>~               |
+| ~\_<~              |
+| ~\_>~              |
 
 * Misc
-  :PROPERTIES:
-  :CUSTOM_ID: misc
-  :END:
 
 Perl uses a "slightly larger and richer set of notations" (The Linux
 Command Line: A Complete Introduction, William E. Schotts, Jr.).

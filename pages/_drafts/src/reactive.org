@@ -140,7 +140,7 @@ You should probably be using operators like `takeUntil` to manage your RxJS subs
 
 Suffixing observable names with `$` comes from cycle.js: https://cycle.js.org/basic-examples.html#basic-examples-increment-a-counter-what-is-the-convention
 
-** split strings at \n
+** split strings at ~\n~
 
 [[https://stackoverflow.com/questions/38991362/what-is-the-reactive-way-to-read-file-line-by-line][SO ref]]
 

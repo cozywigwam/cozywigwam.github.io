@@ -9,9 +9,6 @@ path: "/svg/"
 ---
 #+END_EXAMPLE
 
-** layout: post title: "SVG" categories: notation subtitle: Embed
-options
-
 * markup syntax
 
 #+BEGIN_EXAMPLE

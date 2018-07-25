@@ -9,8 +9,6 @@ path: "/log-files/"
 ---
 #+END_EXAMPLE
 
-** layout: post title: "Files" categories: notation
-
 /var/log
 
 /usr/local/nginx/logs /var/log/nginx

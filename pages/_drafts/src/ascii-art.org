@@ -9,11 +9,6 @@ path: "/ascii-art/"
 ---
 #+END_EXAMPLE
 
-** layout: post title: "Ascii art" categories: notation subtitle: asdf
-   :PROPERTIES:
-   :CUSTOM_ID: layout-post-title-ascii-art-categories-notation-subtitle-asdf
-   :END:
-
 #+BEGIN_EXAMPLE
                                       _
                             .-.      / \        _
