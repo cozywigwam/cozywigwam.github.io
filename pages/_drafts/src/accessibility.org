@@ -1,0 +1,6 @@
+--------------
+
+** layout: post title: "Accessibility" categories: notation
+   :PROPERTIES:
+   :CUSTOM_ID: layout-post-title-accessibility-categories-notation
+   :END:

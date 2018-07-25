@@ -1,0 +1,17 @@
+--------------
+
+** layout: post title: "Bash Scripting" categories: notations subtitle:
+lamer
+   :PROPERTIES:
+   :CUSTOM_ID: layout-post-title-bash-scripting-categories-notations-subtitle-lamer
+   :END:
+
+#+BEGIN_SRC sh
+    # get most recent file, better than `ls -t | head -1`
+    files=(*) newest=${files[0]}
+    for f in "${files[@]}"; do
+      if [[ $f -nt $newest ]]; then
+        newest=$f
+      fi
+    done
+#+END_SRC

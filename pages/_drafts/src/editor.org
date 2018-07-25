@@ -1,0 +1,157 @@
+--------------
+
+** layout: post title: "IDE / Editing" categories: notation subtitle:
+Competency Requirements
+   :PROPERTIES:
+   :CUSTOM_ID: layout-post-title-ide--editing-categories-notation-subtitle-competency-requirements
+   :END:
+
+* interface
+  :PROPERTIES:
+  :CUSTOM_ID: interface
+  :END:
+
+** splits | windows
+   :PROPERTIES:
+   :CUSTOM_ID: splits--windows
+   :END:
+
+** vim tabs | eyebrowse workspace
+   :PROPERTIES:
+   :CUSTOM_ID: vim-tabs--eyebrowse-workspace
+   :END:
+
+** iTerm tabs | perspectives layouts
+   :PROPERTIES:
+   :CUSTOM_ID: iterm-tabs--perspectives-layouts
+   :END:
+
+** file exploration
+   :PROPERTIES:
+   :CUSTOM_ID: file-exploration
+   :END:
+
+** indents
+   :PROPERTIES:
+   :CUSTOM_ID: indents
+   :END:
+
+* errors/linting
+  :PROPERTIES:
+  :CUSTOM_ID: errorslinting
+  :END:
+
+* theme
+  :PROPERTIES:
+  :CUSTOM_ID: theme
+  :END:
+
+** syntax highlighting
+   :PROPERTIES:
+   :CUSTOM_ID: syntax-highlighting
+   :END:
+
+** highlights (colors)
+   :PROPERTIES:
+   :CUSTOM_ID: highlights-colors
+   :END:
+
+* text
+  :PROPERTIES:
+  :CUSTOM_ID: text
+  :END:
+
+** marks, registers, bookmarks
+   :PROPERTIES:
+   :CUSTOM_ID: marks-registers-bookmarks
+   :END:
+
+** folding
+   :PROPERTIES:
+   :CUSTOM_ID: folding
+   :END:
+
+** copy/paste & grabbing
+   :PROPERTIES:
+   :CUSTOM_ID: copypaste--grabbing
+   :END:
+
+** snippets
+   :PROPERTIES:
+   :CUSTOM_ID: snippets
+   :END:
+
+* git
+  :PROPERTIES:
+  :CUSTOM_ID: git
+  :END:
+
+* searching
+  :PROPERTIES:
+  :CUSTOM_ID: searching
+  :END:
+
+** current project
+   :PROPERTIES:
+   :CUSTOM_ID: current-project
+   :END:
+
+** specific arbitrary folder
+   :PROPERTIES:
+   :CUSTOM_ID: specific-arbitrary-folder
+   :END:
+
+** folder of current buffer
+   :PROPERTIES:
+   :CUSTOM_ID: folder-of-current-buffer
+   :END:
+
+* ctags
+  :PROPERTIES:
+  :CUSTOM_ID: ctags
+  :END:
+
+from ~/.ctags:
+
+#+BEGIN_EXAMPLE
+    --exclude=*.map
+    --exclude=*.min.js
+    --exclude=*.min.css
+    --exclude=.backup
+    --exclude=.git
+    --exclude=.idea
+    --exclude=.sass-cache
+    --exclude=cache
+    --exclude=log
+    --exclude=svg
+    --exclude=tmp
+    --exclude=vendors
+    --exclude=node_modules
+    --exclude=bower_components
+    --exclude=dist
+    --exclude=_dist
+    --exclude=_site
+    --exclude=build
+    --exclude=public
+
+    --langdef=css
+    --langmap=css:.css
+    --langmap=css:+.scss
+    --langmap=css:+.sass
+    --langmap=css:+.styl
+    --langmap=css:+.less
+    --regex-css=/^[ \t]*\.([A-Za-z0-9_]+-[A-Za-z0-9_-]+)( |$)/.\1/c,class,classes/
+    --regex-css=/^([\$@][A-Za-z0-9_-]+): /\1/v,variable,variables/
+    --regex-css=/^([A-Za-z0-9_-]+) = /\1/v,variable,variables/
+    --regex-css=/^[ \t]*(@mixin |= ?)([A-Za-z0-9_-]+)/\2/m,mixin,mixins/
+#+END_EXAMPLE
+
+legend: vim + tmux + iTerm | emacs
+
+vim mapping | vim behavior | tmux mapping | tmux behavior | emacs
+mapping | emacs behavior
+
+- | - | =C-s c= | create window | =SPC C-s c= | create
+  eyebrowse/workspace config
+- | - | =C-s c= | create window | =SPC ,wt= | create eyebrowse/workspace
+  config =C-s v= | create pane | =,v= | create eyebrowse/workspace

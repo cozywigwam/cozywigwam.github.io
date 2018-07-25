@@ -1,0 +1,16 @@
+--------------
+
+** layout: post title: "Files" categories: notation
+   :PROPERTIES:
+   :CUSTOM_ID: layout-post-title-files-categories-notation
+   :END:
+
+/var/log
+
+/usr/local/nginx/logs /var/log/nginx
+
+/var/log/apache/access.log
+
+/etc/fstab
+
+/usr/local/var
