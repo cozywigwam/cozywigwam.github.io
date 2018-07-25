@@ -9,20 +9,8 @@
     "develop": "gatsby develop",
     "pandoc": "scripts/export-org-to-md.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bntzio/gatsby-starter-superstylin.git"
-  },
-  "keywords": [
-    "gatsby",
-    "react"
-  ],
-  "author": "Enrique Benitez <bntz.io>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bntzio/gatsby-starter-superstylin/issues"
-  },
-  "homepage": "https://github.com/bntzio/gatsby-starter-superstylin#readme",
+  "license": "UNLICENSED",
+  "originalHomepage": "https://github.com/bntzio/gatsby-starter-superstylin",
   "dependencies": {
     "front-matter": "^2.1.1",
     "gatsby": "^0.12.20",
