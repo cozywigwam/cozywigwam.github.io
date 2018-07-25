@@ -10,14 +10,8 @@ path: "/command-line/"
 #+END_EXAMPLE
 
 * Builtins and Commands
-  :PROPERTIES:
-  :CUSTOM_ID: builtins-and-commands
-  :END:
 
 ** ack
-   :PROPERTIES:
-   :CUSTOM_ID: ack
-   :END:
 
 [[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc][dotfile]]
 
@@ -30,9 +24,6 @@ ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 #+END_SRC
 
 ** ag
-   :PROPERTIES:
-   :CUSTOM_ID: ag
-   :END:
 
 To search =node_modules/= use =-a=. For absolutely everything (including
 binaries/hidden), use =-u=. Use =-U= to disrepect =.gitignore=.
@@ -49,9 +40,6 @@ binaries/hidden), use =-u=. Use =-U= to disrepect =.gitignore=.
 | =-U= =--skip-vcs-ignores=      | don't respect =.gitignore= (but still use =.agignore=)      |
 
 ** curl
-   :PROPERTIES:
-   :CUSTOM_ID: curl
-   :END:
 
 Flags =-c= & =-b=: cookie stuff
 
@@ -62,9 +50,6 @@ cause curl to pass the data to the server using the content-type
 =application/x-www-form-urlencoded=. Compare to =-F=, =--form=.
 
 ** jobs
-   :PROPERTIES:
-   :CUSTOM_ID: jobs
-   :END:
 
 | =<C-z>=   | "suspend" character           |
 | =<C-y>=   | "delayed suspend" character   |
@@ -76,9 +61,6 @@ cause curl to pass the data to the server using the content-type
 #+END_SRC
 
 ** signals
-   :PROPERTIES:
-   :CUSTOM_ID: signals
-   :END:
 
 from [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux
 Signal command library]]
@@ -105,16 +87,10 @@ Signal command library]]
 | SIGTTOU   | 22,22,27   | Stop     | tty output for background process            |
 
 ** less
-   :PROPERTIES:
-   :CUSTOM_ID: less
-   :END:
 
 | =M-u=   | toggle search highlighting (like =:noh=)   |
 
 ** lsof
-   :PROPERTIES:
-   :CUSTOM_ID: lsof
-   :END:
 
 #+BEGIN_SRC sh
     lsof -h
@@ -134,9 +110,6 @@ Signal command library]]
 #+END_SRC
 
 ** Misc
-   :PROPERTIES:
-   :CUSTOM_ID: misc
-   :END:
 
 #+BEGIN_SRC sh
     # dir tree
@@ -153,9 +126,6 @@ Signal command library]]
 #+END_SRC
 
 *** macOS
-    :PROPERTIES:
-    :CUSTOM_ID: macos
-    :END:
 
 [[https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md][macOS
 Default Values Command Reference]]
@@ -170,14 +140,8 @@ Default Values Command Reference]]
 #+END_SRC
 
 * shells
-  :PROPERTIES:
-  :CUSTOM_ID: shells
-  :END:
 
 ** zsh
-   :PROPERTIES:
-   :CUSTOM_ID: zsh
-   :END:
 
 [[https://github.com/cozywigwam/dotfiles/blob/master/.zshrc][dotfile]]
 
@@ -196,9 +160,6 @@ Default Values Command Reference]]
 #+END_SRC
 
 *** ZLE
-    :PROPERTIES:
-    :CUSTOM_ID: zle
-    :END:
 
 #+BEGIN_QUOTE
   The =bindkey= command manipulates keymaps and key bindings
@@ -234,9 +195,6 @@ Modes: =viins=, =vicmd=, =emacs=, others.
 | =:=       | vicmd: execute =execute-named-cmd=                    |
 
 **** Reference
-     :PROPERTIES:
-     :CUSTOM_ID: reference
-     :END:
 
 [[http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zsh-Line-Editor][ZLE]]
 
@@ -248,22 +206,13 @@ Modes: =viins=, =vicmd=, =emacs=, others.
 custom widgets]]
 
 ** emacs
-   :PROPERTIES:
-   :CUSTOM_ID: emacs
-   :END:
 
 *** term
-    :PROPERTIES:
-    :CUSTOM_ID: term
-    :END:
 
 | =C-c C-j=   | switch to line mode   |
 | =C-c C-k=   | switch to char mode   |
 
 *** eshell
-    :PROPERTIES:
-    :CUSTOM_ID: eshell
-    :END:
 
 | =C-p=, =C-n=           | previous/next input [custom]                                    |
 | =M-p=, =M-n=           | previous/next match                                             |
@@ -274,9 +223,6 @@ custom widgets]]
 | =SPC b C-r=            | =rename-buffer=                                                 |
 
 **** alias
-     :PROPERTIES:
-     :CUSTOM_ID: alias
-     :END:
 
 Emacs Wiki: https://www.emacswiki.org/emacs/EshellAlias
 
@@ -288,18 +234,12 @@ For the aliases file, see =eshell-aliases-file=: =~/.emacs.d/eshell/alias=. Refr
 #+END_SRC
 
 **** reference
-     :PROPERTIES:
-     :CUSTOM_ID: reference-1
-     :END:
 
 Mickey Peterson's
 [[https://www.masteringemacs.org/article/complete-guide-mastering-eshell][Mastering
 Eshell]]
 
 *** man/woman
-    :PROPERTIES:
-    :CUSTOM_ID: manwoman
-    :END:
 
 | =(customize-group 'man)=   |    |
 
@@ -359,9 +299,6 @@ From [[https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading
 | /etc/zlogout  | J          |                |        |
 
 * Scripting
-  :PROPERTIES:
-  :CUSTOM_ID: scripting
-  :END:
 
 ** Write each line to stdout
 

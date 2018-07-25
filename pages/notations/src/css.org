@@ -114,14 +114,8 @@ styles.setProperty('--myProp', 'blue')
   Magazine]]
 
 ** Nesting
-   :PROPERTIES:
-   :CUSTOM_ID: nesting
-   :END:
 
 *** Descendent
-    :PROPERTIES:
-    :CUSTOM_ID: descendent
-    :END:
 
 Use =&= to refer to parent block:
 
@@ -145,9 +139,6 @@ Use =&= to refer to parent block:
 #+END_SRC
 
 *** Ascendent
-    :PROPERTIES:
-    :CUSTOM_ID: ascendent
-    :END:
 
 #+BEGIN_SRC css
     .deep-element {
@@ -161,14 +152,8 @@ Use =&= to refer to parent block:
 #+END_SRC
 
 ** Media Queries
-   :PROPERTIES:
-   :CUSTOM_ID: media-queries
-   :END:
 
 *** Top Level
-    :PROPERTIES:
-    :CUSTOM_ID: top-level
-    :END:
 
 #+BEGIN_SRC css
     @media (min-width: 480px) {
@@ -201,24 +186,15 @@ Use =&= to refer to parent block:
 #+END_SRC
 
 * Transforms
-  :PROPERTIES:
-  :CUSTOM_ID: transforms
-  :END:
 
 Re SVG, it's their object bounding box that gets transformed.
 
 * CSS Modules
-  :PROPERTIES:
-  :CUSTOM_ID: css-modules
-  :END:
 
 - [[https://github.com/css-modules/css-modules]]
 - [[https://github.com/css-modules/icss][Interoperable CSS (ICSS)]]
 
 ** Glen Maddern's intro
-   :PROPERTIES:
-   :CUSTOM_ID: glen-madderns-intro
-   :END:
 
 [[https://glenmaddern.com/articles/css-modules][Glen Maddern's
 introduction]]
@@ -258,9 +234,6 @@ Each class gets all the styles it needs...
 #+END_SRC
 
 *** Compose between files
-    :PROPERTIES:
-    :CUSTOM_ID: compose-between-files
-    :END:
 
 #+BEGIN_SRC css
     /* colors.css */
@@ -274,9 +247,6 @@ Each class gets all the styles it needs...
 #+END_SRC
 
 *** More examples
-    :PROPERTIES:
-    :CUSTOM_ID: more-examples
-    :END:
 
 #+BEGIN_SRC css
     .element {
@@ -314,19 +284,10 @@ Each class gets all the styles it needs...
 #+END_SRC
 
 * postcss
-  :PROPERTIES:
-  :CUSTOM_ID: postcss
-  :END:
 
 ** cssnext
-   :PROPERTIES:
-   :CUSTOM_ID: cssnext
-   :END:
 
 *** Phenomic setup
-    :PROPERTIES:
-    :CUSTOM_ID: phenomic-setup
-    :END:
 
 Directory setup (with the global styles file renamed and moved to
 =styles/=):
@@ -406,31 +367,81 @@ Also note the external =variables.js= file:
 #+END_SRC
 
 *** Reference
-    :PROPERTIES:
-    :CUSTOM_ID: reference-2
-    :END:
 
 - [[http://cssnext.io/][cssnext home]]
 - [[http://ricostacruz.com/cheatsheets/cssnext.html][Rico St. Cruz's
   cheatsheet]]
 
 ** browserlist
-   :PROPERTIES:
-   :CUSTOM_ID: browserlist
-   :END:
 
 [[https://css-tricks.com/browserlist-good-idea/][Chris Coyier's
 write-up]]
 
 * Styled Components
-  :PROPERTIES:
-  :CUSTOM_ID: styled-components
-  :END:
+
+
+https://www.styled-components.com/docs/api#taggedtemplateliteral
+
+** Example with props
+
+#+BEGIN_SRC js
+import styled from 'styled-components';
+
+const padding = '3em';
+
+const Section = styled.section`
+  color: white;
+
+  /* Pass variables as inputs */
+  padding: ${padding};
+
+  /* Adjust the background from the properties */
+  background: ${props => props.background};
+`;
+#+END_SRC
+
+https://www.styled-components.com/docs/api#attrs
+
+** Example with ~.attrs~
+
+#+BEGIN_SRC js
+import styled from 'styled-components';
+
+const Input = styled.input.attrs({
+  type: 'text',
+  size: props => props.small ? 3 : 8
+})`
+  background: palevioletred;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  padding: ${props => props.padding}
+`;
+#+END_SRC
+
+** Example extending styles
+
+https://www.styled-components.com/docs/basics#extending-styles
+
+#+BEGIN_SRC js
+// The Button from the last section without the interpolations
+const Button = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+
+// We're extending Button with some extra styles
+const TomatoButton = Button.extend`
+  color: tomato;
+  border-color: tomato;
+`;
+#+END_SRC
 
 ** Example directly to a Styled Component
-   :PROPERTIES:
-   :CUSTOM_ID: example-directly-to-a-styled-component
-   :END:
 
 #+BEGIN_SRC js
     // /App.js
@@ -450,9 +461,6 @@ write-up]]
 #+END_SRC
 
 ** Example to an intermediate component inside styled/comp.js
-   :PROPERTIES:
-   :CUSTOM_ID: example-to-an-intermediate-component-inside-styledcomp.js
-   :END:
 
 #+BEGIN_SRC js
     // /App.js
@@ -522,9 +530,6 @@ CSS Styles in the head
 #+END_SRC
 
 ** Paragraph line width in em
-   :PROPERTIES:
-   :CUSTOM_ID: paragraph-line-width-in-em
-   :END:
 
 Proper main-content line lengths, in em,
 [[http://maxdesign.com.au/articles/ideal-line-length-in-ems/][ref]]:
@@ -537,9 +542,6 @@ Proper main-content line lengths, in em,
 #+END_QUOTE
 
 ** clearfix
-   :PROPERTIES:
-   :CUSTOM_ID: clearfix
-   :END:
 
 #+BEGIN_EXAMPLE
     .clearfix:after {

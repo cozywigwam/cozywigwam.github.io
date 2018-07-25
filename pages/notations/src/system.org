@@ -89,28 +89,28 @@ path: "/system/"
 ** gems
 
 #+BEGIN_SRC sh
-    gem env
+gem env
 #+END_SRC
 
 ** n (instead of nvm)
 
 #+BEGIN_SRC sh
-    n # arrow keys and select
-    n --help
-    n list
-    n stable # use/install stable
-    n latest # use/install latest
-    n rm 0.9.4 v0.10.0 # remove
+n # arrow keys and select
+n --help
+n list
+n stable # use/install stable
+n latest # use/install latest
+n rm 0.9.4 v0.10.0 # remove
 #+END_SRC
 
 ** npm
 
 #+BEGIN_SRC sh
-    npm help
-    npm help <cmd>
-    npm list -g --depth=0
-    npm outdated -g --depth=0
-    sudo npm update -g npm
+npm help
+npm help <cmd>
+npm list -g --depth=0
+npm outdated -g --depth=0
+sudo npm update -g npm
 #+END_SRC
 
 *** Change global path
@@ -119,7 +119,7 @@ Originally, the global path is =/usr/local/lib/node_modules/=. Change it
 with:
 
 #+BEGIN_SRC sh
-    npm config set prefix '~/.npm-global' # updates ~/.npmrc
+npm config set prefix '~/.npm-global' # updates ~/.npmrc
 #+END_SRC
 
 Then add =~/.npm-global/bin= to path.
@@ -127,8 +127,8 @@ Then add =~/.npm-global/bin= to path.
 ** pm2
 
 #+BEGIN_SRC sh
-    pm2 list
-    pm2 restart [name]
+pm2 list
+pm2 restart [name]
 #+END_SRC
 
 ** rbenv

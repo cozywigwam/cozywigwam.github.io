@@ -1,7 +1,0 @@
-characters.md
-css.md
-git.md
-system.md
-themes.md
-tmux.md
-vim.md
