@@ -373,10 +373,21 @@ export default class PostLink extends React.Component {
 
 * Ramda
 
-Same lookup on two data sets:
+** hard to understand
 
 #+BEGIN_SRC js
+const idKeyAsProp = (a, b) => R.assoc(b.id, b, a);
 
+const SavedDashboardsReducer = (state = initialState, action) => {
+  switch (action.type) {
+  case `${FETCH_ALL}_SUCCESS`: {
+    return R.compose(
+      R.assoc('data', R.__, state),
+      R.reduce(idKeyAsProp, {}),
+      R.pathOr([], ['payload', 'data', 'data'])
+    )(action);
+  }
+};
 #+END_SRC
 
 * Promises

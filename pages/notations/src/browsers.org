@@ -22,10 +22,12 @@ Line API Reference]]
 ** Console colors
 
 #+BEGIN_SRC js
-    console.log('%cThis String is Colored beacuse of `%c`', 'color: blue');
-    console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red');
+console.log('%cThis String is Colored beacuse of `%c`', 'color: blue');
+console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red');
 #+END_SRC
 
+|                                   |                                      |
+|-----------------------------------+--------------------------------------|
 | =cmd + shift + P=                 | [[https://developers.google.com/web/tools/chrome-devtools/ui#command-menu][command menu]]                         |
 | =$_=                              | previous expression's evaluation     |
 | =$0= -- =$4=                      | most recently inspected elements     |
