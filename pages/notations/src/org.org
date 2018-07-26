@@ -9,84 +9,31 @@ path: "/org/"
 ---
 #+END_EXAMPLE
 
-* keys/misc, quick ref, hard to remember
-
-[[info:org#Specific%20header%20arguments][info:org#Specific header arguments]]
-
-|                              |                                                               |                                                                        |
-|------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
-| ~C-z~                        | ~evil-emacs-state~                                            |                                                                        |
-| ~SPC m ^~                    | ~org-sort~                                                    | alphabetize org headings                                               |
-| ~C-c C-l~                    | ~org-insert-link~                                             | insert link                                                            |
-| ~C-c .~                      | ~org-time-stamp~                                              | insert stamp                                                           |
-| ~< s~ + ~<tab>~              | [snippet] expands ~#+BEGIN_SRC~ ... ~#+END_SRC~ ('s' for src) |                                                                        |
-| ~C-c C-o~                    | ~org-open-at-point~                                           | open at point                                                          |
-| ~SPC x o~                    | ~link-hint-open-link~                                         | open link                                                              |
-| ~org-version~                | version                                                       |                                                                        |
-| ~<S-tab>~                    | cycle all                                                     |                                                                        |
-| ~C-c C-p~ & ~C-c C-n~        | prev/next headline                                            |                                                                        |
-| ~C-c C-f~ & ~C-c C-b~        | prev/next same-level headline                                 |                                                                        |
-| ~C-c C-u~                    | up level                                                      |                                                                        |
-| ~M-h~, ~M-l~                 | ~org-metaright~, like ~<M-right>~                             |                                                                        |
-| ~M-<ret>~                    | new headline or list elements                                 |                                                                        |
-| ~C-<ret>~                    | new same-level headline below current headline group          |                                                                        |
-| ~M-<up>~ & ~M-<down>~        | move subtree or list element                                  |                                                                        |
-| ~M-<left>~ & ~M-<right>~     | promote/demote heading or list element                        |                                                                        |
-| ~M-S-<left>~ & ~M-S-<right>~ | promote/demote heading or list element                        |                                                                        |
-| ~: [[http://example.com][ex]]~                       | use ~:~ at ^ to preserve no-formatting                        |                                                                        |
-| ~C-c -~                      | ~org-ctrl-c-minus~                                            | rotate list state (~org-cycle-list-bullet~) or other, context-senstive |
-
-** links
-
-[[info:org#Handling%20links][info:org#Handling links]]
-
-| ~C-c l~       | ~SPC a o l~ | ~org-store-link~    |
-| ~C-c C-l~     | ~SPC m i l~ | ~org-insert-link~   |
-| ~C-c C-o~     | ~SPC m l~   | ~org-open-at-point~ |
-| ~C-c C-x C-n~ |             | ~org-next-link~     |
-| ~C-c C-x C-p~ |             | ~org-previous-link~ |
-
-* Syntax
-
-[[http://orgmode.org/manual/Emphasis-and-monospace.html][manual]]
-
-#+BEGIN_EXAMPLE
-*bold*, /italic/, _underlined_, =verbatim= and ~code~, and, if you must, ‘+strike-through+’
-#+END_EXAMPLE
-
-*** syntax
-
-[[http://orgmode.org/org.html#Markup][Markup for rich export (manual)]]
-
-#+BEGIN_SRC org
-[[https://example.com][link example]]
-
-*bold*, /italic/, _underline_, =verbatim=, ~code~, +strike-through+
-#+END_SRC
-
-* local variables
-
-# -*- org-use-tag-inheritance: nil; -*-
-
-#+BEGIN_EXAMPLE
-# local variables:
-:# org-attach-directory: "./data"
-:# org-id-method: uuid
-# end:
-#+END_EXAMPLE
-
-#+BEGIN_EXAMPLE
-* COMMENT Local Variables
-  # Local Variables:
-  # eval: (add-hook 'after-save-hook 'org-pandoc-export-to-html5 nil t)
-  # End:
-#+END_EXAMPLE
-
 * Babel
 
-* code blocks/babel
+* Capture Templates
 
-[[http://orgmode.org/manual/Working-with-source-code.html#Working-with-source-code][manual 14 - Working with source code]]
+[[https://www.youtube.com/watch?v=KdcXu_RdKI0][How I Use org-capture and Stuff]] on YouTube, by [[https://twitter.com/yonkeltron?lang=en][Jonathan Magen]]
+
+| ~%U~       | inactive timestamp                                             |
+| ~%^{Name}~ | prompt/read                                                    |
+| ~%a~       | annotation ~org-store-link~ (takes you back to where you were) |
+| ~%i~       | active region                                                  |
+| ~%?~       | final cursor position                                          |
+
+~org-protocol-capture-html~ on [[https://github.com/alphapapa/org-protocol-capture-html][github]]
+
+#+BEGIN_QUOTE
+With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
+
+For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
+
+I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
+#+END_QUOTE
+
+* Code blocks/babel
+
+[[http://orgmode.org/manual/Working-with-source-code.html#Working-with-source-code][manual 14 Working with source code]]
 
 | ~C-c C-c~   | ~org-ctrl-c-ctrl-c~                  | evaluate                                             |
 | ~C-c '~     | ~org-edit-special~                   | open sub-editing buffer                              |
@@ -133,15 +80,19 @@ Change how ~ctrl-c-ctrl-c~ windows behave:
 
 *** Results variables
 
-http://orgmode.org/manual/results.html
+[[http://orgmode.org/manual/results.html][manual 14.8.2.2 :results]]
 
 #+BEGIN_SRC shell :results value code
 curl 127.0.0.1 --head
 #+END_SRC
 
-** node adjustment
+** node
 
-~setenv "NODE_PATH"~ specifically to ~/org/node_modules~: [[http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/]]. Install babel presets to ~/org~, symlink ~/org/node_modules/babel-cli/bin/babel-node.js~ as ~org-babel-node~ to path.
+- ~setenv "NODE_PATH"~ specifically to ~/org/node_modules~
+- install babel presets to ~/org~
+- symlink ~/org/node_modules/babel-cli/bin/babel-node.js~ as ~org-babel-node~ to path
+
+reference [[http://rwx.io/blog/2016/03/09/org-with-babel-node-updated/][Org Mode ES2015+ Code Blocks (updated)]], by [[https://twitter.com/rwxstar][Patrick Goddi]]
 
 #+BEGIN_SRC js :cmd "org-babel-node --presets=stage-2"
 let obj = {
@@ -156,36 +107,7 @@ console.log(fruit);
 console.log(restItem);
 #+END_SRC
 
-* tangle
-
-[[info:org#Extracting%20source%20code][info:org#Extracting source code]]
-
-| ~C-c C-v t~ | ~org-babel-tangle~ |
-
-#+BEGIN_SRC js :tangle yes
-console.log('will be tangled');
-#+END_SRC
-
-** tangle all files in a directory
-
-[[https://emacs.stackexchange.com/a/20733/15295][SO answer]]
-
-#+BEGIN_SRC emacs-lisp
-(defun my/tangle-dotfiles ()
-  "If the current file is in '~/.dotfiles', the code blocks are tangled"
-  (when (equal (file-name-directory (directory-file-name buffer-file-name))
-               (concat (getenv "HOME") "/.dotfiles/"))
-    (org-babel-tangle)
-    (message "%s tangled" buffer-file-name)))
-
-(add-hook 'after-save-hook #'my/tangle-dotfiles)
-#+END_SRC
-
-** Reference
-
-[[https://twitter.com/fredgiasson][Frederick Giasson]]'s blog post [[http://fgiasson.com/blog/index.php/2016/10/26/literate-clojure-programming-tangle-all-in-org-mode/][Literate {Clojure} Programming: Tangle All in Org-mode]]
-
-* export
+* Export
 
 [[http://orgmode.org/manual/Easy-templates.html#Easy-templates][Easy Templates]]
 
@@ -195,13 +117,14 @@ console.log('will be tangled');
 
 To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~no_export~, and add ~:no_export:~ after the heading/node.
 
-** export exclusion example                                       :noexport:
+** export exclusion example :noexport:
 
 This section is not exported.
 
-** export settings
+** export options & settings
 
-[[http://orgmode.org/manual/Export-settings.html#Export-settings][Manual]]
+- [[http://orgmode.org/manual/Export-settings.html#Export-settings][manual 12.2 Export settings]]
+- [[https://emacsclub.github.io/html/org_tutorial.html#sec-8][Org Tutorial Exporting]]
 
 |                      |
 |----------------------|
@@ -216,7 +139,7 @@ This section is not exported.
 | ~‘EXPORT_FILE_NAME’~ |
 
 #+BEGIN_QUOTE
-The #+OPTIONS keyword is a compact form. To configure multiple options, use several #+OPTIONS lines. #+OPTIONS recognizes the following arguments.
+The ~#+OPTIONS~ keyword is a compact form. To configure multiple options, use several ~#+OPTIONS~ lines. ~#+OPTIONS~ recognizes the following arguments.
 #+END_QUOTE
 
 |                 |
@@ -291,51 +214,53 @@ The #+OPTIONS keyword is a compact form. To configure multiple options, use seve
         ))
 #+END_SRC
 
-* Spreadsheet tables
+* Keys/misc, quick ref, hard to remember
 
-- [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]
-- [[https://emacs.stackexchange.com/a/20506/15295][Helpful SO answer]]
-- [[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][Formula Syntax for Calc]]
+[[info:org#Specific%20header%20arguments][info:org#Specific header arguments]]
 
-#+BEGIN_SRC org
-:=vsum($2..$3) ;; do a calculation
-:=vsum($2..$3);%.2f ;; set format to 2 decimal places
-#+END_SRC
+|                              |                                                               |                                                                        |
+|------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
+| ~C-z~                        | ~evil-emacs-state~                                            |                                                                        |
+| ~SPC m ^~                    | ~org-sort~                                                    | alphabetize org headings                                               |
+| ~C-c C-l~                    | ~org-insert-link~                                             | insert link                                                            |
+| ~C-c .~                      | ~org-time-stamp~                                              | insert stamp                                                           |
+| ~< s~ + ~<tab>~              | [snippet] expands ~#+BEGIN_SRC~ ... ~#+END_SRC~ ('s' for src) |                                                                        |
+| ~C-c C-o~                    | ~org-open-at-point~                                           | open at point                                                          |
+| ~SPC x o~                    | ~link-hint-open-link~                                         | open link                                                              |
+| ~org-version~                | version                                                       |                                                                        |
+| ~<S-tab>~                    | cycle all                                                     |                                                                        |
+| ~C-c C-p~ & ~C-c C-n~        | prev/next headline                                            |                                                                        |
+| ~C-c C-f~ & ~C-c C-b~        | prev/next same-level headline                                 |                                                                        |
+| ~C-c C-u~                    | up level                                                      |                                                                        |
+| ~M-h~, ~M-l~                 | ~org-metaright~, like ~<M-right>~                             |                                                                        |
+| ~M-<ret>~                    | new headline or list elements                                 |                                                                        |
+| ~C-<ret>~                    | new same-level headline below current headline group          |                                                                        |
+| ~M-<up>~ & ~M-<down>~        | move subtree or list element                                  |                                                                        |
+| ~M-<left>~ & ~M-<right>~     | promote/demote heading or list element                        |                                                                        |
+| ~M-S-<left>~ & ~M-S-<right>~ | promote/demote heading or list element                        |                                                                        |
+| ~: [[http://example.com][ex]]~                       | use ~:~ at ^ to preserve no-formatting                        |                                                                        |
+| ~C-c -~                      | ~org-ctrl-c-minus~                                            | rotate list state (~org-cycle-list-bullet~) or other, context-senstive |
 
-| ~C-c }~       | show row & column nubmers |
-| ~C-c {~       | toggle debugging          |
-| ~C-c C-c~     | "run" at point            |
-| ~C-c u C-c *~ | re-calc table             |
+** links
 
+[[info:org#Handling%20links][info:org#Handling links]]
 
-| ~::~    | separate formulas                                |
-| ~$x~    | column number x                                  |
-| ~@x~    | row number x                                     |
-| ~@#~    | current row                                      |
-| ~$#~    | current column                                   |
-| ~@>~    | last row                                         |
-| ~x..y~  | range between x and y (top-left to bottom-right) |
-| ~vsum~  | vector sum                                       |
-| ~vmean~ | average                                          |
+| ~C-c l~       | ~SPC a o l~ | ~org-store-link~    |
+| ~C-c C-l~     | ~SPC m i l~ | ~org-insert-link~   |
+| ~C-c C-o~     | ~SPC m l~   | ~org-open-at-point~ |
+| ~C-c C-x C-n~ |             | ~org-next-link~     |
+| ~C-c C-x C-p~ |             | ~org-previous-link~ |
 
-* tables
+* Local variables
 
-|               |                       |
-|---------------+-----------------------|
-| ~SPC m t d c~ | ~table-delete-column~ |
+# -*- org-use-tag-inheritance: nil; -*-
 
-* org as spreadsheet
-
-[[https://emacs.stackexchange.com/questions/20498/how-do-i-do-simple-addition-in-org-mode/20506#20506][basics per SO answer]]
-
-[[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][spreadsheet intro]]
-
-| ~C-c ?~           | ~org-table-field-info~                         |
-| ~C-c }~           | ~org-table-toggle-coordinate-overlays~         |
-| ~C-u C-c *~       | reapply formulas                               |
-| ~:=vmean($2..$3)~ | row formula, mean of columns 2 & 3             |
-| ~=vsum($2..$3)~   | column formula, sum of all rows' columns 2 & 3 |
-|                   |                                                |
+#+BEGIN_EXAMPLE
+# local variables:
+:# org-attach-directory: "./data"
+:# org-id-method: uuid
+# end:
+#+END_EXAMPLE
 
 * My Project Setup :noexport:
 
@@ -406,63 +331,125 @@ ls
 | type.md         |
 | vim.md          |
 
-* todos
+* Spreadsheets
+
+- [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]
+- [[https://emacs.stackexchange.com/a/20506/15295][Helpful Emacs Stack Exchange answer]]
+- [[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][Formula Syntax for Calc]]
+
+#+BEGIN_SRC org
+:=vsum($2..$3) ;; do a calculation
+:=vsum($2..$3);%.2f ;; set format to 2 decimal places
+#+END_SRC
+
+| ~C-c ?~           | ~org-table-field-info~                 |                                                |
+| ~C-c }~           | ~org-table-toggle-coordinate-overlays~ | show row & column numbers                      |
+| ~C-c {~           |                                        | toggle debugging                               |
+| ~C-c C-c~         |                                        | "run" at point                                 |
+| ~C-c u C-c *~     |                                        | re-calc table                                  |
+| ~C-u C-c *~       |                                        | reapply formulas                               |
+| ~:=vmean($2..$3)~ |                                        | row formula, mean of columns 2 & 3             |
+| ~=vsum($2..$3)~   |                                        | column formula, sum of all rows' columns 2 & 3 |
+
+| ~::~    | separate formulas                                |
+| ~$x~    | column number x                                  |
+| ~@x~    | row number x                                     |
+| ~@#~    | current row                                      |
+| ~$#~    | current column                                   |
+| ~@>~    | last row                                         |
+| ~x..y~  | range between x and y (top-left to bottom-right) |
+| ~vsum~  | vector sum                                       |
+| ~vmean~ | average                                          |
+
+* Syntax
+
+- [[http://orgmode.org/org.html#Markup][manual 11 Markup for rich export]]
+- [[http://orgmode.org/manual/Emphasis-and-monospace.html][manual 11.2 Emphasis and monospace]]
+
+#+BEGIN_SRC org
+[[https://example.com][link example]]
+
+*bold*, /italic/, _underline_, =verbatim=, ~code~, +strike-through+
+#+END_SRC
+
+* Tables
+
+|               |                       |
+|---------------+-----------------------|
+| ~SPC m t d c~ | ~table-delete-column~ |
+
+* Tangle
+
+[[info:org#Extracting%20source%20code][info:org#Extracting source code]]
+
+| ~C-c C-v t~ | ~org-babel-tangle~ |
+
+** tangled example :noexport:
+
+#+BEGIN_SRC js :tangle yes
+console.log('will be tangled');
+#+END_SRC
+
+** tangle all files in a directory
+
+[[https://emacs.stackexchange.com/a/20733/15295][Emacs Stack Exchange answer]]
+
+#+BEGIN_SRC emacs-lisp
+(defun my/tangle-dotfiles ()
+  "If the current file is in '~/.dotfiles', the code blocks are tangled"
+  (when (equal (file-name-directory (directory-file-name buffer-file-name))
+               (concat (getenv "HOME") "/.dotfiles/"))
+    (org-babel-tangle)
+    (message "%s tangled" buffer-file-name)))
+
+(add-hook 'after-save-hook #'my/tangle-dotfiles)
+#+END_SRC
+
+** Reference
+
+[[https://twitter.com/fredgiasson][Frederick Giasson]]'s blog post [[http://fgiasson.com/blog/index.php/2016/10/26/literate-clojure-programming-tangle-all-in-org-mode/][Literate {Clojure} Programming: Tangle All in Org-mode]]
+
+* Todos
 
 | ~S-M-<ret>~                    | new TODO                |
 | ~C-c C-t~ & ~S-<right>/<left>~ | rotate/cycle TODO state |
 
-** TODO clean-up required, from ~.spacemacs~                      :noexport:
-#+BEGIN_SRC emacs-lisp
-  ;; (setq org-todo-keywords '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
-  ;; (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE"))) ;; http://orgmode.org/manual/TODO-types.html#TODO-types
-  (setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "DONE" "DELEGATED")))
+** Customize TODOs                                                 :noexport:
 
-  ;; ref http://orgmode.org/manual/Faces-for-TODO-keywords.html
-  ;; (setq org-todo-keyword-faces
-  ;;       '(("TODO" . org-warning)
-  ;;         ("IN-PROGRESS" . "yellow")
-  ;;         ("DONE" . (:foreground "blue" :weight bold))))
-  ;; (setq org-todo-keyword-faces
-  ;;       '(("TODO" . org-warning) ("STARTED" . "yellow")
-  ;;         ("CANCELED" . (:foreground "blue" :weight bold))))
+[[http://orgmode.org/manual/Faces-for-TODO-keywords.html][manual 5.2.6 Faces for TODO keywords]]
+
+#+BEGIN_SRC emacs-lisp
+(setq org-todo-keywords '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
+(setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE"))) ;; http://orgmode.org/manual/TODO-types.html#TODO-types
+(setq org-todo-keywords '((sequence "TODO" "IN-PROGRESS" "DONE" "DELEGATED")))
+
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning)
+        ("IN-PROGRESS" . "yellow")
+        ("DONE" . (:foreground "blue" :weight bold))))
+(setq org-todo-keyword-faces
+      '(("TODO" . org-warning) ("STARTED" . "yellow")
+        ("CANCELED" . (:foreground "blue" :weight bold))))
 #+END_SRC
 
-* capture template placeholders
+* Misc
 
-Jonathan Magen's talk on [[https://www.youtube.com/watch?v=KdcXu_RdKI0][youtube]]
+- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
-| ~%U~       | inactive timestamp                                             |
-| ~%^{Name}~ | prompt/read                                                    |
-| ~%a~       | annotation ~org-store-link~ (takes you back to where you were) |
-| ~%i~       | active region                                                  |
-| ~%?~       | final cursor position                                          |
-
-~org-protocol-capture-html~ on [[https://github.com/alphapapa/org-protocol-capture-html][github]]
-
-#+BEGIN_QUOTE
-With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
-
-For example, to capture your comment into Org, I just highlight it in Pentadactyl (Firefox), press "cc", and Emacs pops up a capture buffer with your comment inserted into the capture template. Or if I press "ch", it passes it through Pandoc, converting HTML lists, tables, headings, code blocks, etc. into their Org counterparts.
-
-I also just added support for python-readability, so if I press "cr", the URL of the page is sent to python-readability, which gets the article content (just like the good ol' Readability bookmarklet), then passes it through Pandoc, and then places it into the capture template.
-#+END_QUOTE
-
-* reference
-- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][examples and cookbook]]
-- [[https://emacsclub.github.io/html/org_tutorial.html#sec-8-1][cheatsheet]]
-
-* misc
+** Visibility/folds/exansion
 
 Control visibility on startup:
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_EXAMPLE
 #+STARTUP: showeverything
+#+END_EXAMPLE
 
-;; or
+or
 
+#+BEGIN_SRC emacs-lisp
 (setq org-startup-folded nil)
 #+END_SRC
 
-** pipe character in tables
+** Pipe character in tables
 
-Use ~\vert~ (backslash-v-e-r-t). [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][Special symbols]] in the manual. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.
+Use ~\vert~. See [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][manual 11.6 Special symbols]]. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.

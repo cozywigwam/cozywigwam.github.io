@@ -13,7 +13,7 @@ path: "/command-line/"
 
 ** ack
 
-[[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.ackrc][dotfile]]
+[[https://github.com/cozywigwam/dotfiles/blob/master/.ackrc][dotfile]]
 
 #+BEGIN_SRC sh
 ack --dump # see ignores
@@ -62,8 +62,8 @@ cause curl to pass the data to the server using the content-type
 
 ** signals
 
-from [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux
-Signal command library]]
+reference [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux
+"standard signals"]]
 
 | Signal    | Value      | Action   | Comment                                      |
 |-----------+------------+----------+----------------------------------------------|
