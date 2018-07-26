@@ -10,23 +10,18 @@ path: "/characters/"
 #+END_EXAMPLE
 
 * Insert a character
-  :PROPERTIES:
-  :CUSTOM_ID: insert-a-character
-  :END:
 
-| =C-x 8 RET=   | =insert-char= [for normal mode] (unicode name, hex, or code point with =#=-specified radix)   |
-| =C-q=         | =quoted-insert= [for insert mode] insert literally                                            |
+| =C-x 8 RET= | =insert-char= [normal state] (unicode name, hex, or code point with =#=-specified radix) |
+| =C-q=       | quoted - insert = [insert, state] insert literally                                       |
+#+TBLFM: $2=quoted-insert= [insert state] insert literally
 
 ** Emacs
-   :PROPERTIES:
-   :CUSTOM_ID: emacs
-   :END:
 
 [[https://www.masteringemacs.org/article/diacritics-in-emacs][Mastering
 Emacs]] reference
 
-| =C-\\=              | =toggle-input-method=     | notice the appearance of =1>= in the mode line   |
-| =f1 C-\\=, =f1 I=   | =describe-input-method=   |                                                  |
+| =C-\=            | =toggle-input-method=   | notice the appearance of =1>= in the mode line |
+| =f1 C-\=, =f1 I= | =describe-input-method= |                                                |
 
 When the =latin-1-prefix= "input method" is activated (this is the input
 method recommended by EmacsWiki & Mastering Emacs), the following accent
@@ -55,9 +50,6 @@ functioning. Turn =key-chord-mode= off and back on to regain use of the
 bindings.
 
 * "What character is this?"
-  :PROPERTIES:
-  :CUSTOM_ID: what-character-is-this
-  :END:
 
 [[http://unicodelookup.com/#119082][unicodelookup.com]]
 
@@ -65,9 +57,6 @@ bindings.
 | =SPC h d c=   | [Spacemacs] get character info at point   |
 
 ** Sample output
-   :PROPERTIES:
-   :CUSTOM_ID: sample-output
-   :END:
 
 Example character: 🥑
 

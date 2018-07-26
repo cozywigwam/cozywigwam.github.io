@@ -161,6 +161,12 @@ List basics at [[https://www.emacswiki.org/emacs/ListStructure][Emacs Wiki list 
 
 [[https://twitter.com/ErgoEmacs][ErgoEmacs/Xah Lee]]'s [[http://ergoemacs.org/emacs/elisp_basics.html][Emacs Lisp Basics]]
 
+* formatting
+
+~elisp-format-column~
+
+Pretty print emacs-lisp with ~(pp-buffer)~ and ~(pp object)~. Also see ~elisp-format-buffer~ (custom ~C-=~).
+
 * get around
 ** quick reference/favorites/main
 *** misc/hard to remember
@@ -174,9 +180,11 @@ evil states: https://github.com/noctuid/evil-guide#global-keybindings-and-evil-s
 | Layouts    | Perspectives | iTerm2 tabs              |
 | Workspaces | Eyebrowse    | tmux windows or vim tabs |
 
-Pretty print emacs-lisp with ~(pp-buffer)~ and ~(pp object)~. Also see ~elisp-format-buffer~ (custom ~C-=~).
-
 Format code execution results with ~:results~:
+
+~pp-last-sexp~
+
+~pp-macroexpand-expression~
 
 #+BEGIN_EXAMPLE
 #+BEGIN_SRC shell :results value code

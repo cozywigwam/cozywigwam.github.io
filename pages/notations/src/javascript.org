@@ -9,38 +9,10 @@ path: "/javascript/"
 ---
 #+END_EXAMPLE
 
-* testing with code blocks
+* Language
+** Arrays
 
-#+BEGIN_SRC js
-let colors = [ "red", "purple", "green" ];
-if (x) {
-  console.log('cl');
-}
-let [ firstColor, ...remain ] = colors;
-console.log(firstColor);
-console.log(remain);
-#+END_SRC
-
-#+RESULTS:
-: red
-: [ 'purple', 'green' ]
-: undefined
-
-#+BEGIN_SRC js2
-if (x) {
-  console.log('zxcv');
-}
-let colors = [ "red", "purple", "green" ];
-let [ firstColor, ...remain ] = colors;
-console.log(firstColor);
-console.log(remain);
-#+END_SRC
-
-
-
-* Arrays
-
-** Copying
+*** Copying
 
 [[https://stackoverflow.com/questions/7486085/copying-array-by-value-in-javascript/23536726#23536726][Good SO answer]]
 
@@ -97,7 +69,7 @@ var dupe2 = JSON.parse(JSON.stringify(myObjArray));
 dupe2[0].name = 'Dexter'; // myObjArray and dupe2 are different
 #+END_SRC
 
-* Async
+** Async
 
 from [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function][MDN]]:
 
@@ -118,7 +90,7 @@ const makeRequest = async () => {
 makeRequest()
 #+END_SRC
 
-* Callbags
+** Callbags
 
 https://github.com/staltz/callbag-basics
 
@@ -175,7 +147,7 @@ function consumer(type, payload) {
 producer('start', consumer);
 #+END_SRC
 
-* Currying
+** Currying
 
 Function takes two:
 
@@ -186,11 +158,11 @@ const everyOtherLetterTwoWords = (first, second) =>
         R.concat(first, second))
 #+END_SRC
 
-* Destructuring
+** Destructuring
 
-** Arrays
+*** Arrays
 
-** Objects
+*** Objects
 
 #+BEGIN_SRC js :cmd "org-babel-node"
   let structured = {
@@ -231,7 +203,46 @@ console.log(restItem);
 
 #+RESULTS:
 
-* Iterators
+** Format
+*** Prettier
+
+[[https://prettier.io/docs/en/options.html][Prettier Options]]
+
+With [[https://github.com/typicode/husky][husky]] and [[https://github.com/okonet/lint-staged][lint-staged]]:
+
+#+BEGIN_SRC js
+/* package.json */
+
+// ...
+
+"scripts": {
+  "precommit": "lint-staged",
+
+// ...
+
+"lint-staged": {
+  "src/**/*.{js,jsx,json,css,scss}": [
+    "prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write",
+    "git add"
+  ]
+},
+
+// ...
+
+#+END_SRC
+
+*** run it through files
+
+#+BEGIN_SRC sh
+prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
+prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
+#+END_SRC
+
+*** reference
+
+[[https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically][CRA docs]]
+
+** Iterators
 
 From [[https://nostarch.com/ecmascript6][Understanding ECMASCRIPT 6]] by [[https://twitter.com/slicknet][Nicholas Zakas]]
 
@@ -261,68 +272,289 @@ ES6 equivalent:
 const createIterator
 #+END_SRC
 
-* Styling
+** Promises
 
-** Styled Components
+*** [[https://github.com/nolanlawson][Nolan Lawson]]
 
-*** Smashing Magazine best practices
-Max Stoiber, best practices from [Smashing Magazine](https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/). Three main best practices:
-1 - building small, focused and independent components
-2 - splitting container and presentational components
-    - keep data/logic ("container components that render presentational components") and presentation/styling components separate
-3 - single-use CSS names
+**** [[https://gist.github.com/nolanlawson/6ce81186421d2fa109a4][Promise protips - stuff I wish I had known when I started with Promises]]
 
-- remove the map between styles and components
-
-
-*** YouTube video about styling components
+#+BEGIN_QUOTE
+Promise.all is good for executing many promises at once
 
 #+BEGIN_SRC js
-import Button from './Button';
-
-const Home = () =>
-  <div>
-    <Button>btn main</Button>
-    <Button primary href="https://duckduckgo.com">btn2</Button>
-    <Button danger>danger</Button>
-  </div>
+Promise.all([
+  promise1,
+  promise2
+]);
 #+END_SRC
 
+Promise.resolve is good for wrapping synchronous code
 
 #+BEGIN_SRC js
-const Button = ({ primary, danger, className, ...props }) => {
-  const Tag = props.href ? "a" : "button"
+Promise.resolve().then(function () {
+  if (somethingIsNotRight()) {
+    throw new Error("I will be rejected asynchronously!");
+  } else {
+    return "This string will be resolved asynchronously!";
+  }
+});
+#+END_SRC
 
-  return <Tag
-    type="button"
-    className={cn(
-      'btn',
-      primary && 'btn-primary',
-      danger && 'btn-danger',
-      className)}
-    {...props}
-  />
+execute some promises one after the other.
+this takes an array of promise factories, i.e.
+an array of functions that RETURN a promise
+(not an array of promises themselves; those would execute immediately)
+
+#+BEGIN_SRC js
+function sequentialize(promiseFactories) {
+  var chain = Promise.resolve();
+  promiseFactories.forEach(function (promiseFactory) {
+    chain = chain.then(promiseFactory);
+  });
+  return chain;
+}
+#+END_SRC
+
+Promise.race is good for setting a timeout:
+
+#+BEGIN_SRC js
+Promise.race([
+  new Promise(function (resolve, reject) {
+    setTimeout(reject, 10000); // timeout after 10 secs
+  }),
+  doSomethingThatMayTakeAwhile()
+]);
+#+END_SRC
+
+Promise finally util similar to Q.finally
+e.g. promise.then(...).catch().then(...).finally(...)
+
+#+BEGIN_SRC js
+function finally (promise, cb) {
+  return promise.then(function (res) {
+    var promise2 = cb();
+    if (typeof promise2.then === 'function') {
+      return promise2.then(function () {
+        return res;
+      });
+    }
+    return res;
+  }, function (reason) {
+    var promise2 = cb();
+    if (typeof promise2.then === 'function') {
+      return promise2.then(function () {
+        throw reason;
+      });
+    }
+    throw reason;
+  });
+};
+#+END_SRC
+#+END_QUOTE
+
+*** [[https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html][Nolan Lawson's Blog Post]]
+
+Abbreviated:
+
+#+BEGIN_QUOTE
+Q: What is the difference between these four promises?
+
+#+BEGIN_SRC js
+doSomething().then(function () {
+  return doSomethingElse();
+});
+
+doSomething().then(function () {
+  doSomethingElse();
+});
+
+doSomething().then(doSomethingElse());
+
+doSomething().then(doSomethingElse);
+#+END_SRC
+
+Mistakes outlined:
+
+- "promisey pyramid of doom"
+- ~forEach()~ instead of ~map()~
+- missing ~catch()~
+- using "deferred"
+- side effects instead of returning
+#+END_QUOTE
+
+**** Your Three Options When Inside ~then()~
+
+- return another promise
+- return a synchronous value (or undefined)
+- throw a synchronous error
+
+#+BEGIN_QUOTE
+Every promise gives you a ~then()~ method (or ~catch()~, which is just sugar for ~then(null, ...))~. Here we are inside of a ~then()~ function:
+
+#+BEGIN_SRC js
+somePromise().then(function () {
+  // I'm inside a then() function!
+});
+#+END_SRC
+
+There are three things:
+
+- return another promise
+
+#+BEGIN_SRC js
+getUserByName('nolan').then(function (user) {
+  return getUserAccountById(user.id);
+}).then(function (userAccount) {
+  // I got a user account!
+});
+#+END_SRC
+
+- return a synchronous value (or undefined)
+
+#+BEGIN_SRC js
+getUserByName('nolan').then(function (user) {
+  if (inMemoryCache[user.id]) {
+    return inMemoryCache[user.id];    // returning a synchronous value!
+  }
+  return getUserAccountById(user.id); // returning a promise!
+}).then(function (userAccount) {
+  // I got a user account!
+});
+#+END_SRC
+
+- throw a synchronous error
+
+#+BEGIN_SRC js
+getUserByName('nolan').then(function (user) {
+  if (user.isLoggedOut()) {
+    throw new Error('user logged out!'); // throwing a synchronous error!
+  }
+  if (inMemoryCache[user.id]) {
+    return inMemoryCache[user.id];       // returning a synchronous value!
+  }
+  return getUserAccountById(user.id);    // returning a promise!
+}).then(function (userAccount) {
+  // I got a user account!
+}).catch(function (err) {
+  // Boo, I got an error!
+});
+#+END_SRC
+#+END_QUOTE
+
+**** Advanced Mistakes
+
+- Not knowing about Promise.resolve()
+- ~then(resolveHandler).catch(rejectHandler)~ isn't exactly the same as ~then(resolveHandler, rejectHandler)~
+- Promises vs. Promise Factories
+- Higher-scoped variable for combined promise results
+- Promises fall through
+
+#+BEGIN_QUOTE
+- Not knowing ~Promise.resolve()~
+
+#+BEGIN_SRC js
+function somePromiseAPI() {
+  return Promise.resolve().then(function () {
+    doSomethingThatMayThrow();
+    return 'foo';
+  }).then(/* ... */);
+}
+#+END_SRC
+
+Just remember: any code that might ~throw~ synchronously is a good candidate for a nearly-impossible-to-debug swallowed error somewhere down the line. But if you wrap everything in ~Promise.resolve()~, then you can always be sure to ~catch()~ it later.
+
+- ~then(resolveHandler).catch(rejectHandler)~ isn't exactly the same as ~then(resolveHandler, rejectHandler)~
+
+#+BEGIN_SRC js
+somePromise().then(function () {
+  throw new Error('oh noes');
+}).catch(function (err) {
+  // I caught your error! :)
+});
+
+somePromise().then(function () {
+  throw new Error('oh noes');
+}, function (err) {
+  // I didn't catch your error! :(
+});
+#+END_SRC
+
+As it turns out, when you use the ~then(resolveHandler, rejectHandler)~ format, the ~rejectHandler~ won't actually catch an error if it's thrown by the ~resolveHandler~ itself.
+
+- Promises vs. Promise Factories
+
+#+BEGIN_SRC js
+// good, will execute sequentially as expected
+
+function executeSequentially(promiseFactories) {
+  var result = Promise.resolve();
+  promiseFactories.forEach(function (promiseFactory) {
+    result = result.then(promiseFactory);
+  });
+  return result;
 }
 
-const DangerBtn = props =>
-  <Button
-    danger
-    {...props}
-  />
+// ...
 
-const PrimaryBtn = props =>
-  <Button
-    primary
-    {...props}
-  />
-
-export default Button
+function myPromiseFactory() {
+  return somethingThatCreatesAPromise();
+}
 #+END_SRC
 
+- Higher-scoped variable for combined promise results
+
+#+BEGIN_SRC js
+// no
+var user;
+getUserByName('nolan').then(function (result) {
+  user = result;
+  return getUserAccountById(user.id);
+}).then(function (userAccount) {
+  // okay, I have both the "user" and the "userAccount"
+});
+
+// yes
+getUserByName('nolan').then(function (user) {
+  return getUserAccountById(user.id).then(function (userAccount) {
+    // okay, I have both the "user" and the "userAccount"
+  });
+});
+#+END_SRC
+
+- Promises fall through
+
+#+BEGIN_SRC js
+Promise.resolve('foo').then(null).then(function (result) {
+  console.log(result);
+});
+#+END_SRC
+#+END_QUOTE
+
+*** Other References
+
+[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise][MDN]]
 
 
+* Libraries
+** Ramda :no_export:
+*** hard to understand
 
-* React
+#+BEGIN_SRC js
+const idKeyAsProp = (a, b) => R.assoc(b.id, b, a);
+
+const SavedDashboardsReducer = (state = initialState, action) => {
+  switch (action.type) {
+  case `${FETCH_ALL}_SUCCESS`: {
+    return R.compose(
+      R.assoc('data', R.__, state),
+      R.reduce(idKeyAsProp, {}),
+      R.pathOr([], ['payload', 'data', 'data'])
+    )(action);
+  }
+};
+#+END_SRC
+
+** React
 
 ** Components
 
@@ -371,312 +603,98 @@ export default class PostLink extends React.Component {
 }
 #+END_SRC
 
-* Ramda
+** Styling
 
-** hard to understand
+*** Styled Components
+
+**** Smashing Magazine best practices
+Max Stoiber, best practices from [Smashing Magazine](https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/). Three main best practices:
+1 - building small, focused and independent components
+2 - splitting container and presentational components
+    - keep data/logic ("container components that render presentational components") and presentation/styling components separate
+3 - single-use CSS names
+
+- remove the map between styles and components
+
+
+**** YouTube video about styling components
 
 #+BEGIN_SRC js
-const idKeyAsProp = (a, b) => R.assoc(b.id, b, a);
+import Button from './Button';
 
-const SavedDashboardsReducer = (state = initialState, action) => {
-  switch (action.type) {
-  case `${FETCH_ALL}_SUCCESS`: {
-    return R.compose(
-      R.assoc('data', R.__, state),
-      R.reduce(idKeyAsProp, {}),
-      R.pathOr([], ['payload', 'data', 'data'])
-    )(action);
-  }
-};
+const Home = () =>
+  <div>
+    <Button>btn main</Button>
+    <Button primary href="https://duckduckgo.com">btn2</Button>
+    <Button danger>danger</Button>
+  </div>
 #+END_SRC
 
-* Promises
 
-** Nolan Lawson's Cheatsheet
+#+BEGIN_SRC js
+const Button = ({ primary, danger, className, ...props }) => {
+  const Tag = props.href ? "a" : "button"
 
-[Nolan Lawson Cheatsheet gist](https://gist.github.com/nolanlawson/6ce81186421d2fa109a4):
-
-```js
-// Promise.all is good for executing many promises at once
-Promise.all([
-  promise1,
-  promise2
-]);
-
-// Promise.resolve is good for wrapping synchronous code
-Promise.resolve().then(function () {
-  if (somethingIsNotRight()) {
-    throw new Error("I will be rejected asynchronously!");
-  } else {
-    return "This string will be resolved asynchronously!";
-  }
-});
-
-// execute some promises one after the other.
-// this takes an array of promise factories, i.e.
-// an array of functions that RETURN a promise
-// (not an array of promises themselves; those would execute immediately)
-function sequentialize(promiseFactories) {
-  var chain = Promise.resolve();
-  promiseFactories.forEach(function (promiseFactory) {
-    chain = chain.then(promiseFactory);
-  });
-  return chain;
+  return <Tag
+    type="button"
+    className={cn(
+      'btn',
+      primary && 'btn-primary',
+      danger && 'btn-danger',
+      className)}
+    {...props}
+  />
 }
 
-// Promise.race is good for setting a timeout:
-Promise.race([
-  new Promise(function (resolve, reject) {
-    setTimeout(reject, 10000); // timeout after 10 secs
-  }),
-  doSomethingThatMayTakeAwhile()
-]);
+const DangerBtn = props =>
+  <Button
+    danger
+    {...props}
+  />
 
-// Promise finally util similar to Q.finally
-// e.g. promise.then(...).catch().then(...).finally(...)
-function finally (promise, cb) {
-  return promise.then(function (res) {
-    var promise2 = cb();
-    if (typeof promise2.then === 'function') {
-      return promise2.then(function () {
-        return res;
-      });
-    }
-    return res;
-  }, function (reason) {
-    var promise2 = cb();
-    if (typeof promise2.then === 'function') {
-      return promise2.then(function () {
-        throw reason;
-      });
-    }
-    throw reason;
-  });
-};
-```
+const PrimaryBtn = props =>
+  <Button
+    primary
+    {...props}
+  />
 
-** Nolan Lawson's Blog Post
+export default Button
+#+END_SRC
 
-[Nolan Lawson](https://github.com/nolanlawson)'s pouchdb [blog post](https://github.com/nolanlawson) provides a helpful overview of promise usage. Summary:
 
-> Q: What is the difference between these four promises?
->
-> ```js
-> doSomething().then(function () {
->   return doSomethingElse();
-> });
->
-> doSomething().then(function () {
->   doSomethingElse();
-> });
->
-> doSomething().then(doSomethingElse());
->
-> doSomething().then(doSomethingElse);
-> ```
 
-> If you know the answer, then congratulations: you're a promises ninja. You have my permission to stop reading this blog post.
->
-> For the other 99.99% of you, you're in good company. Nobody who responded to my tweet could solve it, and I myself was surprised by the answer to #3. Yes, even though I wrote the quiz!
-
-> Mistakes outlined:
->
-> - "promisey pyramid of doom"
-> - `forEach()` instead of `map()`
-> - missing `catch()`
-> - using "deferred"
-> - side effects instead of returning
-
-> ##### Your Three Options When Inside `then()`
-
-> Seriously, this is the one weird trick that, once you understand it, will prevent all of the errors I've been talking about. You ready?
->
-> Every promise gives you a then() method (or catch(), which is just sugar for then(null, ...)). Here we are inside of a then() function:
->
-> ```js
-> somePromise().then(function () {
->   // I'm inside a then() function!
-> });
-> ```
-
-> What can we do here? There are three things:
->
-> - return another promise
-> - return a synchronous value (or undefined)
-> - throw a synchronous error
->
-> That's it. Once you understand this trick, you understand promises. So let's go through each point one at a time.
-
-> #### 1. Return another promise
->
-> ```js
-> getUserByName('nolan').then(function (user) {
->   return getUserAccountById(user.id);
-> }).then(function (userAccount) {
->   // I got a user account!
-> });
-> ```
-
-> #### 2. Return a synchronous value (or undefined)
->
-> ```js
-> getUserByName('nolan').then(function (user) {
->   if (inMemoryCache[user.id]) {
->     return inMemoryCache[user.id];    // returning a synchronous value!
->   }
->   return getUserAccountById(user.id); // returning a promise!
-> }).then(function (userAccount) {
->   // I got a user account!
-> });
-> ```
-
-> #### 3. Throw a synchronous error
->
-> ```js
-> getUserByName('nolan').then(function (user) {
->   if (user.isLoggedOut()) {
->     throw new Error('user logged out!'); // throwing a synchronous error!
->   }
->   if (inMemoryCache[user.id]) {
->     return inMemoryCache[user.id];       // returning a synchronous value!
->   }
->   return getUserAccountById(user.id);    // returning a promise!
-> }).then(function (userAccount) {
->   // I got a user account!
-> }).catch(function (err) {
->   // Boo, I got an error!
-> });
-> ```
-
-> ### Advanced Mistakes
-
-> #### 1. Not knowing `Promise.resolve()`
-
-> ```js
-> function somePromiseAPI() {
->   return Promise.resolve().then(function () {
->     doSomethingThatMayThrow();
->     return 'foo';
->   }).then(/* ... */);
-> }
-> ```
-
-> Just remember: any code that might `throw` synchronously is a good candidate for a nearly-impossible-to-debug swallowed error somewhere down the line. But if you wrap everything in `Promise.resolve()`, then you can always be sure to catch() it later.
-
-> #### 2. `then(resolveHandler).catch(rejectHandler)` isn't exactly the same as `then(resolveHandler, rejectHandler)`
-
-> ```js
-> somePromise().then(function () {
->   throw new Error('oh noes');
-> }).catch(function (err) {
->   // I caught your error! :)
-> });
->
-> somePromise().then(function () {
->   throw new Error('oh noes');
-> }, function (err) {
->   // I didn't catch your error! :(
-> });
-> ```
-
-> As it turns out, when you use the `then(resolveHandler, rejectHandler)` format, the `rejectHandler` won't actually catch an error if it's thrown by the `resolveHandler` itself.
-
-> #### 3. Promises vs. Promise Factories
-
-> ```js
-> // good, will execute sequentially as expected
->
-> function executeSequentially(promiseFactories) {
->   var result = Promise.resolve();
->   promiseFactories.forEach(function (promiseFactory) {
->     result = result.then(promiseFactory);
->   });
->   return result;
-> }
->
-> // ...
->
-> function myPromiseFactory() {
->   return somethingThatCreatesAPromise();
-> }
-> ```
-
-> #### 4. Higher-scoped varaible for combined promise results
-
-> ```js
-> // no
->
-> var user;
-> getUserByName('nolan').then(function (result) {
->   user = result;
->   return getUserAccountById(user.id);
-> }).then(function (userAccount) {
->   // okay, I have both the "user" and the "userAccount"
-> });
->
->
-> // yes
->
-> getUserByName('nolan').then(function (user) {
->   return getUserAccountById(user.id).then(function (userAccount) {
->     // okay, I have both the "user" and the "userAccount"
->   });
-> });
-> ```
-
-> #### 5. Promises fall through
-
-> Esoteric use case... may never come up in your code...
-
-> ```js
-> Promise.resolve('foo').then(null).then(function (result) {
->   console.log(result);
-> });
-> ```
-
-** Other References
-
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 * Misc
 
 "Module request format," /a la node/: starts-with-dot is local.
 
-** prettier
-
-With <a href="https://github.com/typicode/husky" target="_blank">husky</a> and <a href="https://github.com/okonet/lint-staged" target="_blank">lint-staged</a.
+* testing with code blocks :no_export:
 
 #+BEGIN_SRC js
-/* package.json */
-
-// ...
-
-"scripts": {
-  "precommit": "lint-staged",
-
-// ...
-
-"lint-staged": {
-  "src/**/*.{js,jsx,json,css,scss}": [
-    "prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write",
-    "git add"
-  ]
-},
-
-// ...
-
+let colors = [ "red", "purple", "green" ];
+if (x) {
+  console.log('cl');
+}
+let [ firstColor, ...remain ] = colors;
+console.log(firstColor);
+console.log(remain);
 #+END_SRC
 
-*** run it through files
+#+RESULTS:
+: red
+: [ 'purple', 'green' ]
+: undefined
 
-#+BEGIN_SRC sh
-prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
-prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
+#+BEGIN_SRC js2
+if (x) {
+  console.log('zxcv');
+}
+let colors = [ "red", "purple", "green" ];
+let [ firstColor, ...remain ] = colors;
+console.log(firstColor);
+console.log(remain);
 #+END_SRC
 
-*** reference
-
-<a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically" target="_blank">CRA docs<a/>
 
 
 * SCRATCH / TEST :no_export:

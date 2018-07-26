@@ -11,13 +11,28 @@ path: "/browsers/"
 
 * Chrome
 
-** dev tools
+** [[https://www.chromium.org/developers/calendar][Chromium Development Calendar and Release Info]]
 
-[[https://developers.google.com/web/tools/chrome-devtools/console/console-reference][Console
-API Reference]]
+| Release   | Estimated Week of Stable                      |
+|-----------+-----------------------------------------------|
+| 64        | Jan 23rd, 2018 (Jan 30th for Chrome OS)       |
+| 65        | Mar 6th, 2018 (Mar 13th for Chrome OS)        |
+| 66        | April 17th, 2018 (April 24th for Chrome OS)   |
+| 67        | May 29th, 2018 (June 5th for Chrome OS)       |
+| 68        | July 24th, 2018 (July 31st for Chrome OS)     |
+| 69        | Sept 4th, 2018 (Sept 11th for Chrome OS)      |
+| 70        | Oct 16th, 2018 (Oct 23rd for Chrome OS)       |
+| 71        | Dec 4th, 2018 (Dec 11th for Chrome OS)        |
 
-[[https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference][Command
-Line API Reference]]
+** Command line flags/switches
+
+- [[http://www.chromium.org/developers/how-tos/run-chromium-with-flags][The Chromium Projects documentation]]
+- [[https://peter.sh/experiments/chromium-command-line-switches/][List of Chromium Command Line Switches]]
+
+#+BEGIN_EXAMPLE
+/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9229
+#+END_EXAMPLE
 
 ** Console colors
 
@@ -34,7 +49,7 @@ console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red'
 | =$('img')=                        | =document.querySelector()= alias     |
 | =$$('img')=                       | =document.querySelectorAll()= alias  |
 | =$x("//p[a]")=                    | XPath                                |
-| =copy($0)=                        | copy to clipboard                    |
+| =copy(n)=                         | copy ~n~ to clipboard                |
 | =debug(myFuncName)= & =undebug()= | break on =myFuncName()=              |
 | =dir(document.body)= & =dirxml()= | list properties                      |
 | =inspect(object/function)=        | go to Elements or Profiles           |
@@ -43,90 +58,43 @@ console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red'
 | =monitorEvents(object[, events])= |                                      |
 | =F2=                              | (with element selected) edit as HTML |
 
-** copy "raw" json/objects from console.log
-
-Right click, "Store as global variable", then `copy(temp1)`.
-
-** Performance
-
-[[https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling][Emulate
-slow network connections]]
-
 ** Cookies
 
-[[https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies][reference]]
+In Applications -> Storage ([[https://developers.google.com/web/tools/chrome-devtools/manage-data/cookies][reference]])
 
-In Applications -> Storage
+** DevTools
 
-** Run Chrome with flags
-
-From
-[[http://www.chromium.org/developers/how-tos/run-chromium-with-flags][The
-Chromium Projects]]:
-
-#+BEGIN_EXAMPLE
-/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
-
-# for Google Chrome you'll need to escape spaces like so:
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9229
-#+END_EXAMPLE
-
-** Take a screenshot
-
-=cmd + shift + P= -> "Capture Screenshot"
+- [[https://developers.google.com/web/tools/chrome-devtools/console/console-reference][Console API Reference]]
+- [[https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference][Command Line API Reference]]
 
 ** Empty Devtools Popups
 
-Clear cache in =chrome://appcache-internals/=
-([[https://github.com/googlearchive/ADBPlugin/issues/14][reference]])
-
-** Vimium
-
-[[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimium][dotfile]]
+Clear cache in =chrome://appcache-internals/= ([[https://github.com/googlearchive/ADBPlugin/issues/14][reference]])
 
 ** Focus
 
-=chrome://settings/searchEngines= -> Other search engines -> ADD:
+=chrome://settings/searchEngines= -> Other search engines -> Add:
 
 |-------------------------------+---------------|
 | Search engine                 | ~focus~       |
 | Keyword                       | ~f~           |
 | URL with %s in place of query | ~javascript:~ |
 
+** Performance
+
+[[https://developers.google.com/web/tools/chrome-devtools/network-performance/reference#throttling][Emulate slow network connections]]
+
+** Take a screenshot
+
+=cmd + shift + P= -> "Capture Screenshot"
+
+** Vimium
+
+[[https://github.com/cozywigwam/dotfiles/blob/master/.vimium][dotfile]]
+
 ** Reference
 
-[[https://developers.google.com/web/tools/chrome-devtools/shortcuts][Keyboard
-shortcuts reference]]
-
-* Chromium
-
-** Run Chromium with flags
-
-From
-[[http://www.chromium.org/developers/how-tos/run-chromium-with-flags][The
-Chromium Projects]]:
-
-#+BEGIN_EXAMPLE
-    /Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222
-
-    # for Google Chrome you'll need to escape spaces like so:
-    /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222
-#+END_EXAMPLE
-
-** [[https://www.chromium.org/developers/calendar][Chromium Development
-
-Calendar and Release Info]]
-
-| Release   | Estimated Week of Stable                      |
-|-----------+-----------------------------------------------|
-| 64        | Jan 23rd, 2018 (Jan 30th for Chrome OS)       |
-| 65        | Mar 6th, 2018 (Mar 13th for Chrome OS)        |
-| 66        | April 17th, 2018 (April 24th for Chrome OS)   |
-| 67        | May 29th, 2018 (June 5th for Chrome OS)       |
-| 68        | July 24th, 2018 (July 31st for Chrome OS)     |
-| 69        | Sept 4th, 2018 (Sept 11th for Chrome OS)      |
-| 70        | Oct 16th, 2018 (Oct 23rd for Chrome OS)       |
-| 71        | Dec 4th, 2018 (Dec 11th for Chrome OS)        |
+[[https://developers.google.com/web/tools/chrome-devtools/shortcuts][Keyboard shortcuts reference]]
 
 * Firefox
 
@@ -151,9 +119,7 @@ Help -> Troubleshooting Information
 
 ** Cookies
 
-[[https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector#Cookies][Reference]]
-
-In the Storage panel.
+in the storage panel ([[https://developer.mozilla.org/en-us/docs/tools/storage_inspector#cookies][reference]])
 
 ** Tridactyl
 
@@ -257,7 +223,7 @@ https://github.com/cmcaine/tridactyl
 
 ** +Vimperator+
 
-+[[https://raw.githubusercontent.com/cozywigwam/dotfiles/master/.vimperatorrc][dotfile]]+
++[[https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc][dotfile]]+
 
 | =:hs! [filter]=   | history; use the bang to immediately open results              |
 | =o O=             | open / open with current address populated                     |
