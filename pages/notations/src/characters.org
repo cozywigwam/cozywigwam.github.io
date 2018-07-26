@@ -9,70 +9,52 @@ path: "/characters/"
 ---
 #+END_EXAMPLE
 
-* Insert a character
+* ASCII control characters
 
-| =C-x 8 RET= | =insert-char= [normal state] (unicode name, hex, or code point with =#=-specified radix) |
-| =C-q=       | quoted - insert = [insert, state] insert literally                                       |
-#+TBLFM: $2=quoted-insert= [insert state] insert literally
+| 0     | null              | ~NUL~          | ~\0~              | ~^@~   |
+| 7     | bell              | ~BEL~          | ~\a~              | ~^G~   |
+| 8     | backspace         | ~BS~           | ~\b~              | ~^H~   |
+| 9     | horizontal tab    | ~HT~           | ~\t~              | ~^I~   |
+| 10    | line feed         | ~LF~           | ~\n~              | ~^J~   |
+| 11    | vertical tab      | ~VT~           | ~\v~              | ~^K~   |
+| 12    | form feed         | ~FF~           | ~\f~              | ~^L~   |
+| 13    | carriage return   | ~CR~           | ~\r~              | ~^M~   |
+| 26    | Control-Z         | ~SUB~, ~EOF~   |                   | ~^Z~   |
+| 27    | escape            | ~ESC~          | ~\e~ (GCC only)   | ~^[~   |
+| 127   | delete            | ~DEL~          |                   | ~^?~   |
 
-** Emacs
+* Emoji
 
-[[https://www.masteringemacs.org/article/diacritics-in-emacs][Mastering
-Emacs]] reference
+- [[https://www.webpagefx.com/tools/emoji-cheat-sheet/][Emoji Cheat Sheet]]
 
-| =C-\=            | =toggle-input-method=   | notice the appearance of =1>= in the mode line |
-| =f1 C-\=, =f1 I= | =describe-input-method= |                                                |
+#+BEGIN_SRC md
+:sparkles:
+#+END_SRC
 
-When the =latin-1-prefix= "input method" is activated (this is the input
-method recommended by EmacsWiki & Mastering Emacs), the following accent
-characters can be entered by typing the desired prefix and then the
-character (see this with =describe-input-method= (edited)):
-
-| effect       | prefix             | examples                                                                             |
-|--------------+--------------------+--------------------------------------------------------------------------------------|
-| acute        | ='=                | =á=                                                                                  |
-| circumflex   | =^=                | =â=                                                                                  |
-| diaeresis    | ="=                | =ä=, =¨= (=""=)                                                                      |
-| tilde        | =~=                | =ã=                                                                                  |
-| cedilla      | =~=                | =ç=                                                                                  |
-| breve        | =~=                | =ă=                                                                                  |
-| caron        | =~=                | =č=                                                                                  |
-| dot above    | =~=, =/=, or =.=   | =ġ=                                                                                  |
-| misc         | ="=                | =ß= (="s=)                                                                           |
-| misc         | =~=                | =ð= (=~d=), =þ= (=~t=), =»= (=~>=), =«= (=~<=), =¡= (=~!=), =¿= (=~?=), =¸= (=~~=)   |
-| misc         | =/=                | =å=, =æ=, =ø=, =°= (=//=), =×= (=\\=)                                                |
-| symbol       | =_=                | =º= (=_o=), =ª= (=_a=), =¥= (=_y=)                                                   |
-| symbol       | =^=                | =®= (=^r=), =©= (=^c=), =¹= (=^1=), =²= (=^2=), =³= (=^3=)                           |
-|              |                    |                                                                                      |
-
-Note: when the input method is toggled off, the key chord bindings stop
-functioning. Turn =key-chord-mode= off and back on to regain use of the
-bindings.
-
-* "What character is this?"
+* Identify a Character
 
 [[http://unicodelookup.com/#119082][unicodelookup.com]]
 
-| =ga=          | [Vim] get character info at cursor        |
-| =SPC h d c=   | [Spacemacs] get character info at point   |
+| ~ga~          | [Vim] get character info at cursor        |
+| ~SPC h d c~   | [Spacemacs] get character info at point   |
 
 ** Sample output
 
 Example character: 🥑
 
-Vim lookup (=ga=):
+Vim lookup (~ga~):
 
 #+BEGIN_EXAMPLE
     <🥑> 129361, Hex 0001f951, Octal 374521
 #+END_EXAMPLE
 
-Emacs quick lookup (=C-x == | =what-cursor-position=):
+Emacs quick lookup (~C-x =~ | ~what-cursor-position~):
 
 #+BEGIN_EXAMPLE
     Char: 🥑 (129361, #o374521, #x1f951, file ...) point=2539 of 7775 (33%) column=19
 #+END_EXAMPLE
 
-Emacs full lookup (=SPC h d c= | =describe-char=):
+Emacs full lookup (~SPC h d c~ | ~describe-char~):
 
 #+BEGIN_EXAMPLE
                  position: 1475 of 1476 (100%), column: 0
@@ -107,10 +89,46 @@ Emacs full lookup (=SPC h d c= | =describe-char=):
     [back]
 #+END_EXAMPLE
 
-* Make characters macOS (hold ⌥)
-  :PROPERTIES:
-  :CUSTOM_ID: make-characters-macos-hold
-  :END:
+* Insert a character
+
+| ~C-x 8 RET~ | [normal state] | ~insert-char~   | accepts unicode name, hex, or code point with ~#~-specified radix |
+| ~C-q~       | [insert state] | ~quoted-insert~ | insert literally                                                  |
+
+** Emacs
+
+[[https://www.masteringemacs.org/article/diacritics-in-emacs][Mastering Emacs]] reference
+
+| ~C-\~            | ~toggle-input-method~   | notice the appearance of ~1>~ in the mode line |
+| ~f1 C-\~, ~f1 I~ | ~describe-input-method~ |                                                |
+
+When the ~latin-1-prefix~ "input method" is activated (this is the input
+method recommended by EmacsWiki & Mastering Emacs), the following accent
+characters can be entered by typing the desired prefix and then the
+character (see this with ~describe-input-method~ (edited)):
+
+| effect       | prefix             | examples                                                                             |
+|--------------+--------------------+--------------------------------------------------------------------------------------|
+| acute        | ~'~                | ~á~                                                                                  |
+| circumflex   | ~^~                | ~â~                                                                                  |
+| diaeresis    | ~"~                | ~ä~, ~¨~ (~""~)                                                                      |
+| tilde        | =~=                | ~ã~                                                                                  |
+| cedilla      | =~=                | ~ç~                                                                                  |
+| breve        | =~=                | ~ă~                                                                                  |
+| caron        | =~=                | ~č~                                                                                  |
+| dot above    | =~=, ~/~, or ~.~   | ~ġ~                                                                                  |
+| misc         | ~"~                | ~ß~ (~"s~)                                                                           |
+| misc         | =~=                | ~ð~ (=~d=), =þ= (=~t=), ~»~ (=~>=), ~«~ (=~<=), ~¡~ (=~!=), ~¿~ (=~?=), ~¸~ (=~~=)   |
+| misc         | ~/~                | ~å~, ~æ~, ~ø~, ~°~ (~//~), ~×~ (~\\~)                                                |
+| symbol       | ~_~                | ~º~ (~_o~), ~ª~ (~_a~), ~¥~ (~_y~)                                                   |
+| symbol       | ~^~                | ~®~ (~^r~), ~©~ (~^c~), ~¹~ (~^1~), ~²~ (~^2~), ~³~ (~^3~)                           |
+
+Note: when the input method is toggled off, the key chord bindings stop
+functioning. Turn ~key-chord-mode~ off and back on to regain use of the
+bindings.
+
+** macOS
+
+To insert, hold ⌥ and press...
 
 | ` | /modifier to create grave accent/ | accent grave                       |
 | 1 | ¡                                 |                                    |
@@ -160,34 +178,23 @@ Emacs full lookup (=SPC h d c= | =describe-char=):
 | . | ≥                                 | greater than or equals             |
 | / | ÷                                 | obelus                             |
 
-* ASCII control characters
-  :PROPERTIES:
-  :CUSTOM_ID: ascii-control-characters
-  :END:
+* Terminology
 
-| 0     | null              | =NUL=          | =\0=              | =^@=   |
-| 7     | bell              | =BEL=          | =\a=              | =^G=   |
-| 8     | backspace         | =BS=           | =\b=              | =^H=   |
-| 9     | horizontal tab    | =HT=           | =\t=              | =^I=   |
-| 10    | line feed         | =LF=           | =\n=              | =^J=   |
-| 11    | vertical tab      | =VT=           | =\v=              | =^K=   |
-| 12    | form feed         | =FF=           | =\f=              | =^L=   |
-| 13    | carriage return   | =CR=           | =\r=              | =^M=   |
-| 26    | Control-Z         | =SUB=, =EOF=   |                   | =^Z=   |
-| 27    | escape            | =ESC=          | =\e= (GCC only)   | =^[=   |
-| 127   | delete            | =DEL=          |                   | =^?=   |
+*Gaiji*: external characters
 
-* Emoji
-  :PROPERTIES:
-  :CUSTOM_ID: emoji
-  :END:
+*Mojibake*: incorrectly encoded/garbled characters
 
-[[https://www.youtube.com/watch?v=KdcXu_RdKI0][Cheat sheet]]
+*Tofu*: WHITE SQUARE (~□~) (9633, #o22641, #x25a1) [[https://en.wikipedia.org/wiki/Substitute_character][substitute character]]
+
+--------------
+
+Use the right meta key in Spacemacs for typing characters macOS style:
+
+#+BEGIN_SRC emacs-lisp
+    (setq-default mac-right-option-modifier nil)
+#+END_SRC
 
 * Misc
-  :PROPERTIES:
-  :CUSTOM_ID: misc
-  :END:
 
 | ⇧   | shift arrow        |
 | ⌘   | looped square      |
@@ -202,28 +209,6 @@ Emacs full lookup (=SPC h d c= | =describe-char=):
 
 [[https://en.wikipedia.org/wiki/ISO_639][ISO 639 language codes]]
 
---------------
-
-Gaiji: external characters
-
-Mojibake: incorrectly encoded/garbled characters
-
-Tofu: WHITE SQUARE (=□=) (9633, #o22641, #x25a1)
-[[https://en.wikipedia.org/wiki/Substitute_character][substitute
-character]]
-
---------------
-
-Use the right meta key in Spacemacs for typing characters macOS style:
-
-#+BEGIN_SRC emacs-lisp
-    (setq-default mac-right-option-modifier nil)
-#+END_SRC
-
 * Reference
-  :PROPERTIES:
-  :CUSTOM_ID: reference
-  :END:
 
-[[http://www.personal.psu.edu/ejp10/blogs/gotunicode/2009/01/ogonek-vs-cedilla-accent.html][Ogonek
-vs. Cedilla]]
+[[http://www.personal.psu.edu/ejp10/blogs/gotunicode/2009/01/ogonek-vs-cedilla-accent.html][Ogonek vs. Cedilla]]

@@ -121,9 +121,7 @@ Help -> Troubleshooting Information
 
 in the storage panel ([[https://developer.mozilla.org/en-us/docs/tools/storage_inspector#cookies][reference]])
 
-** Tridactyl
-
-https://github.com/cmcaine/tridactyl
+** [[https://github.com/cmcaine/tridactyl][Tridactyl]]
 
 | ~o~  | ~fillcmdline open~           |
 | ~O~  | ~current_url open~           |

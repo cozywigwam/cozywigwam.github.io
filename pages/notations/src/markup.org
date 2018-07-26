@@ -68,14 +68,6 @@ Guide: [[https://guides.github.com/features/mastering-markdown/][Mastering Markd
 - [[http://kramdown.gettalong.org/][Kramdown]]
 - [[http://kramdown.gettalong.org/parser/gfm.html][Kramdown parse info]]
 
-*** Emoji
-
-[[https://www.webpagefx.com/tools/emoji-cheat-sheet/][webpagefx.com emoji cheat sheet]], [[https://www.webpagefx.com/tools/emoji-cheat-sheet/][`emoji-cheat-sheet`]]
-
-#+BEGIN_SRC md
-:sparkles:
-#+END_SRC
-
 *** Notify
 
 #+BEGIN_SRC md
