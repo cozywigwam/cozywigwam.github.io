@@ -1,5 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
-#+EXCLUDE_TAGS: no_export
+#+EXCLUDE_TAGS: noexport
 #+BEGIN_EXAMPLE
 ---
 title: "Spacemacs"
@@ -91,7 +91,7 @@ Toggle ~auto-fill-mode~ with ~SPC t F~ to "wrap" as you type; ~comment-auto-fill
 - toggle to others with ~t~
 - kill files with ~K~
 
-** get to physical path, not sym path :no_export:
+** get to physical path, not sym path :noexport:
 
 *** directory
 
@@ -315,13 +315,13 @@ See ~helm-documentation~ for all helm docs concatenated to one org file.
 (setq helm-ag-command-option " -U" )
 #+END_SRC
 
-** note :no_export:
+** note :noexport:
 NOTE: seems like marking multiple files and then opening all buffers in their own windows does not work by default. (Does in helm-mini, but not helm-projectile or helm-projectile-find-file or helm-find-file.) (Bug?) I must pass universal argument for it to work. But only once. After that, no universal-argument is required ... as if doing it once "fixes" it. I mapped universal argument to C-return:
 
-** note about helm-do-ag and helm-projectile-projects mapping     :no_export:
+** note about helm-do-ag and helm-projectile-projects mapping     :noexport:
 
 
-#+BEGIN_SRC emacs-lisp :no_export:
+#+BEGIN_SRC emacs-lisp :noexport:
 
 ;; breaks on app init, evals okay, though
 ;; note: attempting to define-key or key-chord-define directly on helm-do-ag-map breaks app init
@@ -753,7 +753,7 @@ Reference: http://justinsboringpage.blogspot.com/2009/04/running-elisp-function-
 (define-key evil-normal-state-map (kbd ",N") (lambda () (interactive) (evil-ex "-")))
 #+END_SRC
 
-*** TODO figure out how to "press enter" after an ex command :no_export:
+*** TODO figure out how to "press enter" after an ex command :noexport:
 
 #+BEGIN_SRC emacs-lisp
 ;; https://emacs.stackexchange.com/questions/14163/how-create-keybindings-for-evil-command-line/14165

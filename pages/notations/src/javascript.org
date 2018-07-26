@@ -1,5 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
-#+EXCLUDE_TAGS: no_export
+#+EXCLUDE_TAGS: noexport
 #+BEGIN_EXAMPLE
 ---
 title: "JavaScript"
@@ -147,15 +147,18 @@ function consumer(type, payload) {
 producer('start', consumer);
 #+END_SRC
 
-** Currying
+** Currying :noexport:
 
 Function takes two:
 
 #+BEGIN_SRC js
-const everyOtherLetterTwoWords = (first, second) =>
-      R.compose(
-        R.tap(x => console.log('a: x', x);)
-        R.concat(first, second))
+const myCurryTwo = function(func) {
+  return function(value) {
+    func(value);
+  }
+}
+
+const myCurryTwo2 = f => x => f(x)
 #+END_SRC
 
 ** Destructuring
@@ -536,7 +539,7 @@ Promise.resolve('foo').then(null).then(function (result) {
 
 
 * Libraries
-** Ramda :no_export:
+** Ramda :noexport:
 *** hard to understand
 
 #+BEGIN_SRC js
@@ -668,7 +671,7 @@ export default Button
 
 "Module request format," /a la node/: starts-with-dot is local.
 
-* testing with code blocks :no_export:
+* testing with code blocks :noexport:
 
 #+BEGIN_SRC js
 let colors = [ "red", "purple", "green" ];
@@ -697,7 +700,7 @@ console.log(remain);
 
 
 
-* SCRATCH / TEST :no_export:
+* SCRATCH / TEST :noexport:
 
 #+BEGIN_SRC js :cmd "org-babel-node"
 let props = {

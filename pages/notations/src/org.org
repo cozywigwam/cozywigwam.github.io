@@ -1,5 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
-#+EXCLUDE_TAGS: no_export
+#+EXCLUDE_TAGS: noexport
 #+BEGIN_EXAMPLE
 ---
 title: "Org"
@@ -195,7 +195,7 @@ console.log('will be tangled');
 
 To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~no_export~, and add ~:no_export:~ after the heading/node.
 
-** export exclusion example                                       :no_export:
+** export exclusion example                                       :noexport:
 
 This section is not exported.
 
@@ -337,7 +337,7 @@ The #+OPTIONS keyword is a compact form. To configure multiple options, use seve
 | ~=vsum($2..$3)~   | column formula, sum of all rows' columns 2 & 3 |
 |                   |                                                |
 
-* My Project Setup :no_export:
+* My Project Setup :noexport:
 
 ** Example Tree
 
@@ -411,7 +411,7 @@ ls
 | ~S-M-<ret>~                    | new TODO                |
 | ~C-c C-t~ & ~S-<right>/<left>~ | rotate/cycle TODO state |
 
-** TODO clean-up required, from ~.spacemacs~                      :no_export:
+** TODO clean-up required, from ~.spacemacs~                      :noexport:
 #+BEGIN_SRC emacs-lisp
   ;; (setq org-todo-keywords '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
   ;; (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE"))) ;; http://orgmode.org/manual/TODO-types.html#TODO-types

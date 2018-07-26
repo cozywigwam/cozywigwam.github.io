@@ -1,5 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
-#+EXCLUDE_TAGS: no_export
+#+EXCLUDE_TAGS: noexport
 #+BEGIN_EXAMPLE
 ---
 title: "Graphs"
