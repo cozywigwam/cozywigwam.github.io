@@ -4,50 +4,20 @@
 ---
 title: "Command Line"
 layout: notation
-description: Shell, Term, Nix
+description: "[promptus] $"
 path: "/command-line/"
 ---
 #+END_EXAMPLE
 
-* Builtins and Commands
+* builtins
 
-** ack
+** dirs
 
-[[https://github.com/cozywigwam/dotfiles/blob/master/.ackrc][dotfile]]
+recent directories
 
 #+BEGIN_SRC sh
-ack --dump # see ignores
-
-ack -g ffmpeg /usr/local/ # files that match pattern (`-f` is all files searched)
-
-ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
+dirs -v
 #+END_SRC
-
-** ag
-
-To search =node_modules/= use =-a=. For absolutely everything (including
-binaries/hidden), use =-u=. Use =-U= to disrepect =.gitignore=.
-
-| =-a= =--all-files=             | doesn't respect ignore files; excludes hidden files, though |
-| =-c=                           | count                                                       |
-| =-Cn=                          | context of =n= lines                                        |
-| =-ignore=                      |                                                             |
-| =-ignore-dir=                  |                                                             |
-| =-l= =--files-with-matches=    | only print filenames, not full output                       |
-| =-L= =--files-without-matches= |                                                             |
-| =-s=                           | case sensitive                                              |
-| =-u= =--unrestricted=          | all files, everything, including binaries and hidden files  |
-| =-U= =--skip-vcs-ignores=      | don't respect =.gitignore= (but still use =.agignore=)      |
-
-** curl
-
-Flags =-c= & =-b=: cookie stuff
-
-Flag =-d=, =--data <data>=: (HTTP) Sends the specified data in a POST
-request to the HTTP server, in the same way that a browser does when a
-user has filled in an HTML form and presses the submit button. This will
-cause curl to pass the data to the server using the content-type
-=application/x-www-form-urlencoded=. Compare to =-F=, =--form=.
 
 ** jobs
 
@@ -55,15 +25,14 @@ cause curl to pass the data to the server using the content-type
 | =<C-y>=   | "delayed suspend" character   |
 
 #+BEGIN_SRC sh
-    %1 # shorthand for `fg %1`
-    %1 & # shorthand for `bg %1`
-    jobs -l # show PID
+%1 # shorthand for `fg %1`
+%1 & # shorthand for `bg %1`
+jobs -l # show PID
 #+END_SRC
 
-** signals
+* signals
 
-reference [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux
-"standard signals"]]
+reference [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux "standard signals"]]
 
 | Signal    | Value      | Action   | Comment                                      |
 |-----------+------------+----------+----------------------------------------------|
@@ -86,61 +55,7 @@ reference [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux
 | SIGTTIN   | 21,21,26   | Stop     | tty input for background process             |
 | SIGTTOU   | 22,22,27   | Stop     | tty output for background process            |
 
-** less
-
-| =M-u=   | toggle search highlighting (like =:noh=)   |
-
-** lsof
-
-#+BEGIN_SRC sh
-    lsof -h
-
-    lsof /dir/or/file
-
-    # `-i [i]`: internet address matches [i]; default all
-    lsof -i
-    lsof -i | grep -Ei "(LISTEN|EXTENDED)"
-    lsof -i :3000
-    lsof -t -i :3000 # PID only
-
-    lsof -c node # command
-    lsof -u charadriidae # user
-
-    kill -9 `lsof -t -u charadriidae`
-#+END_SRC
-
-** Misc
-
-#+BEGIN_SRC sh
-    # dir tree
-    tree -I node
-    tree -d .
-
-    # recent directories
-    dirs -v
-
-    # rename files ./old1.txt, ./old2.txt
-    rename 's/old/new/g' *
-
-    ytdl --extract-audio --audio-format mp3 <url>
-#+END_SRC
-
-*** macOS
-
-[[https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md][macOS
-Default Values Command Reference]]
-
-#+BEGIN_SRC sh
-    # sed requires `-i`
-    sed -i '.bak' 's/oldterm/newterm/g' [filename]
-    sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
-
-    # custom notification sounds for System Prefs -> Sounds
-    cp my-custom-sound.mp3 ~/Library/Sounds/
-#+END_SRC
-
 * shells
-
 ** zsh
 
 [[https://github.com/cozywigwam/dotfiles/blob/master/.zshrc][dotfile]]
@@ -298,7 +213,7 @@ From [[https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading
 | ~/.zlogout    | I          |                |        |
 | /etc/zlogout  | J          |                |        |
 
-* Scripting
+* scripting
 
 ** Write each line to stdout
 
@@ -325,4 +240,102 @@ From [[https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading
     while read -ru 3 LINE; do
         echo "$LINE" >&4
     done 3< "$FILE"
+#+END_SRC
+
+* tmux
+
+[[https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf][dotfile]]
+
+** Bindings
+
+~man tmux~
+
+Keys are bound to either a key table or a mode table. Usage =[-t mode-table] [-T key-table]=. The two key tables:
+
+- =prefix=
+- =root=
+
+The mode tables:
+
+- =emacs-choice=
+- =emacs-copy=
+- =emacs-edit=
+- =vim-choice=
+- =vim-copy=
+- =vim-edit=
+
+| =list-commands / lscm=        | list all commands                               |
+| =list-keys / lsk / <leader>?= | list all bound keys (default table is "prefix") |
+
+#+BEGIN_SRC sh
+# list prefix & root key table bindings
+tmux list-keys # equivalent to '-T prefix' + '-T root'
+
+# list vi-copy mode table bindings
+tmux lsk -t vi-copy
+
+# bind the "v" key in vi-copy mode
+tmux bind-key -t vi-copy v begin-selection # old syntax
+tmux bind-key -T copy-mode-vi v send -X begin-selection # new syntax
+
+# allow a key to [-r] repeat
+bind-key -r L swap-window -t +1
+
+unbind C-n # unbind one thing
+unbind-key -a # unbind everything*
+tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default keys
+#+END_SRC
+
+ref [[https://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative][Unix & Linux Stack Exchange answer regarding unbinding]]
+
+** Options
+
+Respectively, see and set:
+
+#+BEGIN_SRC sh
+# server
+tmux show-options -s # tmux show -s
+tmux set-option -s # tmux set -s
+
+# session
+tmux show -g # -g for global session/window settings
+tmux set
+
+# window
+tmux showw (alias for `show-window-options`)
+tmux setw
+#+END_SRC
+
+** Plugins
+
+[[https://github.com/tmux-plugins/tpm][Tmux Plugin Manager]]
+
+Plugins live in =~/.tmux/plugins=. Install with with =[prefix] + I=.
+Update with =~/.tmux/plugins/tpm/bin/update_plugins all=.
+
+** Misc
+
+Hold =⌥= when click + dragging mouse to enable selection/copying to
+macOS clipboard.
+
+| =[session][:window][.pane]=     | target syntax                                                 |
+| =<leader>z=                     | zoom                                                          |
+| =<leader>q=                     | display pane numbers                                          |
+| =<leader>{= & =<leader>}=       | swap (move) panes                                             |
+| =attach-session -c ~/new-dir=   | change current working-directory                              |
+| =<leader> m-4=                  | [custom] =select-layout even-vertical=                        |
+| =<leader> m-5=                  | [custom] =select-layout even-horizontal= (like Vim =C-w ==)   |
+** tree
+
+dir tree
+
+#+BEGIN_SRC sh
+tree -I node
+tree -d .
+#+END_SRC
+
+** ytdl
+
+#+BEGIN_SRC sh
+ytdl --extract-audio --audio-format mp3 <url>
 #+END_SRC
