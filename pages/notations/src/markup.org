@@ -9,11 +9,9 @@ path: "/markup/"
 ---
 #+END_EXAMPLE
 
-* Quick Syntax Reference
+* Basics
 
-** Basics
-
-#+BEGIN_SRC
+#+BEGIN_EXAMPLE
 | th   | th     | th    |
 | :--- | :---:  | ---:  |
 | left | middle | right |
@@ -31,12 +29,17 @@ path: "/markup/"
 `code`
 
 [site](example.com)
-#+END_SRC
+#+END_EXAMPLE
 
+[[https://johnmacfarlane.net/babelmark2/][Babelmark 2]] by [[https://johnmacfarlane.net/babelmark2/][John MacFarlane]]
+
+Babelmark "What is this for?":
+
+#+BEGIN_QUOTE
+This is a tool for comparing the output of various implementations of John Gruber’s markdown syntax for plain text documents. The official markdown syntax documentation is silent or vague on many issues, and implementations have diverged in their interpretations of the syntax. Even when the interpretation of the syntax spec is not in question, implementations may have bugs. So it is useful to be able to see at a glance how implementations differ on various inputs. The hope is that this tool will promote discussion of how and whether certain vague aspects of the markdown spec should be clarified.
+#+END_QUOTE
 
 * Dialects, variations
-
-** Chart
 
 | daring fireball          | Slack     | JIRA                    | SO                  |
 |--------------------------+-----------+-------------------------+---------------------|
@@ -50,23 +53,44 @@ path: "/markup/"
 | code block               | backticks | {code}..{code}          | indent              |
 | [site](example.com)      | n/a       | [site[pipe]example.com] | [site](example.com) |
 
-** Markdown
+** CommonMark
 
-Daring Fireball's:
+An attempt "to specify Markdown syntax unambiguously."
 
-- [[http://daringfireball.net/projects/markdown/basics][basics]]
-- [[http://daringfireball.net/projects/markdown/syntax][syntax]]
+- [[https://github.com/jgm/CommonMark][CommonMark on GitHub]]
+- [[http://spec.commonmark.org/current/][CommonMark Spec latest]]
+- [[http://spec.commonmark.org/dingus/]["Dingus" (live tester)]]
+
+#+BEGIN_EXAMPLE
+*strong*
+
+_emphasis_
+
+??citation??
+
+-deleted-
+
++inserted+
+
+^superscript^
+
+~subscript~
+
+{{monospaced}}
+
+bq. block quoted
+#+END_EXAMPLE
 
 ** GitHub
 
-Guide: [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
+[[https://github.github.com/gfm/][GitHub Flavored Markdown Spec]]
 
-[[https://github.github.com/gfm/][gfm spec]]
+GitHub Guide - [[https://guides.github.com/features/mastering-markdown/][Mastering Markdown]]
 
-- [[https://help.github.com/articles/basic-writing-and-formatting-syntax/][syntax]]
-- [[https://help.github.com/categories/writing-on-github/][Writing on GitHub]]
-- [[http://kramdown.gettalong.org/][Kramdown]]
-- [[http://kramdown.gettalong.org/parser/gfm.html][Kramdown parse info]]
+- [[https://help.github.com/articles/basic-writing-and-formatting-syntax/][GitHub Help Basic writing and formatting syntax]]
+- [[https://help.github.com/categories/writing-on-github/][GitHub Help Categories / Writing on GitHub]]
+- [[http://kramdown.gettalong.org/][kramdown]]
+- [[http://kramdown.gettalong.org/parser/gfm.html][kramdown's gfm parser]]
 
 *** Notify
 
@@ -85,28 +109,47 @@ When you include a task list in the first comment of an Issue, you will see a he
 - [ ] This is an incomplete item
 #+END_SRC
 
-** Stack Overflow
+** JIRA
 
-Code blocks are four indented spaces.
+[[https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all][JIRA Text Formatting Notation Help]]
 
-- Stack Overflow's [[http://stackoverflow.com/editing-help][Markdown help]].
+#+BEGIN_EXAMPLE
+{{inline-code}}
 
-#+BEGIN_SRC
-Here's an inline link to [duckduckgo](http://www.duckduckgo.com/).
+{code} or {code:javascript}
+  return;
+{code}
 
-Here's a reference-style link to [duckduckgo][1].
+[this site|https://thissite.com]
 
-Here's a very readable link to [duckduckgo][ddg].
+h1. heading 1
 
-  [1]: https://www.duckduckgo.com/
-  [ddg]: https://www.duckduckgo.com/
-#+END_SRC
+h2. heading 2
+
+bq. one line block quote
+
+{quote}
+multiple line
+block quote
+{quote}
+
+- [or asterisk] ul
+
+# ol
+#+END_EXAMPLE
+
+** Markdown
+
+Daring Fireball's:
+
+- [[http://daringfireball.net/projects/markdown/basics][basics]]
+- [[http://daringfireball.net/projects/markdown/syntax][syntax]]
 
 ** Slack
 
 [[https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages][syntax]] and [[https://api.slack.com/docs/message-formatting][formatting]]
 
-Use single backticks for inline code/monospace, and triple backticks (fencing) for code blocks. Shift+enter for line breaks. Disable markup processing with `mrkdwn` set to `false`:
+Use single backticks for inline code/monospace, and triple backticks (fencing) for code blocks. Shift+enter for line breaks. Disable markup processing with ~mrkdwn~ set to ~false~:
 
 #+BEGIN_SRC
 > to blockquote one paragraph
@@ -122,86 +165,57 @@ Use single backticks for inline code/monospace, and triple backticks (fencing) f
 
 Note: Hyperlinking words and terms in a Slack message isn't supported. [[https://get.slack.help/hc/en-us/articles/204399343-Sharing-links-in-Slack][link]]
 
+** Stack Overflow
 
-** JIRA
+Code blocks are four indented spaces.
 
-[[https://jira.atlassian.com/secure/WikiRendererHelpAction.jspa?section=all][JIRA formatting]]
+- Stack Overflow's [[http://stackoverflow.com/editing-help][Markdown help]].
 
-#+BEGIN_EXAMPLE
-{{inline-code}}
+#+BEGIN_SRC
+Here's an inline link to [example](http://www.example.com/).
 
-{code} or {code:javascript}
-  return;
-{code}
+Here's a reference-style link to [example][1].
 
-link to [this site|https://thissite.com]
+Here's a very readable link to [example][ddg].
 
-h1. heading 1
-
-h2. heading 2
-
-bq. This is one line of block quote
-
-{quote}
-This is multiple lines
-of block quote
-{quote}
-
-- bullet
-- bullet
-
-* also bullet
-* also bullet
-
-* numbered
-* numbered
-#+END_EXAMPLE
-
-
-** CommonMark
-
-An attempt "to specify Markdown syntax unambiguously."
-
-- [[https://github.com/jgm/CommonMark][CommonMark on GitHub]]
-- [[http://spec.commonmark.org/0.26/][CommonMark Spec]]
-- [[http://spec.commonmark.org/dingus/]["Dingus" (live tester)]]
-
-#+BEGIN_EXAMPLE
-*strong*
-
-	Makes text strong.
-
-_emphasis_
-
-	Makes text emphasis..
-
-??citation??
-
-	Makes text in citation.
-
--deleted-
-
-	Makes text as deleted.
-
-+inserted+
-
-	Makes text as inserted.
-
-^superscript^
-
-	Makes text in superscript.
-
-~subscript~
-
-	Makes text in subscript.
-
-{{monospaced}}
-
-	Makes text as monospaced.
-
-bq. Some block quoted text
-#+END_EXAMPLE
+  [1]: https://www.example.com/
+  [ddg]: https://www.example.com/
+#+END_SRC
 
 * Misc
 
-Ambiguity: https://meta.stackexchange.com/a/99637
+** Ambiguous Syntax
+
+Markdown difficulty with indented code following lists:
+
+#+BEGIN_SRC md
+1.  list item
+
+    This is a paragraph in the list, not indented code.
+#+END_SRC
+
+Org-mode with specificity:
+
+#+BEGIN_EXAMPLE
+- list
+
+  list paragraph
+
+- list
+
+#+BEGIN_SRC js
+code()
+#+END_SRC
+#+END_EXAMPLE
+
+- list
+
+  list paragraph
+
+- list
+
+#+BEGIN_SRC js
+code()
+#+END_SRC
+
+ref Meta Stack Exchange [[https://meta.stackexchange.com/questions/3327/code-block-is-not-properly-formatted-when-placed-immediately-after-a-list-item][Code block is not properly formatted when placed immediately after a list item {duplicate}]]
