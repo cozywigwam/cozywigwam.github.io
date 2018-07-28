@@ -10,7 +10,6 @@ path: "/command-line/"
 #+END_EXAMPLE
 
 * builtins
-
 ** dirs
 
 recent directories
@@ -56,6 +55,41 @@ reference [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux "stan
 | SIGTTOU   | 22,22,27   | Stop     | tty output for background process            |
 
 * shells
+** emacs
+*** eshell
+
+| =C-p=, =C-n=           | previous/next input [custom]                                    |
+| =M-p=, =M-n=           | previous/next match                                             |
+| =C-c C-p=, =C-c C-n=   | previous/next prompt                                            |
+| =C-u 0 C-l=            | recenter prompt to top with zero arg to =recenter-top-bottom=   |
+| =C-u=                  | [insert mode] universal-argument                                |
+| =f1 k=                 | [insert mode] =describe-key=                                    |
+| =SPC b C-r=            | =rename-buffer=                                                 |
+
+**** alias
+
+[[https://www.emacswiki.org/emacs/EshellAlias][EmacsWiki - Eshell Alias]]
+
+For the aliases file, see =eshell-aliases-file=: =~/.emacs.d/eshell/alias=. Refresh alias file with =eshell-read-aliases-list=.
+
+#+BEGIN_SRC sh
+alias customls 'ls -la $*'
+which customls # see it
+#+END_SRC
+
+**** reference
+
+Mickey Peterson's [[https://www.masteringemacs.org/article/complete-guide-mastering-eshell][Mastering Eshell]]
+
+*** man/woman
+
+=(customize-group 'man)=
+
+*** term
+
+| =C-c C-j=   | switch to line mode   |
+| =C-c C-k=   | switch to char mode   |
+
 ** zsh
 
 [[https://github.com/cozywigwam/dotfiles/blob/master/.zshrc][dotfile]]
@@ -74,97 +108,48 @@ reference [[http://linux.about.com/od/commands/l/blcmdl7_signal.htm][Linux "stan
     # setopt HIST_IGNORE_SPACE
 #+END_SRC
 
-*** ZLE
+*** Zsh Line Editor (ZLE)
 
-#+BEGIN_QUOTE
-  The =bindkey= command manipulates keymaps and key bindings
-  ([[http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins][link]])
-#+END_QUOTE
+See =bindkey=, [[http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins][docs 18.3 Zle Builtins]]
 
 #+BEGIN_SRC sh
-    man zsh
-    man zshbuiltins
-    man zshoptions
+man zsh
+man zshbuiltins
+man zshoptions
 
-    # prompt, jobs, if/then
-    man zshmisc
+# prompt, jobs, if/then
+man zshmisc
 
-    zle -la # list widgets (aka commands)
+zle -la # list widgets (aka commands)
 
-    bindkey # show (default non-vicmd/viins) zle key bindings
-    bindkey -M viins # just viins mode
-    bindkey -M emacs '\e.' # just the <M-.> binding in emacs mode
-    bindkey -rM emacs '\e.' # `-r` to remove binding
+bindkey # show (default non-vicmd/viins) zle key bindings
+bindkey -M viins # just viins mode
+bindkey -M emacs '\e.' # just the <M-.> binding in emacs mode
+bindkey -rM emacs '\e.' # `-r` to remove binding
 
-    # ref. http://www.zsh.org/mla/users/2009/msg00875.html
-    bindkey -rM vicmd -- '-' # use `--` since `-` expects an option
+# ref. http://www.zsh.org/mla/users/2009/msg00875.html
+bindkey -rM vicmd -- '-' # use `--` since `-` expects an option
 
-    echo $fpath # zsh's function path
+echo $fpath # zsh's function path
 #+END_SRC
 
 Use =\e= or =^[= to indicate Meta key.
 
 Modes: =viins=, =vicmd=, =emacs=, others.
 
-| =<M-x>=   | emacs & [mapped] viins: execute =execute-named-cmd=   |
-| =:=       | vicmd: execute =execute-named-cmd=                    |
+| =<M-x>= | emacs & [mapped] viins: execute =execute-named-cmd= |
+| =:=     | vicmd: execute =execute-named-cmd=                  |
 
 **** Reference
 
-[[http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zsh-Line-Editor][ZLE]]
-
-[[http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins][docs
-- ZLE Builtins]]
-
-[[https://chaseonline.chase.com/][Serge Gebhardt]] regarding
-[[http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/][ZLE & creating
-custom widgets]]
-
-** emacs
-
-*** term
-
-| =C-c C-j=   | switch to line mode   |
-| =C-c C-k=   | switch to char mode   |
-
-*** eshell
-
-| =C-p=, =C-n=           | previous/next input [custom]                                    |
-| =M-p=, =M-n=           | previous/next match                                             |
-| =C-c C-p=, =C-c C-n=   | previous/next prompt                                            |
-| =C-u 0 C-l=            | recenter prompt to top with zero arg to =recenter-top-bottom=   |
-| =C-u=                  | [insert mode] universal-argument                                |
-| =f1 k=                 | [insert mode] =describe-key=                                    |
-| =SPC b C-r=            | =rename-buffer=                                                 |
-
-**** alias
-
-Emacs Wiki: https://www.emacswiki.org/emacs/EshellAlias
-
-For the aliases file, see =eshell-aliases-file=: =~/.emacs.d/eshell/alias=. Refresh alias file with =eshell-read-aliases-list=.
-
-#+BEGIN_SRC sh
-    alias customls 'ls -la $*'
-    which customls # see it
-#+END_SRC
-
-**** reference
-
-Mickey Peterson's
-[[https://www.masteringemacs.org/article/complete-guide-mastering-eshell][Mastering
-Eshell]]
-
-*** man/woman
-
-| =(customize-group 'man)=   |    |
+- [[http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zsh-Line-Editor][docs 18 Zsh Line Editor]]
+- [[https://twitter.com/sergegebhardt][Serge Gebhardt]] regarding [[http://sgeb.io/posts/2014/04/zsh-zle-custom-widgets/][ZLE & creating custom widgets]]
 
 * path
 
+[[https://superuser.com/a/753948/450439][path helper from Super User]]
+
 #+BEGIN_SRC shell
-
-[[https://superuser.com/a/753948/450439][SO answer]]
-
-# from https://superuser.com/a/753948/450439
 pathappend() {
     for ARG in "$@"
     do
@@ -187,68 +172,71 @@ pathappend $HOME/local/bin /usr/local/bin /opt/local/bin /opt/local/sbin
 
 * startup
 
-From [[https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/][The Lumber Room]] post
+Post [[https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/][Zsh/Bash startup files loading order (.bashrc, .zshrc etc.)]] by Shreevatsa R.
 
-|                  | int. login | int. non-login | script |
-|------------------+------------+----------------+--------|
-| /etc/profile     | A          |                |        |
-| /etc/bash.bashrc |            | A              |        |
-| ~/.bashrc        |            | B              |        |
-| ~/.bash_profile  | B1         |                |        |
-| ~/.bash_login    | B2         |                |        |
-| ~/.profile       | B3         |                |        |
-| BASH_ENV         |            |                | A      |
-| ~/.bash_logout   | C          |                |        |
+#+BEGIN_QUOTE
+|                    | int. login | int. non-login | script |
+|--------------------+------------+----------------+--------|
+| =/etc/profile=     | A          |                |        |
+| =/etc/bash.bashrc= |            | A              |        |
+| =~/.bashrc=        |            | B              |        |
+| =~/.bash_profile=  | B1         |                |        |
+| =~/.bash_login=    | B2         |                |        |
+| =~/.profile=       | B3         |                |        |
+| =BASH_ENV=         |            |                | A      |
+| =~/.bash_logout=   | C          |                |        |
 
-|               | int. login | int. non-login | script |
-|---------------+------------+----------------+--------|
-| /etc/zshenv   | A          | A              | A      |
-| ~/.zshenv     | B          | B              | B      |
-| /etc/zprofile | C          |                |        |
-| ~/.zprofile   | D          |                |        |
-| /etc/zshrc    | E          | C              |        |
-| ~/.zshrc      | F          | D              |        |
-| /etc/zlogin   | G          |                |        |
-| ~/.zlogin     | H          |                |        |
-| ~/.zlogout    | I          |                |        |
-| /etc/zlogout  | J          |                |        |
+|                 | int. login | int. non-login | script |
+|-----------------+------------+----------------+--------|
+| =/etc/zshenv=   | A          | A              | A      |
+| =~/.zshenv=     | B          | B              | B      |
+| =/etc/zprofile= | C          |                |        |
+| =~/.zprofile=   | D          |                |        |
+| =/etc/zshrc=    | E          | C              |        |
+| =~/.zshrc=      | F          | D              |        |
+| =/etc/zlogin=   | G          |                |        |
+| =~/.zlogin=     | H          |                |        |
+| =~/.zlogout=    | I          |                |        |
+| =/etc/zlogout=  | J          |                |        |
+#+END_QUOTE
 
 * scripting
+** Write each line to another file
+
+#+BEGIN_SRC sh
+#! /bin/bash
+
+FILE=$1
+ANOTHER_FILE=$2
+
+exec 4> "$ANOTHER_FILE"
+
+while read -ru 3 LINE; do
+    echo "$LINE" >&4
+done 3< "$FILE"
+#+END_SRC
 
 ** Write each line to stdout
 
 #+BEGIN_SRC sh
-    #! /bin/bash
+#! /bin/bash
 
-    FILE=$1
+FILE=$1
 
-    while read -ru 3 LINE; do
-        echo "$LINE"
-    done 3< "$FILE"
-#+END_SRC
-
-** Write each line to another file
-
-#+BEGIN_SRC sh
-    #! /bin/bash
-
-    FILE=$1
-    ANOTHER_FILE=$2
-
-    exec 4> "$ANOTHER_FILE"
-
-    while read -ru 3 LINE; do
-        echo "$LINE" >&4
-    done 3< "$FILE"
+while read -ru 3 LINE; do
+    echo "$LINE"
+done 3< "$FILE"
 #+END_SRC
 
 * tmux
 
 [[https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf][dotfile]]
 
-** Bindings
+#+BEGIN_SRC sh
+man tmux
+#+END_SRC
 
-~man tmux~
+** Bindings
 
 Keys are bound to either a key table or a mode table. Usage =[-t mode-table] [-T key-table]=. The two key tables:
 
@@ -286,7 +274,7 @@ unbind-key -a # unbind everything*
 tmux -f /dev/null -L temp start-server \; list-keys # start tmux with default keys
 #+END_SRC
 
-ref [[https://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative][Unix & Linux Stack Exchange answer regarding unbinding]]
+ref [[https://unix.stackexchange.com/questions/57641/reload-of-tmux-config-not-unbinding-keys-bind-key-is-cumulative][Unix & Linux Stack Exchange - unbinding]]
 
 ** Options
 
@@ -325,17 +313,3 @@ macOS clipboard.
 | =attach-session -c ~/new-dir=   | change current working-directory                              |
 | =<leader> m-4=                  | [custom] =select-layout even-vertical=                        |
 | =<leader> m-5=                  | [custom] =select-layout even-horizontal= (like Vim =C-w ==)   |
-** tree
-
-dir tree
-
-#+BEGIN_SRC sh
-tree -I node
-tree -d .
-#+END_SRC
-
-** ytdl
-
-#+BEGIN_SRC sh
-ytdl --extract-audio --audio-format mp3 <url>
-#+END_SRC

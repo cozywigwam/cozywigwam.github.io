@@ -34,12 +34,7 @@ path: "/browsers/"
 /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9229
 #+END_EXAMPLE
 
-** Console colors
-
-#+BEGIN_SRC js
-console.log('%cThis String is Colored beacuse of `%c`', 'color: blue');
-console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red');
-#+END_SRC
+** Console
 
 |                                   |                                      |
 |-----------------------------------+--------------------------------------|
@@ -57,6 +52,13 @@ console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red'
 | =getEventListeners(object)=       |                                      |
 | =monitorEvents(object[, events])= |                                      |
 | =F2=                              | (with element selected) edit as HTML |
+
+*** Colors
+
+#+BEGIN_SRC js
+console.log('%cThis String is Colored beacuse of `%c`', 'color: blue');
+console.leg('%cI am green test' + '%cAnd I am red', 'color: green', 'color: red');
+#+END_SRC
 
 ** Cookies
 
@@ -97,11 +99,9 @@ Clear cache in =chrome://appcache-internals/= ([[https://github.com/googlearchiv
 [[https://developers.google.com/web/tools/chrome-devtools/shortcuts][Keyboard shortcuts reference]]
 
 * Firefox
+** Cookies
 
-** Shortcuts
-
-[[https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts][Mozilla
-keyboard shortcuts]]
+in the storage panel ([[https://developer.mozilla.org/en-us/docs/tools/storage_inspector#cookies][reference]])
 
 ** Locations
 
@@ -117,9 +117,10 @@ Help -> Troubleshooting Information
 - =~/Library/Application Support/Firefox/Profiles/=
 - =~/Library/Mozilla/Firefox/Profiles/=
 
-** Cookies
+** Shortcuts
 
-in the storage panel ([[https://developer.mozilla.org/en-us/docs/tools/storage_inspector#cookies][reference]])
+[[https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts][Mozilla
+keyboard shortcuts]]
 
 ** [[https://github.com/cmcaine/tridactyl][Tridactyl]]
 
@@ -218,7 +219,6 @@ in the storage panel ([[https://developer.mozilla.org/en-us/docs/tools/storage_i
 | ~tlast~   | ~tablast~    |
 | ~bd~      | ~tabclose~   |
 | ~bdelete~ | ~tabclose~   |
-
 ** +Vimperator+
 
 +[[https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc][dotfile]]+

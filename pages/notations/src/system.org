@@ -222,6 +222,21 @@ sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
     kill [ssh-agent pid]
 #+END_SRC
 
+** tree
+
+dir tree
+
+#+BEGIN_SRC sh
+tree -I node
+tree -d .
+#+END_SRC
+
+** ytdl
+
+#+BEGIN_SRC sh
+ytdl --extract-audio --audio-format mp3 <url>
+#+END_SRC
+
 * Know thyself
 
 #+BEGIN_SRC sh

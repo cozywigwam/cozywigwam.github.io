@@ -14,25 +14,24 @@ path: "/git/"
 
 *** info/exclude
 
-Ignore files from config level (overrides =.gitignore=). I keep symlinks
-here. Handy, 'cause:
+Ignore files from config level (overrides =.gitignore=). I keep symlinks here. Handy, 'cause:
 
 - I want them ignored
 - I don't want to clutter the project's =.gitignore=
-- they're project-specific, so not suited for =~/.gitignore_global=
+- they're project-specific, ill-suited for =~/.gitignore_global=
 
-** Aliases
+** aliases
 
 Common aliases found in =~/.gitconfig=:
 
 #+BEGIN_EXAMPLE
-    [alias]
-     st = status
-     co = checkout
-     ci = commit
-     br = branch
-     df = diff
-     dfs = diff --staged
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  df = diff
+  dfs = diff --staged
 #+END_EXAMPLE
 
 My personal aliases in =~/.bash_aliases=:
@@ -70,14 +69,14 @@ One workflow is to go to the log, open the commit where the file was
 changed/removed, use =M-w= to kill the hash/SHA, then
 =git checkout [SHA]~1 -- restore-me.txt=.
 
-** Help
+** help
 
 | =git help -a=   | see commands     |
 | =git help -p=   | concept guides   |
 
-** Hooks/Deployment
+** hooks/deployment
 
-[[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][docs]]
+[[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][manual 8.3 Customizing Git - Git Hooks]]
 
 Client-side "committing-workflow" hooks in =.git/hooks/=:
 
@@ -91,26 +90,23 @@ Client-side "committing-workflow" hooks in =.git/hooks/=:
 [[https://github.com/typicode/husky/issues/186][Branch targeting]]:
 
 #+BEGIN_SRC sh
-    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
-      if [ "master" == "$branch" ]; then
-
-      # shenanigans
-
-      fi
-    done
+branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  if [ "master" == "$branch" ]; then
+    # shenanigans
+  fi
+done
 #+END_SRC
 
-[[https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks][Digital
-Ocean]] hook reference
+Digital Ocean post [[https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks][How To Use Git Hooks To Automate Development and Deployment Tasks]]
 
-** Logging
+** logging
 
 via =~/.gitconfig=:
 
 #+BEGIN_EXAMPLE
 [alias]
-   logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
-   loggg = log --graph --decorate --oneline --abbrev-commit --all
+  logg = log --date-order --graph --decorate --pretty=format:'%C(yellow)%h %C(cyan)%>(12)%ad %C(magenta)%<(7)%aN%C(auto)%d %Creset%s' --all
+  loggg = log --graph --decorate --oneline --abbrev-commit --all
 #+END_EXAMPLE
 
 via =~/.bash_aliases=:
@@ -130,23 +126,6 @@ alias lm="logg -30" # with merges
 # with merges and full date
 alias lmdf="logg --date=local"
 alias ldmf="logg --date=local"
-#+END_EXAMPLE
-
-** Misc
-
-To force push to =master= on GitLab: Settings -> Repository -> Protected
-Branches
-
-| =git add -p # --patch=         | interactive chunk-adding is your friend   |
-| =git ls-tree -r --name-only=   | cf. =tree -I node= and =tree -d .=        |
-
-A shell function to jump to the root of the project:
-
-#+BEGIN_EXAMPLE
-    gitroot() {
-      gitroot=$(git rev-parse --show-toplevel)
-      cd $gitroot
-    }
 #+END_EXAMPLE
 
 ** recover from reset --hard
@@ -225,9 +204,6 @@ Then when I want to actually add a new constant down the raod, I can use
 =--no-skip-worktree=.
 
 *** Difference between `skip-worktree` and `assume-unchanged`
-    :PROPERTIES:
-    :CUSTOM_ID: difference-between-skip-worktree-and-assume-unchanged
-    :END:
 
 From =git man update-index=:
 
@@ -241,9 +217,7 @@ From =git man update-index=:
     situation manually.
 #+END_QUOTE
 
-From a [[http://fallengamer.livejournal.com/93321.html][blog post]]
-found from [[https://stackoverflow.com/a/13631525/1052412][Stack
-Overflow]]:
+From a [[http://fallengamer.livejournal.com/93321.html][blog post]] found from [[https://stackoverflow.com/a/13631525/1052412][Stack Overflow]]:
 
 #+BEGIN_QUOTE
 Assume-unchanged assumes that a developer shouldn't change a file. If
@@ -261,11 +235,36 @@ check the changes in such file to affect the production config. In
 that case skip-worktree makes perfect scene.
 #+END_QUOTE
 
-* Emacs
+** misc
 
-** Magit
+| =git add -p # --patch=         | interactive chunk-adding is your friend   |
+| =git ls-tree -r --name-only=   | cf. =tree -I node= and =tree -d .=        |
+
+*** force push gitlab
+
+Settings -> Repository -> Protected Branches
+
+*** gitroot
+
+Jump to the root of the project:
+
+#+BEGIN_SRC sh
+gitroot() {
+  gitroot=$(git rev-parse --show-toplevel)
+  cd $gitroot
+}
+#+END_SRC
+
+* Emacs
+** magit
 
 [[https://magit.vc/manual/magit.html][manual]]
+
+*** add a flag
+
+#+BEGIN_SRC emacs-lisp
+(magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
+#+END_SRC
 
 *** commands
 
@@ -307,15 +306,9 @@ that case skip-worktree makes perfect scene.
 | =?=     | describe key      |
 | =C-t=   | show popup menu   |
 
-*** add a flag
-
-#+BEGIN_SRC emacs-lisp
-    (magit-define-popup-switch 'magit-log-popup ?m "Omit merge commits" "--no-merges")
-#+END_SRC
-
 *** refs
 
-[[https://magit.vc/manual/magit/References-Buffer.html][manual]]
+[[https://magit.vc/manual/magit/References-Buffer.html][manual 5.6 References Buffer]]
 
 =y= is evilified, so use =C-- y= for =magit-show-refs-popup=. =@=
 indicates current comparison point, which is also HEAD. =#= indicates
@@ -331,54 +324,55 @@ In status, =C-- y r= for =magit-show-refs-popup=, =? y= for
 
 Use =L= for =magit-margin-popup=.
 
-*** reference
-
-[[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit
-workflows]]
-
-[[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][infix
-arguements and suffix commands]]
-
-[[https://magit.vc/manual/magit/MacOS-Performance.html][macOS - use
-emacs-plus to reduce sluggishness]]
-
-*** workflows
+*** workflows :noexport:
 **** diffing branches
 
 ~magit-show-refs-popup~,
 
 *** misc
 
-#+BEGIN_SRC emacs-lisp
-;; (setq magit-commit-show-diff nil)
+Hide diff when committing
 
-;; ediff freeze problem, ref: https://github.com/syl20bnr/spacemacs/issues/4730
-;; (add-hook 'ediff-before-setup-hook 'spacemacs/toggle-mode-line-off)
-;; (add-hook 'ediff-quit-hook 'spacemacs/toggle-mode-line-on)
+#+BEGIN_SRC emacs-lisp
+(setq magit-commit-show-diff nil)
 #+END_SRC
+
+Old freeze problem
+
+#+BEGIN_SRC emacs-lisp
+ediff freeze problem, ref: https://github.com/syl20bnr/spacemacs/issues/4730
+(add-hook 'ediff-before-setup-hook 'spacemacs/toggle-mode-line-off)
+(add-hook 'ediff-quit-hook 'spacemacs/toggle-mode-line-on)
+#+END_SRC
+
+*** reference
+
+- [[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][Additional proposed infix arguements and suffix commands]]
+- [[https://magit.vc/manual/magit/MacOS-Performance.html][macOS - use emacs-plus to reduce sluggishness]]
+- [[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit workflows]]
 
 ** smerge
 
-Compare ediff/emerge.
+Compare ediff/emerge
 
 | =<ret>=     | [on =unmerged=] smerge   |
 | =C-c ^ m=   | keep mine                |
 | =C-c ^ o=   | keep other               |
 | =C-c ^ n=   | next                     |
 
-** Version-Control layer
+** version-control layer
 
-(Spacemacs)
-
-| =]h=, =[h=   | next/prev hunk   |    |
+| =]h=, =[h= | =spacemacs/vcs-next-hunk=, =spacemacs/vcs-prev-hunk= |
 
 From =.emacs.d/layers/+source-control/version-control/README.org=:
 
+#+BEGIN_QUOTE
 | Key Binding   | Description                       |
 |---------------+-----------------------------------|
 | =SPC g .=     | version control transient-state   |
 | =SPC T d=     | toggle diff margins               |
 | =SPC T C-d=   | toggle diff margins globally      |
+#+END_QUOTE
 
 *** Version Control Transient-state
 
@@ -403,8 +397,7 @@ From =.emacs.d/layers/+source-control/version-control/README.org=:
 | =SPC g . l=   | Show repo log                  |
 
 * Vim
-
-** Fugitive
+** fugitive
 
 | =:Gwrite=    | add %                              |
 | =:Gread=     | overwrite working with index       |
