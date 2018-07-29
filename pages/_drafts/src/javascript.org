@@ -10,7 +10,7 @@ path: "/javascript/"
 #+END_EXAMPLE
 
 * Language
-** Arrays
+** Arrays :noexport:
 
 *** Copying
 
@@ -71,7 +71,7 @@ dupe2[0].name = 'Dexter'; // myObjArray and dupe2 are different
 
 ** Async
 
-from [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function][MDN]]:
+[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function][MDN]]
 
 #+BEGIN_SRC js
 async function [name]([param1[, param2[, ..., paramN]]]) {
@@ -79,16 +79,7 @@ async function [name]([param1[, param2[, ..., paramN]]]) {
 }
 #+END_SRC
 
-Hacker Noon post from [[https://twitter.com/imGaafar][Mostafa Gaafar]]:
-
-#+BEGIN_SRC js
-const makeRequest = async () => {
-  console.log(await getJSON())
-  return "done"
-}
-
-makeRequest()
-#+END_SRC
+Hacker Noon post [[https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9][6 Reasons Why JavaScript’s Async/Await Blows Promises Away]] from [[https://twitter.com/imGaafar][Mostafa Gaafar]]:
 
 ** Callbags
 
@@ -203,8 +194,6 @@ let { fruit, ...restItem } = obj2;
 console.log(fruit);
 console.log(restItem);
 #+END_SRC
-
-#+RESULTS:
 
 ** Format
 *** Prettier
