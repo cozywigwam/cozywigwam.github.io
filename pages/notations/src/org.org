@@ -33,7 +33,7 @@ I also just added support for python-readability, so if I press "cr", the URL of
 
 * Code blocks/babel
 
-[[http://orgmode.org/manual/Working-with-source-code.html#Working-with-source-code][manual 14 Working with source code]]
+[[http://orgmode.org/manual/Working-with-source-code.html#Working-with-source-code][manual - 14 Working with source code]]
 
 | ~C-c C-c~   | ~org-ctrl-c-ctrl-c~                  | evaluate                                             |
 | ~C-c '~     | ~org-edit-special~                   | open sub-editing buffer                              |
@@ -75,12 +75,12 @@ Change how ~ctrl-c-ctrl-c~ windows behave:
 
 *** reference
 
-- [[https://org-babel.readthedocs.io/en/latest/eval/][org-babel.readthedocs.io]]
-- [[http://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments][header arguments for code blocks]]
+- [[https://org-babel.readthedocs.io/en/latest/eval/][Org Babel reference card - Code blocks]]
+- [[http://orgmode.org/manual/Code-block-specific-header-arguments.html#Code-block-specific-header-arguments][manual - Code block specific header arguments]]
 
 *** Results variables
 
-[[http://orgmode.org/manual/results.html][manual 14.8.2.2 :results]]
+[[http://orgmode.org/manual/results.html][manual - 14.8.2.2 :results]]
 
 #+BEGIN_SRC shell :results value code
 curl 127.0.0.1 --head
@@ -109,7 +109,7 @@ console.log(restItem);
 
 * Export
 
-[[http://orgmode.org/manual/Easy-templates.html#Easy-templates][Easy Templates]]
+[[http://orgmode.org/manual/Easy-templates.html#Easy-templates][manual - 15.2 Easy Templates]]
 
 
 | ~C-c C-e #~          | insert default export options from template |
@@ -123,95 +123,39 @@ This section is not exported.
 
 ** export options & settings
 
-- [[http://orgmode.org/manual/Export-settings.html#Export-settings][manual 12.2 Export settings]]
+- [[http://orgmode.org/manual/Export-settings.html#Export-settings][manual - 12.2 Export settings]]
 - [[https://emacsclub.github.io/html/org_tutorial.html#sec-8][Org Tutorial Exporting]]
-
-|                      |
-|----------------------|
-| ~‘AUTHOR’~           |
-| ~‘CREATOR’~          |
-| ~‘DATE’~             |
-| ~‘EMAIL’~            |
-| ~‘LANGUAGE’~         |
-| ~‘SELECT_TAGS’~      |
-| ~‘EXCLUDE_TAGS’~     |
-| ~‘TITLE’~            |
-| ~‘EXPORT_FILE_NAME’~ |
-
-#+BEGIN_QUOTE
-The ~#+OPTIONS~ keyword is a compact form. To configure multiple options, use several ~#+OPTIONS~ lines. ~#+OPTIONS~ recognizes the following arguments.
-#+END_QUOTE
-
-|                 |
-|-----------------|
-| ~*:~            |
-| ~-:~            |
-| ~::~            |
-| ~<:~            |
-| ~\n:~           |
-| ~^:~            |
-| ~arch:~         |
-| ~author:~       |
-| ~broken-links:~ |
-| ~c:~            |
-| ~creator:~      |
-| ~d:~            |
-| ~date:~         |
-| ~e:~            |
-| ~email:~        |
-| ~f:~            |
-| ~H:~            |
-| ~inline:~       |
-| ~num:~          |
-| ~p:~            |
-| ~pri:~          |
-| ~prop:~         |
-| ~stat:~         |
-| ~tags:~         |
-| ~tasks:~        |
-| ~tex:~          |
-| ~timestamp:~    |
-| ~title:~        |
-| ~toc:~          |
-| ~todo:~         |
-| ~\vert:~            |
 
 ** links
 
-- [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][WORG publishing org-mode -> HTML]]
-- [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][WORG org -> jekyll]]
-- [[https://emacsclub.github.io/html/org_tutorial.html][cheatsheet]]
-- [[http://gongzhitaao.org/orgcss/][CSS for Org-exported HTML example/walkthrough]]
+- [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Worg - Publishing Org-mode files to HTML]]
+- [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][Worg - Using org to Blog with Jekyll]]
+- [[https://emacsclub.github.io/html/org_tutorial.html][Emacs Club - Org-mode Tutorial / Cheat Sheet]]
+- [[http://gongzhitaao.org/orgcss/][CSS for Org-exported HTML example/walkthrough]] by [[https://github.com/gongzhitaao][Zhitao Gong]]
 
 ** "publishing projects" examples
 
 #+BEGIN_SRC emacs-lisp
 (require 'ox-publish)
-(setq org-publish-project-alist
-      '(
-
-        ("org-notes"
-         :base-directory "~/scratch/org-test/org/"
-         :base-extension "org"
-         :publishing-directory "~/scratch/org-test/public_html/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4             ; Just the default for this project.
-         :auto-preamble t
-         )
-
-
-        ("org-static"
-         :base-directory "~/scratch/org-test/org/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/scratch/org-test/public_html/"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-
-        ("org" :components ("org-notes" "org-static"))
-
-        ))
+(setq org-publish-project-alist '(("org-notes" :base-directory
+                                   "~/scratch/org-test/org/"
+                                   :base-extension "org"
+                                   :publishing-directory
+                                   "~/scratch/org-test/public_html/"
+                                   :recursive t
+                                   :publishing-function org-html-publish-to-html
+                                   :headline-levels 4 ; Just the default for this project.
+                                   :auto-preamble t)
+                                  ("org-static" :base-directory
+                                   "~/scratch/org-test/org/"
+                                   :base-extension
+                                   "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+                                   :publishing-directory
+                                   "~/scratch/org-test/public_html/"
+                                   :recursive t
+                                   :publishing-function org-publish-attachment)
+                                  ("org" :components ("org-notes"
+                                                      "org-static"))))
 #+END_SRC
 
 * Keys/misc, quick ref, hard to remember
@@ -333,46 +277,46 @@ ls
 
 * Spreadsheets
 
-- [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Org as Spreadsheet introduction]]
-- [[https://emacs.stackexchange.com/a/20506/15295][Helpful Emacs Stack Exchange answer]]
-- [[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][Formula Syntax for Calc]]
+- [[http://orgmode.org/manual/Formula-syntax-for-Calc.html#Formula-syntax-for-Calc][manual - 3.5.2 Formula syntax for Calc]]
+- [[http://orgmode.org/worg/org-tutorials/org-spreadsheet-intro.html][Worg - Org as a spreadsheet system: a short introduction]]
+- [[https://emacs.stackexchange.com/a/20506/15295][Emacs Stack Exchange answer with examples]]
 
 #+BEGIN_SRC org
 :=vsum($2..$3) ;; do a calculation
 :=vsum($2..$3);%.2f ;; set format to 2 decimal places
 #+END_SRC
 
-| ~C-c ?~           | ~org-table-field-info~                 |                                                |
-| ~C-c }~           | ~org-table-toggle-coordinate-overlays~ | show row & column numbers                      |
-| ~C-c {~           |                                        | toggle debugging                               |
-| ~C-c C-c~         |                                        | "run" at point                                 |
-| ~C-c u C-c *~     |                                        | re-calc table                                  |
-| ~C-u C-c *~       |                                        | reapply formulas                               |
-| ~:=vmean($2..$3)~ |                                        | row formula, mean of columns 2 & 3             |
-| ~=vsum($2..$3)~   |                                        | column formula, sum of all rows' columns 2 & 3 |
+| ~C-c ?~   | ~org-table-field-info~                 |                           |
+| ~C-c }~   | ~org-table-toggle-coordinate-overlays~ | show row & column numbers |
+| ~C-c {~   | ~org-table-toggle-formula-debugger~    | toggle debugging          |
+| ~C-c C-c~ | ~org-ctrl-c-ctrl-c~                    | "run" at point            |
+| ~C-c *~   | ~org-ctrl-c-star~                      | compute table             |
+|           | ~org-table-recalculate~                | re-calc table             |
 
-| ~::~    | separate formulas                                |
-| ~$x~    | column number x                                  |
-| ~@x~    | row number x                                     |
-| ~@#~    | current row                                      |
-| ~$#~    | current column                                   |
-| ~@>~    | last row                                         |
-| ~x..y~  | range between x and y (top-left to bottom-right) |
-| ~vsum~  | vector sum                                       |
-| ~vmean~ | average                                          |
+| ~:=vmean($2..$3)~ | row formula, mean of columns 2 & 3               |
+| ~=vsum($2..$3)~   | column formula, sum of all rows' columns 2 & 3   |
+| ~::~              | separate formulas                                |
+| ~$x~              | column number x                                  |
+| ~@x~              | row number x                                     |
+| ~@#~              | current row                                      |
+| ~$#~              | current column                                   |
+| ~@>~              | last row                                         |
+| ~x..y~            | range between x and y (top-left to bottom-right) |
+| ~vsum~            | vector sum                                       |
+| ~vmean~           | average                                          |
 
 * Syntax
 
-- [[http://orgmode.org/org.html#Markup][manual 11 Markup for rich export]]
-- [[http://orgmode.org/manual/Emphasis-and-monospace.html][manual 11.2 Emphasis and monospace]]
+- [[http://orgmode.org/org.html#Markup][manual - 11 Markup for rich export]]
+- [[http://orgmode.org/manual/Emphasis-and-monospace.html][manual - 11.2 Emphasis and monospace]]
 
-#+BEGIN_SRC org
+#+BEGIN_EXAMPLE
 [[https://example.com][link example]]
 
 *bold*, /italic/, _underline_, =verbatim=, ~code~, +strike-through+
-#+END_SRC
+#+END_EXAMPLE
 
-* Tables
+* Tables :noexport:
 
 |               |                       |
 |---------------+-----------------------|
@@ -416,7 +360,7 @@ console.log('will be tangled');
 
 ** Customize TODOs                                                 :noexport:
 
-[[http://orgmode.org/manual/Faces-for-TODO-keywords.html][manual 5.2.6 Faces for TODO keywords]]
+[[http://orgmode.org/manual/Faces-for-TODO-keywords.html][manual - 5.2.6 Faces for TODO keywords]]
 
 #+BEGIN_SRC emacs-lisp
 (setq org-todo-keywords '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
@@ -434,7 +378,7 @@ console.log('will be tangled');
 
 * Misc
 
-- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
+- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]] by Eric H. Neilsen, Jr.
 
 ** Visibility/folds/exansion
 
@@ -452,4 +396,4 @@ or
 
 ** Pipe character in tables
 
-Use ~\vert~. See [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][manual 11.6 Special symbols]]. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.
+Use ~\vert~. See [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][manual - 11.6 Special symbols]]. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.
