@@ -11,7 +11,7 @@ path: "/themes/"
 
 * Vim
 
-[[https://github.com/cozywigwam/poly][Poly]] is a deviation from Chris
+[[https://github.com/sunflowerseastar/poly][Poly]] is a deviation from Chris
 Kempson's
 [[https://github.com/chriskempson/tomorrow-theme][tomorrow-night-eighties]].
 
@@ -22,7 +22,7 @@ Kempson's
 [[/assets/poly-02.jpg]]
 
 It works on macOS in terminal/tmux. See
-[[https://github.com/cozywigwam/poly][github]] for TrueColor and
+[[https://github.com/sunflowerseastar/poly][github]] for TrueColor and
 =termguicolors= considerations. The following will tame tmux:
 
 #+BEGIN_EXAMPLE
@@ -40,7 +40,7 @@ It works on macOS in terminal/tmux. See
 
 To make the [[https://github.com/vim-airline/vim-airline][airline]]
 styles match, I created a
-[[https://gist.github.com/cozywigwam/e6e0572c6d6529df3eceaaba205c87ac][poly-coordinated
+[[https://gist.github.com/sunflowerseastar/e6e0572c6d6529df3eceaaba205c87ac][poly-coordinated
 variation]] (derived from
 [[https://github.com/vim-airline/vim-airline-themes/blob/master/autoload/airline/themes/bubblegum.vim][bubblegum]]).
 It goes in =~/.vim/autoload/airline/themes=.
@@ -57,7 +57,7 @@ As a warning, this theme is hacky. It is built on top of
 With that being said, though, it is a functioning and extended port of
 Poly. It includes dired, man, magit, helm, eshell, org, grep/ag, and
 front-end modes.
-[[https://github.com/cozywigwam/dotfiles/blob/a0756c791feda2950d1a616072aef0203f9abbd2/.spacemacs#L430-L809][Link]]
+[[https://github.com/sunflowerseastar/dotfiles/blob/a0756c791feda2950d1a616072aef0203f9abbd2/.spacemacs#L430-L809][Link]]
 
 #+CAPTION: Unknotted Theme
 [[/assets/unknotted-03.jpg]]
@@ -65,6 +65,6 @@ front-end modes.
 * iTerm
 
 I use a
-[[https://gist.github.com/cozywigwam/8cf85615375699ede084b500cd410b93][base16
+[[https://gist.github.com/sunflowerseastar/8cf85615375699ede084b500cd410b93][base16
 eighties]] theme with the background slightly modified
 ([[https://github.com/chriskempson/base16-iterm2][original]]).

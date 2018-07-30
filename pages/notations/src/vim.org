@@ -9,7 +9,7 @@ path: "/vim/"
 ---
 #+END_EXAMPLE
 
-[[https://github.com/cozywigwam/dotfiles/blob/master/.vimrc][dotfile]]
+[[https://github.com/sunflowerseastar/dotfiles/blob/master/.vimrc][dotfile]]
 
 * Color
 

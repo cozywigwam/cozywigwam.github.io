@@ -13,7 +13,7 @@ path: "/mail/"
 
 had to create cert from zoho:
 
-openssl s_client -CApath /etc/ssl/certs -connect imappro.zoho.com:imaps -showcerts | perl -ne 'print if /BEGIN/../END/; print STDERR if /return/' > zoho-cozywigwam-cert.crt
+openssl s_client -CApath /etc/ssl/certs -connect imappro.zoho.com:imaps -showcerts | perl -ne 'print if /BEGIN/../END/; print STDERR if /return/' > zoho-sunflowerseastar-cert.crt
 
 then open Keychain Access -> Import the file
 

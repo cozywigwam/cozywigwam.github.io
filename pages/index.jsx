@@ -47,8 +47,7 @@ export default class Index extends React.Component {
           <HeadingGroup
             path={prefixLink('/about/')}
             title="About"
-            description="@cozywigwam"
-            descLink="https://twitter.com/cozywigwam"
+            description=""
           />
         </Wrapper>
       </div>

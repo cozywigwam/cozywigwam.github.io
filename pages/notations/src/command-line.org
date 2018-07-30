@@ -92,7 +92,7 @@ Mickey Peterson's [[https://www.masteringemacs.org/article/complete-guide-master
 
 ** zsh
 
-[[https://github.com/cozywigwam/dotfiles/blob/master/.zshrc][dotfile]]
+[[https://github.com/sunflowerseastar/dotfiles/blob/master/.zshrc][dotfile]]
 
 #+BEGIN_SRC sh
 man zsh
@@ -230,7 +230,7 @@ done 3< "$FILE"
 
 * tmux
 
-[[https://github.com/cozywigwam/dotfiles/blob/master/.tmux.conf][dotfile]]
+[[https://github.com/sunflowerseastar/dotfiles/blob/master/.tmux.conf][dotfile]]
 
 #+BEGIN_SRC sh
 man tmux

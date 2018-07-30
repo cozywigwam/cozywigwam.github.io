@@ -141,7 +141,7 @@ git reflog [show] # `show` is default
 ** submodules
 
 #+BEGIN_EXAMPLE
-    git submodule add git@github.com:cozywigwam/my-submodule.git my-submodule-path
+    git submodule add git@github.com:sunflowerseastar/my-submodule.git my-submodule-path
     git submodule update --init
 #+END_EXAMPLE
 

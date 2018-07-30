@@ -92,7 +92,7 @@ Clear cache in =chrome://appcache-internals/= ([[https://github.com/googlearchiv
 
 ** Vimium
 
-[[https://github.com/cozywigwam/dotfiles/blob/master/.vimium][dotfile]]
+[[https://github.com/sunflowerseastar/dotfiles/blob/master/.vimium][dotfile]]
 
 ** Reference
 
@@ -221,7 +221,7 @@ keyboard shortcuts]]
 | ~bdelete~ | ~tabclose~   |
 ** +Vimperator+
 
-+[[https://github.com/cozywigwam/dotfiles/blob/master/.vimperatorrc][dotfile]]+
++[[https://github.com/sunflowerseastar/dotfiles/blob/master/.vimperatorrc][dotfile]]+
 
 | =:hs! [filter]=   | history; use the bang to immediately open results              |
 | =o O=             | open / open with current address populated                     |

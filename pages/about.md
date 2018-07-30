@@ -2,12 +2,12 @@
 layout: page
 title: About
 permalink: /about/
-description: cozywigwam
+description: ""
 ---
 
 Welcome. My name is Grant. I'm a digital creator in San Francisco.
 
-This website is a notebook where I record tech-related shortcuts, reminders, and references. Under the hood, it's org-mode & markdown, corralled by Gatsby and powered by React.
+This website notebook is written in [Org mode](https://orgmode.org/) and rendered by [React](https://reactjs.org/).
 
 <br/>
 
@@ -21,7 +21,7 @@ This website is a notebook where I record tech-related shortcuts, reminders, and
 
 ||||
 |-|-|-|
-[Twitter](https://twitter.com/cozywigwam) | [GitHub](https://github.com/cozywigwam) | [LinkedIn](https://www.linkedin.com/in/grantsurratt)
+[Twitter](https://twitter.com/cozywigwam) | [GitHub](https://github.com/sunflowerseastar) | [LinkedIn](https://www.linkedin.com/in/grantsurlyn)
 
 </section>
 <section class="table-green">

@@ -5,4 +5,5 @@ public/
 test.*
 
 # exports
-*.md
+pages/notations/*.md
+pages/_drafts/*.md

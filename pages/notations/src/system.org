@@ -12,7 +12,7 @@ path: "/system/"
 * bin/
 ** ack
 
-[[https://github.com/cozywigwam/dotfiles/blob/master/.ackrc][dotfile]]
+[[https://github.com/sunflowerseastar/dotfiles/blob/master/.ackrc][dotfile]]
 
 #+BEGIN_SRC sh
 ack --dump # see ignores
