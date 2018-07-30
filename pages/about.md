@@ -21,7 +21,7 @@ This website notebook is written in [Org mode](https://orgmode.org/) and rendere
 
 ||||
 |-|-|-|
-[Twitter](https://twitter.com/cozywigwam) | [GitHub](https://github.com/sunflowerseastar) | [LinkedIn](https://www.linkedin.com/in/grantsurlyn)
+[Twitter](https://twitter.com/helianthoides) | [GitHub](https://github.com/sunflowerseastar) | [LinkedIn](https://www.linkedin.com/in/grantsurlyn)
 
 </section>
 <section class="table-green">

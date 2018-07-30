@@ -48,6 +48,7 @@ export default class Index extends React.Component {
             path={prefixLink('/about/')}
             title="About"
             description=""
+            descLink=""
           />
         </Wrapper>
       </div>
