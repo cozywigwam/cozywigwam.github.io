@@ -4,7 +4,7 @@
 ---
 title: "Characters"
 layout: notation
-description: Of Distinction & Re Distinguishing
+description: Distinction
 path: "/characters/"
 ---
 #+END_EXAMPLE

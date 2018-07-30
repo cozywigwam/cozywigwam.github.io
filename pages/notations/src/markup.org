@@ -4,7 +4,7 @@
 ---
 title: "Markup"
 layout: notation
-description: Wow, Riveting
+description: Crosshatch
 path: "/markup/"
 ---
 #+END_EXAMPLE

@@ -4,7 +4,7 @@
 ---
 title: "Git"
 layout: notation
-description: Everything Should Be Git
+description: Everything
 path: "/git/"
 ---
 #+END_EXAMPLE
@@ -76,7 +76,7 @@ changed/removed, use =M-w= to kill the hash/SHA, then
 
 ** hooks/deployment
 
-[[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][manual 8.3 Customizing Git - Git Hooks]]
+[[https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks][manual - 8.3 Customizing Git - Git Hooks]]
 
 Client-side "committing-workflow" hooks in =.git/hooks/=:
 
@@ -87,7 +87,7 @@ Client-side "committing-workflow" hooks in =.git/hooks/=:
 
 *** husky
 
-[[https://github.com/typicode/husky/issues/186][Branch targeting]]:
+[[https://github.com/typicode/husky/issues/186][GitHub Issues - Apply husky git hook to specific branch only]]
 
 #+BEGIN_SRC sh
 branch=$(git rev-parse --symbolic --abbrev-ref $refname)
@@ -308,7 +308,7 @@ gitroot() {
 
 *** refs
 
-[[https://magit.vc/manual/magit/References-Buffer.html][manual 5.6 References Buffer]]
+[[https://magit.vc/manual/magit/References-Buffer.html][manual - 5.6 References Buffer]]
 
 =y= is evilified, so use =C-- y= for =magit-show-refs-popup=. =@=
 indicates current comparison point, which is also HEAD. =#= indicates

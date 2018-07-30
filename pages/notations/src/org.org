@@ -4,7 +4,7 @@
 ---
 title: "Org"
 layout: notation
-description: Slouching  Toward Bablyon
+description: Modal
 path: "/org/"
 ---
 #+END_EXAMPLE
@@ -21,7 +21,7 @@ path: "/org/"
 | ~%i~       | active region                                                  |
 | ~%?~       | final cursor position                                          |
 
-~org-protocol-capture-html~ on [[https://github.com/alphapapa/org-protocol-capture-html][github]]
+[[https://github.com/emacs-helm/helm/wiki][org-protocol-capture-html]]
 
 #+BEGIN_QUOTE
 With this, you can capture HTML content directly into Org, converted into Org syntax with Pandoc.
@@ -351,7 +351,11 @@ console.log('will be tangled');
 
 ** Reference
 
-[[https://twitter.com/fredgiasson][Frederick Giasson]]'s blog post [[http://fgiasson.com/blog/index.php/2016/10/26/literate-clojure-programming-tangle-all-in-org-mode/][Literate {Clojure} Programming: Tangle All in Org-mode]]
+#+MACRO: BO @@latex:\char91@@ @@html:&#91;@@
+# Square Bracket Close ]
+#+MACRO: BC @@latex:\char93@@ @@html:&#93;@@
+
+[[https://twitter.com/fredgiasson][Frederick Giasson]]'s blog post [[https://fgiasson.com/blog/index.php/2016/10/26/literate-clojure-programming-tangle-all-in-org-mode/][Literate {{{BO}}} Clojure{{{BC}}} Programming: Tangle All in Org-mode]]
 
 * Todos
 

@@ -334,7 +334,7 @@ diskutil eject disk2 # disk2 is [device]
 
 * Windows
 
-Invert mouse - [[https://superuser.com/questions/310681/inverting-direction-of-mouse-scroll-wheel][SO]]
+Invert mouse - [[https://superuser.com/questions/310681/inverting-direction-of-mouse-scroll-wheel][Super User]]
 
 #+BEGIN_SRC sh
 Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }
@@ -346,7 +346,7 @@ Find hardware ID:
 
 ** pid/processes/tasklist/ps
 
-[[https://stackoverflow.com/questions/4075287/node-express-eaddrinuse-address-already-in-use-kill-server][SO]]
+[[https://stackoverflow.com/a/4084263][Stack Overflow answer]]
 
 #+BEGIN_SRC sh
 tasklist /O
@@ -374,7 +374,7 @@ Vagrant insecure key: =~/.vagrant.d/insecure_private_key=
 
 ** Create mp3 using say & lame
 
-[[https://stackoverflow.com/a/16501717/1052412][SO ref]]
+[[https://stackoverflow.com/a/16501717/1052412][Stack Overflow ref]]
 
 #+BEGIN_SRC sh
 say -v "Fiona" 'my message' -o output.aiff

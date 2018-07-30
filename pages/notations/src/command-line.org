@@ -4,7 +4,7 @@
 ---
 title: "Command Line"
 layout: notation
-description: "[promptus] $"
+description: "[~] # $ /"
 path: "/command-line/"
 ---
 #+END_EXAMPLE
@@ -95,17 +95,17 @@ Mickey Peterson's [[https://www.masteringemacs.org/article/complete-guide-master
 [[https://github.com/cozywigwam/dotfiles/blob/master/.zshrc][dotfile]]
 
 #+BEGIN_SRC sh
-    man zsh
-    man zshbuiltins
-    man zshoptions
+man zsh
+man zshbuiltins
+man zshoptions
 
-    # prompt, jobs, if/then
-    man zshmisc
+# prompt, jobs, if/then
+man zshmisc
 
-    # show (default non-vicmd/viins) zle key bindings
-    bindkeys
+# show (default non-vicmd/viins) zle key bindings
+bindkeys
 
-    # setopt HIST_IGNORE_SPACE
+# setopt HIST_IGNORE_SPACE
 #+END_SRC
 
 *** Zsh Line Editor (ZLE)
