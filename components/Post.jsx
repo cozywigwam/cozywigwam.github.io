@@ -2,9 +2,7 @@ import React from 'react';
 
 import HeadingGroup from '../components/HeadingGroup';
 
-import {
-  Wrapper
-} from './styled/';
+import { Wrapper } from './styled/';
 
 export default class Post extends React.Component {
   render() {
@@ -13,7 +11,10 @@ export default class Post extends React.Component {
 
     return (
       <Wrapper>
-        <HeadingGroup title={ route.page.data.title } description={ route.page.data.description } />
+        <HeadingGroup
+          title={route.page.data.title}
+          description={route.page.data.description}
+        />
         <div dangerouslySetInnerHTML={{ __html: body }} />
       </Wrapper>
     );

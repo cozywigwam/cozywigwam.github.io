@@ -21,5 +21,5 @@ export const Mixins = {
         font-size: ${baseSize * multiplier.xxl}px;
       }
     `;
-  }
-}
+  },
+};

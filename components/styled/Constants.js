@@ -1,5 +1,5 @@
 export const Constants = {
-  headerWidthMqDesktop: "20%",
+  headerWidthMqDesktop: '20%',
   MQ: {
     xs: 420,
     sm: 768,
@@ -22,6 +22,6 @@ export const Constants = {
       lg: 1.1,
       xl: 1.2,
       xxl: 1.3,
-    }
-  }
-}
+    },
+  },
+};

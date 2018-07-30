@@ -1,11 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import {
-  Footer,
-  ReturnHomeLink,
-  Hr
-} from '../components/styled/';
+import { Footer, ReturnHomeLink, Hr } from '../components/styled/';
 
 export default class MyFooter extends React.Component {
   render() {

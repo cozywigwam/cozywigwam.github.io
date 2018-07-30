@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  Header,
-  Logo
-} from './styled/';
+import { Header, Logo } from './styled/';
 
 export default class MyHeader extends React.Component {
   render() {
