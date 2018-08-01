@@ -17,8 +17,11 @@ openssl s_client -CApath /etc/ssl/certs -connect imappro.zoho.com:imaps -showcer
 
 then open Keychain Access -> Import the file
 
-then in .offlineimprc -> [Repository cozy-remote]
+then in .offlineimprc -> [Repository personal-remote]
 sslcacertfile = /usr/local/etc/openssl/cert.pem
 
-
 [offlineimap.conf on github](https://github.com/OfflineIMAP/offlineimap/blob/master/offlineimap.conf)
+
+** password with gpg & python
+
+[[https://f-koehler.github.io/posts/2015-03-17-offlineimap-msmtp-gnupg.html][Encrypt OfflineIMAP and msmtp password with GnuPG]]

@@ -14,7 +14,7 @@ This website notebook is written in [Org mode](https://orgmode.org/) and rendere
 |||
 |-|-|
 [Sunflower Sea Star](/) | technology
-[Sinistrocular](https://sinistrocular.com) | photo 
+[Sinistrocular](https://sinistrocular.com) | photography
 [Cyan-Eyed Vireo](https://soundcloud.com/cyaneyedvireo) | music
 
 <section class="table-cyan">
@@ -28,6 +28,6 @@ This website notebook is written in [Org mode](https://orgmode.org/) and rendere
 
 ||||
 |-|-|-|
-**[twitter/github username]** | @ | **[this domain]**
+grant | @ | [this domain]
 
 </section>

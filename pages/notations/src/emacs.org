@@ -89,12 +89,13 @@ type ls
 | ~C-x C-b~           | [in helm] resume different helm buffer      |
 | ~C-c >~, ~C-c <~    | [in helm] next/prev file                    |
 
-| ~SPC tab~                   | alternate buffer                            |
-| ~SPC f y~                   | kill/get path & filename                    |
-| ~SPC f j~ + ~SPC f y~ + ~q~ | kill/get path only (from dired)             |
-| ~SPC r y~                   | see kill ring                               |
-| ~SPC r r~                   | see registers, different format than ~:reg~ |
-| ~SPC x w d~                 | ~osx-dictionary-search-pointer~             |
+| ~SPC tab~                   | alternate buffer                                 |
+| ~SPC f y~                   | kill/get path & filename                         |
+| ~SPC f j~ + ~SPC f y~ + ~q~ | [workflow] kill/get path only (via dired)        |
+| ~SPC u 0 w~                 | ~dired-copy-filename-as-kill~ absolute file name |
+| ~SPC r y~                   | see kill ring                                    |
+| ~SPC r r~                   | see registers, different format than ~:reg~      |
+| ~SPC x w d~                 | ~osx-dictionary-search-pointer~                  |
 
 *** buffers/files
 
@@ -920,6 +921,10 @@ ref [[https://emacs.stackexchange.com/questions/21197/how-can-i-map-helm-project
 | ~s v~        | recent           |
 
 ** latex                                                           :noexport:
+** mu4e
+
+| ~C-c C-f C-c~ | ~message-goto-cc~ |
+
 ** neotree
 
 | ~SPC p t~       | start at project root |        |
