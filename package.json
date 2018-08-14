@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gatsby develop -p 5000",
     "build": "gatsby build",
+    "deploy": "scripts/deploy.sh",
     "develop": "gatsby develop",
     "pandoc-drafts": "scripts/pandoc-org-to-md-drafts.sh",
     "pandoc-notations": "scripts/pandoc-org-to-md-notations.sh"
