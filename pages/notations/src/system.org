@@ -24,71 +24,70 @@ ack -i --ignore-dir=private --ignore-file="is:test.sql" findme
 
 ** ag
 
-To search =node_modules/= use =-a=. For absolutely everything (including
-binaries/hidden), use =-u=. Use =-U= to disrepect =.gitignore=.
+To search ~node_modules/~ use ~-a~. For absolutely everything (including
+binaries/hidden), use ~-u~. Use ~-U~ to disrepect ~.gitignore~.
 
-| =-a= =--all-files=             | doesn't respect ignore files; excludes hidden files, though |
-| =-c=                           | count                                                       |
-| =-Cn=                          | context of =n= lines                                        |
-| =-ignore=                      |                                                             |
-| =-ignore-dir=                  |                                                             |
-| =-l= =--files-with-matches=    | only print filenames, not full output                       |
-| =-L= =--files-without-matches= |                                                             |
-| =-s=                           | case sensitive                                              |
-| =-u= =--unrestricted=          | all files, everything, including binaries and hidden files  |
-| =-U= =--skip-vcs-ignores=      | don't respect =.gitignore= (but still use =.agignore=)      |
+| ~-a~ ~--all-files~             | doesn't respect ignore files; excludes hidden files, though |
+| ~-c~                           | count                                                       |
+| ~-Cn~                          | context of ~n~ lines                                        |
+| ~-ignore~                      |                                                             |
+| ~-ignore-dir~                  |                                                             |
+| ~-l~ ~--files-with-matches~    | only print filenames, not full output                       |
+| ~-L~ ~--files-without-matches~ |                                                             |
+| ~-s~                           | case sensitive                                              |
+| ~-u~ ~--unrestricted~          | all files, everything, including binaries and hidden files  |
+| ~-U~ ~--skip-vcs-ignores~      | don't respect ~.gitignore~ (but still use ~.agignore~)      |
 
 ** bower
 
 #+BEGIN_SRC sh
-    bower list
-    bower search
-    bower install
-    bower uninstall
-    bower prune
+bower list
+bower search
+bower install
+bower uninstall
+bower prune
 #+END_SRC
 
 ** brew
 
 #+BEGIN_SRC sh
-    man brew
-    brew list
-    brew list postgres
-    brew search TERM
-    brew leaves # "Show installed formulae that are not dependencies of another installed formula."
+man brew
+brew list postgres
+brew search ispell
+brew leaves # "Show installed formulae that are not dependencies of another installed formula."
+brew cleanup -s --dry-run
 #+END_SRC
 
 ** composer
 
 #+BEGIN_SRC sh
-    composer # see commands
-    composer show # because list would be too easy
+composer show
 #+END_SRC
 
 ** curl
 
-Flags =-c= & =-b=: cookie stuff
+Flags ~-c~ & ~-b~: cookie stuff
 
-Flag =-d=, =--data <data>=: (HTTP) Sends the specified data in a POST
+Flag ~-d~, ~--data <data>~: (HTTP) Sends the specified data in a POST
 request to the HTTP server, in the same way that a browser does when a
 user has filled in an HTML form and presses the submit button. This will
 cause curl to pass the data to the server using the content-type
-=application/x-www-form-urlencoded=. Compare to =-F=, =--form=.
+~application/x-www-form-urlencoded~. Compare to ~-F~, ~--form~.
 
 ** docker                                                          :noexport:
 
-Docker's changing IP address on macOS is =docker.for.mac.localhost=
+Docker's changing IP address on macOS is ~docker.for.mac.localhost~
 ([[https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds][reference]]).
 
 *** Reference
 
 [[https://runnable.com/blog/9-common-dockerfile-mistakes][common mistakes]]
 
-** dpkg / apt-get
+** dpkg
 
 #+BEGIN_SRC sh
-    dpkg --get-selections | grep -v deinstall
-    dpkg --get-selections | grep -i php
+dpkg --get-selections | grep -v deinstall
+dpkg --get-selections | grep -i php
 #+END_SRC
 
 ** elasticsearch
@@ -96,14 +95,14 @@ Docker's changing IP address on macOS is =docker.for.mac.localhost=
 [[https://www.elastic.co/guide/en/elasticsearch/reference/current/_cluster_health.html][docs Cluster Health]]
 
 #+BEGIN_SRC sh
-    curl 'localhost:9200/_cat/health?v'
-    curl 'localhost:9200/_cat/nodes?v'
-    curl 'localhost:9200/_cat/indices?v'
+curl 'localhost:9200/_cat/health?v'
+curl 'localhost:9200/_cat/nodes?v'
+curl 'localhost:9200/_cat/indices?v'
 
-    # deletion
-    curl -XDELETE localhost:9200/app_name/resource/123
-    curl -XDELETE localhost:9200/app_name
-    curl -XDELETE localhost:9200/_all
+# deletion
+curl -XDELETE localhost:9200/app_name/resource/123
+curl -XDELETE localhost:9200/app_name
+curl -XDELETE localhost:9200/_all
 #+END_SRC
 
 ** gems
@@ -114,36 +113,36 @@ gem env
 
 ** less
 
-| =M-u=   | toggle search highlighting (like =:noh=)   |
+| ~M-u~   | toggle search highlighting (like ~:noh~)   |
 
 ** lsof
 
 #+BEGIN_SRC sh
-    lsof -h
+lsof -h
 
-    lsof /dir/or/file
+lsof /dir/or/file
 
-    # `-i [i]`: internet address matches [i]; default all
-    lsof -i
-    lsof -i | grep -Ei "(LISTEN|EXTENDED)"
-    lsof -i :3000
-    lsof -t -i :3000 # PID only
+# `-i [i]`: internet address matches [i]; default all
+lsof -i
+lsof -i | grep -Ei "(LISTEN|EXTENDED)"
+lsof -i :3000
+lsof -t -i :3000 # PID only
 
-    lsof -c node # command
-    lsof -u charadriidae # user
+lsof -c node # command
+lsof -u charadriidae # user
 
-    kill -9 `lsof -t -u charadriidae`
+kill -9 `lsof -t -u charadriidae`
 #+END_SRC
 
 ** n (instead of nvm)
 
 #+BEGIN_SRC sh
-n # arrow keys and select
+n
 n --help
 n list
-n stable # use/install stable
-n latest # use/install latest
-n rm 0.9.4 v0.10.0 # remove
+n stable
+n latest
+n rm 0.9.4
 #+END_SRC
 
 ** npm
@@ -153,39 +152,38 @@ npm help
 npm help <cmd>
 npm list -g --depth=0
 npm outdated -g --depth=0
-sudo npm update -g npm
+npm update -g npm
 #+END_SRC
 
 *** Change global path
 
-Originally, the global path is =/usr/local/lib/node_modules/=. Change it
-with:
+Originally, the global path is ~/usr/local/lib/node_modules/~. Update ~~/.npmrc~ with:
 
 #+BEGIN_SRC sh
-npm config set prefix '~/.npm-global' # updates ~/.npmrc
+npm config set prefix '~/.npm-global'
 #+END_SRC
 
-Then add =~/.npm-global/bin= to path.
+Then add ~~/.npm-global/bin~ to path.
 
 ** pm2
 
 #+BEGIN_SRC sh
 pm2 list
-pm2 restart [name]
+pm2 restart <name>
 #+END_SRC
 
 ** rbenv
 
 #+BEGIN_SRC sh
-    rbenv # quick help
-    rbenv install -l # list
-    rbenv install 2.3.1
-    rbenv version # see current version
-    rbenv versions # like `ls ~/.rbenv/versions/`
+rbenv # quick help
+rbenv install -l # list
+rbenv install 2.3.1
+rbenv version # see current version
+rbenv versions # like `ls ~/.rbenv/versions/`
 
-    rbenv shell # just a helper for RBENV_VERSION
-    rbenv local # adds .ruby-version project file
-    rbenv global
+rbenv shell # just a helper for RBENV_VERSION
+rbenv local # adds .ruby-version project file
+rbenv global
 #+END_SRC
 
 ** rename
@@ -199,9 +197,9 @@ rename 's/old/new/g' *
 ** rvm
 
 #+BEGIN_SRC sh
-    ruby -v
-    rvm list
-    gem list
+ruby -v
+rvm list
+gem list
 #+END_SRC
 
 ** sed
@@ -216,10 +214,10 @@ sed -i '' 's/oldterm/newterm/g' [filename] # no backup file
 ** ssh
 
 #+BEGIN_SRC sh
-    eval `ssh-agent`
-    ssh-add ~/.ssh/my_id_rsa
-    ssh-add -l
-    kill [ssh-agent pid]
+eval `ssh-agent`
+ssh-add ~/.ssh/my_id_rsa
+ssh-add -l
+kill [ssh-agent pid]
 #+END_SRC
 
 ** tree
@@ -274,16 +272,15 @@ cp my-custom-sound.mp3 ~/Library/Sounds/
 
 ** Daemons & Agents
 
-=brew services list=
+~brew services list~
 
-=brew services run|start|stop|restart formula|-all=
+~brew services run|start|stop|restart formula|-all~
 
-Daemons: =launchd= and =launchctl=. =brew= plugs into =launchctl= via
-=brew services=.
+Daemons: ~launchd~ and ~launchctl~. ~brew~ plugs into ~launchctl~ via ~brew services~.
 
-Launched at boot: =/Library/LaunchDaemons=
+Launched at boot: ~/Library/LaunchDaemons~
 
-Launched at login: =~/Library/LaunchAgents=
+Launched at login: ~~/Library/LaunchAgents~
 
 ** Dictionary
 
@@ -292,44 +289,92 @@ Written in [[http://www.relaxng.org/][RELAX NG]]
 - [[https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/DictionaryServicesProgGuide/Introduction/Introduction.html][Apple documentation (archived)]]
 - [[https://github.com/afischer/osx-dictionaries][Andrew Fischer's repo]]
 
-** Observe USB in the GUI
+** USB
+*** CL
+
+#+BEGIN_SRC sh
+system_profiler SPUSBDataType
+#+END_SRC
+
+*** GUI
 
 - open Audio MIDI Setup application
 - cmd + 1 - Audio Devices (input/output, built-in microphone)
 - cmd + 2 - MIDI Studio - see USB, Bluetooth, and Network-connected devices... test MIDI
 
-#+BEGIN_SRC sh
-# observe USB
-system_profiler SPUSBDataType
-#+END_SRC
-
-** Misc
-
-| =cmd + shift + V=     | paste with stripped formatting (might need alt sometimes, not sure here) |
-| =~/Library/Services/= | Location of AppleScript services (.workflow files)                       |
+** Reference
 
 - [[https://twitter.com/kevinsuttle][Kevin Suttle]]'s [[https://github.com/kevinSuttle/macOS-Defaults/blob/master/REFERENCE.md][macOS Default Values Command Reference]]
 - [[https://twitter.com/mathias][Mathias Bynens]]' [[https://github.com/mathiasbynens/dotfiles/blob/master/.macos][dotfiles/.macos]]
 
-#+BEGIN_SRC sh
-# routing table
-netstat -rn # like Linux `route -n`
+** Misc
 
-# when camera stops working
+| ~cmd + shift + V~     | paste with stripped formatting (might need alt sometimes, not sure here) |
+| ~~/Library/Services/~ | Location of AppleScript services (.workflow files)                       |
+
+*** camera issues
+
+#+BEGIN_SRC sh
 ps -ax | grep i vdcassistant
 kill [pid]
+#+END_SRC
 
-# users with uid 5xx
-dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
-dscl # then `cd Contact`, `cd Users`, `read [username]`
+*** eject
 
-# hide/show directories in Finder
-chflags hidden Pictures
-chflags nohidden Pictures
-
-# safely remove a volume
+#+BEGIN_SRC sh
 diskutil list
 diskutil eject disk2 # disk2 is [device]
+#+END_SRC
+
+*** hide/show directories in Finder
+
+#+BEGIN_SRC sh
+chflags hidden Pictures
+chflags nohidden Pictures
+#+END_SRC
+
+*** routing table
+
+#+BEGIN_SRC sh
+netstat -rn # like Linux `route -n`
+#+END_SRC
+
+*** users with uid 5xx
+#+BEGIN_SRC sh
+dscacheutil -q user | grep -A 3 -B 2 -e uid:\ 5'[0-9][0-9]'
+dscl # then `cd Contact`, `cd Users`, `read [username]`
+#+END_SRC
+
+* Misc
+
+#+BEGIN_SRC sh
+history -c
+
+identify -format '%w %h' img.png ## measure/get img pixel dims
+
+scp -r <local_spec> <remote_spec>
+#+END_SRC
+
+** create mp3 using say & lame
+
+[[https://stackoverflow.com/a/16501717/1052412][Stack Overflow ref]]
+
+#+BEGIN_SRC sh
+say -v "Fiona" 'my message' -o output.aiff
+lame -m m output.aiff output.mp3
+#+END_SRC
+
+** semver
+
+| ~  | update patches, stay at minor | ~~1.2.3 ≈ 1.2.9~ | ~~1.2.3 ≉ 1.3.0~ |
+| \^ | update minor, stay at major   | ~^1.2.3 ≈ 1.9.9~ | ~^1.2.3 ≉ 2.0.0~ |
+
+** Vagrant
+
+Vagrant insecure key: ~~/.vagrant.d/insecure_private_key~
+
+#+BEGIN_SRC sh
+vagrant ssh-config # see hostname, port, SSH Key location
 #+END_SRC
 
 * Windows
@@ -342,7 +387,7 @@ Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters 
 
 Find hardware ID:
 
-> Control Panel > Device Manager > Mice... > HID-compliant mouse > right click > properties > Details > Property (dropdown) = Hardware Ids > [id: 1st line]
+| Control Panel --> Device Manager --> Mice... --> HID-compliant mouse --> right click --> properties --> Details --> Property (dropdown) = Hardware Ids --> [id: 1st line]
 
 ** pid/processes/tasklist/ps
 
@@ -356,33 +401,3 @@ taskkill /pid [PID]
 ** reference
 
 [[https://medium.com/@vegardye/running-bash-scripts-on-windows-7428abce32ca][Running Bash scripts on Windows]]
-
-* Misc
-
-#+BEGIN_SRC sh
-history -c
-
-identify -format '%w %h' img.png ## measure/get img pixel dims
-
-scp -r <local_spec> <remote_spec>
-
-# vagrant
-vagrant ssh-config # see hostname, port, SSH Key location
-#+END_SRC
-
-Vagrant insecure key: =~/.vagrant.d/insecure_private_key=
-
-** Create mp3 using say & lame
-
-[[https://stackoverflow.com/a/16501717/1052412][Stack Overflow ref]]
-
-#+BEGIN_SRC sh
-say -v "Fiona" 'my message' -o output.aiff
-lame -m m output.aiff output.mp3
-#+END_SRC
-** semver
-
-Simplified range specifiers:
-
-| ~  | update patches, stay at minor | =~1.2.3 ≈ 1.2.9= | =~1.2.3 ≉ 1.3.0= |
-| \^ | update minor, stay at major   | =^1.2.3 ≈ 1.9.9= | =^1.2.3 ≉ 2.0.0= |

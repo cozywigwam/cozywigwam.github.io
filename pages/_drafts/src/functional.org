@@ -9,9 +9,15 @@ path: "/functional/"
 ---
 #+END_EXAMPLE
 
-* Ramda
+* libraries
 
-** Identity
+** monet.js
+
+[[https://github.com/monet/monet.js][github]]
+
+** Ramda
+
+*** Identity
 
 #+BEGIN_SRC js
 function _isPlaceholder(a) {

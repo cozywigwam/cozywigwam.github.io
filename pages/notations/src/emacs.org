@@ -9,7 +9,6 @@ path: "/emacs/"
 ---
 #+END_EXAMPLE
 
-* Emacs Lisp
 * get around
 ** bookmarks
 
@@ -216,7 +215,6 @@ Global ~.ctags~ file is in dotfiles, local ~.ctags~ file per project is respecte
 #+END_SRC
 
 * [[file:/git/][git]]
-
 * help
 
 | ~SPC h m~            | ~helm-man-woman~              |

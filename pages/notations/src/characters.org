@@ -98,6 +98,10 @@ There are text properties here:
 
 ** Emacs
 
+*** "Combining"
+
+Highlight e.g. ~a~, then ~C-x 8 RET~, choose ~COMBINING GRAVE ACCENT~: ~à~
+
 *** Input method
 
 [[https://www.masteringemacs.org/article/diacritics-in-emacs][Mastering Emacs - Olé! Diacritics in Emacs]]
