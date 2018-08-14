@@ -30,6 +30,9 @@ In *Bookmark List*:
 
 ** lisp state
 
+[[https://github.com/syl20bnr/evil-lisp-state][evil-lisp-state]]
+
+| ~SPC k~ | +lisp|
 | ~SPC k .~ | enter lisp state |
 | ~j~ ~k~   | navigate         |
 | ~C-[~     | exit             |
@@ -62,31 +65,39 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
-| ~C-c TAB~           | [helm] ~helm-copy-to-buffer~                |
-| ~C-x n e~           | ~org-narrow-to-element~                     |
-| ~SPC h d l~         | ~spacemacs/describe-last-keys~              |
-| ~c~                 | [Info mode] ~Info-copy-current-node-name~   |
-| ~M-x~,              | [insert-mode] ~helm-M-x~                    |
-| ~C-y~               | [isearch-mode] ~yank-kill~                  |
-| ~SPC g f w~         | [custom] ~magit-find-current-file-from-rev~ |
-| ~SPC x o~           | ace link                                    |
-| ~C-S-h~             | [kill ring, helm] describe-key              |
-| ~SPC x w d~         | ~osx-dictionary-search-pointer~             |
-| ~M-h~, ~M-l~        | ~org-metaright~, like ~<M-right>~           |
-| ~amen~              | escape holy-mode                            |
-| ~set-initial-state~ | gimme normal, not iedit                     |
-| ~C-x M-:~           | ~repeat-complex-command~                    |
-| ~SPC v~             | ~er-expand-region~                          |
-| ~C-M-SPC~           | ~mark-sexp~                                 |
-| ~C-p~               | ~evil-paste-pop~                            |
-| ~SPC m g h~         | ~helm-css-scss~                             |
-| ~SPC b e~           | delete full buffer contents                 |
-| ~SPC w u~           | ~winner-undo~                               |
-| ~% m~, ~* %~        | [dired] ~dired-mark-files-regexp~           |
-| ~C-S-o~             | [dired] (custom) open in external app       |
-| ~F5~                | [in helm locate] open dired                 |
-| ~C-x C-b~           | [in helm] resume different helm buffer      |
-| ~C-c >~, ~C-c <~    | [in helm] next/prev file                    |
+| ~M-m~                | holy mode binding SPC equivalent                  |
+| ~SPC t m T~          | ~spacemacs/toggle-mode-line~                      |
+| ~SPC m n~, ~SPC n w~ | ~org-narrow-to-subtree~, ~widen~                  |
+| ~M-m~                | ~+root~                                           |
+| ~g f~                | ~find-file-at-point~                              |
+| ~C-x X q~            | ~top-level~                                       |
+| -                    | [mu4e] ~mu4e-view-raw-message~ show email address |
+| ~SPC s w w~          | ~spacemacs/helm-wikipedia-suggest~                |
+| ~C-c TAB~            | [helm] ~helm-copy-to-buffer~                      |
+| ~C-x n e~            | ~org-narrow-to-element~                           |
+| ~SPC h d l~          | ~spacemacs/describe-last-keys~                    |
+| ~c~                  | [Info mode] ~Info-copy-current-node-name~         |
+| ~M-x~,               | [insert-mode] ~helm-M-x~                          |
+| ~C-y~                | [isearch-mode] ~yank-kill~                        |
+| ~SPC g f w~          | [custom] ~magit-find-current-file-from-rev~       |
+| ~SPC x o~            | ace link                                          |
+| ~C-S-h~              | [kill ring, helm] describe-key                    |
+| ~SPC x w d~          | ~osx-dictionary-search-pointer~                   |
+| ~M-h~, ~M-l~         | ~org-metaright~, like ~<M-right>~                 |
+| ~amen~               | escape holy-mode                                  |
+| ~set-initial-state~  | gimme normal, not iedit                           |
+| ~C-x M-:~            | ~repeat-complex-command~                          |
+| ~SPC v~              | ~er-expand-region~                                |
+| ~C-M-SPC~            | ~mark-sexp~                                       |
+| ~C-p~                | ~evil-paste-pop~                                  |
+| ~SPC m g h~          | ~helm-css-scss~                                   |
+| ~SPC b e~            | delete full buffer contents                       |
+| ~SPC w u~            | ~winner-undo~                                     |
+| ~% m~, ~* %~         | [dired] ~dired-mark-files-regexp~                 |
+| ~C-S-o~              | [dired] (custom) open in external app             |
+| ~F5~                 | [in helm locate] open dired                       |
+| ~C-x C-b~            | [in helm] resume different helm buffer            |
+| ~C-c >~, ~C-c <~     | [in helm] next/prev file                          |
 
 | ~SPC tab~                   | alternate buffer                                 |
 | ~SPC f y~                   | kill/get path & filename                         |
@@ -265,11 +276,27 @@ In info:
 
 tab-width: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Display.html#Text-Display][manual - 14.19 How Text Is Displayed]]
 
-| ~C-M-[backslash]~ | ~indent-region~                        |
-| ~C-x TAB~         | ~indent-rigidly~                       |
-| ~TAB~             | ~indent-for-tab-command~               |
-| ~M-)~             | ~move-past-close-and-reindent~         |
-| ~>>~              | shifts right ~evil-shift-width~ amount |
+| ~SPC j =~              | ~spacemacs/indent-region-or-buffer~                  |
+| ~= [motion]~           | ~evil-indent~                                        |
+| ~SPC j =~              | ~spacemacs/indent-region-or-buffer~                  |
+| ~C-M-[backslash]~      | ~indent-region~                                      |
+| ~C-backspace~, ~M-DEL~ | ~clean-aindent--bsunindent~ (previous lesser-indent) |
+| ~C-x TAB~              | ~indent-rigidly~                                     |
+| ~TAB~                  | ~indent-for-tab-command~                             |
+| ~M-)~                  | ~move-past-close-and-reindent~                       |
+| ~>>~                   | shifts right ~evil-shift-width~ amount               |
+
+**** Clean Auto Indent
+
+https://www.emacswiki.org/emacs/PetarMarinov
+
+> ‘clean-aindent-mode’ is an extenstion that offers simple indentation (if configured so): no language mode magic, cursor is simply aligned under the previous non-blank line. It works in concert with the other feature, backspace unindent. If you press M-DEL, the cursor or the line is unindented, again looking at previous non-blank lines. And the third one, in its most minimal installation ‘clean-aindent-mode’ will take care to strip unused blank space left by ‘newline-and-indent’.
+>
+> The combination of these 3 small features intends to implement a simple, but to me, powerful, mode of dealing with indentation. It used to exist in old Borland editors (Turbo C/Pascal).
+>
+> The installation and configuration instructions are inside README.adoc.
+>
+> PetarMarinov
 
 #+BEGIN_SRC emacs-lisp
 (setq standard-indent 2)
@@ -482,7 +509,7 @@ emacs --no-splash -f view-hello-file
 
 ** kill & yank
 
-Use arguements with ~yank-pop~:
+Use arguments with ~yank-pop~:
 
 #+BEGIN_QUOTE
 With no argument, the previous kill is inserted.
@@ -591,8 +618,8 @@ See ~split-height-threshold~, ~split-width-threshold~, and ~split-window-preferr
 * modes
 ** clojure/cider
 
-| ~C-c C-z~ | ~cider-switch-to-[last-clojure|repl]-buffer~ |
-| ~C-c M-n~ | ~cider-repl-set-ns~ |
+| ~C-c C-z~ | jump between repl/file |
+| ~C-c M-n~ | ~cider-repl-set-ns~    |
 
 ** Emacs Lisp
 
@@ -626,7 +653,7 @@ delete:
 
 *** repl
 
-| ~C-c M-o | ~comint-clear-buffer~ |
+| ~C-c M-o~ | ~comint-clear-buffer~ |
 
 ** help
 
@@ -696,6 +723,14 @@ CSRaghunandan's [[https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-fi
 | ~SPC m c P~   | live preview using engine defined with layer variable =markdown-live-preview-engine= |
 | ~SPC m c e~   | export                                                                               |
 | ~SPC m c v~   | export and preview                                                                   |
+
+** proced
+
+| ~SPC a P~ | proced                          |
+| ~T~       | toggle tree                     |
+| ~F~       | format                          |
+| ~x~, ~k~  | send signal                     |
+| ~s~ n     | sort by ~c~ cpu, ~m~, ~S~ other |
 
 ** reference
 
@@ -789,6 +824,12 @@ directory in another window."
 *** sorting
 
 [[https://www.emacswiki.org/emacs/DiredSorting][Emacs Wiki - Dired Sorting]]
+
+** erc
+
+| ~C-c C-j~ | ~erc-join-channel~      |
+| ~C-c C-p~ | ~erc-part-from-channel~ |
+| ~C-c C-q~ | ~erc-quit-server~       |
 
 ** helm
 
@@ -921,7 +962,8 @@ ref [[https://emacs.stackexchange.com/questions/21197/how-can-i-map-helm-project
 ** latex                                                           :noexport:
 ** mu4e
 
-| ~C-c C-f C-c~ | ~message-goto-cc~ |
+| ~C-c C-f C-c~ | ~message-goto-cc~     |
+|               | ~mail-add-attachment~ |
 
 ** neotree
 

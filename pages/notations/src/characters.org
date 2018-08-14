@@ -95,6 +95,7 @@ There are text properties here:
 |-------------+----------------+-----------------+-------------------------------------------------------------------|
 | ~C-x 8 RET~ | [normal state] | ~insert-char~   | accepts unicode name, hex, or code point with ~#~-specified radix |
 | ~C-q~       | [insert state] | ~quoted-insert~ | insert literally                                                  |
+| ~M-m i u~   |                | ~helm-ucs~      |                                                                   |
 
 ** Emacs
 

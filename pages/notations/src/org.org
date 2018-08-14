@@ -11,15 +11,26 @@ path: "/org/"
 
 * Babel
 
-* Capture Templates
+* Capture
+
+| ~C-u C-c c~     | visit capture location    |
+| ~C-u C-u C-c c~ | visit latest capture      |
+| ~C-u 0 C-c c~   | insert a capture at point |
+| ~C-u 1 C-c c~   | capture with time prompt  |
+
+** Templates
+
+- [[info:org#Capture%20templates][info:org#Capture templates]]
+- [[info:org#Template%20expansion][info:org#Template expansion]]
 
 [[https://www.youtube.com/watch?v=KdcXu_RdKI0][How I Use org-capture and Stuff]] on YouTube, by [[https://twitter.com/yonkeltron?lang=en][Jonathan Magen]]
 
-| ~%U~       | inactive timestamp                                             |
-| ~%^{Name}~ | prompt/read                                                    |
-| ~%a~       | annotation ~org-store-link~ (takes you back to where you were) |
-| ~%i~       | active region                                                  |
-| ~%?~       | final cursor position                                          |
+| ~%U~       | inactive timestamp                                             |         |
+| ~%^{Name}~ | prompt/read                                                    |         |
+| ~%a~       | annotation ~org-store-link~ (takes you back to where you were) |         |
+| ~%i~       | active region, selected text                                   |         |
+| ~%f~, ~%F~ | file, path+file                                                |         |
+| ~%?~       | final cursor position                                          |         |
 
 [[https://github.com/emacs-helm/helm/wiki][org-protocol-capture-html]]
 
@@ -107,6 +118,64 @@ console.log(fruit);
 console.log(restItem);
 #+END_SRC
 
+* Contacts
+
+** org-contacts
+
+From [[https://www.reddit.com/r/orgmode/comments/71m0e9/does_orgcontacts_work_with_recent_versions_of/][reddit]]
+
+*** reference :no_export:
+
+#+BEGIN_EXAMPLE
+I've tried to get org-contacts to work with my Emacs setup, and I can't seem to make search display results. When i perform a search for Dave using org-contacts I get is a buffer containing:
+
+List of contacts matching `Dave':
+
+Empty line—No results. I've set my org-contacts-files to a list of one single file containing:
+
+#+STARTUP: showeverything
+* Friends
+** Dave Null                               :dumb:
+:PROPERTIES:
+:EMAIL: dave@null.com
+:END:
+This is one of my friend.
+** Slash Bin                             :school:
+:PROPERTIES:
+:EMAIL: slash@localhost.com
+:END:
+That good old Slash.
+* Family
+** Exam Pelle                              :dumb:
+:PROPERTIES:
+:EMAIL: exam@pelle.com
+:END:
+
+Which I have taken from the documentation I found here: https://julien.danjou.info/projects/emacs-packages#org-contacts
+
+I can't seem to find anything about org-contacts in the org-mode manual, and the source file seems to be copyrighted 2010–2014.
+
+Any org-contacts users out there who can confirm that this project works with a recent version of Emacs ? I am interested in this approach because I can keep my todo items with my contacts so I can keep track of my commitments.
+
+Update: I found that the search results are shown in an org-agenda view; mine doesn't show items without a todo-status, so if I add the TODO keyword to the person entry it will show up in the search result view.
+
+Update 2 this is what I ended up with in my setup: https://github.com/gausby/emacs.d/commit/3081472846b045a277c9c5910e871e5ca1d156b1
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Hi!
+
+org-contacts is just a convention how to use property drawers for contact information.
+
+I am using org-contacts like this: https://raw.githubusercontent.com/novoid/org-contacts2vcard/master/testdata/testcontacts.org and I export it via https://github.com/novoid/org-contacts2vcard to vcard files to import into Android contact management.
+
+Within my contacts.org I use standard Emacs/Org-mode methods to search: sparse trees and text search.
+
+Using the tags FirstnameLastname and my customized link contact: I am able to reference to a contact from within my other org-mode files: https://github.com/novoid/dot-emacs/blob/master/config.org#links
+
+HTH
+#+END_EXAMPLE
+
 * Export
 
 [[http://orgmode.org/manual/Easy-templates.html#Easy-templates][manual - 15.2 Easy Templates]]
@@ -189,11 +258,18 @@ This section is not exported.
 
 [[info:org#Handling%20links][info:org#Handling links]]
 
-| ~C-c l~       | ~SPC a o l~ | ~org-store-link~    |
-| ~C-c C-l~     | ~SPC m i l~ | ~org-insert-link~   |
-| ~C-c C-o~     | ~SPC m l~   | ~org-open-at-point~ |
-| ~C-c C-x C-n~ |             | ~org-next-link~     |
-| ~C-c C-x C-p~ |             | ~org-previous-link~ |
+| ~C-c l~, ~SPC a o l~   | ~org-store-link~              |
+| ~C-c C-l~, ~SPC m i l~ | ~org-insert-link~             |
+| ~C-c M-l~              | ~org-insert-last-stored-link~ |
+| ~C-c C-o~, ~SPC m l~   | ~org-open-at-point~           |
+| ~C-c C-x C-n~          | ~org-next-link~               |
+| ~C-c C-x C-p~          | ~org-previous-link~           |
+| -                      | ~org-toggle-link-display~     |
+
+* Links
+
+| ~C-c l~   | ~org-store-link~              |
+| ~C-c M-l~ | ~org-insert-last-stored-link~ |
 
 * Local variables
 
@@ -205,6 +281,50 @@ This section is not exported.
 :# org-id-method: uuid
 # end:
 #+END_EXAMPLE
+
+* Misc
+
+- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]] by Eric H. Neilsen, Jr.
+
+** Date/time
+
+Navigate the calendar:
+
+| <RET>              | Choose date at cursor in calendar.             |
+| mouse-1            | Select date by clicking on it.                 |
+| S-<RIGHT>/<LEFT>   | One day forward/backward.                      |
+| S-<DOWN>/<UP>      | One week forward/backward.                     |
+| M-S-<RIGHT>/<LEFT> | One month forward/backward.                    |
+| > / <              | Scroll calendar forward/backward by one month. |
+| M-v / C-v          | Scroll calendar forward/backward by 3 months.  |
+| M-S-<DOWN>/<UP>    | Scroll calendar forward/backward by one year.  |
+
+** Pipe character in tables
+
+Use ~\vert~. See [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][manual - 11.6 Special symbols]]. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.
+
+** Timer
+
+| ~C-c C-x 0~ | ~org-timer-start~             |
+| ~C-c C-x ;~ | ~org-timer-set-timer~         |
+| ~C-c C-x .~ | ~org-timer~ insert value      |
+| ~C-c C-x -~ | ~org-timer-item~              |
+| ~C-c C-x ,~ | ~org-timer-pause-or-continue~ |
+| ~C-c C-x _~ | ~org-timer-timer-stop~        |
+
+** Visibility/folds/exansion
+
+Control visibility on startup:
+
+#+BEGIN_EXAMPLE
+#+STARTUP: showeverything
+#+END_EXAMPLE
+
+or
+
+#+BEGIN_SRC emacs-lisp
+(setq org-startup-folded nil)
+#+END_SRC
 
 * My Project Setup :noexport:
 
@@ -274,6 +394,11 @@ ls
 | tmux.md         |
 | type.md         |
 | vim.md          |
+
+* Properties
+
+[[info:org#Property%20syntax][info:org#Property syntax]]
+[[info:org#Special%20properties][info:org#Special properties]]
 
 * Spreadsheets
 
@@ -379,25 +504,3 @@ console.log('will be tangled');
       '(("TODO" . org-warning) ("STARTED" . "yellow")
         ("CANCELED" . (:foreground "blue" :weight bold))))
 #+END_SRC
-
-* Misc
-
-- [[http://ehneilsen.net/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]] by Eric H. Neilsen, Jr.
-
-** Visibility/folds/exansion
-
-Control visibility on startup:
-
-#+BEGIN_EXAMPLE
-#+STARTUP: showeverything
-#+END_EXAMPLE
-
-or
-
-#+BEGIN_SRC emacs-lisp
-(setq org-startup-folded nil)
-#+END_SRC
-
-** Pipe character in tables
-
-Use ~\vert~. See [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][manual - 11.6 Special symbols]]. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.

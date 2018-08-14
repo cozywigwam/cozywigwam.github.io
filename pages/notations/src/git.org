@@ -141,16 +141,20 @@ git reflog [show] # `show` is default
 ** submodules
 
 #+BEGIN_EXAMPLE
-    git submodule add git@github.com:sunflowerseastar/my-submodule.git my-submodule-path
-    git submodule update --init
+git submodule add git@github.com:sunflowerseastar/my-submodule.git my-submodule-path
+git submodule update --init
 #+END_EXAMPLE
 
-#+BEGIN_EXAMPLE
-    # list merged branches
-    for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+*** list merged branches
 
-    # ...unmerged
-    for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+#+BEGIN_EXAMPLE
+for branch in `git branch -r --merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
+#+END_EXAMPLE
+
+*** ...unmerged
+
+#+BEGIN_EXAMPLE
+for branch in `git branch -r --no-merged | grep -v HEAD`; do echo -e `git show --format="%ci %cr %an" $branch | head -n 1` \\t$branch; done | sort -r
 #+END_EXAMPLE
 
 ** update-index
@@ -347,7 +351,7 @@ ediff freeze problem, ref: https://github.com/syl20bnr/spacemacs/issues/4730
 
 *** reference
 
-- [[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][Additional proposed infix arguements and suffix commands]]
+- [[https://github.com/magit/magit/wiki/Additional-proposed-infix-arguments-and-suffix-commands][Additional proposed infix arguments and suffix commands]]
 - [[https://magit.vc/manual/magit/MacOS-Performance.html][macOS - use emacs-plus to reduce sluggishness]]
 - [[https://www.reddit.com/r/emacs/comments/2n9tj8/anyone_care_to_share_their_magit_workflow/][reddit workflows]]
 

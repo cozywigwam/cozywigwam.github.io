@@ -13,8 +13,8 @@ path: "/lisp/"
 (setq x 3)
 #+END_SRC
 
-* Special forms
 
+* Special forms
 ** setq
 
 #+BEGIN_EXAMPLE
@@ -33,13 +33,101 @@ The return value of the ‘setq’ form is the value of the last VAL.
 [back]
 #+END_EXAMPLE
 
-* Scheme
+* Dialects
+** Clojure
 
-** misc
+*** Data Structures
 
-~(environment-bound? (nearest-repl/environment) 'is-this-defined)~
+| Maps    | ~{:id 1 :name "test"}~      |
+| Vectors | ~[1 2 3]~                   |
+| Lists   | ~'(1 2 3)~                  |
+| Sets    | ~#{:a "apple" :b "banana"}~ |
 
-** debugging
+**** Vectors
+
+[[https://hypirion.com/musings/understanding-persistent-vector-pt-1][Understanding Clojure's Persistent Vectors, pt. 1]], by [[https://github.com/hyPiRion][Jean Niklas L’orange]]
+
+*** Leiningen
+
+[[https://github.com/technomancy/leiningen/blob/master/sample.project.clj][options]]
+
+To go to existing namespace:
+
+#+BEGIN_SRC clojure
+(load "my_project/core")
+
+;; then
+
+(in-ns 'my-project.core)
+#+END_SRC
+
+Or in ~project.clj~:
+
+#+BEGIN_SRC clojure
+:repl-options {:init-ns my-project.core}
+#+END_SRC
+
+*** misc
+
+**** for
+
+#+BEGIN_SRC clojure
+(def a {:x 1 :y 2})
+(:x a)
+
+(def as [a a])
+(for [{n :x} as] n)
+(for [{n :x} as :let [x (:x n) y (:y n)]] n)
+(for [{n :x} as :let [{x :x} n) {y :y} n]] n)
+
+(for [word ["blah" "other"]] (format "%s" word)
+
+(for [x (:edges @app-state)] (:name (:a-component x)))
+
+(for [{x :a-component} (:edges @app-state)] x)
+
+
+#+END_SRC
+
+[[http://clojure-doc.org/articles/cookbooks/files_and_directories.html][Recipes]]
+
+**** transducers
+
+[[http://clj-me.cgrand.net/2014/10/08/these-arent-the-reducing-functions-you-are-looking-for/][These aren’t the reducing functions you are looking for]], by [[https://github.com/cgrand][Christophe Grand]]
+
+*** nREPL
+
+https://nrepl.readthedocs.io/en/latest/design/
+
+> nREPL largely consists of three abstractions: handlers, middleware, and transports. These are roughly analogous to the handlers, middleware, and adapters of Ring, though there are some important semantic differences. Finally, nREPL is fundamentally message-oriented and asynchronous (in contrast to most REPLs that build on top of streams provided by e.g. terminals).
+
+> ~id~ is for tracking a single message, and ~sessions~ are for tracking remote state
+
+~*nrepl-messages*~ nREPL requests & responses
+
+| ~C-c M-d~ | ~cider-describe-connection~ |
+
+*** reference
+
+- [[http://www.4clojure.com/][4Clojure]]
+- [[https://clojure.org/api/cheatsheet][API Cheatsheet]]
+- [[https://en.wikibooks.org/wiki/Learning_Clojure/Data_Structures][WikiBooks Learning Clojure Data Structure]]
+- [[https://github.com/clojure-cookbook/clojure-cookbook][Clojure Cookbook github]]
+
+** Common Lisp
+
+*** reference
+
+[[http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/][A Road to Common Lisp]], by [[https://twitter.com/stevelosh][Steve Losh]]
+
+[[http://www.lispworks.com/documentation/lw70/CLHS/Front/Contents.htm][Common Lisp HyperSpec]]
+
+** Scheme
+*** misc
+
+ ~(environment-bound? (nearest-repl/environment) 'is-this-defined)~
+
+*** debugging
 
 | ? | help, list command letters                                               |
 | A | show All bindings in current environment and its ancestors               |
@@ -75,3 +163,7 @@ The return value of the ‘setq’ form is the value of the last VAL.
 [[http://www.neilvandyke.org/quack/quack.el][quack.el]]
 
 [[https://groups.csail.mit.edu/mac/users/gjs/6.945/dont-panic/][Don't Panic!]] by rlm, larsj re debugging
+
+* Misc
+
+[[https://www.dreamsongs.com/Books.html][Richard Gabriel's writings]]

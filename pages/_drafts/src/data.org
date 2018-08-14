@@ -1,0 +1,90 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: noexport
+#+BEGIN_EXAMPLE
+---
+title: "Data"
+layout: notation
+description: Relatable
+path: "/data/"
+---
+#+END_EXAMPLE
+
+* databases
+** couch
+
+http://couchdb.apache.org/
+
+[[http://docs.couchdb.org/en/2.1.1/intro/tour.html][Getting started docs]]
+
+Web access: http://127.0.0.1:5984/_utils/
+
+#+BEGIN_SRC sh
+# running?
+curl http://127.0.0.1:5984/
+
+# list dbs
+curl -X GET http://127.0.0.1:5984/_all_dbs
+
+# create db
+curl -X PUT http://127.0.0.1:5984/baseball
+#+END_SRC
+
+* graphQL
+
+reference
+
+Example GraphQL SDL syntax data model:
+
+#+BEGIN_SRC sh
+type User {
+  id: ID! @unique
+  email: String @unique
+  name: String!
+  posts: [Post!]!
+}
+
+type Post {
+  id: ID! @unique
+  title: String!
+  published: Boolean! @default(value: "false")
+  author: User
+}
+#+END_SRC
+
+* datatypes
+
+** graphs
+
+- adjacency list
+- adjacency matrix
+- incidence matrix
+
+* misc
+
+** SDL - Schema Definition Language
+
+A "schema definition" specifies a schema. The definitions are sometimes referred to as IDL or SDL. [ref](https://www.graph.cool/docs/faq/graphql-idl-schema-definition-language-kr84dktnp0/)
+
+SDL - Schema Definition Language
+
+IDL ([[https://en.wikipedia.org/wiki/Interface_description_language][interface description language)]] - API spec
+
+* books
+
+** [[https://dataintensive.net/][Designing Data-Intensive Applications]], by [[https://martin.kleppmann.com/][Martin Kleppmann]]
+
+#+BEGIN_QUOTE
+In an ideal world, the running time of a batch job is the size of the dataset divided by the throughput. testz  In practice, the running time is often longer, due to skew (data not being spread evenly across worker processes) and needing to wait for the slowest task to compete.
+#+END_QUOTE
+
+Impedance mismatch (borrowed from electronics) - ...an awkward translation layer is required between the objects in the application code and the database model of tables, rows, and columns.
+
+#+BEGIN_QUOTE
+As a rule of thumb, if you're duplicating values that could be stored in just one place, the schema is not normalized.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Even CODASYL committee members admitted that this was like navigating around an [n]-dimensional data space.
+
+cited Charles W. Bachman: "the Programmer as Navigator," Communications of the ACM, volume 16, number 11, pages 653-658, November 1973
+#+END_QUOTE

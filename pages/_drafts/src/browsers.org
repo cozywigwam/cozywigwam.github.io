@@ -119,8 +119,11 @@ Help -> Troubleshooting Information
 
 ** Shortcuts
 
-[[https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts][Mozilla
-keyboard shortcuts]]
+[[https://developer.mozilla.org/en-US/docs/Tools/Keyboard_shortcuts][Mozilla keyboard shortcuts]]
+
+** Take a screenshot
+
+Location is Firefox's default download location (Preferences -> Files and Applications -> Downloads), =~/Downloads=.
 
 ** [[https://github.com/cmcaine/tridactyl][Tridactyl]]
 

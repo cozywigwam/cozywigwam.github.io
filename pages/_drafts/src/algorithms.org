@@ -2,7 +2,7 @@
 #+EXCLUDE_TAGS: noexport
 #+BEGIN_EXAMPLE
 ---
-title: "Algorithms"
+title: "Algorithms and Data Structures"
 layout: notation
 description: Basics
 path: "/algorithms/"
@@ -16,7 +16,8 @@ path: "/algorithms/"
 - O(n * log n) - fast sorting algorithm, e.g. quicksort
 - O(n2
 
-* Binary Search
+* Algorithms
+** Binary Search
 
 Works for sorted arrays.
 
@@ -43,277 +44,7 @@ my_list = [1, 3, 5, 7, 9]
 print binary_search(my_list, 9)
 #+END_SRC
 
-* Selection Sort
-
-Run through the whole list to select the highest/lowest, and repeat /n/ times.
-
-Define a mutable ~sorted~ array. Loop through the array, each time popping one "sorted" element (e.g. smallest), and appending it to ~sorted~. The sorting function returns the index indicating the smallest element.
-
-** python
-
-#+BEGIN_SRC python
-def findSmallest(arr):
-  smallest = arr[0]
-  smallest_index = 0
-  for i in range(1, len(arr)):
-    if arr[i] < smallest:
-      smallest = arr[i]
-      smallest_index = i
-  return smallest_index
-
-def selectionSort(arr):
-  newArr = []
-  for i in range(len(arr)):
-    smallest = findSmallest(arr)
-    newArr.append(arr.pop(smallest))
-  return newArr
-#+END_SRC
-
-** javascript
-
-#+BEGIN_SRC js
-  // array to sort
-  var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
-
-  // swap function helper
-  function swap(array, i, j) {
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-
-  function selectionSort(array) {
-    for(var i = 0; i < array.length; i++) {
-      var min = i;
-      for(var j = i + 1; j < array.length; j++) {
-        if(array[j] < array[min]) {
-          min = j;
-        }
-      }
-      if(i !== min) {
-        swap(array, i, min);
-      }
-    }
-    return array;
-  }
-
-  console.log(selectionSort(array));
-#+END_SRC
-
-#+RESULTS:
-: [1 (\, 2) (\, 3) (\, 4) (\, 5) (\, 6) (\, 7) (\, 8) (\, 9) (\, 10)]
-
-* Quicksort
-** C
-
-Credit: [[http://knking.com/books/c2/index.html][K. N. King, C Programming: A Modern Approach, Second Edition]]
-
-#+BEGIN_SRC c
-#include <stdio.h>
-
-#define N 10
-
-void quicksort(int a[], int low, int high);
-int split(int a[], int low, int high);
-
-int main(void)
-{
-  int a[N], i;
-
-  printf("Enter %d numbers to be sorted: ", N);
-  for (i = 0; i < N; i++)
-    scanf("%d", &a[i]);
-
-  quicksort(a, 0, N - 1);
-  printf("In sorted order: ");
-  for (i = 0; i < N; i++)
-    printf("%d ", a[i]);
-  printf("\n");
-
-  return 0;
-}
-
-void quicksort(int a[], int low, int high)
-{
-  int middle;
-
-  if (low >= high) return;
-  middle = split(a, low, high);
-  quicksort(a, low, middle - 1);
-  quicksort(a, middle + 1, high);
-}
-
-int split(int a[], int low, int high)
-{
-  int part_element = a[low];
-
-  for (;;) {
-    while (low < high && part_element <= a[high])
-      high--;
-    if (low >= high) break;
-    a[low++] = a[high];
-
-    while (low < high && a[low] <= part_element)
-      low++;
-    if (low >= high) break;
-    a[high--] = a[low];
-  }
-
-  a[high] = part_element;
-  return high;
-}
-#+END_SRC
-
-** java
-
-http://gauss.ececs.uc.edu/Courses/C321/html/quicksort.java.html
-
-University of Cincinatti
-
-#+BEGIN_SRC java
-import java.io.*;
-import java.util.*;
-
-public class QuickSort
-{
-  public static void swap (int A[], int x, int y)
-  {
-    int temp = A[x];
-    A[x] = A[y];
-    A[y] = temp;
-  }
-
-  // Reorganizes the given list so all elements less than the first are
-  // before it and all greater elements are after it.
-  public static int partition(int A[], int f, int l)
-  {
-    int pivot = A[f];
-    while (f < l)
-      {
-        if (A[f] == pivot || A[l] == pivot)
-          {
-            System.out.println("Only distinct integers allowed - C321");
-            System.out.println("students should ignore this if statement");
-            System.out.exit(0);
-          }
-        while (A[f] < pivot) f++;
-        while (A[l] > pivot) l--;
-        swap (A, f, l);
-      }
-    return f;
-  }
-
-  public static void Quicksort(int A[], int f, int l)
-  {
-    if (f >= l) return;
-    int pivot_index = partition(A, f, l);
-    Quicksort(A, f, pivot_index);
-    Quicksort(A, pivot_index+1, l);
-  }
-
-  // Usage: java QuickSort [integer] ...
-  // All integers must be distinct
-  public static void main(String argv[])
-  {
-    int A[] = new int[argv.length];
-    for (int i=0 ; i < argv.length ; i++)
-      A[i] = Integer.parseInt(argv[i]);
-
-    Quicksort(A, 0, argv.length-1);
-
-    for (int i=0 ; i < argv.length ; i++) System.out.print(A[i] + " ");
-    System.out.println();
-  }
-}
-#+END_SRC
-
-** javascript
-
-#+BEGIN_SRC js
-const qs3 = arr => {
-  if (!arr.length) return [];
-  const [head, ...tail] = arr,
-    lt = tail.filter(x => x < head),
-    gt = tail.filter(x => x >= head);
-  return qs3(lt).concat(head, qs3(gt));
-};
-#+END_SRC
-
-** python
-
-#+BEGIN_SRC python
-def quicksort(array):
-  if len(array) < 2:
-    return array
-  else:
-    pivot = array[0]
-    less = [i for i in array[1:] if i <= pivot]
-    greater = [i for i in array[1:] if i > pivot]
-
-    return quicksort(less) + [pivot] + quicksort(greater)
-
-  print quicksort([10, 5, 2, 3])
-#+END_SRC
-
-** ruby
-
-Common-Sense Guide to Data Structures and Algorithms, by Jay Wengrow
-#+BEGIN_SRC ruby
-class SortableArray
-  attr_reader :array
-  def initialize(array)
-    @array = array
-  end
-  def partition!(left_pointer, right_pointer)
-    # right-most as pivot
-    pivot_position = right_pointer
-    pivot = @array[pivot_position]
-    # start right pointer immediately to left of pivot
-    right_pointer -= 1
-    while true do
-      whilte @array[left_pointer] < pivot do
-        left_pointer += 1
-      end
-      while @array[right_pointer] > pivot do
-        right_pointer -= 1
-      end
-      if left_pointer >= right_pointer
-        break
-      else
-        swap(left_pointer, right_pointer)
-      end
-    end
-
-    # swap left pointer with pivot
-    swap(left_pointer, pivot_position)
-    return left_pointer
-  end
-
-  def swap(pointer_1, pointer_2)
-    temp_value = @array[pointer_1]
-    @array[pointer_1] = @array[pointer_2]
-    @array[pointer_2] = temp_value
-  end
-end
-
-def quicksort!(left_index, right_index)
-  # base case: subarray has 0 or 1
-  if right_index - left_index <= 0
-    return
-  end
-  # partition array and grab position of pivot
-  pivot_position = partition!(left_index, right_index)
-  quicksort!(left_index, pivot_position - 1)
-  quicksort!(pivot_position + 1, right_index)
-end
-
-array = [0, 5, 2, 1, 6, 3]
-sortable_array = SortableArray.new(array)
-sortable_array.quicksort!(0, array.length - 1)
-p sortable_array.array
-#+END_SRC
-
-* Breadth-first search
+** Breadth-first search
 
 [[https://www.manning.com/books/grokking-algorithms][Grokking Algorithms by Aditya Y. Bhargava]]
 
@@ -378,8 +109,8 @@ def search(name, target):
     return False
 #+END_SRC
 
-* Misc
-** Add numbers recursively
+** Misc
+*** Add numbers recursively
 
 #+BEGIN_SRC python
 def sum(arr):
@@ -394,11 +125,23 @@ def rAdd(arr):
   return arr
 #+END_SRC
 
-** Cube root
+*** Cube root
 
-** Factorial
+*** Expression Problem
 
-*** clojure
+coined by Philip Wadler in an email, Bell Labs, 1998 ([[https://www.ibm.com/developerworks/java/library/j-clojure-protocols/?ca=drs-#expression][ref]])
+
+http://www.daimi.au.dk/~madst/ecoop04/main.pdf
+
+#+BEGIN_QUOTE
+The expression problem (aka the extensibility problem)  refers to a fundamental dilemma of programming: To which degree can your application be structured in such a way that both the data model and the set of virtual operations over it can be extended without the need to modify existing code, without the need for code repetition and without runtime type errors.
+#+END_QUOTE
+
+[[https://www.ibm.com/developerworks/java/library/j-clojure-protocols/?ca=drs][Solving the Expression Problem with Clojure 1.2]]-, by Stuart Sierra
+
+*** Factorial
+
+**** clojure
 
 #+BEGIN_SRC clojure
 (def factorial
@@ -409,14 +152,14 @@ def rAdd(arr):
         (recur (dec cnt) (* acc cnt))))))
 #+END_SRC
 
-*** common lisp
+**** common lisp
 
 #+BEGIN_SRC lisp
 (defun fact (n)
   (if (zerop n) 1
       (* n (fact (1- n)))))
 #+END_SRC
-*** emacs lisp
+**** emacs lisp
 
 #+BEGIN_SRC emacs-lisp
 (defun fact (n)
@@ -424,7 +167,7 @@ def rAdd(arr):
     (* n (fact2 (1- n)))))
 #+END_SRC
 
-*** js
+**** js
 
 #+BEGIN_SRC js
 function fac(n) {
@@ -436,7 +179,21 @@ function fac(n) {
 }
 #+END_SRC
 
-*** python
+**** Pascal
+
+from Data Structures and Algorithms, Aho, Hopcroft, Ullman (1987).
+
+#+BEGIN_SRC pascal
+Function fact (n: integer) : integer;
+  Begin
+    If N <= 1 Then
+      return(1)
+    Else
+      return(n * fact(n - 1))
+  End; { fact }
+#+END_SRC
+
+**** python
 
 #+BEGIN_SRC python
 def fac(n):
@@ -446,7 +203,7 @@ def fac(n):
     return n * fac(n - 1)
 #+END_SRC
 
-*** scheme
+**** scheme
 
 #+BEGIN_SRC scheme
 (define (fac n)
@@ -464,9 +221,9 @@ def fac(n):
   (fac-iter n 1))
 #+END_SRC
 
-** Fibonacci
+*** Fibonacci
 
-*** clojure
+**** clojure
 
 #+BEGIN_SRC clojure
 (defn fib
@@ -485,7 +242,7 @@ def fac(n):
 (take 10 fibs)
 #+END_SRC
 
-*** js
+**** js
 
 #+BEGIN_SRC js
 function fib(n) {
@@ -510,7 +267,7 @@ function fib2(n) {
 }
 #+END_SRC
 
-*** python
+**** python
 
 #+BEGIN_SRC python
 def fib(n, first = 0, second = 1):
@@ -529,7 +286,7 @@ def fib2(n):
   return fibi(1, 1, n)
 #+END_SRC
 
-*** scheme
+**** scheme
 
 #+BEGIN_SRC scheme
 (define (fib n)
@@ -548,4 +305,428 @@ def fib2(n):
   (fib-iter 1 1 n))
 #+END_SRC
 
-** Square Root
+*** Recursion
+
+ [[https://sarabander.github.io/sicp/html/1_002e2.xhtml#g_t1_002e2_002e1][SICP]]
+
+#+BEGIN_QUOTE
+linear recursive process - ...the length of the chain of deferred multiplications, and hence the amount of information needed to keep track of it, grows linearly with ~n~.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+linear iterative process - In computing ~n!~, the number of steps required grows linearly with ~n~.
+
+The contrast between the two processes can be seen in another way. In the iterative case, the program variables provide a complete description of the state of the process at any point.
+#+END_QUOTE
+
+Iterative processes execute in constant space.
+
+**** Exercise 1.9                                                 :no_export:
+
+ach of the following two procedures defines a method for adding two positive integers in terms of the procedures inc, which increments its argument by 1, and dec, which decrements its argument by 1.
+
+#+BEGIN_SRC scheme
+(define (+ a b)
+  (if (= a 0)
+      b
+      (inc (+ (dec a) b))))
+
+(define (+ a b)
+  (if (= a 0)
+      b
+      (+ (dec a) (inc b))))
+#+END_SRC
+
+Using the substitution model, illustrate the process generated by each procedure in evaluating (+ 4 5). Are these processes iterative or recursive?
+
+*** Square Root
+** Quicksort
+*** C
+
+ Credit: [[http://knking.com/books/c2/index.html][K. N. King, C Programming: A Modern Approach, Second Edition]]
+
+ #+BEGIN_SRC c
+#include <stdio.h>
+
+#define N 10
+
+void quicksort(int a[], int low, int high);
+int split(int a[], int low, int high);
+
+int main(void)
+{
+  int a[N], i;
+
+  printf("Enter %d numbers to be sorted: ", N);
+  for (i = 0; i < N; i++)
+    scanf("%d", &a[i]);
+
+  quicksort(a, 0, N - 1);
+  printf("In sorted order: ");
+  for (i = 0; i < N; i++)
+    printf("%d ", a[i]);
+  printf("\n");
+
+  return 0;
+}
+
+void quicksort(int a[], int low, int high)
+{
+  int middle;
+
+  if (low >= high) return;
+  middle = split(a, low, high);
+  quicksort(a, low, middle - 1);
+  quicksort(a, middle + 1, high);
+}
+
+int split(int a[], int low, int high)
+{
+  int part_element = a[low];
+
+  for (;;) {
+    while (low < high && part_element <= a[high])
+      high--;
+    if (low >= high) break;
+    a[low++] = a[high];
+
+    while (low < high && a[low] <= part_element)
+      low++;
+    if (low >= high) break;
+    a[high--] = a[low];
+  }
+
+  a[high] = part_element;
+  return high;
+}
+ #+END_SRC
+
+*** java
+
+ http://gauss.ececs.uc.edu/Courses/C321/html/quicksort.java.html
+
+ University of Cincinatti
+
+ #+BEGIN_SRC java
+import java.io.*;
+import java.util.*;
+
+public class QuickSort
+{
+  public static void swap (int A[], int x, int y)
+  {
+    int temp = A[x];
+    A[x] = A[y];
+    A[y] = temp;
+  }
+
+  // Reorganizes the given list so all elements less than the first are
+  // before it and all greater elements are after it.
+  public static int partition(int A[], int f, int l)
+  {
+    int pivot = A[f];
+    while (f < l)
+      {
+        if (A[f] == pivot || A[l] == pivot)
+          {
+            System.out.println("Only distinct integers allowed - C321");
+            System.out.println("students should ignore this if statement");
+            System.out.exit(0);
+          }
+        while (A[f] < pivot) f++;
+        while (A[l] > pivot) l--;
+        swap (A, f, l);
+      }
+    return f;
+  }
+
+  public static void Quicksort(int A[], int f, int l)
+  {
+    if (f >= l) return;
+    int pivot_index = partition(A, f, l);
+    Quicksort(A, f, pivot_index);
+    Quicksort(A, pivot_index+1, l);
+  }
+
+  // Usage: java QuickSort [integer] ...
+  // All integers must be distinct
+  public static void main(String argv[])
+  {
+    int A[] = new int[argv.length];
+    for (int i=0 ; i < argv.length ; i++)
+      A[i] = Integer.parseInt(argv[i]);
+
+    Quicksort(A, 0, argv.length-1);
+
+    for (int i=0 ; i < argv.length ; i++) System.out.print(A[i] + " ");
+    System.out.println();
+  }
+}
+ #+END_SRC
+
+*** javascript
+
+ #+BEGIN_SRC js
+const qs3 = arr => {
+  if (!arr.length) return [];
+  const [head, ...tail] = arr,
+    lt = tail.filter(x => x < head),
+    gt = tail.filter(x => x >= head);
+  return qs3(lt).concat(head, qs3(gt));
+};
+ #+END_SRC
+
+*** python
+
+ #+BEGIN_SRC python
+def quicksort(array):
+  if len(array) < 2:
+    return array
+  else:
+    pivot = array[0]
+    less = [i for i in array[1:] if i <= pivot]
+    greater = [i for i in array[1:] if i > pivot]
+
+    return quicksort(less) + [pivot] + quicksort(greater)
+
+  print quicksort([10, 5, 2, 3])
+ #+END_SRC
+
+*** ruby
+
+ Common-Sense Guide to Data Structures and Algorithms, by Jay Wengrow
+
+ #+BEGIN_SRC ruby
+class SortableArray
+  attr_reader :array
+  def initialize(array)
+    @array = array
+  end
+  def partition!(left_pointer, right_pointer)
+    # right-most as pivot
+    pivot_position = right_pointer
+    pivot = @array[pivot_position]
+    # start right pointer immediately to left of pivot
+    right_pointer -= 1
+    while true do
+      whilte @array[left_pointer] < pivot do
+        left_pointer += 1
+      end
+      while @array[right_pointer] > pivot do
+        right_pointer -= 1
+      end
+      if left_pointer >= right_pointer
+        break
+      else
+        swap(left_pointer, right_pointer)
+      end
+    end
+
+    # swap left pointer with pivot
+    swap(left_pointer, pivot_position)
+    return left_pointer
+  end
+
+  def swap(pointer_1, pointer_2)
+    temp_value = @array[pointer_1]
+    @array[pointer_1] = @array[pointer_2]
+    @array[pointer_2] = temp_value
+  end
+end
+
+def quicksort!(left_index, right_index)
+  # base case: subarray has 0 or 1
+  if right_index - left_index <= 0
+    return
+  end
+  # partition array and grab position of pivot
+  pivot_position = partition!(left_index, right_index)
+  quicksort!(left_index, pivot_position - 1)
+  quicksort!(pivot_position + 1, right_index)
+end
+
+array = [0, 5, 2, 1, 6, 3]
+sortable_array = SortableArray.new(array)
+sortable_array.quicksort!(0, array.length - 1)
+p sortable_array.array
+ #+END_SRC
+
+** Selection Sort
+
+ Run through the whole list to select the highest/lowest, and repeat /n/ times.
+
+ Define a mutable ~sorted~ array. Loop through the array, each time popping one "sorted" element (e.g. smallest), and appending it to ~sorted~. The sorting function returns the index indicating the smallest element.
+
+*** python
+
+ #+BEGIN_SRC python
+def findSmallest(arr):
+  smallest = arr[0]
+  smallest_index = 0
+  for i in range(1, len(arr)):
+    if arr[i] < smallest:
+      smallest = arr[i]
+      smallest_index = i
+  return smallest_index
+
+def selectionSort(arr):
+  newArr = []
+  for i in range(len(arr)):
+    smallest = findSmallest(arr)
+    newArr.append(arr.pop(smallest))
+  return newArr
+ #+END_SRC
+
+*** javascript
+
+ #+BEGIN_SRC js
+  // array to sort
+  var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+
+  // swap function helper
+  function swap(array, i, j) {
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  function selectionSort(array) {
+    for(var i = 0; i < array.length; i++) {
+      var min = i;
+      for(var j = i + 1; j < array.length; j++) {
+        if(array[j] < array[min]) {
+          min = j;
+        }
+      }
+      if(i !== min) {
+        swap(array, i, min);
+      }
+    }
+    return array;
+  }
+
+  console.log(selectionSort(array));
+ #+END_SRC
+
+ #+RESULTS:
+ : [1 (\, 2) (\, 3) (\, 4) (\, 5) (\, 6) (\, 7) (\, 8) (\, 9) (\, 10)]
+
+* Data Structures
+** Lists
+
+*** Data Structures and Algorithms, Aho, Hopcroft, Ullman.
+
+Operations:
+
+- ~INSERT(x, p, L)~
+- ~LOCATE(x, L)~
+- ~RETRIEVE(p, L)~
+- ~DELETE(p, L)~
+- ~NEXT(p, L)~
+- ~MAKENULL(L)~
+- ~FIRST(L)~
+- ~PRINTLIST(L)~
+
+Example program, independent of list representation:
+
+> p will be the "current" position in L, and q will move ahead to find equal elements
+
+#+BEGIN_SRC pascal
+procedure PURGE ( var L: LIST );
+  { PURGE removes duplicate elements from list L }
+  var
+     p, q: position;
+  begin
+     p := FIRST(L);
+     while p <> END(L) do begin
+        q := NEXT(p, L);
+        while q <> END(L) do
+          if same(RETRIEVE(p, L), RETRIEVE(q, L))
+             then DELETE(q, L)
+          else
+             q := NEXT(q, L);
+        p := NEXT(p, L)
+      end
+end; { PURGE }
+#+END_SRC
+
+**** Array implementation
+
+> Define the type ~LIST~ to be a record having two fields. The first field is an array of elements whose length is sufficient to hold the maximum size list that will be encountered. The second field is an integer ~last~ indicating the position of the last list element in the array.
+
+#+BEGIN_SRC pascal
+const maxlength = 100; { some suitable constant }
+type
+   LIST = record
+             elements : array[1...maxlength] of elementtype;
+             last     : integer
+          end;
+          position =  integer;
+function END ( var L: LIST ): position;
+begin
+   return (L.last + 1)
+end; { END }
+#+END_SRC
+
+> INSERT moves the elements at location ~p~, ~p+1~, …, ~last~ into locations ~p+1~, ~p+2~, …, ~last+1~ and then inserts the new element at location ~p~.
+
+#+BEGIN_SRC pascal
+procedure INSERT ( x: elementtype; p: position; var L: LIST);
+{ INSERT places x at position p in list L }
+var
+   q :  position;
+   begin
+      if L.last >= maxlength thne
+         error('listi s full')
+      else if (p > L.last + 1) or (p < 1) then
+         error('position does not exist')
+         else begin
+            for q := L.las downto p do
+               {shift elements at p, p+1, ... down one position }
+               L.elements[q + 1] := L.elements[q];
+            L.last := L.loast + 1;
+            L.elements[p] := x
+            end
+   end; { INSERT }
+#+END_SRC
+
+> DELETE removes the element at position ~p~ by moving the elements at positions ~p+1~, ~p+2~, …, ~last~ into position ~p~, ~p+1~, …, ~last-1~.
+
+#+BEGIN_SRC pascal
+procedure DELEETE ( p: position; var L: LIST) ;
+{ DELETE removes the element at position p of list L }
+var
+   q :  position;
+begin
+    if (p > L.last) or (p < l) then
+      error('position does not exist')
+    else begin
+         L.last := L.last - 1;
+         for q := p to L.last do
+            { shift elements at p+1, p+2, . . . up on poistion }
+            L.elements[q] := L.elements[q+1]
+    end
+end; { DELETE }
+#+END_SRC
+
+> LOCATE sequentially scans the array to look for a given element. If the element is not found, LOCATE returns ~last+1~.
+
+#+BEGIN_SRC pascal
+function LOCATE ( x: elemenettype; L: LIST ): position;
+{ LOCATE returns the position of x on list L }
+  var
+      q :  position;
+  begin
+      for q := 1 to L.last do
+          if L.elements[q] = x then
+            return(q);
+      return (L.last + 1) { if not found }
+  end; { LOCATE }
+#+END_SRC
+
+**** Pointer
+**** Cursor
+** Trees
+*** Red Black Trees
+
+http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_rbtree.aspx, Julienne Walker
