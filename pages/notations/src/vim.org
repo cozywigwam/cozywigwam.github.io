@@ -140,7 +140,7 @@ Delete unwanted lines:
 | =\D=               | non-digit [\^0-9]                                     |
 | =\s=               | white space [ ] ( and )                               |
 | =\_s=              | white space with newline                              |
-| =\S=               | non-white characters [\^ ] (not and )                 |
+| =\S=               | non-white space characters [\^ ] (not and )           |
 | =\l=               | lowercase alpha [a-z]                                 |
 | =\L=               | non-lowercase alpha [\^a-z]                           |
 | =\u=               | uppercase alpha [A-Z]                                 |

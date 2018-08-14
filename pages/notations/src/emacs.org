@@ -170,7 +170,7 @@ When using ag, ~-s~ is the case-sensitive flag.
 | ~g;~                | go to last edit                                               |
 | ~gf~                | go to file at point                                           |
 | ~\s-~               | white space ~[ ]~ (~<Tab>~ and ~<Space>~)                     |
-| ~\S-~               | non-white characters ~[^ ]~ (not ~<Tab>~ and ~<Space>~)       |
+| ~\S-~               | non-white space characters ~[^ ]~ (not ~<Tab>~ and ~<Space>~) |
 
 Delete/remove trailing whitespace:
 
