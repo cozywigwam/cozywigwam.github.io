@@ -35,7 +35,6 @@ The return value of the ‘setq’ form is the value of the last VAL.
 
 * Dialects
 ** Clojure
-
 *** Data Structures
 
 | Maps    | ~{:id 1 :name "test"}~      |
@@ -68,6 +67,15 @@ Or in ~project.clj~:
 #+END_SRC
 
 *** misc
+**** constants
+
+Use ~:const~ metadata tag ([[https://clojurefun.wordpress.com/2012/08/14/performance-tip-defining-constants/][ref]]):
+
+#+BEGIN_SRC clojure
+def ^:const avoid-reflection 10)
+#+END_SRC
+
+> As is commonly the case, the biggest performance win in Clojure comes from avoiding reflection.
 
 **** for
 
@@ -90,6 +98,223 @@ Or in ~project.clj~:
 #+END_SRC
 
 [[http://clojure-doc.org/articles/cookbooks/files_and_directories.html][Recipes]]
+
+**** style guides
+
+- [[https://dev.clojure.org/display/community/Library+Coding+Standards][Clojure Community - Library Coding Standards]]
+- [[https://github.com/bbatsov/clojure-style-guide][The Clojure Style Guide]], by [[https://twitter.com/bbatsov][Bozhidar Batsov]]
+
+#+BEGIN_QUOTE
+Use seq as a terminating condition to test whether a sequence is empty (this technique is sometimes called nil punning). [link]
+#+END_QUOTE
+
+#+BEGIN_SRC clojure
+;; good
+(defn print-seq [s]
+  (when (seq s)
+    (prn (first s))
+    (recur (rest s))))
+
+;; bad
+(defn print-seq [s]
+  (when-not (empty? s)
+    (prn (first s))
+    (recur (rest s))))
+#+END_SRC
+
+Other misc:
+
+#+BEGIN_SRC clojure
+;; good
+(if-let [result (foo x)]
+  (something-with result)
+  (something-else))
+
+;; good
+(when-let [result (foo x)]
+  (do-something-with result)
+  (do-something-more-with result))
+
+;; good
+(if-not pred
+  (foo))
+
+;; good
+(not= foo bar)
+
+;; bad
+(not (= foo bar))
+
+;; good
+(< 5 x 10)
+
+;; bad
+(and (> x 5) (< x 10))
+
+;; good
+(filter even? (range 1 10))
+
+;; bad
+(filter #(even? %) (range 1 10))
+
+;; good
+(filter (complement some-pred?) coll)
+
+;; bad
+(filter #(not (some-pred? %)) coll)
+
+;; Assuming `(:require [clojure.string :as str])`...
+
+;; good
+(map #(str/capitalize (str/trim %)) ["top " " test "])
+
+;; better
+(map (comp str/capitalize str/trim) ["top " " test "])
+
+;; good
+(map #(+ 5 %) (range 1 10))
+
+;; (arguably) better
+(map (partial + 5) (range 1 10))
+
+;; good
+(-> [1 2 3]
+    reverse
+    (conj 4)
+    prn)
+
+;; not as good
+(prn (conj (reverse [1 2 3])
+           4))
+
+;; good
+(->> (range 1 10)
+     (filter even?)
+     (map (partial * 2)))
+
+;; not as good
+(map (partial * 2)
+     (filter even? (range 1 10)))
+
+;; good
+(cond
+  (= x 10) :ten
+  (= x 20) :twenty
+  (= x 30) :thirty
+  :else :dunno)
+
+;; much better
+(condp = x
+  10 :ten
+  20 :twenty
+  30 :thirty
+  :dunno)
+
+;; best
+(case x
+  10 :ten
+  20 :twenty
+  30 :forty
+  :dunno)
+
+;; good
+(def ^:private a 5)
+
+;; bad
+(def ^{:private true} a 5)
+
+;; good
+(defn- private-fun [] ...)
+
+(def ^:private private-var ...)
+
+;; bad
+(defn private-fun [] ...) ; not private at all
+
+(defn ^:private private-fun [] ...) ; overly verbose
+
+(def private-var ...) ; not private at all
+
+;; good
+(defn f->c ...)
+
+;; not so good
+(defn f-to-c ...)
+
+;; good
+(let [[a b _ c] [1 2 3 4]]
+  (println a b c))
+
+(dotimes [_ 3]
+  (println "Hello!"))
+
+;; bad
+(let [[a b c d] [1 2 3 4]]
+  (println a b d))
+
+(dotimes [i 3]
+  (println "Hello!"))
+
+;; good
+(defn frobnitz
+  "This function does a frobnitz.
+  It will do gnorwatz to achieve this, but only under certain
+  circumstances."
+  []
+  ...)
+
+;; bad
+(defn frobnitz
+  "This function does a frobnitz. It will do gnorwatz to
+  achieve this, but only under certain circumstances."
+  []
+  ...)
+
+;; good
+(defn foo
+  "docstring"
+  [x]
+  (bar x))
+
+;; bad
+(defn foo [x]
+  "docstring"
+  (bar x))
+#+END_SRC
+
+- Use ~lisp-case~ for function and variable names.
+- Use ~CamelCase~ for protocols, records, structs, and types. (Keep acronyms like HTTP, RFC, XML uppercase.)
+
+Follow clojure.core's example for idiomatic names like pred and coll.
+
+functions:
+
+| ~f~, ~g~, ~h~ | function input               |
+| ~n~           | integer input usually a size |
+| ~index~, ~i~  | integer index                |
+| ~x~, ~y~      | numbers                      |
+| ~xs~          | sequence                     |
+| ~m~           | map                          |
+| ~s~           | string input                 |
+| ~re~          | regular expression           |
+| ~coll~        | a collection                 |
+| ~pred~        | a predicate closure          |
+| ~& more~      | variadic input               |
+| ~xf~          | xform, a transducer          |
+
+macros:
+
+| ~expr~    | an expression          |
+| ~body~    | a macro body           |
+| ~binding~ | a macro binding vector |
+
+> Avoid writing comments to explain bad code. Refactor the code to make it self-explanatory.
+
+| ~TODO~     |
+| ~FIXME~    |
+| ~OPTIMIZE~ |
+| ~HACK~     |
+| ~REVIEW~   |
 
 **** transducers
 
@@ -115,6 +340,23 @@ https://nrepl.readthedocs.io/en/latest/design/
 - [[https://github.com/clojure-cookbook/clojure-cookbook][Clojure Cookbook github]]
 
 ** Common Lisp
+
+*** Truth, Falsehood, and Equality
+
+from [[https://www.apress.com/us/book/9781590592397][Practical Common Lisp]] by [[http://www.gigamonkeys.com/][Peter Siebel]]
+
+~NIL~ is both an atom and a list
+
+> Using the empty list as false is a reflection o Lisp's heritage as a list-processing language much as the use of the integer 0 as false in C is a reflection of its heritage as a bit-twiddling language.
+
+Scheme's ~#f~, ~nil~, and ~()~ are all distinct. CL's ~NIL~ and ~()~ are "completely interchangeable."
+
+> And because ~NIL~... is the name of a constant variable with the symbol ~NIL~ as its value, the expressions ~nil~, ~()~, ~'nil~, and ~'()~ all evaluate to the same thing—the unquoted forms are evaluated as a reference to the constant variable whose value is the symbol ~NIL~, but in the quoted forms the ~QUOTE~ special operator evaluates to the symbol directly. For he same reason, both ~t~ and ~'t~ will evaluate to the same thing: the symbol ~T~.
+
+| ~EQ~     | "object identity", do not use for numbers and characters          |
+| ~EQL~    | ~EQ~ plus numbers & characters; PCL uses "'always use EQL' style" |
+| ~EQUAL~  | loosens ~EQL~'s discrimination                                    |
+| ~EQUALP~ | loosens more                                                      |
 
 *** reference
 

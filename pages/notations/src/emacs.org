@@ -276,10 +276,10 @@ In info:
 
 tab-width: [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Text-Display.html#Text-Display][manual - 14.19 How Text Is Displayed]]
 
-| ~SPC j =~              | ~spacemacs/indent-region-or-buffer~                  |
 | ~= [motion]~           | ~evil-indent~                                        |
 | ~SPC j =~              | ~spacemacs/indent-region-or-buffer~                  |
-| ~C-M-[backslash]~      | ~indent-region~                                      |
+| ~C-M-q~, ~SPC u C-M-q~ | (prog-mode.el) ~prog-indent-sexp~, defun             |
+| ~C-M-[backslash]~      | (indent.el) ~indent-region~                          |
 | ~C-backspace~, ~M-DEL~ | ~clean-aindent--bsunindent~ (previous lesser-indent) |
 | ~C-x TAB~              | ~indent-rigidly~                                     |
 | ~TAB~                  | ~indent-for-tab-command~                             |
