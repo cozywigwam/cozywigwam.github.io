@@ -32,6 +32,10 @@ https://hobo.house/2017/07/17/using-offlineimap-with-the-gmail-imap-api/
 
 > Note: using ~--dry-run~ as the first config run might throw non-existing directory errors ([[https://github.com/OfflineIMAP/offlineimap/issues/52][ref]])
 
+Set up app password (first, enable 2FA):
+
+> top-right avatar -> Google Account -> Sign-in & Security -> Signing In to Google -> Password & Sign-in Method -> App passwords
+
 #+BEGIN_SRC example
 [Account example]
 localrepository = example-local
