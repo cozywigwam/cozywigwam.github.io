@@ -25,3 +25,36 @@ sslcacertfile = /usr/local/etc/openssl/cert.pem
 ** password with gpg & python
 
 [[https://f-koehler.github.io/posts/2015-03-17-offlineimap-msmtp-gnupg.html][Encrypt OfflineIMAP and msmtp password with GnuPG]]
+
+** gmail
+
+https://hobo.house/2017/07/17/using-offlineimap-with-the-gmail-imap-api/
+
+> Note: using ~--dry-run~ as the first config run might throw non-existing directory errors ([[https://github.com/OfflineIMAP/offlineimap/issues/52][ref]])
+
+#+BEGIN_SRC example
+[Account example]
+localrepository = example-local
+remoterepository = example-remote
+synclabels = yes
+labelsheader = X-Keywords
+
+[Repository example-local]
+type = GmailMaildir
+localfolders = ~/.mail/example
+## Remove GMAIL prefix on Google-specific IMAP folders that are pulled down.
+nametrans = lambda f: '[Gmail]/' + f if f in ['Drafts', 'Spam', 'Trash', 'All Mail', 'Sent Mail'] else f
+
+[Repository example-remote]
+type = Gmail
+auth_mechanisms = XOAUTH2
+oauth2_client_id = ID
+oauth2_client_secret = SECRET
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+oauth2_refresh_token = TOKEN
+remotepasseval = PASS
+remoteuser = EMAIL_ADDRESS
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+## remove Gmail prefix on IMAP folders
+nametrans = lambda f: f.replace('[Gmail]/', '') if f.startswith('[Gmail]/') else f
+#+END_SRC

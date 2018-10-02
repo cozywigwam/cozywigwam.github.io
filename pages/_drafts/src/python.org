@@ -30,6 +30,54 @@ class Employee:
       print "Name : ", self.name,  ", Salary: ", self.salary
 #+END_SRC
 
+* Books
+** Doing Math with Python
+
+https://nostarch.com/doingmathwithpython
+
+*** Chapter 1
+
+**** Check if number is a factor
+
+#+BEGIN_SRC python
+def is_factor2(a, b):
+    if b % a == 0:
+        return True
+    else:
+        return False
+#+END_SRC
+
+#+BEGIN_SRC python
+def factors(b):
+    for i in range(1, b+1):
+        if b % i == 0:
+            print(i)
+#+END_SRC
+
+**** print a multiplication table
+
+#+BEGIN_SRC python
+def mult_table(x):
+    for i in range(1,12):
+        print('{0} x {1} = {2}').format(x, i, x * i)
+#+END_SRC
+
+**** convert C to F
+
+Celsius is five ninths of normalized Fahrenheit (F - 32). Fahrenheit is 32 on top of nine fifths of Celsius.
+
+#+BEGIN_SRC python
+def f_to_c(f):
+    return (f - 32) * 5 / 9
+
+def c_to_f(c):
+    return ((c * 9 / 5) + 32)
+#+END_SRC
+
+**** find quadratic equation roots
+
+\begin{array}{*{20}c} {x = \frac{{ - b \pm \sqrt {b^2 - 4ac} }}{{2a}}} & {{\rm{when}}} & {ax^2 + bx + c = 0} \\ \end{array}
+
 * Dictionaries
 
 moving items from one list to another
