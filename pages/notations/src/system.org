@@ -79,17 +79,6 @@ cause curl to pass the data to the server using the content-type
 Docker's changing IP address on macOS is ~docker.for.mac.localhost~
 ([[https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds][reference]]).
 
-** rsync
-
-| -a | mirror       |
-| -r | recurse dirs |
-| -n | dry run      |
-| -v | verbose      |
-
-*** Reference
-
-[[https://runnable.com/blog/9-common-dockerfile-mistakes][common mistakes]]
-
 ** dpkg
 
 #+BEGIN_SRC sh
@@ -200,6 +189,17 @@ rename files ~./old1.txt~, ~./old2.txt~
 #+BEGIN_SRC sh
 rename 's/old/new/g' *
 #+END_SRC
+
+** rsync
+
+| -a | mirror       |
+| -r | recurse dirs |
+| -n | dry run      |
+| -v | verbose      |
+
+*** Reference
+
+[[https://runnable.com/blog/9-common-dockerfile-mistakes][common mistakes]]
 
 ** rvm
 
