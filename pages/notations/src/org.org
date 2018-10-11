@@ -299,6 +299,13 @@ Navigate the calendar:
 | M-v / C-v          | Scroll calendar forward/backward by 3 months.  |
 | M-S-<DOWN>/<UP>    | Scroll calendar forward/backward by one year.  |
 
+** Footnotes
+
+| ~C-x C-c f~ | ~org-footnote-action~        |
+| ~C-c C-c~   | jump to definition/reference |
+| ~C-c C-o~   | follow link                  |
+| ~C-c '~     | separate window edit         |
+
 ** Pipe character in tables
 
 Use ~\vert~. See [[http://orgmode.org/manual/Special-symbols.html#Special-symbols][manual - 11.6 Special symbols]]. Use ~C-c C-x \~ (~org-toggle-pretty-entities~) to toggle display.

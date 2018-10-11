@@ -66,6 +66,17 @@ Or in ~project.clj~:
 :repl-options {:init-ns my-project.core}
 #+END_SRC
 
+*** libraries
+**** Quil
+
+***** reference
+
+- [[http://nbeloglazov.com/2014/05/29/quil-intro.html][Quil Intro]], by [[https://github.com/nbeloglazov][Nikita Beloglazov]]
+- [[http://quil.info/api][API]]
+- [[http://quil.info/sketches/create][Create]]
+- [[https://github.com/quil/quil/wiki][Wiki]]
+- [[https://github.com/yogthos/quil-reagent-demo][quil-reagent-demo]]
+
 *** misc
 **** constants
 
@@ -346,6 +357,16 @@ https://nrepl.readthedocs.io/en/latest/design/
 - [[https://github.com/clojure-cookbook/clojure-cookbook][Clojure Cookbook github]]
 
 ** Common Lisp
+*** books
+**** Common Lisp, by David Touretsky
+
+***** EVAL notation
+
+Eval rules:
+- symbols -> their variable's value
+- T, NIL -> T, NIL
+- numbers -> themselves
+- lists (non special forms) -> func arg & args
 
 *** Truth, Falsehood, and Equality
 

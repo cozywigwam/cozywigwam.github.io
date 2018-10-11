@@ -9,7 +9,17 @@ path: "/regexp/"
 ---
 #+END_EXAMPLE
 
-BRE recognized metacharacters:
+* Syntax
+
+** recognized metacharacters
+
+*** multiplier equivalences
+
+| ~*~ | ~{0,}~  |
+| ~+~ | ~{1,}~  |
+| ~?~ | ~{0,1}~ |
+
+*** BRE
 
 - ~^~
 - ~$~
@@ -18,7 +28,7 @@ BRE recognized metacharacters:
 - ~]~
 - ~*~
 
-ERE additions:
+*** ERE
 
 - ~(~
 - ~)~
@@ -28,7 +38,7 @@ ERE additions:
 - ~+~
 - ~|~
 
-ERE all:
+*** ERE all
 
 - ~^~
 - ~$~
@@ -53,19 +63,18 @@ Lisp - syntax of regular expressions manual]]
 
 ~(~, ~)~, and ~|~ will match exactly, so they must be escaped: ~\(~, ~\)~, ~\|~.
 
-** [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Special.html#Regexp-Special][Special
-Characters]]
+** [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Special.html#Regexp-Special][Special Characters]]
 
-| ~.~              | any except newline |
-| ~*~              |
-| ~+~              |
-| ~?~              |
-| ~*?~, ~+?~, ~??~ | non-greedy |
-| ~[~ ... ~]~      | character alternative |
+| ~.~              | any except newline                                  |
+| ~*~              |                                                     |
+| ~+~              |                                                     |
+| ~?~              |                                                     |
+| ~*?~, ~+?~, ~??~ | non-greedy                                          |
+| ~[~ ... ~]~      | character alternative                               |
 | ~[^~ ... ~]~     | "complemented" (non-matching) character alternative |
-| ~^~              |
-| ~$~              |
-| ~\~              |
+| ~^~              |                                                     |
+| ~$~              |                                                     |
+| ~\~              |                                                     |
 
 #+BEGIN_QUOTE
   Note that ‘\' also has special meaning in the read syntax of Lisp
@@ -125,5 +134,16 @@ Constructs in Regular Expressions]]
 
 * Misc
 
-Perl uses a "slightly larger and richer set of notations" (The Linux
-Command Line: A Complete Introduction, William E. Schotts, Jr.).
+Perl uses a "slightly larger and richer set of notations" ([[https://nostarch.com/tlcl][The Linux Command Line: A Complete Introduction, William E. Schotts, Jr.]]).
+
+* Reference
+
+- [[https://www.regular-expressions.info][Regular-Expressions.info]]
+
+* Terminology
+
+backtracking - unwinding a multiplier to seek an earlier/smaller match—can lead to long execution times
+
+general multiplier - ~{}~ in ~/x{5,10}/~
+
+lookaround - non-character capturing assertions to test before ("lookbehind") and after ("lookahead")

@@ -45,6 +45,9 @@ console.log('%c \n\
 undefined
 #+end_example
 
+* animation
+
+[[https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/][High Performance Animations]], by Paul Lewis and Paul Irish
 
 * .cups file in root `~/.cups/lpoptions`
 

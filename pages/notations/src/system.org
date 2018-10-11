@@ -366,6 +366,8 @@ identify -format '%w %h' img.png ## measure/get img pixel dims
 scp -r <local_spec> <remote_spec>
 #+END_SRC
 
+*LDH rule* - letters, digits, hyphen ([[https://en.wikipedia.org/wiki/Email_address#Domain][ref]])
+
 ** create mp3 using say & lame
 
 [[https://stackoverflow.com/a/16501717/1052412][Stack Overflow ref]]
@@ -384,6 +386,8 @@ yyyy-mm-ddThh:mm:ss.sssZ
 [[https://en.wikipedia.org/wiki/List_of_military_time_zones][Zulu time]]
 
 ** gpg/pgp :no_export:
+
+| ~gpgconf --reload gpg-agent~ | reload (~SIGHUP~) gpg-agent (if wrong pw is cached) |
 
 ** semver
 

@@ -219,3 +219,6 @@ code()
 #+END_SRC
 
 ref Meta Stack Exchange [[https://meta.stackexchange.com/questions/3327/code-block-is-not-properly-formatted-when-placed-immediately-after-a-list-item][Code block is not properly formatted when placed immediately after a list item {duplicate}]]
+** Reference
+
+[[http://homepages.inf.ed.ac.uk/wadler/papers/next700/next700.pdf][The Next 700 Markup Languages]], by Philip Wadler

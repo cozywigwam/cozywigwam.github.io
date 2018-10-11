@@ -9,4 +9,13 @@ path: "/types/"
 ---
 #+END_EXAMPLE
 
+* Misc
+
 Hindley-Milner (HM)
+
+* JavaScript
+** Flow
+
+[[https://flow.org/en/docs/types/][Type Annotations]]
+
+** TypeScript

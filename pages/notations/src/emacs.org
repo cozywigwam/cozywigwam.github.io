@@ -65,7 +65,10 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
-| ~M-m~                | holy mode binding SPC equivalent                  |
+| ~C-l~                | [company] ~company-complete-selection~            |
+| ~M-`~                | ~jump-to-mark~                                    |
+| ~C-c C-y~            | [helm] yank selection                             |
+| ~M-m~                | top-level, ~SPC~ equivalent                       |
 | ~SPC t m T~          | ~spacemacs/toggle-mode-line~                      |
 | ~SPC m n~, ~SPC n w~ | ~org-narrow-to-subtree~, ~widen~                  |
 | ~M-m~                | ~+root~                                           |
@@ -395,7 +398,7 @@ If you want to change an entire entry:
 (spacemacs/set-leader-keys "'" 'projectile-run-term)
 #+END_SRC
 
-** control keys
+** control keys, literals
 
 | ~C-i~ | ~<TAB>~    |
 | ~C-m~ | ~<return>~ |
@@ -521,11 +524,17 @@ If ~N~ is negative, this is a more recent kill.
 
 [[https://www.emacswiki.org/emacs/EndOfLineTips][Emacs Wiki EOL tips]]
 
-~revert-buffer-with-coding-system~
+| ~C-x C-m r~ | ~revert-buffer-with-coding-system~ |
+| ~C-x C-m f~ | ~set-buffer-file-coding-system~    |
 
-** other configs                                                   :noexport:
+> ~C-m~ = ~RET~ (cf. [[*control keys, literals][control keys, literals]])
 
-[[https://github.com/r-darwish/dcp/blob/000856dc0622e70b576cceb87322c45d37b7d73f/.spacemacs][r-darwish]]
+workflow: revert to ~dos~ -> set to ~unix~ -> save file
+
+** other configs/links                                             :noexport:
+
+- [[https://github.com/r-darwish/dcp/blob/000856dc0622e70b576cceb87322c45d37b7d73f/.spacemacs][r-darwish]]
+- [[https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform][Why You Should Buy Into the Emacs Platform]], by [[https://xkqr.org/profile][Chris Stjernlöf]]
 
 ** perform action on current buffer (example)
 
@@ -747,6 +756,7 @@ CSRaghunandan's [[https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-fi
 
 [[https://www.gnu.org/software/emacs/refcards/pdf/dired-ref.pdf][Dired Reference Card]]
 
+| ~Z~          | ~dired-do-compress~                  | zip, unzip, tar, etc.                   |
 | ~K~, ~gr~    | hide/kill and show/revert            |                                         |
 | ~w~          | ~dired-copy-filename-as-kill~        | copy filename                           |
 | ~SPC u 0 w~  | copy filename with full path         |                                         |
@@ -962,8 +972,48 @@ ref [[https://emacs.stackexchange.com/questions/21197/how-can-i-map-helm-project
 ** latex                                                           :noexport:
 ** mu4e
 
-| ~C-c C-f C-c~ | ~message-goto-cc~     |
-|               | ~mail-add-attachment~ |
+| ~C-c C-f C-c~ | ~message-goto-cc~                         |
+|               | ~mail-add-attachment~                     |
+| ~C-c RET C-a~ | [dired custom] add attachments from dired |
+| ~C-c RET C-s~ | ~mml-secure-message-sign~                 |
+| ~C-c RET C-c~ | ~mml-secure-message-encrypt~              |
+| ~C-c RET C-e~ | ~mml-secure-message-sign-encrypt~         |
+
+*** searching
+
+[[https://www.djcbsoftware.nl/code/mu/mu4e/Queries.html#Queries][Manual - 7.1 Queries]]
+
+- ~bananas~
+- ~from:john and flag:attach and bananas~
+- ~subject:wombat and date:20170601..20170630~
+- ~maildir:/projects and mime:application/pdf~
+- ~"maildir:/Sent Items" and rupert~
+- ~flag:signed and prio:high~
+- ~from:jim and not flag:attach~
+- ~contact:alice~
+- ~subject:Ångström and flag:unread~
+- ~date:20120301..20130831 and nightingale and flag:unread~
+- ~date:today..now~
+- ~date:2w.. and emacs~
+- ~list:mu-discuss.googlegroups.com~
+- ~subject:soc*~
+- ~NOT flag:list~
+- ~file:pic*~
+- ~mime:application/pdf~
+- ~mime:image/*~
+
+- contact:
+- date:
+  - date:today..now
+  - date:20181201..20190131
+- flag:
+  - signed, attach
+- from:
+- list:
+- maildir:
+- mime:
+- subject:
+- to:
 
 ** neotree
 

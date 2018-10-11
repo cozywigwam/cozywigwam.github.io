@@ -526,10 +526,126 @@ Promise.resolve('foo').then(null).then(function (result) {
 
 [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise][MDN]]
 
+** Reduce
+
+[[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce][MDN Array.prototype.reduce()]]
+
+#+BEGIN_SRC js
+const myArr = [1, 2, 3]
+const myAdditionReducer = (acc, n) => acc + n;
+myArr.reduce(myAdditionReducer); // 6
+#+END_SRC
 
 * Libraries
+** D3
+*** nvd3
+
+[[http://nvd3-community.github.io/nvd3/examples/documentation.html][Documentation]]
+
+create nv chart (from [[https://css-tricks.com/how-to-make-a-modern-dashboard-with-nvd3-js/][How to Make a Modern Dashboard with nvd3.js]])
+
+#+BEGIN_SRC js
+nv.addGraph(function () {
+  var chart = nv.models.lineChart() // Initialise the lineChart object.
+    .useInteractiveGuideline(true); // Turn on interactive guideline (tooltips)
+chart.xAxis
+    .axisLabel('TimeStamp (Year)'); // Set the label of the xAxis (Vertical)
+chart.yAxis
+    .axisLabel('Degrees (c)') // Set the label of the xAxis (Horizontal)
+    .tickFormat(d3.format('.02f')); // Rounded Numbers Format.
+d3.select('#averageDegreesLineChart svg') // Select the ID of the html element we defined earlier.
+    .datum(temperatureIndexJSON) // Pass in the JSON
+    .transition().duration(500) // Set transition speed
+    .call(chart); // Call & Render the chart
+  nv.utils.windowResize(chart.update); // Intitiate listener for window resize so the chart responds and changes width.
+  return;
+});
+#+END_SRC
+
 ** Ramda :noexport:
 *** hard to understand
+**** setting initial redux states
+
+#+BEGIN_SRC js
+import navFooterGlobalReducer from 'reducers/navFooterGlobal';
+
+const initialNavFooterGlobalState = {
+  navFooterGlobal: [],
+};
+
+const loadReducer = R.curry((initialState, reducer, state, action) => {
+  try {
+    return R.invoker(2, action.type)(
+      R.defaultTo(initialState, state),
+      action,
+      reducer
+    );
+  } catch (e) {
+    return R.defaultTo(initialState, state);
+  }
+});
+
+export default combineReducers({
+  navFooterGlobal: loadReducer(
+    initialNavFooterGlobalState,
+    navFooterGlobalReducer
+  ),
+});
+
+import reducers from './reducers';
+
+const store = compose(
+  applyMiddleware(routerMiddleware(history), thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : f => f
+)(createStore)(reducers);
+#+END_SRC
+
+Rather than setting initial state when combining the reducers, the redux docs show setting initial state [[https://redux.js.org/basics/reducers#handling-actions][this way]]:
+
+#+BEGIN_SRC js
+import { VisibilityFilters } from './actions'
+
+const initialState = {
+  visibilityFilter: VisibilityFilters.SHOW_ALL,
+  todos: []
+}
+
+function todoApp(state = initialState, action) {
+  switch (action.type) {
+    case SET_VISIBILITY_FILTER:
+      return Object.assign({}, state, {
+        visibilityFilter: action.filter
+      })
+    default:
+      return state
+  }
+}
+#+END_SRC
+
+Seems like "loadReducer" should be named "fallbackNilToInitialStateAndCatchUndefined." It's doing three things:
+
+1 - curryingl
+
+Secondly, I feel like "loadReducer" is misnamed. Seems like it's not "loading" a reducer, but rather applying ~R.invoker~ (in a possibly un-idiomatic way?) to use an initial state in case of null.
+
+Re ~invoker~, it's saying "I want to call ~action.type~ with two arguments," and then immediately invoking the returned function with an arity mismatch error of 3 arguments: 1 - (R.defaultTo(initialState, state), action, reducer). First of all, it's a bit convoluted or magical here because loadReducer's try block doesn't evaluate until it's received the curried in final 2 arguments from combineReducer. This is "magical" because it currently looks like combineReducers has a set of key/value pairs where the value is a binary function... but it's not binary, because combineReudcers is passing the final two curried args in.
+
+Re ~R.defaultTo(initialState, state)~, I'm unclear on why the ~state~ would be null. What sort of reducer would be giving a null state here?
+
+I'm also unclear on why there's a try/catch. What type of error do we anticipate here? I would initially think "arity," but it's curried, so my gut tells me that a try/catch here might lead to more subtle bugs rather than assist in catching others..?
+
+And why is it curried? It's only called in one very specific place in the code, to do one very specific thing (swap a null action for a fallback/default initial state), and that calls it with two arguments.
+
+ref https://github.com/reduxjs/redux/blob/master/docs/api/combineReducers.md ...
+
+> While combineReducers attempts to check that your reducers conform to some of these rules, you should remember them, and do your best to follow them. combineReducers will check your reducers by passing undefined to them; this is done even if you specify initial state to Redux.createStore(combineReducers(...), initialState). Therefore, you must ensure your reducers work properly when receiving undefined as state, even if you never intend for them to actually receive undefined in your own code.
+
+... this might be the ratioanle behind the try/catch... but it seems like the rationale behind the initialStates and defatulTo as well... I suppose they're doing different things.
+
+
+**** unorthodox, misnamed, convoluted, uncommented data transformation
 
 #+BEGIN_SRC js
 const idKeyAsProp = (a, b) => R.assoc(b.id, b, a);
@@ -546,7 +662,250 @@ const SavedDashboardsReducer = (state = initialState, action) => {
 };
 #+END_SRC
 
+This reads like a puzzle. Reducing an ~assoc~ with ~(a, b) -> (b.id, b, a)~? Difficulties:
+
+1) ~assoc~'s signature is ~String → a → {k: v} → {k: v}~, which is surprising, particularly without extended Ramda knowledge
+
+2) transforming an object that contains a key property into a key/value pair with said id as the key is an unorthodox data manipulation: a) why? b) doesn't this duplicate the nested 'id' property now?
+
+3) naming error: "idKeyAsProp" should read "idPropAsKey"
+
+#+BEGIN_SRC js
+before = { id: 1, value: 'cat' }
+after = { 1: { id: 1, value: 'cat' } }
+#+END_SRC
+
+The reduction is using this transformation as the iterator function to construct a new object.
+
+#+BEGIN_SRC js
+fetchResponse = [
+  { id: 1, value: 'cat' },
+  { id: 2, value: 'dog' }
+]
+reductionResult = {
+  1: { id: 1, value: 'cat' },
+  2: { id: 2, value: 'dog' }
+}
+#+END_SRC
+
+Then ~R.assoc('data', R.__, state)~ appends the full existing ~state~ object with a key of ~'data'~:
+
+#+BEGIN_SRC js
+result = {
+  1: { id: 1, value: 'cat' },
+  2: { id: 2, value: 'dog' }
+  'data': { <state object, whatever it might be> }
+}
+#+END_SRC
+
 ** React
+*** Redux
+
+**** [[https://github.com/reduxjs/react-redux/blob/master/docs/api.md#connect][connect]]
+
+#+BEGIN_SRC js
+connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+
+// mapStateToProps(state, [ownProps]): stateProps
+// mapDispatchToProps(dispatch, [ownProps]): dispatchProps
+
+// mergeProps(stateProps, dispatchProps, ownProps): props
+//   - default is Object.assign({}, ownProps, stateProps, dispatchProps)
+#+END_SRC
+
+- ~mapStateToProps~ - subscribe to store
+- ~mapDispatchToProps~ - accepts object or function, use to bind action creators
+- ~mergeProps~ - select a slice of state, bind action creators to a variable
+
+Inject todos of a specific user depending on props, and inject props.userId into the action ([[https://github.com/reduxjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props-and-inject-propsuserid-into-the-action][ref]]):
+
+#+BEGIN_SRC js
+import * as actionCreators from './actionCreators'
+
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+function mergeProps(stateProps, dispatchProps, ownProps) {
+  return Object.assign({}, ownProps, {
+    todos: stateProps.todos[ownProps.userId],
+    addTodo: (text) => dispatchProps.addTodo(ownProps.userId, text)
+  })
+}
+
+export default connect(mapStateToProps, actionCreators, mergeProps)(TodoApp)
+#+END_SRC
+
+
+***** mapStateToProps
+
+#+BEGIN_SRC js
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapStateToProps = state => ({
+  user
+});
+
+// spread
+const mapStateToProps = (state, ownProps) => ({
+  ...state.user,
+});
+
+// destructure
+const mapStateToProps = ({ user: { name, email } }) => {
+  return { name, email };
+};
+
+const mapStateToProps = ({ user: { name, email } }) => ({
+  name,
+  email,
+});
+#+END_SRC
+
+***** mapDispatchToProps
+
+no mapping:
+
+#+BEGIN_SRC js
+// usage
+this.props.dispatch(updateUser(username, email));
+#+END_SRC
+
+with mapping, as object:
+
+#+BEGIN_SRC js
+// setup
+const mapDispatchToProps = {
+  updateUser,
+};
+
+// connect with mdtp
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+// usage
+updateUser(username, email);
+#+END_SRC
+
+***** mergeProps
+
+#+BEGIN_SRC js
+function mergeProps(stateProps, dispatchProps, ownProps) {
+  return Object.assign({}, ownProps, {
+    todos: stateProps.todos[ownProps.userId],
+    addTodo: (text) => dispatchProps.addTodo(ownProps.userId, text)
+  })
+}
+#+END_SRC
+
+*** reselect
+
+**** withProps, setPropTypes
+
+#+BEGIN_SRC js
+export default compose(
+  withProps(
+    ({
+      widgetData: {
+        metaJson: { widgetType },
+      },
+    }) => ({ widgetType})
+  ),
+  setPropTypes({
+    widgetData: PropTypes.object.isRequired,
+    widgetType: PropTypes.string,
+  })
+)(Widget);
+#+END_SRC
+
+#+BEGIN_SRC js
+export default compose(
+  withProps(({ widgetData: { description, filteredWidgetData, title } }) => ({
+    description,
+    title,
+    feedbackWidgetContents: R.compose(
+      R.filter(({ feedback }) => Boolean(feedback)),
+      R.map(
+        R.compose(
+          R.zipObj(['checkInTime', 'projectName', 'feedback']),
+          RA.paths([
+            ['expectedCheckinTime'],
+            ['metaJson', 'projectName'],
+            ['formState', 'feedback', 'message'],
+          ])
+        )
+      )
+    )(filteredWidgetData),
+  })),
+  setPropTypes({
+    description: PropTypes.string,
+    feedbackWidgetContents: PropTypes.arrayOf(
+      PropTypes.shape({
+        checkInTime: PropTypes.string,
+        feedback: PropTypes.string,
+        projectName: PropTypes.string,
+      })
+    ),
+    title: PropTypes.string,
+    widgetData: PropTypes.object.isRequired,
+  })
+)(FeedbackWidgetContainer);
+#+END_SRC
+
+**** withProps, withStateHandlers, setPropTypes
+
+#+BEGIN_SRC
+export default compose(
+  withProps(() => {
+    return {
+      title: mockData.title,
+      description: mockData.description,
+      photoWidgetContents: mockData.filteredWidgetData,
+    };
+  }),
+  withStateHandlers(
+    ({ currentSlide = 0, isDetailView = false }, open = false) => ({
+      currentSlide,
+      isDetailView,
+      open,
+    }),
+    {
+      handlePreviousSlide: (
+        { currentSlide },
+        { photoWidgetContents }
+      ) => () => ({
+        currentSlide:
+          currentSlide - 1 < 0
+            ? photoWidgetContents.length - 1
+            : currentSlide - 1,
+      }),
+      handleNextSlide: ({ currentSlide }, { photoWidgetContents }) => () => ({
+        currentSlide:
+          currentSlide + 1 > photoWidgetContents.length - 1
+            ? 0
+            : currentSlide + 1,
+      }),
+      toggleDetailView: ({ isDetailView }) => () => ({
+        isDetailView: !isDetailView,
+      }),
+    }
+  ),
+  setPropTypes({
+    description: PropTypes.string,
+    title: PropTypes.string,
+    widgetData: PropTypes.object.isRequired,
+  })
+)(PhotoWidgetContainer);
+#+END_SRC
 
 ** Components
 
@@ -599,15 +958,6 @@ export default class PostLink extends React.Component {
 
 *** Styled Components
 
-**** Smashing Magazine best practices
-Max Stoiber, best practices from [Smashing Magazine](https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/). Three main best practices:
-1 - building small, focused and independent components
-2 - splitting container and presentational components
-    - keep data/logic ("container components that render presentational components") and presentation/styling components separate
-3 - single-use CSS names
-
-- remove the map between styles and components
-
 
 **** YouTube video about styling components
 
@@ -653,70 +1003,45 @@ const PrimaryBtn = props =>
 export default Button
 #+END_SRC
 
-
-
-
 * Misc
 
 "Module request format," /a la node/: starts-with-dot is local.
 
-* testing with code blocks :noexport:
+** set org-babel-node command                                      :noexport:
 
-#+BEGIN_SRC js
-let colors = [ "red", "purple", "green" ];
-if (x) {
-  console.log('cl');
-}
-let [ firstColor, ...remain ] = colors;
-console.log(firstColor);
-console.log(remain);
-#+END_SRC
-
-#+RESULTS:
-: red
-: [ 'purple', 'green' ]
-: undefined
-
-#+BEGIN_SRC js2
-if (x) {
-  console.log('zxcv');
-}
-let colors = [ "red", "purple", "green" ];
-let [ firstColor, ...remain ] = colors;
-console.log(firstColor);
-console.log(remain);
-#+END_SRC
-
-
-
-* SCRATCH / TEST :noexport:
-
-#+BEGIN_SRC js :cmd "org-babel-node"
+ #+BEGIN_SRC js :cmd "org-babel-node"
 let props = {
   object: {},
   string: '',
   array: []
 }
 console.log(props);
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: { postData: { title: 'pd-title', description: 'pd-desc', path: 'pd-path' },
-:   title: 'reg-title',
-:   description: 'reg-desc',
-:   path: 'reg-path' }
-: undefined
+ #+RESULTS:
+ : { postData: { title: 'pd-title', description: 'pd-desc', path: 'pd-path' },
+ :   title: 'reg-title',
+ :   description: 'reg-desc',
+ :   path: 'reg-path' }
+ : undefined
 
 
-#+BEGIN_SRC js :cmd "org-babel-node --presets=es2015"
+ #+BEGIN_SRC js :cmd "org-babel-node --presets=es2015"
   const animals = ['dog', 'cat']
 
   animals.map((anim) => {
     console.log('anim', anim);
   })
-#+END_SRC
+ #+END_SRC
 
-#+RESULTS:
-: anim dog
-: anim cat
-: undefined
+ #+RESULTS:
+ : anim dog
+ : anim cat
+ : undefined
+* frameworks
+** Umbrella
+
+- [[https://github.com/thi-ng/umbrella][umbrella]]
+  - [[https://github.com/thi-ng/umbrella/tree/master/packages/hdom][hdom]]
+- [[https://medium.com/@thi.ng/how-to-ui-in-2018-ac2ae02acdf3][How to UI in 2018]] (Medium), by Karsten Schmidt
+

@@ -298,8 +298,9 @@ gitroot() {
 
 **** from log
 
-| =O=     | [in log] =magit-reset-popup=              | reset popup                     |
-| =L l=   | [in log] (custom) =magit-toggle-margin=   | toggle name & date side panel   |
+| =O=   | [in log] =magit-reset-popup=            | reset popup                   |
+| =L L= | [in log]                                | toggle side panel             |
+| =L l= | [in log] (custom) =magit-toggle-margin= | toggle name & date side panel |
 
 **** from commit
 
