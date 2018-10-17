@@ -2,10 +2,10 @@
 #+EXCLUDE_TAGS: noexport
 #+BEGIN_EXAMPLE
 ---
-title: "CSS"
+title: "Styles"
 layout: notation
 description: The Weird Kid at the Party
-path: "/css/"
+path: "/styles/"
 ---
 #+END_EXAMPLE
 
@@ -488,6 +488,18 @@ const TomatoButton = Button.extend`
       )
     }
 #+END_SRC
+
+*** Reference
+**** Smashing Magazine best practices
+
+[[https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/][Styled Components: Enforcing Best Practices In Component-Based Systems]], [[https://mxstbr.com/][Max Stoiber]]:
+
+- building small, focused and independent components
+- splitting container and presentational components
+  - keep data/logic ("container components that render presentational components") and presentation/styling components separate
+- single-use CSS names
+
+> The basic idea of styled components is to enforce best practices by removing the mapping between styles and components.
 
 * Misc
 
