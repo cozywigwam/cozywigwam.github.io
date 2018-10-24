@@ -1,0 +1,100 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: noexport
+#+BEGIN_EXAMPLE
+---
+title: "ML"
+layout: notation
+description: So There's This Type of Programming...
+path: "/ml/"
+---
+#+END_EXAMPLE
+
+* Books
+
+** The Little MLer
+
+[[https://mitpress.mit.edu/books/little-mler][The Little MLer,]] Matthias Felleisen and Daniel P. Friedman
+
+#+BEGIN_SRC sml
+datatype shish_kebab =
+         Skewer
+         | Onion of shish_kebab
+         | Lamb of shish_kebab
+         | Tomato of shish_kebab;
+
+fun is_vegetarian (Skewer)
+    = true
+  | is_vegetarian (Onion(x))
+    = is_vegetarian (x)
+  | is_vegetarian (Lamb(x))
+    = false
+  | is_vegetarian (Tomato(x))
+    = is_vegetarian (x);
+
+is_vegetarian: shish_kebab -> bool;
+#+END_SRC
+
+#+BEGIN_SRC sml
+datatype 'a shish =
+         Bottom of 'a
+         | Onion of 'a shish
+         | Lamb of 'a shish
+         | Tomato of 'a shish;
+
+fun is_veggie (Bottom(x)) = true
+  | is_veggie (Onion(x)) = is_veggie (x)
+  | is_veggie (Lamb(x)) = false
+  | is_veggie (Tomato(x)) = is_veggie (x);
+
+is_veggie: 'a shish -> bool;
+#+END_SRC
+
+*** 3 cons is still magnificent
+
+moral - Functions that produce values of a datatype must use the associated constructors to build data of that type.
+
+#+BEGIN_SRC sml
+datatype pizza =
+         Crust
+         | Cheese of pizza
+         | Onion of pizza
+         | Anchovy of pizza
+         | Sausage of pizza;
+
+fun remove_anchovy (Crust) =
+    Crust
+  | remove_anchovy (Cheese(x)) =
+    Cheese(remove_anchovy(x))
+  | remove_anchovy (Onion(x)) =
+    Onion(remove_anchovy(x))
+  | remove_anchovy (Anchovy(x)) =
+    remove_anchovy(x)
+  | remove_anchovy (Sausage(x)) =
+    Sausage(remove_anchovy(x));
+
+remove_anchovy: pizza -> pizza;
+
+
+
+fun top_anchovy_with_cheese (Crust) =
+    Crust
+  | top_anchovy_with_cheese (Cheese(x)) =
+    Cheese(top_anchovy_with_cheese(x))
+  | top_anchovy_with_cheese (Onion(x)) =
+    Onion(top_anchovy_with_cheese(x))
+  | top_anchovy_with_cheese (Anchovy(x)) =
+    Cheese(Anchovy(top_anchovy_with_cheese(x)))
+  | top_anchovy_with_cheese (Sausage(x)) =
+    Sausage(top_anchovy_with_cheese(x));
+
+top_anchovy_with_cheese: pizza -> pizza;
+
+(* top_anchovy_with_cheese(Onion(Anchovy(Cheese(Anchovy(Crust))))); *)
+(* -> (Onion(Cheese(Anchovy(Cheese(Cheese(Anchovy(Crust))))))) *)
+#+END_SRC
+
+*** morals
+
+1 - Use datatype to describe types. When a type contains lots of values, the datatype definition refers to itself. Use α with datatype to define shapes.
+2 - The number and order of the patterns in the definition of a function should match that of the definition of the consumed datatype.
+3 - Functions that produce values of a datatype must use the associated constructors to build data of that type.

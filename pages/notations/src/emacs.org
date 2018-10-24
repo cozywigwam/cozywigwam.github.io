@@ -65,6 +65,11 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
+| ~M-;~                | ~comment-dwim~                                    |
+| ~C-x <tab>~          | [visual] ~indent-rigidly~                         |
+| ~SPC h d s~          | ~spacemacs/describe-system-info~                  |
+| ~C-S-q~              | [custom] view-quit                                |
+| ~copy($-)~           | [chrome console] copy prev expression result      |
 | ~C-l~                | [company] ~company-complete-selection~            |
 | ~M-`~                | ~jump-to-mark~                                    |
 | ~C-c C-y~            | [helm] yank selection                             |
@@ -602,6 +607,14 @@ post [[http://justinsboringpage.blogspot.com/2009/04/running-elisp-function-on-e
   '(define-key evil-ex-completion-map (kbd "<f9>") 'exit-minibuffer))
 #+END_SRC
 
+** sort
+
+Upper/lowercase agnostic sorting: ~sort-fold-case~
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq sort-fold-case t)
+#+END_SRC
+
 ** text (not buffer) is read only
 
 - [[https://stackoverflow.com/a/30906336/1052412][Stack Overflow answer]]
@@ -744,6 +757,13 @@ CSRaghunandan's [[https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-fi
 ** reference
 
 [[http://ergoemacs.org/emacs/emacs_minor_mode.html][Ergo Emacs - Emacs: What's Minor Mode]]
+
+** SML
+
+| ~C-c C-l~ | ~sml-prog-proc-load-file~   |
+| ~C-c C-s~ | ~sml-prog-proc-switch-to~   |
+| ~C-c C-b~ | ~sml-prog-proc-send-buffer~ |
+| ~C-c C-r~ | ~sml-prog-proc-send-region~ |
 
 * packages
 ** company
@@ -969,7 +989,6 @@ ref [[https://emacs.stackexchange.com/questions/21197/how-can-i-map-helm-project
 | ~s m~        | major mode       |
 | ~s v~        | recent           |
 
-** latex                                                           :noexport:
 ** mu4e
 
 | ~C-c C-f C-c~ | ~message-goto-cc~                         |
@@ -1035,6 +1054,10 @@ ref [[https://emacs.stackexchange.com/questions/21197/how-can-i-map-helm-project
 ** skewer
 
 sample setup with html: [[https://emacs.stackexchange.com/a/2515/15295][Emacs Stack Exchange]]
+
+** tex                                                           :noexport:
+
+[[https://www.seanallred.com/old-articles/tex-terminology/][Who's Who in the World of TeX]], by [[https://www.seanallred.com/][Sean Allred]]
 
 ** TRAMP
 
