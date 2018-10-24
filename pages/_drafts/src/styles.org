@@ -382,44 +382,45 @@ write-up]]
 
 https://www.styled-components.com/docs/api#taggedtemplateliteral
 
-** Example with props
+** Examples
+*** With props
 
-#+BEGIN_SRC js
-import styled from 'styled-components';
+#+BEJs
+impoD from 'styled-components';
 
-const padding = '3em';
+consG = '3em';
 
-const Section = styled.section`
-  color: white;
+consN = styled.section`
+  coTe;
 
-  /* Pass variables as inputs */
-  padding: ${padding};
+  /*Riables as inputs */
+  pa{padding};
 
-  /* Adjust the background from the properties */
-  background: ${props => props.background};
+  /*The background from the properties */
+  ba: ${props => props.background};
 `;
-#+END_SRC
+#+EN
 
-https://www.styled-components.com/docs/api#attrs
+*** With ~.attrs~
 
-** Example with ~.attrs~
+httpStyled-components.com/docs/api#attrs
 
-#+BEGIN_SRC js
-import styled from 'styled-components';
+#+BEJs
+impoD from 'styled-components';
 
-const Input = styled.input.attrs({
-  type: 'text',
-  size: props => props.small ? 3 : 8
+cons= styled.input.attrs({
+  tyT',
+  siS => props.small ? 3 : 8
 })`
-  background: palevioletred;
-  border-radius: 3px;
-  border: none;
-  color: white;
-  padding: ${props => props.padding}
+  ba: palevioletred;
+  boIus: 3px;
+  boNe;
+  coTe;
+  pa{props => props.padding}
 `;
-#+END_SRC
+#+EN
 
-** Example extending styles
+*** Extending styles
 
 https://www.styled-components.com/docs/basics#extending-styles
 
@@ -441,55 +442,70 @@ const TomatoButton = Button.extend`
 `;
 #+END_SRC
 
-** Example directly to a Styled Component
+*** Styling a styled component
+*** Intermediate styled component
 
 #+BEGIN_SRC js
-    // /App.js
-    import { OrangeSpan } from './styled/Button.js'
-    // ...
-    <div>
-      <OrangeSpan/>
-    </div>
+// SpecialButton.js
 
-    // /styled/Button.js
-    import React from 'react'
-    import styled from 'styled-components';
+import styled from 'styled-components';
 
-    export const OrangeSpan = styled.span`
-      background: orange;
-    `
+const InnerSpecialButton = styled.div`
+  position: absolute;
+  left: ${(props) => (props.open) ? `${props.width}px` : 'none'};
+`
+export const SpecialButton = ({open, text}) => {
+  return (
+    <InnerSpecialButton {open}>
+      <span><img src="img" />{text}</span>
+    </InnerSpecialButton>
+  )
+}
+
+// usage
+import { SpecialButton } from './SpecialButton.js'
+
+<div>
+  <SpecialButton />
+</div>
 #+END_SRC
 
-** Example to an intermediate component inside styled/comp.js
+** Theme
+
+https://www.styled-components.com/docs/advanced
 
 #+BEGIN_SRC js
-    // /App.js
-    import { Button } from './styled/Button.js'
-    // ...
-    <div>
-      <Button/>
-    </div>
+const Button = styled.button`
+  color: ${props => props.theme.primaryColor};
+  border: 2px solid ${props => props.theme.primaryColor};
+`;
 
+// fallback
+Button.defaultProps = {
+  theme: {
+    primaryColor: "red"
+  }
+}
 
-    // /styled/Button.js
-    import React from 'react'
-    import styled from 'styled-components';
+// usage...
+import { ThemeProvider } from 'styled-components'
 
-    const ButtonThatMovesPerOpen = styled.div`
-      position: absolute;
-      margin-left: ${(props) => (props.open) ? `${props.width}px` : 'none'};
-      transition: margin .2s;
-    `
-    export const Button = (props) => {
-      return (
-        <ButtonThatMovesPerOpen {...props}>
-          <span onClick={props.toggle}>button</span>
-        </ButtonThatMovesPerOpen>
-      )
-    }
+const theme = {
+  primaryColor: "red"
+};
+
+render(
+  <div>
+    <Button>defaultProps fallback</Button>
+
+    <ThemeProvider theme={theme}>
+      <Button>"provided" theme</Button>
+    </ThemeProvider>
+  </div>
+);
 #+END_SRC
 
-*** Reference
+** Reference
 **** Smashing Magazine best practices
 
 [[https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/][Styled Components: Enforcing Best Practices In Component-Based Systems]], [[https://mxstbr.com/][Max Stoiber]]:

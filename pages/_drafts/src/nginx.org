@@ -9,13 +9,7 @@ path: "/nginx/"
 ---
 #+END_EXAMPLE
 
-*** Random
-
-#+BEGIN_SRC sh
-sudo nginx -t && sudo nginx -s reload # !nginxreload
-#+END_SRC
-
-*** force no-www & https
+* force no-www; https
 
 #+BEGIN_SRC sh
 server {
@@ -36,8 +30,7 @@ server {
 }
 #+END_SRC
 
-** SSL
-
+* SSL
 *** Let's Encrypt SSL
 
 [[https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-14-04][DO

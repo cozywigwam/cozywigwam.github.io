@@ -9,6 +9,475 @@ path: "/javascript/"
 ---
 #+END_EXAMPLE
 
+* Books :noexport:
+** Functional Programming in Javascript
+Luis Atencio, Manning
+
+[[https://manning-content.s3.amazonaws.com/download/f/3b00e17-1d45-4091-a86d-35b31222699a/Atencio_FuntionalProgrammingInJavaScript_Err13.html][errata]]
+
+** 5 - Design Patterns Against Complexity
+
+*** 5.2.1 - Wrapping Unsafe Values
+
+#+BEGIN_SRC js
+#+END_SRC
+
+* Frameworks
+** React
+*** JSX
+**** functional stateless component
+
+#+BEGIN_SRC js
+const Post = props => {
+  const { title, description, path } = props.postData;
+
+  return (
+    <PostHeader>
+      <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+      <PostDescription>{description}</PostDescription>
+    </PostHeader>
+  )
+}
+#+END_SRC
+
+props destructured:
+
+#+BEGIN_SRC js
+const Post = ({ title, description, path }) => {
+  return (
+    <PostHeader>
+      <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+      <PostDescription>{description}</PostDescription>
+    </PostHeader>
+  )
+}
+#+END_SRC
+
+return object literal:
+
+#+BEGIN_SRC js
+const Post = ({ title, description, path }) => (
+    <PostHeader>
+      <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+      <PostDescription>{description}</PostDescription>
+    </PostHeader>
+  )
+#+END_SRC
+
+return assumed (?) object literal:
+
+#+BEGIN_SRC js
+const Post = ({ title, description, path }) => <PostHeader>
+      <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+      <PostDescription>{description}</PostDescription>
+    </PostHeader>
+#+END_SRC
+
+**** class
+
+#+BEGIN_SRC js
+class Post extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { title, description, path } = this.props.postData;
+
+    return (
+        <PostHeader>
+          <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
+          <PostDescription>{description}</PostDescription>
+        </PostHeader>
+    );
+  }
+}
+#+END_SRC
+
+*** Redux
+**** [[https://github.com/reduxjs/react-redux/blob/master/docs/api.md#connect][connect]]
+
+#+BEGIN_SRC js
+connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
+
+// mapStateToProps(state, [ownProps]): stateProps
+// mapDispatchToProps(dispatch, [ownProps]): dispatchProps
+
+// mergeProps(stateProps, dispatchProps, ownProps): props
+//   - default is Object.assign({}, ownProps, stateProps, dispatchProps)
+#+END_SRC
+
+- ~mapStateToProps~ - subscribe to store
+- ~mapDispatchToProps~ - accepts object or function, use to bind action creators
+- ~mergeProps~ - select a slice of state, bind action creators to a variable
+
+Inject todos of a specific user depending on props, and inject props.userId into the action ([[https://github.com/reduxjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props-and-inject-propsuserid-into-the-action][ref]]):
+
+#+BEGIN_SRC js
+import * as actionCreators from './actionCreators'
+
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+function mergeProps(stateProps, dispatchProps, ownProps) {
+  return Object.assign({}, ownProps, {
+    todos: stateProps.todos[ownProps.userId],
+    addTodo: (text) => dispatchProps.addTodo(ownProps.userId, text)
+  })
+}
+
+export default connect(mapStateToProps, actionCreators, mergeProps)(TodoApp)
+#+END_SRC
+
+***** mapStateToProps
+
+#+BEGIN_SRC js
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapStateToProps = state => ({
+  user
+});
+
+// spread
+const mapStateToProps = (state, ownProps) => ({
+  ...state.user,
+});
+
+// destructure
+const mapStateToProps = ({ user: { name, email } }) => {
+  return { name, email };
+};
+
+const mapStateToProps = ({ user: { name, email } }) => ({
+  name,
+  email,
+});
+#+END_SRC
+
+***** mapDispatchToProps
+
+no mapping:
+
+#+BEGIN_SRC js
+// usage
+this.props.dispatch(updateUser(username, email));
+#+END_SRC
+
+with mapping, as object:
+
+#+BEGIN_SRC js
+// setup
+const mapDispatchToProps = {
+  updateUser,
+};
+
+// connect with mdtp
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
+
+// usage
+updateUser(username, email);
+#+END_SRC
+
+***** mergeProps
+
+#+BEGIN_SRC js
+function mergeProps(stateProps, dispatchProps, ownProps) {
+  return Object.assign({}, ownProps, {
+    todos: stateProps.todos[ownProps.userId],
+    addTodo: (text) => dispatchProps.addTodo(ownProps.userId, text)
+  })
+}
+#+END_SRC
+
+**** [[https://github.com/reduxjs/redux/blob/master/docs/api/combineReducers.md][combineReducers]]
+
+> The ~combineReducers~ helper function turns an object whose values are different reducing functions into a single reducing function you can pass to ~createStore~.
+
+Return ~state~ for unrecognized actions. Ensure that ~state~ is never undefined.
+
+This will outline/highlight the top-level "slices" of the store.
+
+#+BEGIN_SRC js
+import { ui, user, widgets } from './reducers'
+
+const rootReducer = combineReducers({
+  ui,
+  user,
+  widgets
+})
+
+// ...
+
+const store = createStore(
+  rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
+
+ReactDOM.render(
+  <Provider store={store}><App /></Provider>,
+  document.getElementById('root')
+)
+#+END_SRC
+
+> You may call combineReducers at any level of the reducer hierarchy. It doesn't have to happen at the top. In fact you may use it again to split the child reducers that get too complicated into independent grandchildren, and so on.
+
+**** devtools
+
+From the console: ~$r.store.getState()~, ~$r.store.dispatch({type:"MY_ACTION"})~
+
+**** persist with local storage
+
+[[https://egghead.io/lessons/javascript-redux-persisting-the-state-to-the-local-storage][egghead.io - Redux: Persisting the State to the Local Storage]], Dan Abramov
+
+#+BEGIN_SRC js
+// index.js
+
+import reducer from './reducers';
+import { loadState, saveState } from './localStorage';
+
+const persistedState = loadState();
+const store = createStore(
+  reducer,
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
+
+// localStorage.js
+
+export const loadState = () => {
+  try {
+    const serializedState = localStorage.getItem('state');
+    if (serializedState === null) {
+      console.warn('loadState: not using local storage');
+      return undefined;
+    }
+    return JSON.parse(serializedState);
+  } catch (err) {
+    console.warn('loadState error', err);
+    return undefined;
+  }
+};
+
+export const saveState = state => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('state', serializedState);
+  } catch (err) {
+    console.warn('saveState error', err);
+    return undefined;
+  }
+};
+#+END_SRC
+
+Only include select slices:
+
+#+BEGIN_SRC js
+store.subscribe(() => {
+  saveState(
+    todos: store.getState().todos
+  );
+});
+#+END_SRC
+
+Throttle writes (~JSON.stringify(state)~ is expensive):
+
+#+BEGIN_SRC js
+import throttle from 'lodash/throttle';
+
+store.subscribe(
+  throttle(() => {
+    saveState(store.getState());
+  }, 1000)
+);
+#+END_SRC
+
+**** thunk
+
+https://github.com/reduxjs/redux-thunk
+
+> A thunk is a function that wraps an expression to delay its evaluation.
+
+#+BEGIN_SRC js
+// calculation of 1 + 2 is immediate
+// x === 3
+let x = 1 + 2;
+
+// calculation of 1 + 2 is delayed
+// foo can be called later to perform the calculation
+// foo is a thunk!
+let foo = () => 1 + 2;
+#+END_SRC
+
+async dispatch:
+
+#+BEGIN_SRC js
+const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+
+function increment() {
+  return {
+    type: INCREMENT_COUNTER
+  };
+}
+
+function incrementAsync() {
+  return dispatch => {
+    setTimeout(() => {
+      // Yay! Can invoke sync or async actions with `dispatch`
+      dispatch(increment());
+    }, 1000);
+  };
+}
+#+END_SRC
+
+conditional dispatch:
+
+#+BEGIN_SRC js
+const incrementIfOdd = () => (dispatch, getState) => {
+    const { counter } = getState();
+
+    if (counter % 2 === 0) {
+      return;
+    }
+
+    dispatch(increment());
+  };
+
+function incrementIfOdd() {
+  return (dispatch, getState) => {
+    const { counter } = getState();
+
+    if (counter % 2 === 0) {
+      return;
+    }
+
+    dispatch(increment());
+  };
+}
+#+END_SRC
+
+*** reference
+
+[[https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically][CRA docs]]
+
+*** reselect
+
+**** withProps, setPropTypes
+
+#+BEGIN_SRC js
+export default compose(
+  withProps(
+    ({
+      widgetData: {
+        metaJson: { widgetType },
+      },
+    }) => ({ widgetType})
+  ),
+  setPropTypes({
+    widgetData: PropTypes.object.isRequired,
+    widgetType: PropTypes.string,
+  })
+)(Widget);
+#+END_SRC
+
+#+BEGIN_SRC js
+export default compose(
+  withProps(({ widgetData: { description, filteredWidgetData, title } }) => ({
+    description,
+    title,
+    feedbackWidgetContents: R.compose(
+      R.filter(({ feedback }) => Boolean(feedback)),
+      R.map(
+        R.compose(
+          R.zipObj(['checkInTime', 'projectName', 'feedback']),
+          RA.paths([
+            ['expectedCheckinTime'],
+            ['metaJson', 'projectName'],
+            ['formState', 'feedback', 'message'],
+          ])
+        )
+      )
+    )(filteredWidgetData),
+  })),
+  setPropTypes({
+    description: PropTypes.string,
+    feedbackWidgetContents: PropTypes.arrayOf(
+      PropTypes.shape({
+        checkInTime: PropTypes.string,
+        feedback: PropTypes.string,
+        projectName: PropTypes.string,
+      })
+    ),
+    title: PropTypes.string,
+    widgetData: PropTypes.object.isRequired,
+  })
+)(FeedbackWidgetContainer);
+#+END_SRC
+
+**** withProps, withStateHandlers, setPropTypes
+
+#+BEGIN_SRC
+export default compose(
+  withProps(() => {
+    return {
+      title: mockData.title,
+      description: mockData.description,
+      photoWidgetContents: mockData.filteredWidgetData,
+    };
+  }),
+  withStateHandlers(
+    ({ currentSlide = 0, isDetailView = false }, open = false) => ({
+      currentSlide,
+      isDetailView,
+      open,
+    }),
+    {
+      handlePreviousSlide: (
+        { currentSlide },
+        { photoWidgetContents }
+      ) => () => ({
+        currentSlide:
+          currentSlide - 1 < 0
+            ? photoWidgetContents.length - 1
+            : currentSlide - 1,
+      }),
+      handleNextSlide: ({ currentSlide }, { photoWidgetContents }) => () => ({
+        currentSlide:
+          currentSlide + 1 > photoWidgetContents.length - 1
+            ? 0
+            : currentSlide + 1,
+      }),
+      toggleDetailView: ({ isDetailView }) => () => ({
+        isDetailView: !isDetailView,
+      }),
+    }
+  ),
+  setPropTypes({
+    description: PropTypes.string,
+    title: PropTypes.string,
+    widgetData: PropTypes.object.isRequired,
+  })
+)(PhotoWidgetContainer);
+#+END_SRC
+** Umbrella
+
+- [[https://github.com/thi-ng/umbrella][umbrella]]
+  - [[https://github.com/thi-ng/umbrella/tree/master/packages/hdom][hdom]]
+- [[https://medium.com/@thi.ng/how-to-ui-in-2018-ac2ae02acdf3][How to UI in 2018]] (Medium), by Karsten Schmidt
+
 * Language
 ** Arrays :noexport:
 
@@ -195,7 +664,89 @@ console.log(fruit);
 console.log(restItem);
 #+END_SRC
 
-** Format
+** Events
+
+*** keyboard
+
+regular:
+
+#+BEGIN_SRC js
+handler = e => {
+  e.preventDefault();
+  if (e.key === 'd') {
+    this.setState({ isDebug: !this.state.isDebug });
+  }
+}
+componentDidMount() {
+  window.addEventListener('keypress', this.handler.bind(this))
+}
+componentWillUnmount() {
+  window.removeEventListener('keypress', this.handler)
+}
+#+END_SRC
+
+setting directly on ~window.onkeyup~:
+
+#+BEGIN_SRC js
+componentDidMount() {
+  const _handleKeycode = e => {
+    if (e.keyCode === 68) {
+      // 'd' key
+      this.setState({ isDebug: !this.state.isDebug });
+    } else if (e.keyCode === 75) {
+      // 'k' key
+      this.props.history.push('/');
+      window.location.reload();
+    }
+  };
+  window.onkeyup = _handleKeycode.bind(this);
+  this.preventDefault = e => e.preventDefault();
+}
+
+componentWillUnmount() {
+  window.onkeyup = null;
+}
+#+END_SRC
+
+rxjs:
+
+#+BEGIN_SRC js
+constructor() {
+  this.keyEvents$ = Rx.Observable.fromEvent(document, 'keydown');
+}
+
+componentDidMount() {
+  this.keyPressListeners = this.keyEvents$
+    .filter(
+      e =>
+        e.keyCode === 68 ||
+        e.keyCode === 81
+    )
+    .debounceTime(280)
+    .do(e => e.preventDefault())
+    .subscribe(({ keyCode }) => {
+      switch (keyCode) {
+      case 68:
+        // 'd' key
+        this.setState({ isDebug: !this.state.isDebug });
+        break;
+      case 81:
+        // 'q' key (for 'quit back to start screen')
+        this.props.history.push('/start');
+        window.location.reload();
+        break;
+      default:
+        break;
+      }
+    });
+}
+
+componentWillUnmount() {
+  this.keyPressListeners.unsubscribe();
+}
+#+END_SRC
+
+** Indentation/formatting
 *** Prettier
 
 [[https://prettier.io/docs/en/options.html][Prettier Options]]
@@ -220,19 +771,30 @@ With [[https://github.com/typicode/husky][husky]] and [[https://github.com/okone
 },
 
 // ...
-
 #+END_SRC
 
-*** run it through files
+**** reference
+
+from [[https://www.smlnj.org/doc/Emacs/sml-mode.html#dir][SML mode - The Emacs SML editing mode]]
+
+#+BEGIN_QUOTE
+2 Editing with SML Mode
+
+Now SML mode provides just a few additional editing commands. Most of the work has gone into implementing the indentation algorithm which, if you think about it, has to be complicated for a language like ML. See Indentation Defaults, for details on how to control some of the behaviour of the indentation algorithm. Principal goodies are the `electric pipe' feature, and the ability to insert common SML forms (macros or templates).
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+2.2 Automatic indentation
+
+ML is a complicated language to parse, let alone compile. The indentation algorithm is a little wooden (for some tastes), and the best advice is not to fight it! There are several variables that can be adjusted to control the indentation algorithm (see Customising SML Mode, below).
+#+END_QUOTE
+
+**** run it through files
 
 #+BEGIN_SRC sh
 prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
 prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
 #+END_SRC
-
-*** reference
-
-[[https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#formatting-code-automatically][CRA docs]]
 
 ** Iterators
 
@@ -265,6 +827,10 @@ const createIterator
 #+END_SRC
 
 ** Promises
+
+#+BEGIN_QUOTE
+"A Promise is simply an Observable with one single emitted value." [[*post: https://gist.github.com/staltz/868e7e9bc2a7b8c1f754][Andre Staltz]]
+#+END_QUOTE
 
 *** [[https://github.com/nolanlawson][Nolan Lawson]]
 
@@ -562,7 +1128,49 @@ d3.select('#averageDegreesLineChart svg') // Select the ID of the html element w
 });
 #+END_SRC
 
+*** reference
+
+[[https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71][Interactive Applications with React & D3]], by Elijah Meeks
+
+https://medium.com/technical-credit/declarative-d3-examples-in-react-6e736e526182
+
+** monet.js :noexport:
+
+[[https://github.com/monet/monet.js][github]]
+
 ** Ramda :noexport:
+*** Identity
+
+#+BEGIN_SRC js
+function _isPlaceholder(a) {
+  return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;
+}
+
+function _identity(x) {
+  return x;
+}
+
+function _curry1(fn) {
+  return function f1(a) {
+    if (arguments.length === 0 || _isPlaceholder(a)) {
+      return f1;
+    } else {
+      return fn.apply(this, arguments);
+    }
+  };
+}
+
+var identity = _curry1(_identity);
+
+const val = 5;
+const iVal = identity(val);
+console.log('iVal', iVal);
+#+END_SRC
+
+#+RESULTS:
+: iVal 5
+: undefined
+
 *** hard to understand
 **** setting initial redux states
 
@@ -644,7 +1252,6 @@ ref https://github.com/reduxjs/redux/blob/master/docs/api/combineReducers.md ...
 
 ... this might be the ratioanle behind the try/catch... but it seems like the rationale behind the initialStates and defatulTo as well... I suppose they're doing different things.
 
-
 **** unorthodox, misnamed, convoluted, uncommented data transformation
 
 #+BEGIN_SRC js
@@ -698,310 +1305,172 @@ result = {
 }
 #+END_SRC
 
-** React
-*** Redux
-
-**** [[https://github.com/reduxjs/react-redux/blob/master/docs/api.md#connect][connect]]
-
-#+BEGIN_SRC js
-connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
-
-// mapStateToProps(state, [ownProps]): stateProps
-// mapDispatchToProps(dispatch, [ownProps]): dispatchProps
-
-// mergeProps(stateProps, dispatchProps, ownProps): props
-//   - default is Object.assign({}, ownProps, stateProps, dispatchProps)
-#+END_SRC
-
-- ~mapStateToProps~ - subscribe to store
-- ~mapDispatchToProps~ - accepts object or function, use to bind action creators
-- ~mergeProps~ - select a slice of state, bind action creators to a variable
-
-Inject todos of a specific user depending on props, and inject props.userId into the action ([[https://github.com/reduxjs/react-redux/blob/master/docs/api.md#inject-todos-of-a-specific-user-depending-on-props-and-inject-propsuserid-into-the-action][ref]]):
-
-#+BEGIN_SRC js
-import * as actionCreators from './actionCreators'
-
-function mapStateToProps(state) {
-  return { todos: state.todos }
-}
-
-function mergeProps(stateProps, dispatchProps, ownProps) {
-  return Object.assign({}, ownProps, {
-    todos: stateProps.todos[ownProps.userId],
-    addTodo: (text) => dispatchProps.addTodo(ownProps.userId, text)
-  })
-}
-
-export default connect(mapStateToProps, actionCreators, mergeProps)(TodoApp)
-#+END_SRC
-
-
-***** mapStateToProps
-
-#+BEGIN_SRC js
-function mapStateToProps(state) {
-  return { todos: state.todos }
-}
-
-const mapStateToProps = state => {
-  return { user: state.user };
-};
-
-const mapStateToProps = state => ({
-  user: state.user
-});
-
-const mapStateToProps = state => ({
-  user
-});
-
-// spread
-const mapStateToProps = (state, ownProps) => ({
-  ...state.user,
-});
-
-// destructure
-const mapStateToProps = ({ user: { name, email } }) => {
-  return { name, email };
-};
-
-const mapStateToProps = ({ user: { name, email } }) => ({
-  name,
-  email,
-});
-#+END_SRC
-
-***** mapDispatchToProps
-
-no mapping:
-
-#+BEGIN_SRC js
-// usage
-this.props.dispatch(updateUser(username, email));
-#+END_SRC
-
-with mapping, as object:
-
-#+BEGIN_SRC js
-// setup
-const mapDispatchToProps = {
-  updateUser,
-};
-
-// connect with mdtp
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
-
-// usage
-updateUser(username, email);
-#+END_SRC
-
-***** mergeProps
-
-#+BEGIN_SRC js
-function mergeProps(stateProps, dispatchProps, ownProps) {
-  return Object.assign({}, ownProps, {
-    todos: stateProps.todos[ownProps.userId],
-    addTodo: (text) => dispatchProps.addTodo(ownProps.userId, text)
-  })
-}
-#+END_SRC
-
-*** reselect
-
-**** withProps, setPropTypes
-
-#+BEGIN_SRC js
-export default compose(
-  withProps(
-    ({
-      widgetData: {
-        metaJson: { widgetType },
-      },
-    }) => ({ widgetType})
-  ),
-  setPropTypes({
-    widgetData: PropTypes.object.isRequired,
-    widgetType: PropTypes.string,
-  })
-)(Widget);
-#+END_SRC
-
-#+BEGIN_SRC js
-export default compose(
-  withProps(({ widgetData: { description, filteredWidgetData, title } }) => ({
-    description,
-    title,
-    feedbackWidgetContents: R.compose(
-      R.filter(({ feedback }) => Boolean(feedback)),
-      R.map(
-        R.compose(
-          R.zipObj(['checkInTime', 'projectName', 'feedback']),
-          RA.paths([
-            ['expectedCheckinTime'],
-            ['metaJson', 'projectName'],
-            ['formState', 'feedback', 'message'],
-          ])
-        )
-      )
-    )(filteredWidgetData),
-  })),
-  setPropTypes({
-    description: PropTypes.string,
-    feedbackWidgetContents: PropTypes.arrayOf(
-      PropTypes.shape({
-        checkInTime: PropTypes.string,
-        feedback: PropTypes.string,
-        projectName: PropTypes.string,
-      })
-    ),
-    title: PropTypes.string,
-    widgetData: PropTypes.object.isRequired,
-  })
-)(FeedbackWidgetContainer);
-#+END_SRC
-
-**** withProps, withStateHandlers, setPropTypes
-
-#+BEGIN_SRC
-export default compose(
-  withProps(() => {
-    return {
-      title: mockData.title,
-      description: mockData.description,
-      photoWidgetContents: mockData.filteredWidgetData,
-    };
-  }),
-  withStateHandlers(
-    ({ currentSlide = 0, isDetailView = false }, open = false) => ({
-      currentSlide,
-      isDetailView,
-      open,
-    }),
-    {
-      handlePreviousSlide: (
-        { currentSlide },
-        { photoWidgetContents }
-      ) => () => ({
-        currentSlide:
-          currentSlide - 1 < 0
-            ? photoWidgetContents.length - 1
-            : currentSlide - 1,
-      }),
-      handleNextSlide: ({ currentSlide }, { photoWidgetContents }) => () => ({
-        currentSlide:
-          currentSlide + 1 > photoWidgetContents.length - 1
-            ? 0
-            : currentSlide + 1,
-      }),
-      toggleDetailView: ({ isDetailView }) => () => ({
-        isDetailView: !isDetailView,
-      }),
-    }
-  ),
-  setPropTypes({
-    description: PropTypes.string,
-    title: PropTypes.string,
-    widgetData: PropTypes.object.isRequired,
-  })
-)(PhotoWidgetContainer);
-#+END_SRC
-
 ** Components
+** Node
+*** Debugging
 
-*** Syntax
+- [[https://nodejs.org/en/docs/inspector/][nodejs.org docs - Inspector]]
+- [[https://nodejs.org/dist/latest-v8.x/docs/api/][Node.js v8.10.0 Documentation]]
 
-1) no props needed
+*** Misc
+
+**** nodemon
+
+[[https://stackoverflow.com/a/31312745/1052412][SO - watching too many files]]
+
+** rxjs
+*** disposing/cleaning up
+
+[[https://github.com/Reactive-Extensions/RxJS/issues/1016][github issue]]
+
+When you unsubscribe() (aka dispose) of a subscription it will be chained back up to all of the subscriptions that it is composed of.
+
+*** fetching
+
+rxjs ajax method: http://reactivex.io/rxjs/class/es6/observable/dom/MiscJSDoc.js~AjaxRequestDoc.html#instance-method-createXHR
+
+rxjs 5 ultimate example: https://chrisnoring.gitbooks.io/rxjs-5-ultimate/content/operators-and-ajax.html
+
+from [[https://stackoverflow.com/questions/44877062/how-to-convert-a-fetch-api-response-to-rxjs-observable][SO]]: https://stackoverflow.com/questions/44877062/how-to-convert-a-fetch-api-response-to-rxjs-observable
 
 #+BEGIN_SRC js
-const PostLink = () =>
-  <PostHeader>
-    <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
-    <PostDescription>{description}</PostDescription>
-  </PostHeader>
+var result = Rx.Observable.fromPromise(fetch('http://myserver.com/'));
+result.subscribe(x => console.log(x), e => console.error(e));
 #+END_SRC
 
-2) props without being a class
-
 #+BEGIN_SRC js
-const PostLink = props => {
-  const { title, description, path } = props.postData;
-
-  return (
-    <PostHeader>
-      <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
-      <PostDescription>{description}</PostDescription>
-    </PostHeader>
-  )
-}
-export default PostLink
-#+END_SRC
-
-3) class
-
-#+BEGIN_SRC js
-export default class PostLink extends React.Component {
-  render() {
-    const { title, description, path } = this.props.postData;
-
-    return (
-      <PostHeader>
-        <PostTitle><StyledLink to={path}>{title}</StyledLink></PostTitle>
-        <PostDescription>{description}</PostDescription>
-      </PostHeader>
-    );
-  }
-}
-#+END_SRC
-
-** Styling
-
-*** Styled Components
-
-
-**** YouTube video about styling components
-
-#+BEGIN_SRC js
-import Button from './Button';
-
-const Home = () =>
-  <div>
-    <Button>btn main</Button>
-    <Button primary href="https://duckduckgo.com">btn2</Button>
-    <Button danger>danger</Button>
-  </div>
-#+END_SRC
-
-
-#+BEGIN_SRC js
-const Button = ({ primary, danger, className, ...props }) => {
-  const Tag = props.href ? "a" : "button"
-
-  return <Tag
-    type="button"
-    className={cn(
-      'btn',
-      primary && 'btn-primary',
-      danger && 'btn-danger',
-      className)}
-    {...props}
-  />
+const getData = (url, params) => {
+    return fetch(url, params).then(r => {
+        return r.ok ? r.text() : Promise.reject(`${r.statusText} ${r.status}`)
+    })
 }
 
-const DangerBtn = props =>
-  <Button
-    danger
-    {...props}
-  />
-
-const PrimaryBtn = props =>
-  <Button
-    primary
-    {...props}
-  />
-
-export default Button
+const getDataObserver = (url, params) => Rx.Observable.fromPromise(getData())
 #+END_SRC
+
+bacon style:
+
+#+BEGIN_SRC js
+function toResultStream(request) {
+  return Bacon.fromPromise($.ajax(request))
+}
+availabilityResponse = availabilityRequest.flatMap(toResultStream)
+#+END_SRC
+
+staltz:
+
+#+BEGIN_SRC js
+var requestStream = Rx.Observable.just('https://api.github.com/users');
+
+var responseStream = requestStream
+  .flatMap(function(requestUrl) {
+    return Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+  });
+
+responseStream.subscribe(function(response) {
+  // render `response` to the DOM however you wish
+});
+#+END_SRC
+
+*** interval
+
+#+BEGIN_SRC js
+this.confirmationInterval = Rx.Observable.interval(200)
+  .takeUntil(() => activationHook === 'in' && !isPaused)
+  .subscribe(() => {
+    this.confirmationInterval.unsubscribe();
+  });
+#+END_SRC
+
+*** reference
+
+3 common errors by Chris Pawlukiewicz on medium: https://medium.com/@paynoattn/3-common-mistakes-i-see-people-use-in-rx-and-the-observable-pattern-ba55fee3d031
+
+baconjs tutorial: https://baconjs.github.io/tutorials.html
+
+fromEvent: http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-fromEvent
+
+using fetch API:
+https://chrisnoring.gitbooks.io/rxjs-5-ultimate/content/operators-and-ajax.html
+
+Rxjs 5 ultimate git book: https://chrisnoring.gitbooks.io/rxjs-5-ultimate/content/
+
+James Flight hackernoon blog post: https://hackernoon.com/using-rxjs-to-handle-http-requests-what-ive-learned-4640aaf4646c
+
+*** split strings at ~\n~
+
+[[https://stackoverflow.com/questions/38991362/what-is-the-reactive-way-to-read-file-line-by-line][SO ref]]
+
+#+BEGIN_SRC js
+    Rx.Observable.of('first\nstring')
+      .concat(Rx.Observable.of('asdf\nzxcvzc\nsd fawef\nsdfs\n')) // parens was missing // to make sure we don't miss the last line!
+      .scan(
+        ({ buffer }, b) => {
+          const splitted = buffer.concat(b).split('\n');
+          const rest = splitted.pop();
+          return { buffer: rest, items: splitted };
+        },
+        { buffer: '', items: [] }
+      )
+      // Each item here is a pair { buffer: string, items: string[] }
+      // such that buffer contains the remaining input text that has no newline
+      // and items contains the lines that have been produced by the last buffer
+      .concatMap(({ items }) => items)
+      // we flatten this into a sequence of items (strings)
+      .subscribe(
+        item => console.log(item),
+        err => console.log(err),
+        () => console.log('Done with this buffer source')
+      );
+#+END_SRC
+
+**** Ben Lesh blog post
+
+https://medium.com/@benlesh/rxjs-dont-unsubscribe-6753ed4fda87
+
+#+BEGIN_SRC js
+ updateData(data) {
+  // do something framework-specific to update your component here.
+ }
+
+ onMount() {
+   const data$ = this.getData();
+   const cancelBtn = this.element.querySelector(‘.cancel-button’);
+   const rangeSelector = this.element.querySelector(‘.rangeSelector’);
+   const cancel$ = Observable.fromEvent(cancelBtn, 'click');
+   const range$ = Observable.fromEvent(rangeSelector, 'change').map(e => e.target.value);
+
+   const stop$ = Observable.merge(cancel$, range$.filter(x => x > 500))
+   this.subscription = data$.takeUntil(stop$).subscribe(data => this.updateData(data));
+ }
+
+ onUnmount() {
+  this.subscription.unsubscribe();
+}
+#+END_SRC
+
+- compose a stream of ~stop$~ events that kill the data stream... that way, if you want to add another "stop" condition (like a timer), you can "simply merge a new observable into `stop$`"
+- this "completes the observable" - there's a completion event that can be handled anytime you want to kill your observable. If you just call "unsubscribe" on `this.subscription`, you won't be notified... however `takeUntil` will notify you via the completion handler
+- "There is one disadvantage here in terms of RxJS semantics, but it’s barely worth worrying about in the face of the other advantages. The semantic disadvantage is that completing an observable is a sign that the producer wants to tell the consumer it’s done, where unsubscribing is the consumer telling the producer it no longer cares about the data."
+
+Other operators
+
+There are many other ways to kill a stream in a more “Rx-y” way. I’d recommend checking out the following operators at the very least:
+
+- take(n): emits N values before stopping the observable.
+- takeWhile(predicate): tests the emitted values against a predicate, if it returns `false`, it will complete.
+- first(): emits the first value and completes.
+- first(predicate): checks each value against a predicate function, if it returns `true`, the emits that value and completes.
+
+Summary: Use takeUntil, takeWhile, et al.
+
+You should probably be using operators like `takeUntil` to manage your RxJS subscriptions. As a rule of thumb, if you see two or more subscriptions being managed in a single component, you should wonder if you could be composing those better.
+
+- more composeable
+- fires a completion event when you kill your stream
+- generally less code
+- less to manage
+- fewer actual points of subscription (because fewer calls to `subscribe`)
 
 * Misc
 
@@ -1038,10 +1507,3 @@ console.log(props);
  : anim dog
  : anim cat
  : undefined
-* frameworks
-** Umbrella
-
-- [[https://github.com/thi-ng/umbrella][umbrella]]
-  - [[https://github.com/thi-ng/umbrella/tree/master/packages/hdom][hdom]]
-- [[https://medium.com/@thi.ng/how-to-ui-in-2018-ac2ae02acdf3][How to UI in 2018]] (Medium), by Karsten Schmidt
-

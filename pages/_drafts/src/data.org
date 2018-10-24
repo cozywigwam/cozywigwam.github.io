@@ -51,6 +51,44 @@ type Post {
 }
 #+END_SRC
 
+** Apollo
+
+[[https://codesandbox.io/s/r5qp83z0yq][demo app]]
+
+[[https://www.apollographql.com/docs/react/essentials/queries.html][queries]]
+
+** reference
+
+[[https://graphql.github.io/learn/queries/][Queries and Mutations]]
+
+#+BEGIN_SRC  gql
+{
+  human(id: "1000") {
+    name
+    height(unit: FOOT)
+  }
+}
+#+END_SRC
+
+aliases:
+
+#+BEGIN_SRC gql
+{
+  empireHero: hero(episode: EMPIRE) {
+    name
+  }
+  jediHero: hero(episode: JEDI) {
+    name
+  }
+}
+#+END_SRC
+
+fragments:
+
+#+BEGIN_SRC gql
+
+#+END_SRC
+
 * datatypes
 
 ** graphs

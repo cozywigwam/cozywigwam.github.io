@@ -358,8 +358,7 @@ https://nrepl.readthedocs.io/en/latest/design/
 
 ** Common Lisp
 *** books
-**** Common Lisp, by David Touretsky
-
+**** [[http://store.doverpublications.com/0486498204.html][Common Lisp]], by [[https://www.cs.cmu.edu/~dst/][David Touretsky]]
 ***** EVAL notation
 
 Eval rules:
@@ -368,9 +367,31 @@ Eval rules:
 - numbers -> themselves
 - lists (non special forms) -> func arg & args
 
-*** Truth, Falsehood, and Equality
+***** chapter 8
 
-from [[https://www.apress.com/us/book/9781590592397][Practical Common Lisp]] by [[http://www.gigamonkeys.com/][Peter Siebel]]
+ANYODDP
+
+#+BEGIN_SRC lisp
+(defun anyoddptest (l)
+  (let (myoddp #'(lambda (x) (not (= (mod x 2) 0))))
+   (cond ((null l) nil)
+         (myoddp (first l) t)
+         (t (anyoddp (rest l))))))
+
+(defun anyoddp (l)
+  (cond ((null l) nil)
+    ((equal (mod (first l) 2) 1) t)
+    (t (anyoddp (rest l)))))
+
+;; book
+(defun anyoddp (x)
+  (cond ((null x) nil)
+        ((oddp (first x) t))
+        (t (anyoddp (rest x)))))
+#+END_SRC
+
+**** [[https://www.apress.com/us/book/9781590592397][Practical Common Lisp]] by [[http://www.gigamonkeys.com/][Peter Siebel]]
+***** Truth, Falsehood, and Equality
 
 ~NIL~ is both an atom and a list
 
