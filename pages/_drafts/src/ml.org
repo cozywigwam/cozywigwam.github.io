@@ -98,3 +98,21 @@ top_anchovy_with_cheese: pizza -> pizza;
 1 - Use datatype to describe types. When a type contains lots of values, the datatype definition refers to itself. Use α with datatype to define shapes.
 2 - The number and order of the patterns in the definition of a function should match that of the definition of the consumed datatype.
 3 - Functions that produce values of a datatype must use the associated constructors to build data of that type.
+
+* misc
+
+** indentation/formatting
+
+from [[https://www.smlnj.org/doc/Emacs/sml-mode.html#dir][SML mode - The Emacs SML editing mode]]
+
+#+BEGIN_QUOTE
+2 Editing with SML Mode
+
+Now SML mode provides just a few additional editing commands. Most of the work has gone into implementing the indentation algorithm which, if you think about it, has to be complicated for a language like ML. See Indentation Defaults, for details on how to control some of the behaviour of the indentation algorithm. Principal goodies are the `electric pipe' feature, and the ability to insert common SML forms (macros or templates).
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+2.2 Automatic indentation
+
+ML is a complicated language to parse, let alone compile. The indentation algorithm is a little wooden (for some tastes), and the best advice is not to fight it! There are several variables that can be adjusted to control the indentation algorithm (see Customising SML Mode, below).
+#+END_QUOTE

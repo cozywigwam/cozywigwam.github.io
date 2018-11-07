@@ -379,46 +379,74 @@ write-up]]
 
 * Styled Components
 
-
 https://www.styled-components.com/docs/api#taggedtemplateliteral
 
 ** Examples
+*** css
+
+https://www.styled-components.com/docs/api#css
+
+#+BEGIN_SRC js
+import styled, { css } from 'styled-components'
+
+const complexMixin = css`
+  color: ${props => (props.whiteColor ? 'white' : 'black')};
+`
+
+const StyledComp = styled.div`
+  /* This is an example of a nested interpolation */
+  ${props => (props.complex ? complexMixin : 'color: blue;')};
+`
+#+END_SRC
+
 *** With props
 
-#+BEJs
-impoD from 'styled-components';
+#+BEGIN_SRC js
 
-consG = '3em';
-
-consN = styled.section`
-  coTe;
-
-  /*Riables as inputs */
-  pa{padding};
-
-  /*The background from the properties */
-  ba: ${props => props.background};
-`;
-#+EN
+#+END_SRC
 
 *** With ~.attrs~
 
-httpStyled-components.com/docs/api#attrs
+[[https://www.styled-components.com/docs/api#attrs][docs - API - .attrs]]
 
-#+BEJs
-impoD from 'styled-components';
-
-cons= styled.input.attrs({
-  tyT',
-  siS => props.small ? 3 : 8
+#+BEGIN_SRC js
+const Input = styled.input.attrs({
+  type: 'text',
+  size: props => (props.small ? 5 : undefined),
 })`
-  ba: palevioletred;
-  boIus: 3px;
-  boNe;
-  coTe;
-  pa{props => props.padding}
+  border-radius: 3px;
+  border: 1px solid palevioletred;
+  display: block;
+  margin: 0 0 1em;
+  padding: ${props => props.padding};
+
+  ::placeholder {
+    color: palevioletred;
+  }
+`
+#+END_SRC
+
+[[https://www.styled-components.com/docs/basics#attaching-additional-props][docs - basics - Attaching additional props]]
+
+#+BEGIN_SRC js
+const Input = styled.input.attrs({
+  // we can define static props
+  type: "password",
+
+  // or we can define dynamic ones
+  margin: props => props.size || "1em",
+  padding: props => props.size || "1em"
+})`
+  color: palevioletred;
+  font-size: 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+
+  /* here we use the dynamically computed props */
+  margin: ${props => props.margin};
+  padding: ${props => props.padding};
 `;
-#+EN
+#+END_SRC
 
 *** Extending styles
 
@@ -470,6 +498,70 @@ import { SpecialButton } from './SpecialButton.js'
 </div>
 #+END_SRC
 
+*** Siblings (div + div)
+
+[[https://www.styled-components.com/docs/basics#pseudoelements-pseudoselectors-and-nesting][documentation - Pseudoelements, pseudoselectors, and nesting]]
+
+#+BEGIN_SRC js
+const Dot = styled.div`
+  margin-left: 0;
+
+  & + & {
+    margin-left: 20px;
+  }
+`
+#+END_SRC
+
+*** vertical align
+
+#+BEGIN_SRC js
+export const VAlign = styled.div`
+  display: inline-flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Header = (
+  <Header>
+    <VAlign>
+      <Logo />
+    </VAlign>
+  </Header>)
+#+END_SRC
+
+** Misc
+
+boolean props to ~Link~ with ~react-router~ throws an error:
+
+#+BEGIN_EXAMPLE
+index.js:1452 Warning: Received `true` for a non-boolean attribute `xhighlight`.
+
+If you want to write it to the DOM, pass a string instead: xhighlight="true" or xhighlight={value.toString()}.
+#+END_EXAMPLE
+
+https://github.com/styled-components/styled-components/issues/1198#issuecomment-336628848
+
+#+BEGIN_SRC js
+export const DisplayLink = styled(Link)`
+  color: ${props => props.highlight && 'red'};
+`;
+
+<DisplayLink to="/" highlight>home</DisplayLink>
+#+END_SRC
+
+** Reference
+**** Smashing Magazine best practices
+
+[[https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/][Styled Components: Enforcing Best Practices In Component-Based Systems]], [[https://mxstbr.com/][Max Stoiber]]:
+
+- building small, focused and independent components
+- splitting container and presentational components
+  - keep data/logic ("container components that render presentational components") and presentation/styling components separate
+- single-use CSS names
+
+> The basic idea of styled components is to enforce best practices by removing the mapping between styles and components.
+
 ** Theme
 
 https://www.styled-components.com/docs/advanced
@@ -505,18 +597,6 @@ render(
 );
 #+END_SRC
 
-** Reference
-**** Smashing Magazine best practices
-
-[[https://www.smashingmagazine.com/2017/01/styled-components-enforcing-best-practices-component-based-systems/][Styled Components: Enforcing Best Practices In Component-Based Systems]], [[https://mxstbr.com/][Max Stoiber]]:
-
-- building small, focused and independent components
-- splitting container and presentational components
-  - keep data/logic ("container components that render presentational components") and presentation/styling components separate
-- single-use CSS names
-
-> The basic idea of styled components is to enforce best practices by removing the mapping between styles and components.
-
 * Misc
 
 #+BEGIN_SRC css
@@ -525,7 +605,7 @@ render(
 }
 #+END_SRC
 
-## Sass variable interpolation
+** Sass variable interpolation
 
 [[http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_][ref]]
 

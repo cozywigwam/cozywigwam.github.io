@@ -9,30 +9,6 @@ path: "/lisp/"
 ---
 #+END_EXAMPLE
 
-#+BEGIN_SRC emacs-lisp
-(setq x 3)
-#+END_SRC
-
-
-* Special forms
-** setq
-
-#+BEGIN_EXAMPLE
-setq is a special form in ‘C source code’.
-
-(setq [SYM VAL]...)
-
-Set each SYM to the value of its VAL.
-The symbols SYM are variables; they are literal (not evaluated).
-The values VAL are expressions; they are evaluated.
-Thus, (setq x (1+ y)) sets ‘x’ to the value of ‘(1+ y)’.
-The second VAL is not computed until after the first SYM is set, and so on;
-each VAL can use the new value of variables set earlier in the ‘setq’.
-The return value of the ‘setq’ form is the value of the last VAL.
-
-[back]
-#+END_EXAMPLE
-
 * Dialects
 ** Clojure
 *** Data Structures
@@ -372,12 +348,6 @@ Eval rules:
 ANYODDP
 
 #+BEGIN_SRC lisp
-(defun anyoddptest (l)
-  (let (myoddp #'(lambda (x) (not (= (mod x 2) 0))))
-   (cond ((null l) nil)
-         (myoddp (first l) t)
-         (t (anyoddp (rest l))))))
-
 (defun anyoddp (l)
   (cond ((null l) nil)
     ((equal (mod (first l) 2) 1) t)
@@ -412,7 +382,96 @@ Scheme's ~#f~, ~nil~, and ~()~ are all distinct. CL's ~NIL~ and ~()~ are "comple
 
 [[http://www.lispworks.com/documentation/lw70/CLHS/Front/Contents.htm][Common Lisp HyperSpec]]
 
+*** special forms
+**** setq
+
+#+BEGIN_EXAMPLE
+setq is a special form in ‘C source code’.
+
+(setq [SYM VAL]...)
+
+Set each SYM to the value of its VAL.
+The symbols SYM are variables; they are literal (not evaluated).
+The values VAL are expressions; they are evaluated.
+Thus, (setq x (1+ y)) sets ‘x’ to the value of ‘(1+ y)’.
+The second VAL is not computed until after the first SYM is set, and so on;
+each VAL can use the new value of variables set earlier in the ‘setq’.
+The return value of the ‘setq’ form is the value of the last VAL.
+
+[back]
+#+END_EXAMPLE
+
 ** Scheme
+*** books
+**** The Little Schemer
+
+[[https://mitpress.mit.edu/books/little-schemer-fourth-edition][The Little Schemer]], by Daniel P. Friedman and Matthias Felleisen
+
+#+BEGIN_SRC scheme
+(define (atom? x)
+  (and (not (pair? x)) (not (null? x))))
+#+END_SRC
+
+#+BEGIN_SRC scheme
+(define (lat? l)
+  (cond ((null? l) #t)
+        ((atom? (car l)) (lat? (cdr l)))
+        (else #f)))
+#+END_SRC
+
+#+BEGIN_SRC scheme
+(define (member? a lat)
+  (cond ((null? lat) #f)
+        (else (or (eq? (cat lat) a))
+              (member? a (cdr lat)))))
+#+END_SRC
+
+**** SICP
+***** 1.3.1
+
+compute sum of integers between ~a~ & ~b~:
+
+#+BEGIN_SRC scheme
+(define (int-sum a b)
+  (cond ((> a b) 0)
+        (else (+ a (int-sum (+ a 1) b)))))
+
+(define (sum-integers a b)
+  (if (> a b) 0
+      (+ a (sum-integers (+ a 1) b))))
+#+END_SRC
+
+sum of the cubes of the integers in the given range:
+
+#+BEGIN_SRC scheme
+(define (cube x) (* x x x))
+(define (cube-sum a b)
+  (if (> a b)
+      0
+      (+ (cube a) (cube-sum (+ a 1) b))))
+
+;; wrong... fix
+(define (cube-sum2 a b)
+  (let (cube (lambda (x) (* 3 3 3)))
+   (if (> a b)
+       0
+       (+ (cube a) (cube-sum (+ a 1) b)))))
+#+END_SRC
+
+computes the sum of the series:
+
+1/1*3 + 1/5*7 + 1/9*11
+
+which converges to π/8 (very slowly)
+
+#+BEGIN_SRC scheme
+(define (pi-sum a b)
+  (if (> a b)
+      0
+      (+ (/ 1.0 (* a (+ a 2)))
+         (pi-sum (+ a 4) b))))
+#+END_SRC
+
 *** misc
 
  ~(environment-bound? (nearest-repl/environment) 'is-this-defined)~

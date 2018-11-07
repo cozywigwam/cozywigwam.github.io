@@ -19,6 +19,10 @@ https://wzrd.in/standalone/expect@latest
 <script src="https://wzrd.in/standalone/expect@latest"></script>
 #+END_SRC
 
+* lodash
+
+https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js
+
 * ramda
 
 https://cdn.jsdelivr.net/npm/ramda@0.25.0/dist/ramda.min.js

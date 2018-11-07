@@ -202,7 +202,11 @@ This section is not exported.
 - [[https://emacsclub.github.io/html/org_tutorial.html][Emacs Club - Org-mode Tutorial / Cheat Sheet]]
 - [[http://gongzhitaao.org/orgcss/][CSS for Org-exported HTML example/walkthrough]] by [[https://github.com/gongzhitaao][Zhitao Gong]]
 
-** "publishing projects" examples
+** publishing
+
+Kunal Bhalla's [[https://explog.in/config.html][Org Configuration]] for publishing.
+
+*** "publishing projects" examples
 
 #+BEGIN_SRC emacs-lisp
 (require 'ox-publish)

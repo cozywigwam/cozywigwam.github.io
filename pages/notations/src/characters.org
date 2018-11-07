@@ -31,6 +31,12 @@ path: "/characters/"
 :sparkles:
 #+END_SRC
 
+* fonts
+
+[[https://github.com/be5invis/Iosevka][Iosevka]]
+
+[[https://github.com/tonsky/FiraCode][FiraCode]]
+
 * Identify a Character
 
 [[https://unicodelookup.com/#129361][unicodelookup.com]]

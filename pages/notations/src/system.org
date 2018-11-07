@@ -385,6 +385,13 @@ yyyy-mm-ddThh:mm:ss.sssZ
 
 [[https://en.wikipedia.org/wiki/List_of_military_time_zones][Zulu time]]
 
+** generate ~.htpasswd~
+
+#+BEGIN_SRC sh
+# -n no file, just stdout
+htpasswd -n theusername
+#+END_SRC
+
 ** gpg/pgp :no_export:
 
 | ~gpgconf --reload gpg-agent~ | reload (~SIGHUP~) gpg-agent (if wrong pw is cached) |

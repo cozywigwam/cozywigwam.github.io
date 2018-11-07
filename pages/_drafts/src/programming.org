@@ -1186,6 +1186,62 @@ fromList (Cons x xs) = x : fromList xs
 
 [[https://tadeuzagallo.com/blog/writing-a-lambda-calculus-interpreter-in-javascript/][A λ-calculus interpreter]]
 
+* Misc
+
+** circle → triangle → square
+
+#+BEGIN_SRC lisp
+(setq big-area 2)
+(setq small-area 1)
+
+(defun radius-from-area (x)
+  (sqrt (/ x pi)))
+
+(setq big-r (radius-from-area big-area))
+(setq small-r (radius-from-area small-area))
+
+(setq a (+ small-r big-r))
+(setq b (- big-r small-r))
+(defun hypotenuse (a b)
+  (sqrt (+ (* a a) (* b b))))
+(setq c (hypotenuse a b))
+
+(setq d (atan (/ b a)))
+
+(setq e (+ a big-r))
+
+(setq f (* e (tan d)))
+
+(setq g (+ f small-r))
+
+(setq h (* 2 g))
+
+(setq i (* h h))
+#+END_SRC
+
+#+BEGIN_SRC lisp
+(setq big-r 2)
+(setq small-r 1)
+
+(setq a (+ small-r big-r))
+(setq b (- big-r small-r))
+(defun hypotenuse (a b)
+  (sqrt (+ (* a a) (* b b))))
+(setq c (hypotenuse a b))
+
+(setq d (atan (/ b a)))
+
+(setq e (+ a big-r))
+
+(setq f (* e (tan d)))
+
+(setq g (+ f small-r))
+
+(setq h (* 2 g))
+
+(setq i (* h h))
+#+END_SRC
+
 * Reactive/dataflow :noexport:
 
 Suffixing observable names with `$` comes from cycle.js: https://cycle.js.org/basic-examples.html#basic-examples-increment-a-counter-what-is-the-convention

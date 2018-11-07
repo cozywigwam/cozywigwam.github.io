@@ -285,16 +285,16 @@ gitroot() {
 
 **** from status
 
-| =C-u s=                      | [point at untracked file] track without staging ("git add --intent-to-add")   |
-| =M-1=, =M-2=, =M-3=, =M-4=   | outline expansion                                                             |
-| =^=                          | up                                                                            |
-| =M-w=                        | copy (kill) hash/revision/commit/SHA                                          |
-| =d=                          | diff options (e.g. whitespace)                                                |
-| =d s=                        | =magit-diff-staged=                                                           |
-| =E i=                        | =magit-ediff-show-staged=                                                     |
-| ===                          | split file's hunks into more/smaller hunks                                    |
-| =+=                          | split file's hunks into fewer/larger hunks                                    |
-| =0=                          | reset file's hunk qty/size                                                    |
+| =C-u s=                    | [point at untracked file] track without staging ("git add --intent-to-add") |
+| =M-1=, =M-2=, =M-3=, =M-4= | outline expansion                                                           |
+| =^=                        | up                                                                          |
+| =M-w=                      | copy (kill) hash/revision/commit/SHA ~magit-copy-buffer-revision~           |
+| =d=                        | diff options (e.g. whitespace)                                              |
+| =d s=                      | =magit-diff-staged=                                                         |
+| =E i=                      | =magit-ediff-show-staged=                                                   |
+| ===                        | split file's hunks into more/smaller hunks                                  |
+| =+=                        | split file's hunks into fewer/larger hunks                                  |
+| =0=                        | reset file's hunk qty/size                                                  |
 
 **** from log
 

@@ -65,47 +65,48 @@ type ls
 #+END_SRC
 #+END_EXAMPLE
 
-| ~M-;~                | ~comment-dwim~                                    |
-| ~C-x <tab>~          | [visual] ~indent-rigidly~                         |
-| ~SPC h d s~          | ~spacemacs/describe-system-info~                  |
-| ~C-S-q~              | [custom] view-quit                                |
-| ~copy($-)~           | [chrome console] copy prev expression result      |
-| ~C-l~                | [company] ~company-complete-selection~            |
-| ~M-`~                | ~jump-to-mark~                                    |
-| ~C-c C-y~            | [helm] yank selection                             |
-| ~M-m~                | top-level, ~SPC~ equivalent                       |
-| ~SPC t m T~          | ~spacemacs/toggle-mode-line~                      |
-| ~SPC m n~, ~SPC n w~ | ~org-narrow-to-subtree~, ~widen~                  |
-| ~M-m~                | ~+root~                                           |
-| ~g f~                | ~find-file-at-point~                              |
-| ~C-x X q~            | ~top-level~                                       |
-| -                    | [mu4e] ~mu4e-view-raw-message~ show email address |
-| ~SPC s w w~          | ~spacemacs/helm-wikipedia-suggest~                |
-| ~C-c TAB~            | [helm] ~helm-copy-to-buffer~                      |
-| ~C-x n e~            | ~org-narrow-to-element~                           |
-| ~SPC h d l~          | ~spacemacs/describe-last-keys~                    |
-| ~c~                  | [Info mode] ~Info-copy-current-node-name~         |
-| ~M-x~,               | [insert-mode] ~helm-M-x~                          |
-| ~C-y~                | [isearch-mode] ~yank-kill~                        |
-| ~SPC g f w~          | [custom] ~magit-find-current-file-from-rev~       |
-| ~SPC x o~            | ace link                                          |
-| ~C-S-h~              | [kill ring, helm] describe-key                    |
-| ~SPC x w d~          | ~osx-dictionary-search-pointer~                   |
-| ~M-h~, ~M-l~         | ~org-metaright~, like ~<M-right>~                 |
-| ~amen~               | escape holy-mode                                  |
-| ~set-initial-state~  | gimme normal, not iedit                           |
-| ~C-x M-:~            | ~repeat-complex-command~                          |
-| ~SPC v~              | ~er-expand-region~                                |
-| ~C-M-SPC~            | ~mark-sexp~                                       |
-| ~C-p~                | ~evil-paste-pop~                                  |
-| ~SPC m g h~          | ~helm-css-scss~                                   |
-| ~SPC b e~            | delete full buffer contents                       |
-| ~SPC w u~            | ~winner-undo~                                     |
-| ~% m~, ~* %~         | [dired] ~dired-mark-files-regexp~                 |
-| ~C-S-o~              | [dired] (custom) open in external app             |
-| ~F5~                 | [in helm locate] open dired                       |
-| ~C-x C-b~            | [in helm] resume different helm buffer            |
-| ~C-c >~, ~C-c <~     | [in helm] next/prev file                          |
+| ~variable-pitch-mode~ | use non-monospace serif font/type/text via ~buffer-face-mode~ |
+| ~M-;~                 | ~comment-dwim~                                                |
+| ~C-x <tab>~           | [visual] ~indent-rigidly~                                     |
+| ~SPC h d s~           | ~spacemacs/describe-system-info~                              |
+| ~C-S-q~               | [custom] view-quit                                            |
+| ~copy($-)~            | [chrome console] copy prev expression result                  |
+| ~C-l~                 | [company] ~company-complete-selection~                        |
+| ~M-`~                 | ~jump-to-mark~                                                |
+| ~C-c C-y~             | [helm] yank selection                                         |
+| ~M-m~                 | top-level, ~SPC~ equivalent                                   |
+| ~SPC t m T~           | ~spacemacs/toggle-mode-line~                                  |
+| ~SPC m n~, ~SPC n w~  | ~org-narrow-to-subtree~, ~widen~                              |
+| ~M-m~                 | ~+root~                                                       |
+| ~g f~                 | ~find-file-at-point~                                          |
+| ~C-x X q~             | ~top-level~                                                   |
+| -                     | [mu4e] ~mu4e-view-raw-message~ show email address             |
+| ~SPC s w w~           | ~spacemacs/helm-wikipedia-suggest~                            |
+| ~C-c TAB~             | [helm] ~helm-copy-to-buffer~                                  |
+| ~C-x n e~             | ~org-narrow-to-element~                                       |
+| ~SPC h d l~           | ~spacemacs/describe-last-keys~                                |
+| ~c~                   | [Info mode] ~Info-copy-current-node-name~                     |
+| ~M-x~,                | [insert-mode] ~helm-M-x~                                      |
+| ~C-y~                 | [isearch-mode] ~yank-kill~                                    |
+| ~SPC g f w~           | [custom] ~magit-find-current-file-from-rev~                   |
+| ~SPC x o~             | ace link                                                      |
+| ~C-S-h~               | [kill ring, helm] describe-key                                |
+| ~SPC x w d~           | ~osx-dictionary-search-pointer~                               |
+| ~M-h~, ~M-l~          | ~org-metaright~, like ~<M-right>~                             |
+| ~amen~                | escape holy-mode                                              |
+| ~set-initial-state~   | gimme normal, not iedit                                       |
+| ~C-x M-:~             | ~repeat-complex-command~                                      |
+| ~SPC v~               | ~er-expand-region~                                            |
+| ~C-M-SPC~             | ~mark-sexp~                                                   |
+| ~C-p~                 | ~evil-paste-pop~                                              |
+| ~SPC m g h~           | ~helm-css-scss~                                               |
+| ~SPC b e~             | delete full buffer contents                                   |
+| ~SPC w u~             | ~winner-undo~                                                 |
+| ~% m~, ~* %~          | [dired] ~dired-mark-files-regexp~                             |
+| ~C-S-o~               | [dired] (custom) open in external app                         |
+| ~F5~                  | [in helm locate] open dired                                   |
+| ~C-x C-b~             | [in helm] resume different helm buffer                        |
+| ~C-c >~, ~C-c <~      | [in helm] next/prev file                                      |
 
 | ~SPC tab~                   | alternate buffer                                 |
 | ~SPC f y~                   | kill/get path & filename                         |
