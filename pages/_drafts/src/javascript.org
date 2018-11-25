@@ -1,5 +1,6 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
+#+STARTUP: overview
 #+BEGIN_EXAMPLE
 ---
 title: "JavaScript"
@@ -22,7 +23,12 @@ Luis Atencio, Manning
 #+BEGIN_SRC js
 #+END_SRC
 
-* Frameworks
+* Frameworks :noexport:
+
+[[https://github.com/kriszyp/alkali][Alkali]]
+
+https://davidwalsh.name/modernization-reactivity
+
 * Language
 ** Arrays :noexport:
 
@@ -324,6 +330,20 @@ With [[https://github.com/typicode/husky][husky]] and [[https://github.com/okone
 prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
 prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
 #+END_SRC
+
+**** inspiration
+
+[[https://homepages.inf.ed.ac.uk/wadler/papers/prettier/prettier.pdf][A Prettier Printer]], by Philip Wadler, published [[http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.19.635][1998]]
+
+**** comments
+
+#+begin_quote
+Style wars are a thing of the past
+
+Say what you like about gofmt, but it makes arguments over code style almost impossible. Just run it on save, and your code will always be consistently formatted.
+#+end_quote
+
+https://memo.barrucadu.co.uk/three-months-of-go.html
 
 ** Iterators
 
@@ -629,6 +649,11 @@ const myAdditionReducer = (acc, n) => acc + n;
 myArr.reduce(myAdditionReducer); // 6
 #+END_SRC
 
+** Video
+
+#+BEGIN_SRC js
+
+#+END_SRC
 * Libraries
 ** D3 :noexport:
 *** force directed :noeexport:
@@ -758,6 +783,8 @@ d3.select('#averageDegreesLineChart svg') // Select the ID of the html element w
 #+END_SRC
 
 *** reference
+
+https://blockbuilder.org/
 
 [[https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71][Interactive Applications with React & D3]], by Elijah Meeks
 
@@ -1011,6 +1038,64 @@ https://reactjs.org/docs/events.html#mouse-events
 - onMouseOver
 - onMouseUp
 
+*** force update
+
+Use `this.forceUpdate()`: https://reactjs.org/docs/react-component.html#forceupdate
+
+*** forms
+**** checkboxes
+
+Sample checkboxes:
+
+#+BEGIN_SRC js
+  constructor(props) {
+    super(props);
+
+    // start with all checkboxes checked
+    this.state = {
+      checkboxValues: Object.assign(
+        {},
+        ...this.props.filteredAccounts.map(account => ({
+          [account.name]: true,
+        }))
+      ),
+    };
+
+    this.boundHandleInputChange = this.handleInputChange.bind(this);
+  }
+  handleInputChange(e, accountName) {
+    console.log('e, accountName', e.target.checked, accountName);
+    const checkboxUpdate = {
+      [accountName]: e.target.checked,
+    };
+    this.setState({
+      checkboxValues: merge(this.state.checkboxValues, checkboxUpdate),
+    });
+  }
+
+// ...
+
+        <tbody>
+          {filteredAccounts.map(({ id, name: accountName }) => {
+            const isChecked = this.state.checkboxValues[accountName];
+            return (
+              <Tr key={id}>
+                <Td>{accountName}</Td>
+                <Td>
+                  <Checkbox
+                    defaultChecked={isChecked}
+                    value={isChecked}
+                    onChange={e => this.boundHandleInputChange(e, accountName)}
+                  />
+                </Td>
+              </Tr>
+            );
+          })}
+        </tbody>
+#+END_SRC
+
+Note `defaultChecked`.
+
 *** JSX
 **** functional stateless component
 
@@ -1077,6 +1162,44 @@ class Post extends React.Component {
         </PostHeader>
     );
   }
+}
+#+END_SRC
+
+**** unicode
+
+#+BEGIN_SRC js
+// no: html character entity reference
+<span>{'9 &ndash; 5'}</span>
+
+// yes: unicode
+<span>{'9 \u2013 5'}</span>
+#+END_SRC
+
+*** lifecycle
+
+https://reactjs.org/docs/react-component.html
+
+**** componentDidUpdate(prevProps, prevState, snapshot)
+
+https://reactjs.org/docs/react-component.html#componentdidupdate
+
+#+BEGIN_SRC js
+componentDidUpdate(prevProps, prevState, snapshot) {
+  if (this.props.thing !== prevProps.thing) {
+    // ...
+  }
+}
+#+END_SRC
+
+> ~componentDidUpdate()~ will not be invoked if ~shouldComponentUpdate()~ returns false.
+
+**** shouldComponentUpdate
+
+#+BEGIN_SRC js
+shouldComponentUpdate(nextProps) {
+  const overlayHasChanged = !isEqual(nextProps.overlay, this.props.overlay);
+  // only render the first time or overlay changes
+  return overlayHasChanged || this.state._hasMounted;
 }
 #+END_SRC
 
@@ -1461,9 +1584,11 @@ export default compose(
 #+END_SRC
 *** routing
 **** react-router
+***** analytics
 
-- [[https://github.com/ReactTraining/react-router][github]]
-- [[https://reacttraining.com/react-router/web/guides/philosophy][v4 docs (web/dom)]]
+[[https://bernardodiasdacruz.com/2018/04/10/integrate-google-analytics-with-react-router-v4][Integrate Google Analytics with React Router v4]], by Bernardo Dias da Cruz
+
+***** basic setup
 
 #+BEGIN_SRC js
 // index.js
@@ -1491,6 +1616,119 @@ import { Link, Route, Switch } from 'react-router-dom';
 </Switch>
 #+END_SRC
 
+***** conditional on param
+#+BEGIN_SRC js
+// App.js
+<Route component={Task} path="/:task" />
+
+// Task.js
+componentDidMount() {
+  const { match: { params: { task }}} = this.props;
+  task === 'taskA' && // ...
+}
+#+END_SRC
+
+***** conditional on search query
+
+#+BEGIN_SRC js
+componentDidMount() {
+  const {
+    location: { search },
+  } = this.props;
+
+  const showIntro = search.includes('show-intro');
+  showIntro &&
+    this.setState({
+      ActiveSlide: ActionIntro,
+    });
+}
+#+END_SRC
+***** location
+
+#+BEGIN_SRC js
+// a basic location object
+{ pathname: '/', search: '', hash: '', key: 'abc123' state: {} }
+#+END_SRC
+
+***** npm/package
+
+~react-router~: core components
+
+~react-router-dom~ (or ~react-router-native~): adds DOM-aware components (both include 'react-router')
+
+[[https://github.com/ReactTraining/react-router/issues/4648][github comment]] by [[https://github.com/pshrmn][Paul Sherman]]
+
+> Your first link is to the master branch, which at this time is v3.
+>
+> In v4, react-router exports the core components and functions. react-router-dom exports DOM-aware components, like <Link> (which renders an <a>) and <BrowserRouter> (which interacts with the browser's window.history ).
+>
+> react-router-dom re-exports all of react-router's exports, so you only need to import from react-router-dom in your project.
+
+***** resources
+
+- [[https://github.com/ReactTraining/react-router][github]]
+- [[https://reacttraining.com/react-router/web/guides/philosophy][v4 docs (web/dom)]]
+
+****** Paul Sherman's [[https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf][A Simple React Router v4 Tutorial]]
+
+Use `<BrowserRouter>` as base for web, `<NativeRouter>` for RN.
+
+#+BEGIN_SRC js
+<Route path="[matched by [[https://github.com/pillarjs/path-to-regexp][path-to-regexp]]]" component|render|children />
+#+END_SRC
+
+Matching routes get `match` object:
+
+- `url`
+- `path`
+- `isExact`
+- `params` (route params)
+
+`component` returns a `React.createElement` object.
+
+`render` can receive props:
+
+#+BEGIN_SRC js
+<Route path="/match" render={props => <h1>{props.title}</h1>} />
+<Route path="/next-match" render={props => (
+  <PageInner {...props} data={extraProps}/>
+)}/>
+#+END_SRC
+
+`children` is a pass-through, like `props.children` on a Route level. It ignores `path` attribute and always matches.
+
+***** update when route/search changes
+
+#+BEGIN_SRC js
+  componentDidUpdate(prevProps, prevState) {
+    const {
+      location: { pathname: oldPath, search: oldSearch },
+    } = prevProps;
+    const {
+      location: { pathname: newPath, search: newSearch },
+    } = this.props;
+    if (newPath !== oldPath) {
+      console.log('route change', oldPath, newPath);
+    } else if (newSearch !== oldSearch) {
+      console.log('search change at same route', oldSearch, newSearch);
+    }
+  }
+#+END_SRC
+
+***** withRouter
+
+https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/withRouter.md
+
+gain props: ~history~, ~location~, ~match~.
+
+#+BEGIN_SRC
+import { withRouter } from 'react-router'
+
+// ...
+
+export default withRouter(App);
+#+END_SRC
+
 **** reach-router
 
 [[https://github.com/reach/router][github]]
@@ -1508,6 +1746,30 @@ import { Link, Router } from '@reach/router';
   <Login path="/login" />
   <Accounts path="/accounts" />
 </Router>
+#+END_SRC
+
+*** slots
+
+from https://daveceddia.com/pluggable-slots-in-react-components/
+
+#+BEGIN_SRC js
+<Layout
+  left={<Sidebar/>}
+  top={<NavBar/>}
+  center={<Content/>}
+/>
+#+END_SRC
+
+#+BEGIN_SRC js
+function Layout(props) {
+  return (
+    <div className="layout">
+      <div className="top">{props.top}</div>
+      <div className="left">{props.left}</div>
+      <div className="center">{props.center}</div>
+    </div>
+  );
+}
 #+END_SRC
 
 ** rxjs
@@ -1713,3 +1975,6 @@ console.log(props);
  : anim dog
  : anim cat
  : undefined
+* Reference
+
+[[http://java.ociweb.com/mark/programming/JavaScript.html][Mark Volkmann's JavaScript Page]]

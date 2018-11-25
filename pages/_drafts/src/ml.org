@@ -99,6 +99,80 @@ top_anchovy_with_cheese: pizza -> pizza;
 2 - The number and order of the patterns in the definition of a function should match that of the definition of the consumed datatype.
 3 - Functions that produce values of a datatype must use the associated constructors to build data of that type.
 
+** ML for the Working Programmer
+
+[[https://www.cambridge.org/core/books/ml-for-the-working-programmer/BDAAF5C30634CC39385F75C97274BFCC][ML for the Working Programmer]], L.C. Paulson
+
+*** gcd/Euclid's algorithm
+
+#+begin_src sml
+fun gcd(m, n) =
+    if m=0 then n
+    else gcd(n mod m, m);
+#+end_src
+
+*** count elements in a list
+
+#+begin_src sml
+fun length [] = 0
+  | length [x :: xs] = 1 + length xs;
+#+end_src
+
+*** valid day/month
+
+#+begin_src sml
+(* 25 "October" *)
+fun twenty_nine_month (d : int) =
+    d > 0 andalso d <= 29;
+
+fun thirty_month (d : int) =
+    d > 0 andalso d <= 30;
+
+fun thirty_one_month (d : int) =
+    d > 0 andalso d <= 31;
+
+(* e.g. 25 "October" *)
+fun is_valid_date (d : int, m : string) : bool =
+    thirty_one_month(d) andalso m = "January"
+    orelse twenty_nine_month(d) andalso m = "February"
+    orelse thirty_one_month(d) andalso m = "March"
+    orelse thirty_month(d) andalso m = "April"
+    orelse thirty_one_month(d) andalso m = "May"
+    orelse thirty_month(d) andalso m = "June"
+    orelse thirty_one_month(d) andalso m = "July"
+    orelse thirty_month(d) andalso m = "August"
+    orelse thirty_one_month(d) andalso m = "September"
+    orelse thirty_month(d) andalso m = "October"
+    orelse thirty_one_month(d) andalso m = "November"
+    orelse thirty_month(d) andalso m = "December";
+#+end_src
+
+*** misc
+
+> Function application binds more tightly than infix operators. For instance, ~area a + b~ is equivalent to ~(area a) + b~, not ~area (a + b)~.
+
+Unary minus, =~=, is different from subtraction, =-=.
+
+Specify arg:
+
+#+begin_src sml
+val sq_arg (x : real) = x*x;
+#+end_src
+
+Specify result:
+
+#+begin_src sml
+val sq_arg x : real = x*x;
+#+end_src
+
+Specify body:
+
+#+begin_src sml
+val sq_arg x = x*x : real;
+#+end_src
+
+
+
 * misc
 
 ** indentation/formatting
@@ -116,3 +190,7 @@ Now SML mode provides just a few additional editing commands. Most of the work h
 
 ML is a complicated language to parse, let alone compile. The indentation algorithm is a little wooden (for some tastes), and the best advice is not to fight it! There are several variables that can be adjusted to control the indentation algorithm (see Customising SML Mode, below).
 #+END_QUOTE
+
+* reference
+
+[[http://sml-family.org/Basis/manpages.html][The Standard ML Basis Library]]

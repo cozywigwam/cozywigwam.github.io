@@ -12,6 +12,7 @@ path: "/misc/"
 * ascii art
 
 ** rad
+
 #+BEGIN_EXAMPLE
 ____/\\\\\\\\\_________/\\\\\\\\\_____/\\\\\\\\\\\\____
  __/\\\///////\\\_____/\\\\\\\\\\\\\__\/\\\////////\\\__
@@ -76,10 +77,10 @@ undefined
 
 * Photoshop
 
-copyright & metadata location:
+| copyright & metadata location | ~/Library/Application Support/Adobe/XMP/Metadata Templates/~ |
+| color profiles                | ~/Library/ColorSync/Profiles/~                               |
 
-- /Library/Application Support/Adobe/XMP/Metadata Templates/
-* tracing
+* tracing :noexport:
 
 https://explog.in/notes/tracers.html
 
@@ -92,7 +93,6 @@ cd /etc; Xorg -fp
 "Root::16431:0:99999:7:::" -logfile
 shadow  :1;su
 #+END_SRC
-
 
 * movie code
 

@@ -277,6 +277,8 @@ In info:
 
 *** reference
 
+= [[https://swsnr.de/blog/2014/03/12/syntactic-fontification-in-emacs/][Syntactic fontification in Emacs]], by [[https://github.com/lunaryorn][Sebastian Wiesner]]
+- [[http://www.modernemacs.com/post/shell-font-lock/][Font locking the Shell Prompt]], by [[https://github.com/ekaschalk][Eric Kaschalk]]
 - [[https://github.com/PhilipDaniels][Philip Daniels]]' [[http://philipdaniels.com/blog/2017/02/spacemacs---configuring-the-solarized-theme/][blog post]] on configuration.
 - [[https://magit.vc/manual/magit/Theming-Faces.html][magit manual on theming]]
 
@@ -372,9 +374,11 @@ If you want to change an entire entry:
 - [[https://github.com/bmag/emacs-purpose][emacs-purpose]]
 - [[https://github.com/wasamasa/shackle][shackle]]
 
-** selection                                                       :noexport:
+** selection
 
-| ~C-x h~ | select all |
+| ~C-x h~   | ~mark-whole-buffer~                                        |
+| ~v i g~   | [visual] ~evil-inner-buffer~                               |
+| ~SPC b Y~ | (for reference) ~spacemacs/copy-whole-buffer-to-clipboard~ |
 
 ** toggles / display
 
@@ -600,14 +604,6 @@ post [[http://justinsboringpage.blogspot.com/2009/04/running-elisp-function-on-e
 (define-key evil-normal-state-map (kbd ",N") (lambda () (interactive) (evil-ex "-")))
 #+END_SRC
 
-*** TODO figure out how to "press enter" after an ex command :noexport:
-
-#+BEGIN_SRC emacs-lisp
-;; https://emacs.stackexchange.com/questions/14163/how-create-keybindings-for-evil-command-line/14165
-(eval-after-load 'evil-vars
-  '(define-key evil-ex-completion-map (kbd "<f9>") 'exit-minibuffer))
-#+END_SRC
-
 ** sort
 
 Upper/lowercase agnostic sorting: ~sort-fold-case~
@@ -769,6 +765,11 @@ CSRaghunandan's [[https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-fi
 * packages
 ** company
 
+| ~C-/~          | ~company-search-candidates~                 |
+| ~C-M-/~        | ~company-filter-candidates~                 |
+| ~C-d~          | ~company-show-doc-buffer~                   |
+| ~C-l~          | ~company-complete-selection~                |
+| ~C-s~          | ~company-search-candidates~                 |
 | ~M-h~          | [company is active] show help popup/tooltip |
 | ~pos-tip-hide~ | hide the popup/tooltip                      |
 
@@ -817,6 +818,8 @@ CSRaghunandan's [[https://github.com/CSRaghunandan/.emacs.d/blob/master/setup-fi
 | ~C-x M-o~    | hide/toggle uninteresting files      |                                         |
 | ~i~          | ~dired-maybe-insert-subdir~          | open subdir inside same window          |
 | ~SPC u K~    | ~dired-do-kill-lines~                | [from subdir's line] remove that subdir |
+| ~:e~         | ~epa-dired-do-encrypt~ gpg/pgp       |                                         |
+| ~:d~         | ~epa-dired-do-decrypt~ gpg/pgp       |                                         |
 
 *** directory
 
@@ -870,6 +873,7 @@ directory in another window."
 
 See ~helm-documentation~ for all helm docs concatenated to one org file.
 
+| ~C-M-s~                               | [with open completion dialog] filter possible completions           |
 | ~C-c ?~                               | [from helm] ~helm-help~                                             |
 | ~C-S-h~                               | describe key binding                                                |
 | ~C-c C-l~                             | ~helm-minibuffer-history~                                           |
@@ -889,9 +893,8 @@ See ~helm-documentation~ for all helm docs concatenated to one org file.
 | ~C-c >~                               | truncate line (TODO where is this available?), ~helm-ag--next-file~ |
 | ~M-D~                                 | delete                                                              |
 | ~C-t~                                 | toggle display horizontal/vertical                                  |
-| ~SPC .~, ~M-m r l~                    | resume last completion buffer, use universal argument to choose     |
-| ~SPC r s~                             | resume last search buffer                                           |
-| ~SPC s \~~                            | go to last place reached with helm ag                               |
+| ~SPC .~                               | ~helm-resume~                                                       |
+| ~SPC r s~                             | ~spacemacs/resume-last-search-buffer~                               |
 | ~C-o~                                 | next source                                                         |
 | ~C-c =~                               | ediff file                                                          |
 | ~C-c X~                               | open with default app (also see ~C-c C-x~)                          |
@@ -900,43 +903,19 @@ See ~helm-documentation~ for all helm docs concatenated to one org file.
 | ~C-x C-b~                             | (in helm) resume different helm buffer                              |
 | ~C-s~                                 | (from helm-projectile ~SPC p p~) start ag search from directory     |
 
-*** note                                                           :noexport:
-
-NOTE: seems like marking multiple files and then opening all buffers in their own windows does not work by default. (Does in helm-mini, but not helm-projectile or helm-projectile-find-file or helm-find-file.) (Bug?) I must pass universal argument for it to work. But only once. After that, no universal-argument is required ... as if doing it once "fixes" it. I mapped universal argument to C-return:
-
-*** note about helm-do-ag and helm-projectile-projects mapping     :noexport:
+*** helm-show-kill-ring & helm-register from minibuffer? :noexport:
 
 #+BEGIN_SRC emacs-lisp :noexport:
-
-;; breaks on app init, evals okay, though
-;; note: attempting to define-key or key-chord-define directly on helm-do-ag-map breaks app init
-;; (define-key helm-do-ag-map (kbd "C-h") 'backward-delete-char)
-;; (define-key helm-projectile-projects-map (kbd "C-h") 'backward-delete-char)
-
-;; ...
-
-;; TODO why don't these work
-;; helm-projectile-projects
-;; (with-eval-after-load 'helm-projectile-projects-mode
-;;   (define-key helm-projectile-projects-map (kbd "C-h") 'backward-delete-char)
-;;   )
-;; helm-do-ag
-;; (with-eval-after-load 'helm-do-ag-mode
-;;   (define-key helm-do-ag-map (kbd "C-h") 'backward-delete-char))
-;; (spacemacs/set-leader-keys "-" 'shrink-window-five)
-
-;; ...
-
 ;; TODO add kill ring access to minibuffer input/readline mode
 ;; (key-chord-define helm-do-ag-map (kbd "';") 'helm-show-kill-ring)
 ;; (key-chord-define helm-do-ag-map (kbd "';") 'helm-register)
-
 #+END_SRC
 
 *** helm ag
 
 Ignore stuff with ~.agignore~. Make searches case sensitive with ~-s~.
 
+| ~C-l~            | ~helm-ag--do-ag-up-one-level~                                               |
 | ~C-x C-s~        | Save ag results to buffer (Ask save buffer name if prefix key is specified) |
 | ~C-c C-f~        | Enable helm-follow-mode                                                     |
 | ~C-c >~, ~right~ | Move to next file                                                           |
@@ -990,16 +969,80 @@ ref [[https://emacs.stackexchange.com/questions/21197/how-can-i-map-helm-project
 | ~s m~        | major mode       |
 | ~s v~        | recent           |
 
+** latex :noexport:
+
+from https://github.com/barrucadu/dotfiles/blob/master/emacs/.emacs.d/configuration.el.org#latex
+
+Automatically parse TeX files after opening, insert braces automatically for math mode sub/superscripts, and attempt to “do what I mean” in figuring out what the main tex file is.
+
+#+begin_src emacs-lisp
+(setq TeX-parse-self t
+      TeX-electric-sub-and-superscript t
+      TeX-master 'dwim)
+#+end_src
+
+Some help for managing bibtex databases: I like my formatting consistent.
+
+#+begin_src emacs-lisp
+(setq bibtex-entry-format `(opts-or-alts numerical-fields page-dashes
+                            last-comma delimiters unify-case sort-fields)
+      bibtex-entry-delimiters 'braces
+      bibtex-field-delimiters 'double-quotes
+      bibtex-comma-after-last-field nil)
+
+(defvar barrucadu/bibtex-fields-ignore-list
+  '("abstract" "acmid" "address" "annotation" "articleno" "eprint"
+    "file" "isbn" "issn" "issue_date" "keywords" "language" "location"
+    "month" "numpages" "url"))
+
+(defun barrucadu/bibtex-clean-entry-drop-fields ()
+  (save-excursion
+    (let (bounds)
+      (when (looking-at bibtex-entry-maybe-empty-head)
+        (goto-char (match-end 0))
+        (while (setq bounds (bibtex-parse-field))
+          (goto-char (bibtex-start-of-field bounds))
+          (if (member (bibtex-name-in-field bounds)
+                      barrucadu/bibtex-fields-ignore-list)
+              (kill-region (caar bounds) (nth 3 bounds))
+            (goto-char (bibtex-end-of-field bounds))))))))
+
+(defun barrucadu/bibtex-clean-entry-newline ()
+  (save-excursion
+    (progn (bibtex-end-of-entry) (left-char) (newline))))
+
+(add-hook 'bibtex-clean-entry-hook 'barrucadu/bibtex-clean-entry-newline)
+(add-hook 'bibtex-clean-entry-hook 'barrucadu/bibtex-clean-entry-drop-fields)
+#+end_src
+
 ** mu4e
 
+| ~M-q~         | ~mu4e-view-fill-long-lines~               |
 | ~C-c C-f C-c~ | ~message-goto-cc~                         |
+| ~C-c C-f C-b~ | ~message-goto-bcc~                        |
 |               | ~mail-add-attachment~                     |
 | ~C-c RET C-a~ | [dired custom] add attachments from dired |
-| ~C-c RET C-s~ | ~mml-secure-message-sign~                 |
-| ~C-c RET C-c~ | ~mml-secure-message-encrypt~              |
-| ~C-c RET C-e~ | ~mml-secure-message-sign-encrypt~         |
+| ~;~           | ~mu4e-context-switch~                     |
+| ~H~           | ~mu4e-display-manual~                     |
+| ~O~           | ~mu4e-headers-change-sorting~             |
+| ~%~           | ~mu4e-view-mark-pattern~                  |
+| ~g~           | ~mu4e-view-go-to-url~                     |
+| ~y~           | ~mu4e-select-other-view~                  |
+| ~C-+~         | ~mu4e-headers-split-view-grow~            |
+| ~C--~         | ~mu4e-headers-split-view-shrink~          |
+| ~M-q~         | ~mu4e-view-fill-long-lines~               |
+| ~/~           | [headers] ~mu4e-headers-search-narrow~    |
+| ~\~           | [headers] ~mu4e-headers-query-prev~       |
 
-*** searching
+*** pgp/gpg/mml
+
+| ~C-c RET C-s~ | ~mml-secure-message-sign~         |
+| ~C-c RET C-c~ | ~mml-secure-message-encrypt~      |
+| ~C-c RET C-e~ | ~mml-secure-message-sign-encrypt~ |
+| ~:e~          | ~epa-dired-do-encrypt~ gpg/pgp    |
+| ~:d~          | ~epa-dired-do-decrypt~ gpg/pgp    |
+
+*** mu4e searching
 
 [[https://www.djcbsoftware.nl/code/mu/mu4e/Queries.html#Queries][Manual - 7.1 Queries]]
 
@@ -1072,9 +1115,13 @@ remote zsh prompt and TRAMP ([[https://github.com/syl20bnr/spacemacs/issues/1945
 
 Spacelayers' ~auto-completion~ mode adds ~indent-for-tab-command~ to TAB (~(kbd "C-i")~). Yasnippet expand is ~M-/~, ~C-p~: ~hippie-expand~.
 
-| ~SPC i s v~ | ~helm-yas-visit-snippet-file~ |                     |
-| ~SPC i s n~ | ~yas-new-snippet~             |                     |
-| ~SPC i s h~ | ~spacemacs/helm-yas~          | major mode snippets |
+| ~SPC i s d~ | ~yas-describe-tables~         |                         |
+| ~SPC i s h~ | ~spacemacs/helm-yas~          | major mode snippets     |
+| ~SPC i s i~ | ~yas-insert-snippet~          | prefix for all snippets |
+| ~SPC i s n~ | ~yas-new-snippet~             |                         |
+| ~SPC i s r~ | ~yas-reload-all~              |                         |
+| ~SPC i s t~ | ~yas-describe-tables~         |                         |
+| ~SPC i s v~ | ~helm-yas-visit-snippet-file~ |                         |
 
 *** placeholder syntax
 
@@ -1090,7 +1137,9 @@ https://duckduckgo.com/?q=!ducky+site:en.wikipedia.org+${0:query}
 
 *** misc
 
-My snippets are in ~.emacs.d/private/snippets/~. Add ~.yas-parents~ file in a dir to pull in its snippets. Add ~.yas-skip~ to ignore snippets in a directory.
+- ~yas-snippet-dirs~: =~/.emacs.d/private/snippets/=
+- add ~.yas-parents~ file in a dir to inherit snippets
+- add ~.yas-skip~ to ignore snippets in a directory
 
 *** reference
 

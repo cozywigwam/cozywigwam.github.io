@@ -11,6 +11,54 @@ path: "/org/"
 
 * Babel
 
+from [[info:org#Languages][info:org#Languages]]
+
+Code blocks in the following languages are supported.
+
+| Language      | Identifier   |
+|---------------+--------------|
+| Asymptote     | ~asymptote~  |
+| Awk           | ~awk~        |
+| C             | ~C~          |
+| C++           | ~C++~        |
+| Clojure       | ~clojure~    |
+| CSS           | ~css~        |
+| D             | ~D~          |
+| ditaa         | ~ditaa~      |
+| Emacs Calc    | ~calc~       |
+| Emacs Lisp    | ~emacs-lisp~ |
+| Fortran       | ~fortran~    |
+| GNU Screen    | ~screen~     |
+| Gnuplot       | ~gnuplot~    |
+| Graphviz      | ~dot~        |
+| Haskell       | ~haskell~    |
+| Java          | ~java~       |
+| Javascript    | ~js~         |
+| LaTeX         | ~latex~      |
+| Ledger        | ~ledger~     |
+| Lilypond      | ~lilypond~   |
+| Lisp          | ~lisp~       |
+| Lua           | ~lua~        |
+| MATLAB        | ~matlab~     |
+| Mscgen        | ~mscgen~     |
+| OCaml         | ~ocaml~      |
+| Octave        | ~octave~     |
+| Org mode      | ~org~        |
+| Oz            | ~oz~         |
+| Perl          | ~perl~       |
+| Plantuml      | ~plantuml~   |
+| Processing.js | ~processing~ |
+| Python        | ~python~     |
+| R             | ~R~          |
+| Ruby          | ~ruby~       |
+| Sass          | ~sass~       |
+| Scheme        | ~scheme~     |
+| Sed           | ~sed~        |
+| shell         | ~sh~         |
+| SQL           | ~sql~        |
+| SQLite        | ~sqlite~     |
+| Vala          | ~vala~       |
+
 * Capture
 
 | ~C-u C-c c~     | visit capture location    |
@@ -197,6 +245,7 @@ This section is not exported.
 
 ** links
 
+- [[https://github.com/fniessen/org-html-themes][org-html-themes]]
 - [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Worg - Publishing Org-mode files to HTML]]
 - [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][Worg - Using org to Blog with Jekyll]]
 - [[https://emacsclub.github.io/html/org_tutorial.html][Emacs Club - Org-mode Tutorial / Cheat Sheet]]
@@ -235,28 +284,26 @@ Kunal Bhalla's [[https://explog.in/config.html][Org Configuration]] for publishi
 
 [[info:org#Specific%20header%20arguments][info:org#Specific header arguments]]
 
-|                              |                                                               |                                                                        |
-|------------------------------+---------------------------------------------------------------+------------------------------------------------------------------------|
-| ~C-z~                        | ~evil-emacs-state~                                            |                                                                        |
-| ~SPC m ^~                    | ~org-sort~                                                    | alphabetize org headings                                               |
-| ~C-c C-l~                    | ~org-insert-link~                                             | insert link                                                            |
-| ~C-c .~                      | ~org-time-stamp~                                              | insert stamp                                                           |
-| ~< s~ + ~<tab>~              | [snippet] expands ~#+BEGIN_SRC~ ... ~#+END_SRC~ ('s' for src) |                                                                        |
-| ~C-c C-o~                    | ~org-open-at-point~                                           | open at point                                                          |
-| ~SPC x o~                    | ~link-hint-open-link~                                         | open link                                                              |
-| ~org-version~                | version                                                       |                                                                        |
-| ~<S-tab>~                    | cycle all                                                     |                                                                        |
-| ~C-c C-p~ & ~C-c C-n~        | prev/next headline                                            |                                                                        |
-| ~C-c C-f~ & ~C-c C-b~        | prev/next same-level headline                                 |                                                                        |
-| ~C-c C-u~                    | up level                                                      |                                                                        |
-| ~M-h~, ~M-l~                 | ~org-metaright~, like ~<M-right>~                             |                                                                        |
-| ~M-<ret>~                    | new headline or list elements                                 |                                                                        |
-| ~C-<ret>~                    | new same-level headline below current headline group          |                                                                        |
-| ~M-<up>~ & ~M-<down>~        | move subtree or list element                                  |                                                                        |
-| ~M-<left>~ & ~M-<right>~     | promote/demote heading or list element                        |                                                                        |
-| ~M-S-<left>~ & ~M-S-<right>~ | promote/demote heading or list element                        |                                                                        |
-| ~: [[http://example.com][ex]]~                       | use ~:~ at ^ to preserve no-formatting                        |                                                                        |
-| ~C-c -~                      | ~org-ctrl-c-minus~                                            | rotate list state (~org-cycle-list-bullet~) or other, context-senstive |
+| ~SPC m ^~                      | ~org-sort~                                                      |
+| ~C-c C-l~                      | ~org-insert-link~                                               |
+| ~C-c .~                        | ~org-time-stamp~                                                |
+| ~<s <tab>~, ~#+ M-<tab>~       | insert structure template (src, example, etc.)                  |
+| ~C-c C-,~                      | ~org-insert-structure-template~                                 |
+| ~C-c C-o~                      | ~org-open-at-point~                                             |
+| ~SPC x o~                      | ~link-hint-open-link~                                           |
+| ~org-version~                  | version                                                         |
+| ~<S-tab>~                      | cycle all                                                       |
+| ~C-c C-p~ & ~C-c C-n~          | prev/next headline                                              |
+| ~C-c C-f~ & ~C-c C-b~          | prev/next same-level headline                                   |
+| ~C-c C-u~                      | up level                                                        |
+| ~M-h~, ~M-l~                   | ~org-metaright~, like ~<M-right>~                               |
+| ~M-<ret>~                      | new headline or list elements                                   |
+| ~C-<ret>~                      | new same-level headline below current headline group            |
+| ~M-<up>~ & ~M-<down>~          | move subtree or list element                                    |
+| ~M-<left>~ & ~M-<right>~       | promote/demote heading or list element                          |
+| ~M-S-<left>~ & ~M-S-<right>~   | promote/demote heading or list element                          |
+| ~: [[http://example.com][ex]]~ | use ~:~ at ^ to preserve no-formatting                          |
+| ~C-c -~                        | ~org-ctrl-c-minus~, rotate list state (~org-cycle-list-bullet~) |
 
 ** links
 
@@ -405,6 +452,12 @@ ls
 | tmux.md         |
 | type.md         |
 | vim.md          |
+
+* Navigating
+
+| ~gj~, ~gk~           | ~org-forward-heading-same-level~ / backward |
+| ~C-c C-n~, ~C-c C-p~ | ~org-previous-visible-heading~ / next       |
+| ~C-c C-f~, ~C-c C-b~ | ~org-forward-heading-same-level~ / backward |
 
 * Properties
 

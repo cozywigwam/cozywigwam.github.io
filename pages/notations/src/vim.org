@@ -50,14 +50,14 @@ Use =<C-f>= to open command-line history (cf. =q:=).
 
 * Marks
 
-| =`[mark]=   | jump to [mark] line & col        |
-| ='[mark]=   | jump to =[mark]= line            |
-| =`[ `]=     | begin/end of previous yank/put   |
-| =`< `>=     | " visual selection               |
-| =`.=        | " last change                    |
-| =`^=        | " last insert mode exit          |
-| =`( `)=     | " sentence                       |
-| =`{ `}=     | " paragraph                      |
+| =`[mark]= | jump to [mark] line & col      |
+| ='[mark]= | jump to =[mark]= line          |
+| =`[ `]=   | begin/end of previous yank/put |
+| =`< `>=   | " visual selection             |
+| =`.=      | " last change                  |
+| =`^=      | " last insert mode exit        |
+| =`( `)=   | " sentence                     |
+| =`{ `}=   | " paragraph                    |
 
 * Misc
 
@@ -154,6 +154,21 @@ Delete unwanted lines:
 | =~=                | last substitution string                              |
 | =\1=, =\2=, ...    | parenthetical sub-expression/submatch                 |
 | =\zs=, =ze=        | set start/end of match                                |
+
+* Selection
+
+Text object selection
+
+`:h text-objects` `:h object-select`
+
+| ~w~ / ~W~                                      | word / WORD |
+| ~s~                                            | sentence    |
+| ~p~                                            | paragraph   |
+| ~[~ (...or ~]~), ~(~ (& ~b~), ~{~ (& ~B~), ~<~ | bracket     |
+| ~t~                                            | tag         |
+| ~"~, ~'~, ~`~                                  | quote       |
+
+> Emacs: ~v i~ for ~evil-inner-*~
 
 * Tabs & spaces
 

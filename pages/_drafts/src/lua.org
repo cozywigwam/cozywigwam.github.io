@@ -1,0 +1,14 @@
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+EXCLUDE_TAGS: noexport
+#+BEGIN_SRC yaml
+---
+title: "Lua"
+layout: notation
+description: x
+path: "/lua/"
+---
+#+END_SRC
+
+* Reference
+
+https://cacm.acm.org/magazines/2018/11/232214-a-look-at-the-design-of-lua/fulltext

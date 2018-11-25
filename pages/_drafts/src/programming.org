@@ -1,5 +1,6 @@
-#+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
+#+OPTIONS: toc:nil -:nil H:6 ^:nil
+#+STARTUP: overview
 #+BEGIN_EXAMPLE
 ---
 title: "Programming"
@@ -41,6 +42,86 @@ def binary_search(list, item):
 my_list = [1, 3, 5, 7, 9]
 
 print binary_search(my_list, 9)
+#+END_SRC
+
+** books
+*** A Common-Sense Guide to Data Structures and Algorithms :noexport:
+
+by Jay Wengrow
+
+**** chapter 2 - binary search vs. linear search in ordered arrays
+
+#+BEGIN_SRC ruby
+def binary_search(array, value)
+  lower_bound = 0
+  upper_bound = array.length - 1
+
+  while lower_bound <= upper_bound do
+    midpoint = (upper_bound + lower_bound) / 2
+
+    value_at_midpoint = array[midpoint]
+
+    if value < value_at_midpoint
+      upper_bound = midpoint - 1
+    elsif value > value_at_midpoint
+      lower_bound = midpoint + 1
+    elsif value == value_at_midpoint
+      return midpoint
+    end
+  end
+
+  return nil
+end
+#+END_SRC
+
+#+BEGIN_SRC clojure
+(defn rand-ints [n]
+  (map (fn [x] (rand-int 10)) (repeat n 0)))
+
+(defn linear-search [coll value]
+  (cond (empty? coll) nil
+        (= (first coll) value) value
+        :else (linear-search (rest coll) value)))
+
+(defn binary-search
+  ([coll value] (binary-search coll value 0 (dec (count coll))))
+  ([coll value lower upper]
+   (let [midpoint (quot (+ lower upper) 2)
+         midpoint-value (get coll midpoint)]
+     (cond (> lower upper) nil
+           (= midpoint-value value) value
+           (> midpoint-value value) (binary-search coll value lower (dec midpoint))
+           (< midpoint-value value) (binary-search coll value (inc midpoint) upper)))))
+
+(linear-search (sort (rand-ints 10)) 4)
+(binary-search (vec (sort (rand-ints 4))) 8)
+#+END_SRC
+
+with step counting:
+
+#+BEGIN_SRC clojure
+(defn rand-ints [n]
+  (map (fn [x] (rand-int n)) (repeat n 0)))
+
+(defn linear-search
+  ([coll value] (linear-search coll value 0))
+  ([coll value count]
+   (cond (empty? coll) (hash-map :value nil :count count)
+         (= (first coll) value) (hash-map :value value :count count)
+         :else (linear-search (rest coll) value (inc count)))))
+
+(defn binary-search
+  ([coll value] (binary-search coll value 0 (dec (count coll)) 0))
+  ([coll value lower upper count]
+   (let [midpoint (quot (+ lower upper) 2)
+         midpoint-value (get coll midpoint)]
+     (cond (> lower upper) (hash-map :value nil :count count)
+           (= midpoint-value value) (hash-map :value value :count count)
+           (> midpoint-value value) (binary-search coll value lower (dec midpoint) (inc count))
+           (< midpoint-value value) (binary-search coll value (inc midpoint) upper (inc count))))))
+
+(linear-search (sort (rand-ints 100)) (rand-int 100))
+(binary-search (vec (sort (rand-ints 100))) (rand-int 100))
 #+END_SRC
 
 ** Breadth-first search
@@ -109,6 +190,10 @@ def search(name, target):
 #+END_SRC
 
 ** Misc
+*** Man or Boy Test
+
+[[https://en.wikipedia.org/wiki/Man_or_boy_test][Wikipedia - Man or Boy Test]]
+
 ** Quicksort
 *** C
 
@@ -406,18 +491,31 @@ http://www.daimi.au.dk/~madst/ecoop04/main.pdf
 The expression problem (aka the extensibility problem)  refers to a fundamental dilemma of programming: To which degree can your application be structured in such a way that both the data model and the set of virtual operations over it can be extended without the need to modify existing code, without the need for code repetition and without runtime type errors.
 #+END_QUOTE
 
-[[https://www.ibm.com/developerworks/java/library/j-clojure-protocols/?ca=drs][Solving the Expression Problem with Clojure 1.2]]-, by Stuart Sierra
+[[https://www.ibm.com/developerworks/java/library/j-clojure-protocols/?ca=drs][Solving the Expression Problem with Clojure 1.2]], by Stuart Sierra
 
 ** Factorial
 *** clojure
 
+**** loop
+
 #+BEGIN_SRC clojure
-(def factorial
-  (fn [n]
-    (loop [cnt n acc 1]
-      (if (zero? cnt)
-        acc
-        (recur (dec cnt) (* acc cnt))))))
+(defn factorial-loop [n]
+  (loop [x n, k 1]
+    (if (zero? x)
+      k
+      (recur (dec x) (* k x)))))
+#+END_SRC
+
+**** reduce
+
+#+BEGIN_SRC clojure
+(defn factorial-reduce [n]
+  (reduce * (map inc (range n))))
+
+;; or
+
+(defn f3 [n]
+  (reduce * (range 1 (inc n))))
 #+END_SRC
 
 *** common lisp
@@ -449,7 +547,7 @@ function fac(n) {
 
 *** Pascal
 
-rom Data Structures and Algorithms, Aho, Hopcroft, Ullman (1987).
+from Data Structures and Algorithms, Aho, Hopcroft, Ullman (1987).
 
 #+BEGIN_SRC pascal
 function fact (n: integer) : integer;
@@ -528,12 +626,25 @@ int main(void)
 *** clojure
 
 #+BEGIN_SRC clojure
-defn fib
- [n]
+(defn fib [n]
  (loop [a 0 b 1 i n]
    (if (zero? i)
      a
      (recur b (+ a b) (dec i)))))
+
+(defn fib2
+  ([n] (fib2 0 1 n))
+  ([a b n]
+   (if (zero? n)
+     a
+     (fib2 b (+ a b) (dec n)))))
+
+(defn fib4 [n]
+  (cond (= n 0) 0
+        (= n 1) 1
+        :else
+        (+ (fib4 (dec n))
+           (fib4 (- n 2)))))
 #+END_SRC
 
 #+BEGIN_SRC clojure
@@ -605,6 +716,64 @@ def fib2(n):
   (fib-iter 1 1 n))
 #+END_SRC
 
+** Greatest Common Denominator (GCD)
+
+naive:
+
+#+begin_src clojure
+(s/fdef gcd
+  :args (s/cat :a number? :b number?)
+  :ret number?)
+
+(defn gcd [a b]
+  (loop [a a b b n 1 x nil]
+    (cond (n a) x
+          (and (= (rem a n) 0)
+               (= (rem b n) 0)) (recur a b (inc n) n)
+          :else (recur a b (inc n) x))))
+#+end_src
+
+*** [[https://mitpress.mit.edu/books/structure-and-interpretation-computer-programs][Structure and Interpretation of Computer Programs]], Abelson and Sussman
+
+Euclid's algorithm: GCD(a, b) = GCD(b, r)
+
+#+begin_src scheme
+(define (gcd a b)
+  (if (= b 0)
+      a
+      (gcd b (remainder a b))))
+#+end_src
+
+#+begin_src clojure
+(defn gcd [a b]
+  (if (zero? b)
+    a
+    (recur b (rem a b))))
+#+end_src
+
+*** [[https://www.cambridge.org/core/books/ml-for-the-working-programmer/BDAAF5C30634CC39385F75C97274BFCC][ML for the Working Programmer]], L.C. Paulson
+
+gcd(0, n) = n
+gcd(m, n) = gcd(n mod m, m) for m > 0
+
+#+begin_src sml
+fun gcd(m, n) =
+    if m=0 then n
+    else gcd(n rem n, m);
+#+end_src
+
+imperative
+
+#+begin_src pascal
+function gcd(m, n: integer): integer;
+  var prevm: integer;
+begin
+  while m<>0 do
+    begin prevm := m; m := n mod m; n := prevm end;
+  gcd := n
+end;
+#+end_src
+
 ** Prime numbers
 
 find primes ([[https://www.sitepoint.com/functional-reactive-programming-rxjs/][ref]])
@@ -627,6 +796,26 @@ function (start, end) {
   }
 }
 #+END_SRC
+
+*** Sieve of Eratosthenes
+
+from https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Pseudocode
+
+pseudo code:
+
+#+BEGIN_QUOTE
+Input: an integer n > 1.
+
+ Let A be an array of Boolean values, indexed by integers 2 to n,
+ initially all set to true.
+
+ for i = 2, 3, 4, ..., not exceeding √n:
+   if A[i] is true:
+     for j = i2, i2+i, i2+2i, i2+3i, ..., not exceeding n:
+       A[j] := false.
+
+ Output: all i such that A[i] is true.
+#+END_QUOTE
 
 ** Recursion
 
@@ -666,34 +855,33 @@ Using the substitution model, illustrate the process generated by each procedure
 
 * Data
 ** books
-
 *** [[https://dataintensive.net/][Designing Data-Intensive Applications]], by [[https://martin.kleppmann.com/][Martin Kleppmann]]
 
- #+BEGIN_QUOTE
- In an ideal world, the running time of a batch job is the size of the dataset divided by the throughput. testz  In practice, the running time is often longer, due to skew (data not being spread evenly across worker processes) and needing to wait for the slowest task to compete.
- #+END_QUOTE
+#+BEGIN_QUOTE
+In an ideal world, the running time of a batch job is the size of the dataset divided by the throughput. testz  In practice, the running time is often longer, due to skew (data not being spread evenly across worker processes) and needing to wait for the slowest task to compete.
+#+END_QUOTE
 
- Impedance mismatch (borrowed from electronics) - ...an awkward translation layer is required between the objects in the application code and the database model of tables, rows, and columns.
+Impedance mismatch (borrowed from electronics) - ...an awkward translation layer is required between the objects in the application code and the database model of tables, rows, and columns.
 
- #+BEGIN_QUOTE
- As a rule of thumb, if you're duplicating values that could be stored in just one place, the schema is not normalized.
- #+END_QUOTE
+#+BEGIN_QUOTE
+As a rule of thumb, if you're duplicating values that could be stored in just one place, the schema is not normalized.
+#+END_QUOTE
 
- #+BEGIN_QUOTE
- Even CODASYL committee members admitted that this was like navigating around an [n]-dimensional data space.
+#+BEGIN_QUOTE
+Even CODASYL committee members admitted that this was like navigating around an [n]-dimensional data space.
 
- cited Charles W. Bachman: "the Programmer as Navigator," Communications of the ACM, volume 16, number 11, pages 653-658, November 1973
- #+END_QUOTE
+cited Charles W. Bachman: "the Programmer as Navigator," Communications of the ACM, volume 16, number 11, pages 653-658, November 1973
+#+END_QUOTE
 ** databases
 *** couch
 
- http://couchdb.apache.org/
+http://couchdb.apache.org/
 
- [[http://docs.couchdb.org/en/2.1.1/intro/tour.html][Getting started docs]]
+Getting started docs]]
 
- Web access: http://127.0.0.1:5984/_utils/
+Web access: http://127.0.0.1:5984/_utils/
 
- #+BEGIN_SRC sh
+#+BEGIN_SRC sh
 # running?
 curl http://127.0.0.1:5984/
 
@@ -702,7 +890,7 @@ curl -X GET http://127.0.0.1:5984/_all_dbs
 
 # create db
 curl -X PUT http://127.0.0.1:5984/baseball
- #+END_SRC
+#+END_SRC
 
 ** graphQL
 
@@ -765,6 +953,16 @@ fragments:
 #+END_SRC
 
 ** misc
+*** identification schemes/object identification
+
+| DOI  | Digital Object Identifier           | ISO |
+| URL  | Uniform Resource Locator            |     |
+| ISBN | International Standard Book Number  |     |
+| GUID | Globally Unique Identifier          |     |
+| PURL | Persistent Uniform Resource Locator |     |
+| URN  | Uniform Resource Name               |     |
+
+
 *** SDL - Schema Definition Language
 
  A "schema definition" specifies a schema. The definitions are sometimes referred to as IDL or SDL. [ref](https://www.graph.cool/docs/faq/graphql-idl-schema-definition-language-kr84dktnp0/)
@@ -898,297 +1096,40 @@ function LOCATE ( x: elemenettype; L: LIST ): position;
 
  http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_rbtree.aspx, Julienne Walker
 * Functional Programming
-** Misc
-*** Why Functional Programming Matters
-
-[[http://www.cse.chalmers.se/%257Erjmh/Papers/whyfp.pdf][Why Functional Programming Matters (PDF) by John Hughes]]
-
-[[https://github.com/epsil/whyfp/blob/master/whyfp.hs][Haskell translation]] by Vegard Øye:
-
-#+BEGIN_SRC haskell
--- Exclude Haskell primitives defined in the article
-
-import Prelude hiding (foldr, sum, product, length, (.), map, iterate,
-                       sqrt, zipWith, maximum, minimum, take)
-import Data.List (intersperse)
-import qualified Data.List as D (sort, sortBy)
-import qualified Prelude as P (map, foldr, sum, length, maximum,
-                               minimum, take)
-
--- Gluing Functions Together
-
-data List a = Cons a (List a) | Nil deriving Show
-
-sum = foldr (+) 0
-
-foldr f x Nil = x
-foldr f x (Cons a l) = f a (foldr f x l)
-
-product = foldr (*) 1
-
-or = foldr (||) False
-
-and = foldr (&&) True
-
-append a b = foldr Cons b a
-
-length = foldr count 0
-count a n = n + 1
-
-double n = 2 * n
-
-(f . g) h = f (g h)
-
-doubleAll = map double
-map f = foldr (Cons . f) Nil
-
-sumMatrix = sum . map sum
-
-data Tree a = Node a (List (Tree a)) deriving Show
-
-foldTree f g a (Node label subtrees) =
-    f label (foldr (g . foldTree f g a) a subtrees)
-
-sumTree = foldTree (+) (+) 0
-
-labels = foldTree Cons append Nil
-
-mapTree f = foldTree (Node . f) Cons Nil
-
--- Gluing Programs Together
-
---- Newton-Raphson Square Roots
-
-next n x = (x + n / x) / 2
-
-iterate f a = Cons a (iterate f (f a))
-
-within eps (Cons a (Cons b rest))
-    | abs (a - b) <= eps = b
-    | otherwise          = within eps (Cons b rest)
-
-sqrt a0 eps n = within eps (iterate (next n) a0)
-
-relative eps (Cons a (Cons b rest))
-    | abs (a / b - 1) <= eps = b
-    | otherwise              = relative eps (Cons b rest)
-
-relativeSqrt a0 eps n = relative eps (iterate (next n) a0)
-
---- Numerical Differentiation
-
-easyDiff f x h = (f (x + h) - f x) / h
-
-differentiate h0 f x = map (easyDiff f x) (iterate halve h0)
-halve x = x / 2
-
-elimError n (Cons a (Cons b rest)) =
-    Cons ((b * (2 ** n) - a) / (2 ** n - 1))
-         (elimError n (Cons b rest))
-
-order (Cons a (Cons b (Cons c rest))) =
-    fromIntegral (round (logBase 2 ((a - c) / (b - c) - 1)))
-
-improve s = elimError (order s) s
-
-super s = map second (iterate improve s)
-second (Cons a (Cons b rest)) = b
-
---- Numerical Integration
-
-easyIntegrate f a b = (f a + f b) * (b - a) / 2
-
-zipWith f (Cons a s) (Cons b t) = Cons (f a b) (zipWith f s t)
-
-integrate f a b = integ f a b (f a) (f b)
-integ f a b fa fb =
-    Cons ((fa + fb) * (b - a) / 2)
-         (zipWith (+) (integ f a m fa fm)
-                      (integ f m b fm fb))
-    where m  = (a + b) / 2
-          fm = f m
-
--- An Example from Artificial Intelligence
-
-repTree f a = Node a (map (repTree f) (f a))
-
-gameTree p = repTree moves p
-
-maximize (Node n Nil)  =  Cons n Nil
-maximize (Node n l)    =  mapMin (map minimize l)
-
-minimize (Node n Nil)  =  Cons n Nil
-minimize (Node n l)    =  mapMax (map maximize l)
-
-mapMin  (Cons nums rest) =
-        Cons (minimum nums) (omit (minimum nums) rest)
-
-mapMax  (Cons nums rest) =
-        Cons (maximum nums) (omit (maximum nums) rest)
-
-omit pot Nil = Nil
-omit pot (Cons nums rest)
-    | minLeq nums pot  =  omit pot rest
-    | otherwise        =  Cons  (minimum nums)
-                                (omit (minimum nums) rest)
-minLeq Nil pot = False
-minLeq (Cons n rest) pot
-    | n <= pot   =  True
-    | otherwise  =  minLeq rest pot
-
-highFirst (Node n sub) = Node n (sortBy higher (map lowFirst sub))
-lowFirst (Node n sub) = Node n (sortBy (flip higher) (map highFirst sub))
-higher (Node n1 sub1) (Node n2 sub2) = compare n2 n1
-
-evaluate =
-    maximum . maximize . highFirst . mapTree static . prune 8 . gameTree
-
-takeTree n = foldTree (nodett n) Cons Nil
-nodett n label sub = Node label (take n sub)
-
-prune 0 (Node pos sub)
-    | dynamic pos  =  Node pos (map (prune 0) sub)
-    | otherwise    =  Node pos Nil
-prune n (Node a x)  =  Node a (map (prune (n - 1)) x)
-
-data Square = Empty | Nought | Cross
-    deriving Eq
-
-instance Show Square where
-  show Empty  = " "
-  show Nought = "O"
-  show Cross  = "X"
-
-data Board = Board [[Square]]
-  deriving Eq
-
-instance Show Board where
-  show (Board rows) =
-    "\n" ++ concat (intersperse "-+-+-\n" $ map' showRow rows) ++ "\n"
-    where showRow cols = concat (intersperse "|" $ map' show cols) ++ "\n"
-
-type Position = Board
-
-emptyBoard = Board [[Empty,Empty,Empty],
-                    [Empty,Empty,Empty],
-                    [Empty,Empty,Empty]]
-
-update i x [] = []
-update i x (y:ys)
-  | i == 0 = x : ys
-  | otherwise = y : update (i - 1) x ys
-
-move :: Int -> Int -> Square -> Board -> Board
-move x y p (Board b) = Board (update y (update x p (b !! y)) b)
-
-getSquare :: Int -> Int -> Board -> Square
-getSquare x y (Board b) = (b !! y) !! x
-
-moves :: Board -> List Board
-moves b = toList [move x y p b | y <- [0..2],
-                                 x <- [0..2],
-                                 getSquare x y b == Empty]
-          where p = if countPlayer Cross b <= countPlayer Nought b
-                    then Cross
-                    else Nought
-                countPlayer p (Board b) =
-                    sum' $ map' (length' . filter (==p)) b
-
-static = static' Cross
-
-static' :: Square -> Board -> Integer
-static' user (Board b) =
-      case b of
-           [[a, _, _],
-            [_, b, _],
-            [_, _, c]] | eq a b c -> win a user
-
-           [[_, _, a],
-            [_, b, _],
-            [c, _, _]] | eq a b c -> win a user
-
-           [[a, b, c],
-            [_, _, _],
-            [_, _, _]] | eq a b c -> win a user
-
-           [[_, _, _],
-            [a, b, c],
-            [_, _, _]] | eq a b c -> win a user
-
-           [[_, _, _],
-            [_, _, _],
-            [a, b, c]] | eq a b c -> win a user
-
-           [[a, _, _],
-            [b, _, _],
-            [c, _, _]] | eq a b c -> win a user
-
-           [[_, a, _],
-            [_, b, _],
-            [_, c, _]] | eq a b c -> win a user
-
-           [[_, _, a],
-            [_, _, b],
-            [_, _, c]] | eq a b c -> win a user
-
-           _ -> 0
-    where
-        eq a b c = a == b && b == c && a /= Empty
-        win a user = if a == user then 1 else -1
-
-dynamic p = False
-
-sort' :: (Ord a) => [a] -> [a]
-sort' = D.sort
-
-sortBy' = D.sortBy
-
-sort :: Ord a => List a -> List a
-sort = toList . sort' . fromList
-
-sortBy :: (a -> a -> Ordering) -> List a -> List a
-sortBy compare = toList . sortBy' compare . fromList
-
-take' :: Int -> [a] -> [a]
-take' = P.take
-
-take :: Int -> List a -> List a
-take n = toList . take' n . fromList
-
-map' = P.map
-foldr' = P.map
-sum' = P.sum
-length' = P.length
-
-maximum' :: (Ord a) => [a] -> a
-maximum' = P.maximum
-minimum' :: (Ord a) => [a] -> a
-minimum' = P.minimum
-
-maximum :: (Ord a) => List a -> a
-maximum l = maximum' (fromList l)
-
-minimum :: (Ord a) => List a -> a
-minimum l = minimum' (fromList l)
-
-toList :: [a] -> List a
-toList [] = Nil
-toList (x:xs) = Cons x (toList xs)
-
-fromList :: List a -> [a]
-fromList Nil = []
-fromList (Cons x xs) = x : fromList xs
-#+END_SRC
 ** Lambda Calculus
+*** combinators
+
+[[http://www.madore.org/~david/programs/unlambda/][Unlambda]] uses S, K, and I
+
 *** reference
 
 [[https://github.com/tadeuzagallo/lc-js][lc-js: A λ-calculus interpreter written in JavaScript]]
 
 [[https://tadeuzagallo.com/blog/writing-a-lambda-calculus-interpreter-in-javascript/][A λ-calculus interpreter]]
 
-* Misc
+** Misc
+* Lisp (general)
 
-** circle → triangle → square
+[[https://www.dreamsongs.com/Books.html][Richard Gabriel's writings]]
+
+* Misc :noexport:
+** Bayes Rule
+
+** calculate digits of pi
+
+from https://www.youtube.com/watch?time_continue=329&v=VADudzQGvU8
+
+#+BEGIN_SRC TECO
+GZOJ\UNQN"E 40UN ' BUH BUV HK
+QN< J BUQ QN*10/3UI
+QI< \+2*10+(QQ*QI)UA B L K QI*2-1UJ QA/QJUQ
+QA-(QQ*QJ)-2\ 10@I// -1\%I >
+QQ/10UT QH+QT+48UW QW-58"E 48UW \%V ' QV"N QV
+QV^T @^A\
+/HKEX$$
+#+END_SRC
+
+** circle → triangle → square :noexport:
 
 #+BEGIN_SRC lisp
 (setq big-area 2)
@@ -1245,3 +1186,23 @@ fromList (Cons x xs) = x : fromList xs
 * Reactive/dataflow :noexport:
 
 Suffixing observable names with `$` comes from cycle.js: https://cycle.js.org/basic-examples.html#basic-examples-increment-a-counter-what-is-the-convention
+* Streams
+
+** reference
+
+- https://github.com/substack/stream-handbook
+- https://nodejs.org/api/stream.html
+
+* Types :noexport:
+
+** ADTs
+
+[[https://swsnr.de/blog/2018/02/24/algebraic-data-types-in-scala/][Algebraic Data Types In Scala]], by [[https://github.com/lunaryorn][Sebastian Wiesner]]
+
+** gradual typing
+
+[[https://link.springer.com/chapter/10.1007%252F978-3-540-73589-2_2][Gradual Typing for Objects]]
+
+Abstract:
+
+> Static and dynamic type systems have well-known strengths and weaknesses. In previous work we developed a gradual type system for a functional calculus named 𝜆?→. Gradual typing provides the benefits of both static and dynamic checking in a single language by allowing the programmer to control whether a portion of the program is type checked at compile-time or run-time by adding or removing type annotations on variables. Several object-oriented scripting languages are preparing to add static checking. To support that work this paper develops 𝐎𝐛?<:, a gradual type system for object-based languages, extending the Ob < : calculus of Abadi and Cardelli. Our primary contribution is to show that gradual typing and subtyping are orthogonal and can be combined in a principled fashion. We also develop a small-step semantics, provide a machine-checked proof of type safety, and improve the space efficiency of higher-order casts.

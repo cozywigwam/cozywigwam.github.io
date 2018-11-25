@@ -10,6 +10,30 @@ path: "/styles/"
 #+END_EXAMPLE
 
 * Language
+** Animation
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+
+#+BEGIN_EXAMPLE
+<single-animation>#
+
+where
+<single-animation> = <time> || <single-timing-function> || <time> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state> || [ none | <keyframes-name> ]
+
+where
+<single-timing-function> = linear | <cubic-bezier-timing-function> | <step-timing-function> | <frames-timing-function>
+<single-animation-iteration-count> = infinite | <number>
+<single-animation-direction> = normal | reverse | alternate | alternate-reverse
+<single-animation-fill-mode> = none | forwards | backwards | both
+<single-animation-play-state> = running | paused
+<keyframes-name> = <custom-ident> | <string>
+
+where
+<cubic-bezier-timing-function> = ease | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)
+<step-timing-function> = step-start | step-end | steps(<integer>[, [ start | end ] ]?)
+<frames-timing-function> = frames(<integer>)
+#+END_EXAMPLE
+
 ** Custom Properties
 *** JavaScript read/write
 
@@ -104,6 +128,34 @@ Note that you cannot overwrite a root variable used by a mixin:
     }
 #+END_SRC
 
+** filter (blur)
+
+#+BEGIN_SRC css
+.blur {
+  filter: blur(10px);
+}
+#+END_SRC
+
+** Gradients
+
+#+BEGIN_SRC css
+.top-to-bottom {
+  background: linear-gradient(#000, #fff);
+}
+.top-to-bottom {
+  background: linear-gradient(0.5turn, #000, #fff);
+}
+.bottom-to-top {
+  background: linear-gradient(0turn, #000, #fff);
+}
+.left-to-right {
+  background: linear-gradient(to right, #000, #fff);
+}
+.percentage {
+  background: linear-gradient(to right, #000, #888 10%, #fff);
+}
+#+END_SRC
+
 ** Media Queries
 *** Top Level
 
@@ -181,6 +233,14 @@ Use =&= to refer to parent block:
 ** Transforms
 
 Re SVG, it's their object bounding box that gets transformed.
+
+*** multiple transforms
+
+#+BEGIN_SRC css
+.arrow {
+  transform: rotate(135deg) translateY(-50%);
+}
+#+END_SRC
 
 * Libraries
 ** CSS Modules
@@ -434,6 +494,46 @@ const Input = styled.input.attrs({
 `;
 #+END_SRC
 
+Note: can't use camelcase, because it's passed on to the DOM, and will not be interpreted as a custom attribute unless it's lowercase.
+
+#+BEGIN_EXAMPLE
+index.js:1452 Warning: React does not recognize the `progressWidth` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `progresswidth` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+#+END_EXAMPLE
+
+#+BEGIN_SRC js
+export const ProgressIndicator = styled.div.attrs({
+  willThrowErrorCamelCase: props => {
+    if (props.numberCompleted && props.total) {
+      return (props.numberCompleted / props.total) * 100;
+    } else {
+      return 0;
+    }
+  },
+  noerrorlowercase: props => {
+    if (props.numberCompleted && props.total) {
+      return (props.numberCompleted / props.total) * 100;
+    } else {
+      return 0;
+    }
+  },
+})`
+  height: 2px;
+  background: gray;
+  width: 100%;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: ${props => props.willThrowErrorCamelCase}%; // error
+    width: ${props => props.noerrorlowercase}%; // no error
+    background: yellow;
+  }
+`;
+#+END_SRC
+
 **** Extending styles
 
 https://www.styled-components.com/docs/basics#extending-styles
@@ -591,6 +691,32 @@ render(
 }
 #+END_SRC
 
+** browserlist
+
+[[https://css-tricks.com/browserlist-good-idea/][Chris Coyier's
+write-up]]
+** clearfix
+
+#+BEGIN_EXAMPLE
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+#+END_EXAMPLE
+
+** Paragraph line width in em
+
+Proper main-content line lengths, in em,
+[[http://maxdesign.com.au/articles/ideal-line-length-in-ems/][ref]]:
+
+#+BEGIN_QUOTE
+  As you can see, the average seems to suggest that your container width
+  should be set between the narrowest width of 21em (approx 49
+  characters per line) to the widest width of 30em (approx 71 characters
+  per line).
+#+END_QUOTE
+
 ** Sass variable interpolation
 
 [[http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_][ref]]
@@ -600,6 +726,16 @@ $multiplier-sm: #f00;
 
 .el {
   width: calc(10% * #{$multiplier-sm});
+}
+#+END_SRC
+
+** Sub-pixel text rendering
+
+If text is "jumping" per pixel instead of utilizing sub-pixel aliasing:
+
+#+BEGIN_SRC css
+.keep-smoother-with-trade-off {
+  transform: rotate(0.03deg);
 }
 #+END_SRC
 
@@ -623,35 +759,8 @@ CSS Styles in the head
 <!-- optional [MIME] `type` attribute defauts to `text/css`, i.e. <style type="text/css" /> -->
 #+END_SRC
 
-** Paragraph line width in em
-
-Proper main-content line lengths, in em,
-[[http://maxdesign.com.au/articles/ideal-line-length-in-ems/][ref]]:
-
-#+BEGIN_QUOTE
-  As you can see, the average seems to suggest that your container width
-  should be set between the narrowest width of 21em (approx 49
-  characters per line) to the widest width of 30em (approx 71 characters
-  per line).
-#+END_QUOTE
-
-** clearfix
-
-#+BEGIN_EXAMPLE
-    .clearfix:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-#+END_EXAMPLE
-
 ** text selection
 
 #+BEGIN_SRC css
 ::selection { ... }
 #+END_SRC
-
-** browserlist
-
-[[https://css-tricks.com/browserlist-good-idea/][Chris Coyier's
-write-up]]

@@ -53,6 +53,19 @@ This is a tool for comparing the output of various implementations of John Grube
 | code block               | backticks | {code}..{code}          | indent              |
 | [site](example.com)      | n/a       | [site[pipe]example.com] | [site](example.com) |
 
+** AsciiDoc
+
+[[https://asciidoctor.org/docs/what-is-asciidoc/][What is AsciiDoc?]]
+
+#+begin_quote
+A mature[1], plain-text writing format for authoring notes, articles, documentation, books, ebooks, web pages, slide decks, blog posts, man pages and more.
+
+A text processor and toolchain for translating AsciiDoc documents into various formats (called backends), including HTML, DocBook, PDF and ePub[2].
+#+end_quote
+
+- [[https://asciidoctor.org/docs/asciidoc-writers-guide/][AsciiDoc Writer's Guide]]
+- [[https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/][AsciiDoc Syntax Quick Reference]]
+
 ** CommonMark
 
 An attempt "to specify Markdown syntax unambiguously."
@@ -183,7 +196,6 @@ Here's a very readable link to [example][ddg].
 #+END_SRC
 
 * Misc
-
 ** Ambiguous Syntax
 
 Markdown difficulty with indented code following lists:
@@ -219,6 +231,7 @@ code()
 #+END_SRC
 
 ref Meta Stack Exchange [[https://meta.stackexchange.com/questions/3327/code-block-is-not-properly-formatted-when-placed-immediately-after-a-list-item][Code block is not properly formatted when placed immediately after a list item {duplicate}]]
-** Reference
+* Reference
 
-[[http://homepages.inf.ed.ac.uk/wadler/papers/next700/next700.pdf][The Next 700 Markup Languages]], by Philip Wadler
+- [[https://en.wikipedia.org/wiki/Lightweight_markup_language][Wikipedia - Lightweight markup language]]
+- [[http://homepages.inf.ed.ac.uk/wadler/papers/next700/next700.pdf][The Next 700 Markup Languages]], by Philip Wadler

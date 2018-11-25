@@ -56,6 +56,7 @@ brew list postgres
 brew search ispell
 brew leaves # "Show installed formulae that are not dependencies of another installed formula."
 brew cleanup -s --dry-run
+brew switch leiningen 2.8.1 # previously installed version
 #+END_SRC
 
 ** composer
@@ -101,6 +102,21 @@ curl -XDELETE localhost:9200/app_name
 curl -XDELETE localhost:9200/_all
 #+END_SRC
 
+** ffmpeg
+
+#+begin_src sh
+ffmpeg -i my-movie.mov -nv ripped-audio.flac
+#+end_src
+
+*** mov -> gif
+
+https://superuser.com/a/556031/450439
+
+#+begin_src sh
+mkdir frames && ffmpeg -i my-movie.mp4 -vf scale=320:-1:flags=lanczos,fps=10 frames/ffout%03d.png
+convert -loop 0 frames/ffout*.png output.gif
+#+end_src
+
 ** gems
 
 #+BEGIN_SRC sh
@@ -122,7 +138,7 @@ lsof /dir/or/file
 lsof -i
 lsof -i | grep -Ei "(LISTEN|EXTENDED)"
 lsof -i :3000
-lsof -t -i :3000 # PID only
+lsof -t -i :3000 # return PID only
 
 lsof -c node # command
 lsof -u charadriidae # user
@@ -269,6 +285,10 @@ dscl . list /Users | grep -v '_'
 #+END_SRC
 
 * macOS
+** Color profiles
+
+location: ~/Library/ColorSync/Profiles/~
+
 ** Custom audio
 
 Notification sounds for System Prefs -> Sounds
