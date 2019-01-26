@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Emacs"
-layout: notation
-description: "+ Spacemacs"
-path: "/emacs/"
----
-#+END_EXAMPLE
-
 * get around
 ** bookmarks
 

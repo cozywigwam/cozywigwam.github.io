@@ -1,13 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Command Line"
-layout: notation
-description: "[~] # $ /"
-path: "/command-line/"
----
-#+END_EXAMPLE
 
 * builtins
 ** dirs

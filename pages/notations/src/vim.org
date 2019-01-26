@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Vim"
-layout: notation
-description: Nirvana
-path: "/vim/"
----
-#+END_EXAMPLE
-
 [[https://github.com/sunflowerseastar/dotfiles/blob/master/.vimrc][dotfile]]
 
 * Color

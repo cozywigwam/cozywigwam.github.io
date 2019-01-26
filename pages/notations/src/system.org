@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "System"
-layout: notation
-description: We Get Signal
-path: "/system/"
----
-#+END_EXAMPLE
-
 * bin/
 ** ack
 

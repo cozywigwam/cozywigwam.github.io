@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Org"
-layout: notation
-description: Modal
-path: "/org/"
----
-#+END_EXAMPLE
-
 * Babel
 
 from [[info:org#Languages][info:org#Languages]]

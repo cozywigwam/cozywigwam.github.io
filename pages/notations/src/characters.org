@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Characters"
-layout: notation
-description: Distinction
-path: "/characters/"
----
-#+END_EXAMPLE
-
 * ASCII control characters
 
 | 0     | null              | ~NUL~          | ~\0~              | ~^@~   |

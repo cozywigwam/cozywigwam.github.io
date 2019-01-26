@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Markup"
-layout: notation
-description: Crosshatch
-path: "/markup/"
----
-#+END_EXAMPLE
-
 * Basics
 
 #+BEGIN_EXAMPLE

@@ -1,15 +1,6 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
 #+STARTUP: overview
-#+BEGIN_EXAMPLE
----
-title: "Clojure"
-layout: notation
-description: [Script]
-path: "/clojure/"
----
-#+END_EXAMPLE
-
 * Data Structures
 
 | Maps    | ~{:id 1 :name "test"}~      |

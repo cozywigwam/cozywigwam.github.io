@@ -1,15 +1,6 @@
 #+EXCLUDE_TAGS: noexport
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+STARTUP: overview
-#+BEGIN_EXAMPLE
----
-title: "Programming"
-layout: notation
-description: "💚"
-path: "/programming/"
----
-#+END_EXAMPLE
-
 * Algorithms
 ** Big O
 

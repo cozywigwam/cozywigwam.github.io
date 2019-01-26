@@ -1,14 +1,5 @@
 #+OPTIONS: toc:nil -:nil H:6 ^:nil
 #+EXCLUDE_TAGS: noexport
-#+BEGIN_EXAMPLE
----
-title: "Git"
-layout: notation
-description: Everything
-path: "/git/"
----
-#+END_EXAMPLE
-
 * Command Line
 ** .git/
 
