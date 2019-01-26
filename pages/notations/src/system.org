@@ -409,12 +409,12 @@ yyyy-mm-ddThh:mm:ss.sssZ
 
 #+BEGIN_SRC sh
 # -n no file, just stdout
-htpasswd -n theusername
+htpasswd -n <user>
 #+END_SRC
 
-** gpg/pgp :no_export:
+** gpg/pgp
 
-| ~gpgconf --reload gpg-agent~ | reload (~SIGHUP~) gpg-agent (if wrong pw is cached) |
+~gpgconf --reload gpg-agent~: reload (~SIGHUP~) gpg-agent (if wrong pw is cached)
 
 ** semver
 

@@ -172,7 +172,7 @@ console.log(restItem);
 
 From [[https://www.reddit.com/r/orgmode/comments/71m0e9/does_orgcontacts_work_with_recent_versions_of/][reddit]]
 
-*** reference :no_export:
+*** reference :noexport:
 
 #+BEGIN_EXAMPLE
 I've tried to get org-contacts to work with my Emacs setup, and I can't seem to make search display results. When i perform a search for Dave using org-contacts I get is a buffer containing:
@@ -232,7 +232,7 @@ HTH
 | ~C-c C-e #~          | insert default export options from template |
 | ~#+OPTIONS: toc:nil~ | don't export table of contents              |
 
-To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~no_export~, and add ~:no_export:~ after the heading/node.
+To prevent exporting a node use an ~#+EXCLUDE_TAGS~ option of ~noexport~, and add ~:noexport:~ after the heading/node.
 
 ** export exclusion example :noexport:
 

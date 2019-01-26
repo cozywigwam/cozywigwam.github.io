@@ -833,7 +833,7 @@ The contrast between the two processes can be seen in another way. In the iterat
 
 Iterative processes execute in constant space.
 
-*** Exercise 1.9                                                 :no_export:
+*** Exercise 1.9                                                 :noexport:
 
 Each of the following two procedures defines a method for adding two positive integers in terms of the procedures inc, which increments its argument by 1, and dec, which decrements its argument by 1.
 
@@ -971,6 +971,9 @@ fragments:
 
  IDL ([[https://en.wikipedia.org/wiki/Interface_description_language][interface description language)]] - API spec
 
+** Reactive/dataflow                                               :noexport:
+
+Suffixing observable names with `$` comes from cycle.js: https://cycle.js.org/basic-examples.html#basic-examples-increment-a-counter-what-is-the-convention
 ** Structures
 *** Graphs
 
@@ -1095,26 +1098,30 @@ function LOCATE ( x: elemenettype; L: LIST ): position;
 **** Red Black Trees
 
  http://www.eternallyconfuzzled.com/tuts/datastructures/jsw_tut_rbtree.aspx, Julienne Walker
+** Streams
+*** reference
+
+ - https://github.com/substack/stream-handbook
+ - https://nodejs.org/api/stream.html
+
 * Functional Programming
 ** Lambda Calculus
 *** combinators
+
+Y = λf.(λs.(f (s s)) λs.(f (s s)))
 
 [[http://www.madore.org/~david/programs/unlambda/][Unlambda]] uses S, K, and I
 
 *** reference
 
-[[https://github.com/tadeuzagallo/lc-js][lc-js: A λ-calculus interpreter written in JavaScript]]
+- [[https://github.com/tadeuzagallo/lc-js][lc-js: A λ-calculus interpreter written in JavaScript]]
+- [[https://tadeuzagallo.com/blog/writing-a-lambda-calculus-interpreter-in-javascript/][A λ-calculus interpreter]]
 
-[[https://tadeuzagallo.com/blog/writing-a-lambda-calculus-interpreter-in-javascript/][A λ-calculus interpreter]]
-
-** Misc
-* Lisp (general)
+* Lisp (general) :noexport:
 
 [[https://www.dreamsongs.com/Books.html][Richard Gabriel's writings]]
 
 * Misc :noexport:
-** Bayes Rule
-
 ** calculate digits of pi
 
 from https://www.youtube.com/watch?time_continue=329&v=VADudzQGvU8
@@ -1183,18 +1190,7 @@ QV^T @^A\
 (setq i (* h h))
 #+END_SRC
 
-* Reactive/dataflow :noexport:
-
-Suffixing observable names with `$` comes from cycle.js: https://cycle.js.org/basic-examples.html#basic-examples-increment-a-counter-what-is-the-convention
-* Streams
-
-** reference
-
-- https://github.com/substack/stream-handbook
-- https://nodejs.org/api/stream.html
-
 * Types :noexport:
-
 ** ADTs
 
 [[https://swsnr.de/blog/2018/02/24/algebraic-data-types-in-scala/][Algebraic Data Types In Scala]], by [[https://github.com/lunaryorn][Sebastian Wiesner]]

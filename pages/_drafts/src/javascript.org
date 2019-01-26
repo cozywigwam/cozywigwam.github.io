@@ -172,9 +172,8 @@ const myCurryTwo = function(func) {
 const myCurryTwo2 = f => x => f(x)
 #+END_SRC
 
-** Destructuring
-
-*** Arrays :noexport:
+** Destructuring :noexport:
+*** Arrays
 
 *** Objects
 
@@ -298,53 +297,6 @@ componentWillUnmount() {
 #+END_SRC
 
 ** Indentation/formatting
-*** Prettier
-
-[[https://prettier.io/docs/en/options.html][Prettier Options]]
-
-With [[https://github.com/typicode/husky][husky]] and [[https://github.com/okonet/lint-staged][lint-staged]]:
-
-#+BEGIN_SRC js
-/* package.json */
-
-// ...
-
-"scripts": {
-  "precommit": "lint-staged",
-
-// ...
-
-"lint-staged": {
-  "src/**/*.{js,jsx,json,css,scss}": [
-    "prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write",
-    "git add"
-  ]
-},
-
-// ...
-#+END_SRC
-
-**** run it through files
-
-#+BEGIN_SRC sh
-prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
-prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
-#+END_SRC
-
-**** inspiration
-
-[[https://homepages.inf.ed.ac.uk/wadler/papers/prettier/prettier.pdf][A Prettier Printer]], by Philip Wadler, published [[http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.19.635][1998]]
-
-**** comments
-
-#+begin_quote
-Style wars are a thing of the past
-
-Say what you like about gofmt, but it makes arguments over code style almost impossible. Just run it on save, and your code will always be consistently formatted.
-#+end_quote
-
-https://memo.barrucadu.co.uk/three-months-of-go.html
-
 ** Iterators
 
 From [[https://nostarch.com/ecmascript6][Understanding ECMASCRIPT 6]] by [[https://twitter.com/slicknet][Nicholas Zakas]]
@@ -1931,6 +1883,53 @@ You should probably be using operators like `takeUntil` to manage your RxJS subs
 - [[https://github.com/thi-ng/umbrella][umbrella]]
   - [[https://github.com/thi-ng/umbrella/tree/master/packages/hdom][hdom]]
 - [[https://medium.com/@thi.ng/how-to-ui-in-2018-ac2ae02acdf3][How to UI in 2018]] (Medium), by Karsten Schmidt
+
+** Prettier
+
+[[https://prettier.io/docs/en/options.html][Prettier Options]]
+
+With [[https://github.com/typicode/husky][husky]] and [[https://github.com/okonet/lint-staged][lint-staged]]:
+
+#+BEGIN_SRC js
+/* package.json */
+
+// ...
+
+"scripts": {
+  "precommit": "lint-staged",
+
+// ...
+
+"lint-staged": {
+  "src/**/*.{js,jsx,json,css,scss}": [
+    "prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write",
+    "git add"
+  ]
+},
+
+// ...
+#+END_SRC
+
+*** run it through files
+
+#+BEGIN_SRC sh
+prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "src/**/*.{js,jsx,json,css,scss}"
+prettier --single-quote --jsx-bracket-same-line --trailing-comma es5 --write "**/*.js"
+#+END_SRC
+
+*** inspiration
+
+[[https://homepages.inf.ed.ac.uk/wadler/papers/prettier/prettier.pdf][A Prettier Printer]], by Philip Wadler, published [[http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.19.635][1998]]
+
+*** comments
+
+#+begin_quote
+Style wars are a thing of the past
+
+Say what you like about gofmt, but it makes arguments over code style almost impossible. Just run it on save, and your code will always be consistently formatted.
+#+end_quote
+
+https://memo.barrucadu.co.uk/three-months-of-go.html
 
 * Misc
 
