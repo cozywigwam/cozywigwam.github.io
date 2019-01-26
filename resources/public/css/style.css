@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Josefin+Sans:400,400i,700,700i|Source+Code+Pro');
+/*
+ * export const Colors = {
+ *   gray: '#26282a',
+ *   grayDarker: '#202224',
+ *   grayLighter: '#3a3a3a',
+ *   grayLightest: '#555',
+ *   white: '#f1f1f1',
+ *   red: '#fe978b',
+ *   green: '#d6fcba',
+ *   yellow: '#fffed5',
+ *   blue: '#c2e3ff',
+ *   magenta: '#ffc6ff',
+ *   cyan: '#c0e9f8',
+ * };
+ */
+
+body {
+  font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  background: #26282a;
+  font-family: 'Josefin Sans', 'Helvetica Neue', Helvetica, Trebuchet, Tahoma, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #fffed5;
+}
+table code,
+code {
+  font-size: 13px !important;
+}
+hr {
+  width: 90%;
+  height: 1px;
+  margin: 10em auto 5em 0;
+  background: #ffc6ff;
+  border-bottom: 1px solid #c2e3ff;
+}
+
+.column {
+  max-width: 42em;
+  padding: 10vw 10vw 14vw;
+  margin: 0 auto;
+}
+
+.heading-group {
+  display: block;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+.heading-group h1 {
+  margin: 0.4em 0 0.02em;
+  line-height: 1.4;
+}
+.heading-group h2 {
+  margin: 0 0 0.02em;
+  line-height: 1.4;
+}
+a.heading-group:hover {
+  cursor: pointer;
+}
+a.heading-group:hover h1 {
+  color: #fe978b;
+  cursor: pointer;
+}
+a.heading-group:hover h2 {
+  color: #ffc6ff;
+  cursor: pointer;
+}
+.heading-group + .heading-group {
+  margin-top: 3em;
+}
+
+.return-arrow {
+  display: inline-block;
+  margin: 10% auto 22%;
+  padding: 2.6em 7em;
+  color: #c2e3ff;
+  font-size: 15px;
+}
+.return-arrow:hover {
+  color: #26282a;
+  background: #ffc6ff;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
