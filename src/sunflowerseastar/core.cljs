@@ -15,7 +15,7 @@
                     :clojure {:title "Clojure" :subtitle "[Script]"}
                     :command-line {:title "Command Line" :subtitle "[~] # $ /"}
                     :emacs {:title "Emacs" :subtitle "+ Spacemacs"}
-                    :git {:title "Git" :subtitle "Everything"}
+                    :git {:title "Git" :subtitle "The Real VC"}
                     :markup {:title "Markup" :subtitle "Crosshatch"}
                     :org {:title "Org" :subtitle "Eventually"}
                     :programming {:title "Programming" :subtitle "(verb noun)"}
