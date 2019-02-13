@@ -36,6 +36,11 @@ body {
   -webkit-font-smoothing: antialiased;
   background: var(--gray);
 }
+@media screen and (max-device-width: 480px){
+  body{
+    -webkit-text-size-adjust: none;
+  }
+}
 @media (min-width: 768px) {
   body {
     font-size: var(--body-medium);
