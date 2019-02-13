@@ -48,7 +48,7 @@
 
 (defn notation-data->heading-group-link
   [[_ {:keys [filename title subtitle]
-       :or {title (clojure.string/capitalize filename)
+       :or {title filename
             subtitle "placeholder"}}]]
   (heading-group-link {:href (str "/notations/" filename)
                        :title title
