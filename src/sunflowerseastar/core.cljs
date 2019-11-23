@@ -1,144 +1,43 @@
-(ns sunflowerseastar.core
-  (:require-macros [sunflowerseastar.loader :as loader])
-  (:import goog.history.Html5History)
-  (:require [secretary.core :as secretary :refer-macros [defroute]]
-            [accountant.core :as accountant]
-            [goog.events :as events]
-            [goog.history.EventType :as EventType]
-            [reagent.core :as r]
-            [reagent.session :as session]
-            [cljsjs.showdown]))
+(ns ^:figwheel-hooks sunflowerseastar.core
+  (:require
+   [sunflowerseastar.cellular-automata :refer [cellular-automata]]
+   [sunflowerseastar.chess :refer [chess]]
+   [sunflowerseastar.blackjack :refer [blackjack]]
+   [sunflowerseastar.svgs :refer [get-svg]]
+   [goog.dom :as gdom]
+   [reagent.core :as reagent :refer [atom]]))
 
-(def notations (r/atom nil))
+(def current-page (atom chess))
 
-(def markdown-meta {:characters {:title "Characters" :subtitle "Distinction"}
-                    :clojure {:title "Clojure" :subtitle "[Script]"}
-                    :command-line {:title "Command Line" :subtitle "[~] # $ /"}
-                    :emacs {:title "Emacs" :subtitle "+ Spacemacs"}
-                    :git {:title "Git" :subtitle "The Real VC"}
-                    :markup {:title "Markup" :subtitle "Crosshatch"}
-                    :org {:title "Org" :subtitle "Eventually"}
-                    :programming {:title "Programming" :subtitle "(verb noun)"}
-                    :system {:title "System" :subtitle "We Get Signal"}
-                    :vim {:title "Vim" :subtitle "Nirvana"}})
+(defn get-app-element []
+  (gdom/getElement "app"))
 
-(defn md->html [s]
-  (.makeHtml
-   (doto (js/showdown.Converter.)
-     (.setFlavor "github"))
-   s))
+(defn main []
+  [:div.main
+   [:span.viewport-right-shadow]
+   [:div.header
+    [:div.left
+     [:h1.title "Sunflowerseastar"]
+     [:div.link-column
+      [:a.link {:on-click #(reset! current-page chess)} "chess"]
+      [:a.link {:on-click #(reset! current-page blackjack)} "blackjack"]
+      [:a.link {:on-click #(reset! current-page cellular-automata)} "CA"]]]
+    [:div.right
+     [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://github.com/sunflowerseastar"} [get-svg "github"]]
+     [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://soundcloud.com/cyaneyedvireo"} [get-svg "soundcloud"]]
+     [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://sinistrocular.com"} [get-svg "sinistrocular"]]
+     [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://twitter.com/helianthoides"} [get-svg "twitter"]]]]
+   [:div.content
+    [@current-page]]])
 
-(defn render-markdown [md]
-  [:div
-   {:dangerouslySetInnerHTML
-    {:__html (md->html md)}}])
+(defn mount [el]
+  (reagent/render-component [main] el))
 
-;; -------------------------
-;; Views
+(defn mount-app-element []
+  (when-let [el (get-app-element)]
+    (mount el)))
 
-(defn heading-group-no-link [{:keys [title subtitle]}]
-  [:div.heading-group
-   [:h1 title]
-   (if subtitle [:h2 subtitle])])
-
-(defn heading-group-link [{:keys [href title subtitle]}]
-  [:a.heading-group {:key href :href href}
-   [:h1 title]
-   (if subtitle [:h2 subtitle])])
-
-(defn notation-data->heading-group-link
-  [[_ {:keys [filename title subtitle]
-       :or {title filename
-            subtitle "placeholder"}}]]
-  (heading-group-link {:href (str "/notations/" filename)
-                       :title title
-                       :subtitle subtitle}))
-
-(defn home-component []
-  [:div
-   (map notation-data->heading-group-link (sort @notations))
-   [:hr]
-   (heading-group-link {:href "/about" :title "About"})])
-
-(defn footer-component []
-  [:div.footer [:a.return-arrow {:href "/"} \☜]])
-
-(defn notations-component [notation-name]
-  (let [{:keys [content title subtitle]} ((keyword notation-name) @notations)]
-    [:div
-     (heading-group-no-link {:title title :subtitle subtitle})
-     [render-markdown content]
-     [:hr]
-     (footer-component)]))
-
-(defn about-component []
-  [:div [:h1.no-margin-top "💻"]
-   [:p "Hello, my name is Grant. I'm a digital creator in San Francisco."]
-   [:p "This website notebook is written in "
-    [:a {:href "https://orgmode.org/"}"Org mode"] " and built using "
-    [:a {:href "https://clojure.org/"} "Clojure"] " and "
-    [:a {:href "https://clojurescript.org/"} " ClojureScript"] "."]
-   [:br]
-   [:table [:tbody
-            [:tr [:td "technology"]
-             [:td [:a {:href "/"} "Sunflower Sea Star"]]]
-            [:tr [:td "photography"]
-             [:td [:a {:href "https://sinistrocular.com"} "Sinistrocular"]]]
-            [:tr [:td "music"]
-             [:td [:a {:href "https://soundcloud.com/cyaneyedvireo"} "Cyan-eyed Vireo"]]]]]
-   [:section.table-cyan
-    [:table [:tbody
-             [:tr [:td [:a {:href "https://twitter.com/helianthoides"} "Twitter"]]
-              [:td [:a {:href "https://github.com/sunflowerseastar"} "GitHub"]]
-              [:td [:a {:href "https://www.linkedin.com/in/grantsurlyn"} "LinkedIn"]]]]]]
-   [:section.table-green
-    [:table [:tbody [:tr [:td "grant"] [:td "@"] [:td "[this domain]"]]]]]
-   (footer-component)])
-
-;; -------------------------
-;; Initialize app
-
-(defn page []
-  [(session/get :current-page)])
-
-(defn hook-browser-navigation! []
-  (doto (Html5History.)
-    (events/listen
-     EventType/NAVIGATE
-     (fn [event]
-       (secretary/dispatch! (.-token event))))
-    (.setEnabled true)))
-
-(defn app-routes []
-  (defroute "/" []
-    (session/put! :current-page (home-component)))
-  (defroute "/about" []
-    (session/put! :current-page (about-component)))
-  (defroute "/notations/:id" [id]
-    (do
-      (js/console.log (str "notations id is " id))
-      (session/put! :current-page (notations-component id))))
-  (hook-browser-navigation!))
-
-(accountant/configure-navigation!
- {:nav-handler
-  (fn [path]
-    (secretary/dispatch! path))
-  :path-exists?
-  (fn [path]
-    (secretary/locate-route path))})
-
-(defn init! []
-  (reset! notations
-          (merge-with clojure.set/union markdown-meta
-                      (loader/all-markdowns)))
-  (app-routes)
-  (r/render [:div.column [session/get :current-page]]
-            (.getElementById js/document "app")))
-
-(init!)
+(mount-app-element)
 
 (defn ^:after-load on-reload []
-  (do
-    (js/console.log "reload")
-    (init!)))
+  (mount-app-element))

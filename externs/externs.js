@@ -1,0 +1,2 @@
+var MathJax = {
+  "typeset": function () { }}

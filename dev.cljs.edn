@@ -1,4 +1,6 @@
 ^{:watch-dirs ["src"]
   :css-dirs ["resources/public/css"]
   :auto-testing false}
-{:main sunflowerseastar.core}
+{:main sunflowerseastar.core
+ :infer-externs true
+ :externs ["externs/externs.js"]}
