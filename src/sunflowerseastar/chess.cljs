@@ -131,7 +131,7 @@
     (or (and (= x-distance 2) (= y-distance 1)) (and (= x-distance 1) (= y-distance 2)))))
 "]]
 
-     [:p "and a king, $(dx \\leq 1) \\land (dy \\leq 1)$."]
+     [:p "and a king:"]
      [:pre
       [:span.code-label "clojure"]
       [:code.clojure "
@@ -174,7 +174,7 @@
         (= piece-type 'k) (is-legal-king-move? x y end-x end-y)
         :else false)))
 "]]
-     [:p.note "Once the ‘legality’ was written for the rook and bishop, I could throw a $\\lor$ at the queen and call it a day. Sometimes things that should be easy actually turn out to be easy. Not often. But more often in Clojure than not-Clojure, it seems."]
+     [:p.note "Once the ‘legality’ was written for the rook and bishop, I could throw a " [:em "or"] " at the queen and call it a day. Sometimes things that should be easy actually turn out to be easy. Not often. But more often in Clojure than not-Clojure, it seems."]
 
 
      [:p "I wrote a translation layer between my board + castling + en-passant state configuration to " [:a {:href "https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation" :rel "noreferrer" :target "_blank"} "FEN"] ". This helped shake out bugs. Here’s a fun one for each way: from fen $\\rightarrow$ my data structure, and my data structure $\\rightarrow$ fen."]
