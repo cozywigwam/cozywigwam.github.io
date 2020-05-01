@@ -1,18 +1,19 @@
 (ns sunflowerseastar.chess
   (:require
    [sunflowerseastar.helpers :refer [math-jax-wrapper]]
-   [sunflowerseastar.components :refer [clojure-code]]))
+   [sunflowerseastar.components :refer [clojure-code iframe]]))
 
 (defn chess []
   (math-jax-wrapper
-   [:div.chess.content-inner
-    [:div.content-body
-     [:img {:src "chess.png"}]
+   [:div.content
+    (iframe "https://chess.sunflowerseastar.com"
+            [:p.note "space: computer move, left/right or cmd+z/shift+cmd+z: undo/redo"])
+    [:div.content-inner
      [:h2 "Chess"]
      [:h3 "Goal"]
-     [:p "To write a " [:a {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess app"] ", GUI & engine. Also, to improve at writing Clojure and have fun!"]
+     [:p "To write a " [:a {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess app"] ", GUI & engine. Also, to improve at writing Clojure. And have fun!"]
      [:h3 "Setup"]
-     [:p "I opted for the intuition of a plain-English mapped board, using the shape’s intuition to combat complexity."]
+     [:p "So here's the board's data structure—" [:em "prepare to marvel"] ". (Just kidding, prepare to say, “you should be using a " [:a {:href "https://www.chessprogramming.org/Bitboards" :rel "noreferrer" :target "_blank"} "bitboard"]",” with an eyeroll)."]
 
      [:pre
       [:span.code-label "clojure"]
@@ -27,9 +28,7 @@
    (vec (for [x (range 0 8)] {:color 'w :piece-type 'p :x x :y 6}))
    (vec (map #(hash-map :color 'w :piece-type %1 :x %2 :y 7) ['r 'n 'b 'q 'k 'b 'n 'r] (range 0 8)))])
 "]]
-     [:p.note [:a {:href "https://www.chessprogramming.org/Bitboards" :rel "noreferrer" :target "_blank"} "Bitboards"] " are the way to go. I had already given my structure some hammock time before I learned about bitboards, though, so I decided to let it rip and see if I could make it work."]
-
-
+     [:p.note "Well, I'll admit: the reason I set it up this way was because I had been kicking the chess idea around in the old noggin' for a while, and I felt like this setup matched my intuition/perception to where I could crank out enough rule set with sufficient speed to generate completion momentum. And it worked!"]
      [:p "There are three top-level atoms of state: " [:em "game"] ", " [:em "score"] ", and " [:em "ui"] "."]
      [:pre
       [:span.code-label "clojure"]
@@ -203,7 +202,7 @@
      [:p "It’s no Stockfish, but it was a whirlwind romp that fit a full rule set, GUI, and engine in 600 lines of Clojure and 460 lines of CSS. If you press " [:strong "spacebar"] " during desktop play, computer moves will follow a limited openings table from Eduard Gufeld. There are a few basic heuristics for middle game play. Press the " [:strong "left"] " & " [:strong "right"] " arrow keys, or " [:strong "ctrl/cmd + Z"] " & " [:strong "ctrl/cmd + shift Z"] " for undo and redo. Click on the rook-ish hamburger for a stats screen, and you can copy or paste FENs to save your place or jump to a game position."]
 
      [:div.center
-     [:a.stand-alone {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess"]
+      [:a.stand-alone {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess"]
       [:a.stand-alone {:href "https://github.com/sunflowerseastar/chess/blob/master/src/chess/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
 
 

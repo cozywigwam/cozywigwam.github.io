@@ -1,12 +1,13 @@
 (ns sunflowerseastar.cellular-automata
   (:require
    [sunflowerseastar.helpers :refer [math-jax-wrapper]]
-   [sunflowerseastar.components :refer [clojure-code]]))
+   [sunflowerseastar.components :refer [clojure-code iframe]]))
 
 (defn cellular-automata []
   (math-jax-wrapper
-   [:div.chess.content-inner
-    [:div.content-body
+   [:div.content
+    (iframe "https://cellular-automata.sunflowerseastar.com")
+    [:div.content-inner
      [:div
       [:img {:src "cellular-automata.png"}]
       [:h2 "cellular-automata"]

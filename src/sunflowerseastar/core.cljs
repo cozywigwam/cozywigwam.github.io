@@ -2,6 +2,7 @@
   (:require
    [sunflowerseastar.cellular-automata :refer [cellular-automata]]
    [sunflowerseastar.chess :refer [chess]]
+   [sunflowerseastar.tetris :refer [tetris]]
    [sunflowerseastar.blackjack :refer [blackjack]]
    [sunflowerseastar.svgs :refer [get-svg]]
    [goog.dom :as gdom]
@@ -20,6 +21,7 @@
      [:h1.title "Sunflowerseastar"]
      [:div.link-column
       [:a.link {:on-click #(reset! current-page chess)} "chess"]
+      [:a.link {:on-click #(reset! current-page tetris)} "tetris"]
       [:a.link {:on-click #(reset! current-page blackjack)} "blackjack"]
       [:a.link {:on-click #(reset! current-page cellular-automata)} "CA"]]]
     [:div.right
