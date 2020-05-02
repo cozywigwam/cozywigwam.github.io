@@ -9,32 +9,23 @@
     (iframe "https://cellular-automata.sunflowerseastar.com")
     [:div.content-inner
      [:div
-      [:img {:src "cellular-automata.png"}]
       [:h2 "cellular-automata"]
-      [:p "A friend of mine gave me a copy of " [:a {:href "https://www.wolframscience.com/nks/" :rel "noreferrer" :target "_blank"} "A New Kind of Science"] " when it came out. I enjoy the ideas and visuals. Upon hearing about the Wolfram Rule 30 Prizes, I got to thinking about how to write a " [:a {:href "https://cellular-automata.sunflowerseastar.com/" :rel "noreferrer" :target "_blank"} "visualizer"] " for the rules."]
+      [:p "I received " [:a {:href "https://www.wolframscience.com/nks/" :rel "noreferrer" :target "_blank"} "A New Kind of Science"] " as a gift when it came out. How could I visualize these rules with Clojure, I wondered?"]
+
+      [:p "I set up the 2^3 possibilites:"]
       (clojure-code
        "
-(defn cell [value is-last-column is-last-row]
-  [:svg.cell {:view-box [0 0 10 10]
-              :class [(if is-last-column \"is-last-column\") (if is-last-row \"is-last-row\")]
-              :style {:fill (if (pos? value) \"black\" \"white\") :background (if (pos? value) \"black\" \"white\")}}
-   [:rect {:width 10 :height 10}]])
-
-(defn automata [data]
-  (let [len (count (last data))]
-    [:div.automata.hide-borders {:style {:display \"grid\" :grid-template-columns (str \"repeat(\" len \", \" (/ 100 len) \"%)\")}}
-     (map-indexed (fn [y-idx row]
-                    (map-indexed
-                     (fn [x-idx value]
-                       (let [is-last-column (zero? (mod (inc x-idx) len))
-                             is-last-row (= (inc y-idx) (count data))]
-                         ^{:key (str x-idx value)}
-                         [cell value is-last-column is-last-row]))
-                     row))
-                  data)]))
+(def rule-triads [[1 1 1]
+                  [1 1 0]
+                  [1 0 1]
+                  [1 0 0]
+                  [0 1 1]
+                  [0 1 0]
+                  [0 0 1]
+                  [0 0 0]])
 ")
 
-      [:p "I won’t lie. It got a little weird."]
+      [:p "And a way to compute a block based on the triad above it:"]
       (clojure-code
        "
 (defn rule-translate [rule-set L C R]
@@ -58,7 +49,31 @@
           (and (not L) (not C) R) g
           (and (not L) (not C) (not R)) h)))
 ")
-      [:p "But it was fun. I waffled between whether to use " [:em "true"] "/" [:em "false"] " or " [:em "0"] "/" [:em "1"] ", and I refactored it from one side to the other and back."]
+
+      [:p "Then I threw it into a grid:"]
+      (clojure-code
+       "
+(defn cell [value is-last-column is-last-row]
+  [:svg.cell {:view-box [0 0 10 10]
+              :class [(if is-last-column \"is-last-column\") (if is-last-row \"is-last-row\")]
+              :style {:fill (if (pos? value) \"black\" \"white\") :background (if (pos? value) \"black\" \"white\")}}
+   [:rect {:width 10 :height 10}]])
+
+(defn automata [data]
+  (let [len (count (last data))]
+    [:div.automata.hide-borders {:style {:display \"grid\" :grid-template-columns (str \"repeat(\" len \", \" (/ 100 len) \"%)\")}}
+     (map-indexed (fn [y-idx row]
+                    (map-indexed
+                     (fn [x-idx value]
+                       (let [is-last-column (zero? (mod (inc x-idx) len))
+                             is-last-row (= (inc y-idx) (count data))]
+                         ^{:key (str x-idx value)}
+                         [cell value is-last-column is-last-row]))
+                     row))
+                  data)]))
+")
+
+      [:p "It was fun! Be sure to visit intriguing rules like 30 and 193."]
 
       [:div.center
        [:a.stand-alone {:href "https://cellular-automata.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "cellular-automata"]

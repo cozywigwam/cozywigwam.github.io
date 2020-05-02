@@ -7,13 +7,16 @@
   (math-jax-wrapper
    [:div.content
     (iframe "https://chess.sunflowerseastar.com"
-            [:p.note "space: computer move, left/right or cmd+z/shift+cmd+z: undo/redo"])
+            [:p.note [:strong "enter"] ": " [:em "computer move"] ", "
+             [:strong "left"] "/" [:strong "right"] " or "
+             [:strong "cmd+z"] "/" [:strong "shift+cmd+z"] ": " [:em  "undo"] "/" [:em "redo"] ", "
+             [:strong "r"] ": " [:em "restart"]])
     [:div.content-inner
      [:h2 "Chess"]
      [:h3 "Goal"]
      [:p "To write a " [:a {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess app"] ", GUI & engine. Also, to improve at writing Clojure. And have fun!"]
      [:h3 "Setup"]
-     [:p "So here's the board's data structure—" [:em "prepare to marvel"] ". (Just kidding, prepare to say, “you should be using a " [:a {:href "https://www.chessprogramming.org/Bitboards" :rel "noreferrer" :target "_blank"} "bitboard"]",” with an eyeroll)."]
+     [:p "So here's the board's data structure—" [:em "prepare to marvel"] ". (Just kidding, prepare to say, “You should be using a " [:a {:href "https://www.chessprogramming.org/Bitboards" :rel "noreferrer" :target "_blank"} "bitboard"] "!”)"]
 
      [:pre
       [:span.code-label "clojure"]
@@ -28,7 +31,7 @@
    (vec (for [x (range 0 8)] {:color 'w :piece-type 'p :x x :y 6}))
    (vec (map #(hash-map :color 'w :piece-type %1 :x %2 :y 7) ['r 'n 'b 'q 'k 'b 'n 'r] (range 0 8)))])
 "]]
-     [:p.note "Well, I'll admit: the reason I set it up this way was because I had been kicking the chess idea around in the old noggin' for a while, and I felt like this setup matched my intuition/perception to where I could crank out enough rule set with sufficient speed to generate completion momentum. And it worked!"]
+     [:p.note "At the end of the day, this felt intuitive to me. Since I was able to conceptualize most of the functions in the implementation with this structure, I proceeded with it as a first pass."]
      [:p "There are three top-level atoms of state: " [:em "game"] ", " [:em "score"] ", and " [:em "ui"] "."]
      [:pre
       [:span.code-label "clojure"]

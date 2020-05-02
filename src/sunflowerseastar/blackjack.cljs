@@ -8,7 +8,6 @@
    [:div.content
     (iframe "https://blackjack.sunflowerseastar.com")
     [:div.content-inner
-     [:img {:src "blackjack.png"}]
      [:h2 "blackjack"]
      [:p "So I read something (maybe on lobste.rs?) about how programming playing cards is non-trivial. This was bad news for me, because I wasn’t able to shake the thought. How trivial would it be, I thought? How non-trivial would it be? I can’t just " [:em "not"] " know how trivial or not trivial this is!"]
      [:p "First, I need a data structure. I want it to feel easy to understand and work with."]

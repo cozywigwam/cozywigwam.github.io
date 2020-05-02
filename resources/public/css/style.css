@@ -144,7 +144,7 @@ svg.sinistrocular {
 .iframe-container .note {
   float: right;
   padding-top: 3px;
-  color: #ccc;
+  color: #888;
 }
 
 .content-inner {
@@ -199,6 +199,11 @@ pre {
   position: relative;
   font-size: 0.6em;
   max-width: 80em;
+}
+@media (min-width: 1080px) {
+  pre {
+    font-size: 0.7em;
+  }
 }
 pre span.code-label {
   position: absolute;
