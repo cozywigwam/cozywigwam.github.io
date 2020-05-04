@@ -8,11 +8,18 @@
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom create-class]]))
 
-(def current-page (atom chess))
 (def has-initially-loaded (atom false))
+
+(def colors ["#d0d0ff" "#ffd3ad" "#b1e597" "#ffbad1" "#ff8c94" "#91cdf2" "#faedb9" ])
 
 (defn get-app-element []
   (gdom/getElement "app"))
+
+(def current-page (atom [:chess chess]))
+(def pages [{:name "chess" :component chess}
+            {:name "tetris" :component tetris}
+            {:name "blackjack" :component blackjack}
+            {:name "ca" :component cellular-automata}])
 
 (defn main []
   (create-class
@@ -20,22 +27,24 @@
     :reagent-render
     (fn [this]
       [:div.main.fade-in-1 {:class [(if @has-initially-loaded "has-initially-loaded")]}
-       [:span.viewport-right-shadow]
        [:div.header
-        [:div.left.fade-in-2
-         [:h1.title "Sunflowerseastar"]
-         [:div.link-column
-          [:a.link {:on-click #(reset! current-page chess)} "chess"]
-          [:a.link {:on-click #(reset! current-page tetris)} "tetris"]
-          [:a.link {:on-click #(reset! current-page blackjack)} "blackjack"]
-          [:a.link {:on-click #(reset! current-page cellular-automata)} "CA"]]]
-        [:div.right.fade-in-2
-         [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://github.com/sunflowerseastar"} [get-svg "github"]]
-         [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://soundcloud.com/cyaneyedvireo"} [get-svg "soundcloud"]]
-         [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://sinistrocular.com"} [get-svg "sinistrocular"]]
-         [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://twitter.com/helianthoides"} [get-svg "twitter"]]]]
+        [:div.flex-row
+         [:div.left
+          [:h1.title "Sunflowerseastar"]
+          [:div.links-container
+           (map
+            (fn [{:keys [name component]}]
+              [:a.link {:class (when (= (first @current-page) (keyword name)) "active")
+                        :style {:color (when (= (first @current-page) (keyword name)) (rand-nth colors))}
+                        :on-click #(reset! current-page [(keyword name) component])} name])
+            pages)]]
+         [:div.right
+          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://github.com/sunflowerseastar"} [get-svg "github"]]
+          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://soundcloud.com/cyaneyedvireo"} [get-svg "soundcloud"]]
+          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://sinistrocular.com"} [get-svg "sinistrocular"]]
+          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://twitter.com/helianthoides"} [get-svg "twitter"]]]]]
        [:div.content
-        [@current-page]]])}))
+        [(second @current-page)]]])}))
 
 (defn mount [el]
   (reagent/render-component [main] el))

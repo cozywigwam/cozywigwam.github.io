@@ -11,5 +11,5 @@
   ([src note include-border]
    [:div.iframe-container
     [:iframe.iframe {:src src
-                     :style {:border (if include-border "0.5px solid #ddd" "none")}}]
+                     :style {:borderBottom (if include-border "0.5px solid #ddd" "none")}}]
     note]))

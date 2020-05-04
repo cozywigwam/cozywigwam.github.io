@@ -7,7 +7,7 @@
   (math-jax-wrapper
    [:div.content
     (iframe "https://tetris.sunflowerseastar.com"
-            [:p.note [:strong "enter"] ": " [:em "rotate"] " (and " [:em "restart"] "), "
+            [:p.iframe-note [:strong "enter"] ": " [:em "rotate"] " (and " [:em "restart"] "), "
              [:strong "left"] "/" [:strong "right"] ": " [:em "move piece"] ", "
              [:strong "d"] ": " [:em "advance downward"] ", "
              [:strong "p"] ": " [:em "toggle pause"] ", "

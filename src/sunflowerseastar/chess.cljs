@@ -7,7 +7,7 @@
   (math-jax-wrapper
    [:div.content
     (iframe "https://chess.sunflowerseastar.com"
-            [:p.note [:strong "enter"] ": " [:em "computer move"] ", "
+            [:p.iframe-note [:strong "enter"] ": " [:em "computer move"] ", "
              [:strong "left"] "/" [:strong "right"] " or "
              [:strong "cmd+z"] "/" [:strong "shift+cmd+z"] ": " [:em  "undo"] "/" [:em "redo"] ", "
              [:strong "r"] ": " [:em "restart"]])
