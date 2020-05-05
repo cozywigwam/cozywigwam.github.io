@@ -106,7 +106,6 @@ img {
     display: flex;
   }
 }
-
 .header .link {
   display: block;
 }
@@ -130,16 +129,13 @@ img {
 .header .link:hover {
   color: #999;
 }
-
 .header .right {
   display: grid;
   grid-template-columns: 50% 50%;
 }
 
 .svg-link {
-  display: flex;
   align-self: center;
-  height: 100%;
   padding: 3px 8px;
 }
 .svg-link svg {
@@ -180,7 +176,7 @@ svg.sinistrocular {
 }
 
 .iframe {
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   border: 0;
 }
