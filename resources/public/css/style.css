@@ -160,6 +160,13 @@ svg.sinistrocular {
   stroke: #ccc;
 }
 
+.content {
+  opacity: 1;
+}
+.content.route-is-changing {
+  opacity: 0;
+}
+
 .iframe-container {
   width: 100%;
   margin: 0 auto;
