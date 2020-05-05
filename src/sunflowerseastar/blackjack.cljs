@@ -71,7 +71,7 @@
 ")
 
      [:div.center
-      [:a.stand-alone {:href "https://blackjack.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "blackjack"]
-      [:a.stand-alone {:href "https://github.com/sunflowerseastar/blackjack/blob/master/src/cards/blackjack.cljs" :rel "noreferrer" :target "_blank"} "code"]]
+      [:a.link.content-link {:href "https://blackjack.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "blackjack"]
+      [:a.link.content-link {:href "https://github.com/sunflowerseastar/blackjack/blob/master/src/cards/blackjack.cljs" :rel "noreferrer" :target "_blank"} "code"]]
 
      ]]))

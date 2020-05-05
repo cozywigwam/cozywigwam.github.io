@@ -20,6 +20,9 @@ body {
   }
 }
 
+
+/* type & general html */
+
 h1,
 h2 {
   font-family: 'Lato', sans-serif;
@@ -57,16 +60,6 @@ img {
   overflow: hidden;
 }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
 
 /* header */
 
@@ -74,7 +67,6 @@ img {
   padding: 4vh 4vh 4vh 4vh;
   background: #222;
 }
-
 .header .title {
   color: #666;
   font-size: 1.4em;
@@ -89,7 +81,6 @@ img {
     margin-bottom: 0.5em;
   }
 }
-
 .header .left {
   flex: 1;
   display: flex;
@@ -105,29 +96,6 @@ img {
     max-width: none;
     display: flex;
   }
-}
-.header .link {
-  display: block;
-}
-.stand-alone,
-.header .link {
-  display: inline-block;
-  padding: 0.3em 0;
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  font-weight: 300;
-  color: #666;
-  letter-spacing: 0.15em;
-  transition: color 0.2s cubic-bezier(0.3, 0.8, 0.1, 0.95);
-}
-@media (min-width: 768px) {
-  .header .link {
-    padding: 0 1.2em 0 0;
-  }
-}
-.header .link:hover {
-  color: #999;
 }
 .header .right {
   display: grid;
@@ -243,14 +211,6 @@ svg.sinistrocular {
   max-width: 50em;
   line-height: 1.4;
 }
-.content .stand-alone {
-  margin-top: 1em;
-  padding: 1.5em 2em;
-  text-decoration: none;
-}
-.content .stand-alone:hover {
-  color: #000;
-}
 .center {
   text-align: center;
 }
@@ -274,15 +234,19 @@ pre span.code-label {
   color: #666;
 }
 code {
-  padding: 1em 3em 2.8em 3.2em !important;
-  font-family: 'iosevka ss05', Menlo, 'Andale Mono', monospace;
+  padding: 0.8em 3em 2.6em 2.2em !important;
+  font-family: 'iosevka term ss09', Menlo, 'Andale Mono', monospace;
   line-height: 1.6;
 }
+@media (min-width: 400px) {
+  padding: 1em 3em 2.8em 3.2em !important;
+}
+
 
 /* fade */
 
 .fade-in-1 {
-  transition: opacity 2.6s ease-in-out;
+  transition: opacity 1.4s ease-in-out;
   opacity: 0;
 }
 .fade-in-2 {
@@ -293,4 +257,52 @@ code {
 .has-initially-loaded .fade-in-1,
 .has-initially-loaded .fade-in-2 {
   opacity: 1;
+}
+
+
+/* stand-alone */
+
+.link {
+  display: inline-block;
+  padding: 0.3em 0;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #666;
+  letter-spacing: 0.15em;
+  transition: color 0.2s cubic-bezier(0.3, 0.8, 0.1, 0.95);
+}
+.header-link {
+  display: block;
+}
+@media (min-width: 768px) {
+  .header-link {
+    padding: 0 1.2em 0 0;
+  }
+}
+.header-link:hover {
+  color: #999;
+}
+.content-link {
+  margin-top: 1em;
+  padding: 1.5em 2em;
+  text-decoration: none;
+}
+.content-link:hover {
+  color: #000;
+}
+
+
+/* helpers */
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }

@@ -4,7 +4,7 @@
    [sunflowerseastar.chess :refer [chess]]
    [sunflowerseastar.tetris :refer [tetris]]
    [sunflowerseastar.blackjack :refer [blackjack]]
-   [sunflowerseastar.svgs :refer [get-svg]]
+   [sunflowerseastar.components :refer [header]]
    [tupelo.core :refer [spyx]]
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom create-class]]))
@@ -25,6 +25,11 @@
             {:name "ca" :component cellular-automata}])
 (def page-color (atom (rand-nth colors)))
 
+(def social [{:name "github" :url "https://github.com/sunflowerseastar"}
+             {:name "soundcloud" :url "https://soundcloud.com/cyaneyedvireo"}
+             {:name "sinistrocular" :url "https://sinistrocular.com"}
+             {:name "twitter" :url "https://twitter.com/helianthoides"}])
+
 (def route-is-changing (atom false))
 
 (defn change-route! [name component]
@@ -40,25 +45,7 @@
     :reagent-render
     (fn [this]
       [:div.main.fade-in-1 {:class (if @has-initially-loaded "has-initially-loaded")}
-       [:div.header
-        [:div.flex-row
-         [:div.left
-          [:h1.title "Sunflowerseastar"]
-          [:div.links-container
-           (map (fn [{:keys [name component]}]
-                  (let [is-current-page (= (first @current-page) (keyword name))
-                        is-upcoming-page (= (first @upcoming-page) (keyword name))]
-                    [:a.link {:key name
-                              :style {:color (when is-upcoming-page @page-color)}
-                              :on-click #(when (and (not @route-is-changing) (not is-current-page))
-                                           (change-route! name component))}
-                     name]))
-                pages)]]
-         [:div.right
-          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://github.com/sunflowerseastar"} [get-svg "github"]]
-          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://soundcloud.com/cyaneyedvireo"} [get-svg "soundcloud"]]
-          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://sinistrocular.com"} [get-svg "sinistrocular"]]
-          [:a.svg-link {:rel "noreferrer" :target "_blank" :href "https://twitter.com/helianthoides"} [get-svg "twitter"]]]]]
+       (header pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)
        [:div.content {:class (when @route-is-changing "route-is-changing")
                       :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
         [(second @current-page)]]])}))

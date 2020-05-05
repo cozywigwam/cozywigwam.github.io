@@ -76,7 +76,7 @@
       [:p "It was fun! Be sure to visit intriguing rules like 30 and 193."]
 
       [:div.center
-       [:a.stand-alone {:href "https://cellular-automata.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "cellular-automata"]
-       [:a.stand-alone {:href "https://github.com/sunflowerseastar/cellular-automata/blob/master/src/cellular_automata/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
+       [:a.link.content-link {:href "https://cellular-automata.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "cellular-automata"]
+       [:a.link.content-link {:href "https://github.com/sunflowerseastar/cellular-automata/blob/master/src/cellular_automata/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
 
       ]]]))

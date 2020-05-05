@@ -130,8 +130,8 @@
 
 
      [:div.center
-      [:a.stand-alone {:href "https://tetris.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "tetris"]
-      [:a.stand-alone {:href "https://github.com/sunflowerseastar/tetris/blob/master/src/tetris/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
+      [:a.link.content-link {:href "https://tetris.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "tetris"]
+      [:a.link.content-link {:href "https://github.com/sunflowerseastar/tetris/blob/master/src/tetris/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
 
 
      ]]))
