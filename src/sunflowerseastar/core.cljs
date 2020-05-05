@@ -5,6 +5,7 @@
    [sunflowerseastar.tetris :refer [tetris]]
    [sunflowerseastar.blackjack :refer [blackjack]]
    [sunflowerseastar.svgs :refer [get-svg]]
+   [tupelo.core :refer [spyx]]
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom create-class]]))
 
