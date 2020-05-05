@@ -214,12 +214,11 @@ svg.sinistrocular {
     padding: 3.4em 5vh 6em 4vh;
   }
 }
-
 @media (min-width: 768px) {
   .content-inner {
-    padding: 0 0 8em;
+    width: 50em;
     margin: 0 auto;
-    width: 60vw;
+    padding: 3.4em 0 6em 0;
   }
 }
 .content h1,
