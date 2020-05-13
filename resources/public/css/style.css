@@ -20,7 +20,6 @@ body {
   }
 }
 
-
 /* type & general html */
 
 h1,
@@ -59,7 +58,6 @@ img {
 .main {
   overflow: hidden;
 }
-
 
 /* header */
 
@@ -242,7 +240,6 @@ code {
   padding: 1em 3em 2.8em 3.2em !important;
 }
 
-
 /* fade */
 
 .fade-in-1 {
@@ -258,7 +255,6 @@ code {
 .has-initially-loaded .fade-in-2 {
   opacity: 1;
 }
-
 
 /* stand-alone */
 
@@ -292,7 +288,6 @@ code {
 .content-link:hover {
   color: #000;
 }
-
 
 /* helpers */
 
