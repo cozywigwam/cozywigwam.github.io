@@ -4,7 +4,7 @@
    [sunflowerseastar.chess :refer [chess]]
    [sunflowerseastar.tetris :refer [tetris]]
    [sunflowerseastar.blackjack :refer [blackjack]]
-   [sunflowerseastar.components :refer [header]]
+   [sunflowerseastar.components :refer [header footer]]
    [tupelo.core :refer [spyx]]
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom create-class]]))
@@ -48,7 +48,8 @@
        (header pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)
        [:div.content {:class (when @route-is-changing "route-is-changing")
                       :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
-        [(second @current-page)]]])}))
+        [(second @current-page)]]
+       (footer pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)])}))
 
 (defn mount [el]
   (reagent/render-component [main] el))

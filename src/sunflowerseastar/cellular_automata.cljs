@@ -1,7 +1,7 @@
 (ns sunflowerseastar.cellular-automata
   (:require
    [sunflowerseastar.helpers :refer [math-jax-wrapper]]
-   [sunflowerseastar.components :refer [clojure-code iframe]]))
+   [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn cellular-automata []
   (math-jax-wrapper
@@ -75,8 +75,4 @@
 
       [:p "It was fun! Be sure to visit intriguing rules like 30 and 193."]
 
-      [:div.center
-       [:a.link.content-link {:href "https://cellular-automata.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "cellular-automata"]
-       [:a.link.content-link {:href "https://github.com/sunflowerseastar/cellular-automata/blob/master/src/cellular_automata/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
-
-      ]]]))
+      (links "https://cellular-automata.sunflowerseastar.com" "https://github.com/sunflowerseastar/cellular-automata/blob/master/src/cellular_automata/core.cljs")]]]))

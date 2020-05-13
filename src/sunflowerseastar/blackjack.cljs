@@ -1,7 +1,7 @@
 (ns sunflowerseastar.blackjack
   (:require
    [sunflowerseastar.helpers :refer [math-jax-wrapper]]
-   [sunflowerseastar.components :refer [clojure-code iframe]]))
+   [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn blackjack []
   (math-jax-wrapper
@@ -70,8 +70,4 @@
       (end-game!))))
 ")
 
-     [:div.center
-      [:a.link.content-link {:href "https://blackjack.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "blackjack"]
-      [:a.link.content-link {:href "https://github.com/sunflowerseastar/blackjack/blob/master/src/cards/blackjack.cljs" :rel "noreferrer" :target "_blank"} "code"]]
-
-     ]]))
+     (links "https://blackjack.sunflowerseastar.com" "https://github.com/sunflowerseastar/blackjack/blob/master/src/cards/blackjack.cljs")]]))

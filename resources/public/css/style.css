@@ -70,17 +70,21 @@ img {
 /* header */
 
 .header {
-  padding: 4vh 4vh 4vh 4vh;
+  padding: 4vh;
   background: #222;
 }
 .header .title {
+  position: relative;
   color: #666;
   font-size: 1.4em;
   font-weight: 300;
   letter-spacing: 0.1em;
   margin: 0 0 0.3em;
-  text-shadow: 1px 1px 0px #444;
   cursor: default;
+  background: -webkit-linear-gradient(267deg, #d0d0ff, #333);
+  filter: drop-shadow(1px 1px 0px #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 @media (min-width: 768px) {
   .header .title {
@@ -89,23 +93,59 @@ img {
 }
 .header .left {
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
-.links-container {
+.header .links-container {
   display: grid;
   grid-template-columns: 50% 50%;
   max-width: 260px;
 }
 @media (min-width: 768px) {
-  .links-container {
+  .header .links-container {
     max-width: none;
     display: flex;
+  }
+  .header .link {
+    padding: 0.5em 1.2em 0.5em 0;
   }
 }
 .header .right {
   display: grid;
   grid-template-columns: 50% 50%;
+}
+
+/* footer */
+
+.footer {
+  padding: 2vh;
+  background: #222;
+}
+.footer .left {
+  flex: 1;
+}
+.footer .links-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  max-width: 260px;
+}
+@media (min-width: 768px) {
+  .footer .links-container {
+    max-width: none;
+    display: flex;
+  }
+  .footer .link {
+    align-self: center;
+    padding: 0.8em 1.2em 0.8em 0;
+  }
+}
+.footer .right {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+@media (min-width: 768px) {
+  .footer .right {
+    max-width: none;
+    display: flex;
+  }
 }
 
 .svg-link {
@@ -277,21 +317,18 @@ code {
   letter-spacing: 0.15em;
   transition: color 0.2s cubic-bezier(0.3, 0.8, 0.1, 0.95);
 }
-.header-link {
+.link-dark-bg {
   display: block;
 }
-@media (min-width: 768px) {
-  .header-link {
-    padding: 0 1.2em 0 0;
-  }
-}
-.header-link:hover {
+.link-dark-bg:hover {
   color: #999;
 }
 .content-link {
-  margin-top: 1em;
-  padding: 1.5em 2em;
+  margin: 4em 0 3em;
+  padding: 1.5em 2em 1.7em;
   text-decoration: none;
+  border-top: 0.5px solid #ddd;
+  border-bottom: 0.5px solid #ddd;
 }
 .content-link:hover {
   color: #000;

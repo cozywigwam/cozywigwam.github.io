@@ -1,7 +1,7 @@
 (ns sunflowerseastar.tetris
   (:require
    [sunflowerseastar.helpers :refer [math-jax-wrapper]]
-   [sunflowerseastar.components :refer [clojure-code iframe]]))
+   [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn tetris []
   (math-jax-wrapper
@@ -79,8 +79,8 @@
 
      [:p "I have this dream of writing the board in multiple matrices and using an APL inside Clojure like " [:a {:href "https://github.com/phantomics/april" :rel "noreferrer" :target "_blank"} "april"] " to calculate rotations and boundaries. But I don‘t know if that‘ll ever become reality or not. Meanwhile, I have helpers to figure out what’s possible:"]
 
-           (clojure-code
-"
+     (clojure-code
+      "
 (defn get-x-y [board x-y]
   (let [x (first x-y) y (second x-y)]
     (if (x-y-in-bounds? x-y board)
@@ -128,10 +128,4 @@
             :else (recur (rest rows) (first pos) (inc num))))))
 ")
 
-
-     [:div.center
-      [:a.link.content-link {:href "https://tetris.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "tetris"]
-      [:a.link.content-link {:href "https://github.com/sunflowerseastar/tetris/blob/master/src/tetris/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
-
-
-     ]]))
+     (links "https://tetris.sunflowerseastar.com" "https://github.com/sunflowerseastar/tetris/blob/master/src/tetris/core.cljs")]]))

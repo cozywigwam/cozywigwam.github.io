@@ -1,7 +1,7 @@
 (ns sunflowerseastar.chess
   (:require
    [sunflowerseastar.helpers :refer [math-jax-wrapper]]
-   [sunflowerseastar.components :refer [clojure-code iframe]]))
+   [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn chess []
   (math-jax-wrapper
@@ -204,9 +204,4 @@
      [:h3 "Result"]
      [:p "It’s no Stockfish, but it was a whirlwind romp that fit a full rule set, GUI, and engine in 600 lines of Clojure and 460 lines of CSS. If you press " [:strong "spacebar"] " during desktop play, computer moves will follow a limited openings table from Eduard Gufeld. There are a few basic heuristics for middle game play. Press the " [:strong "left"] " & " [:strong "right"] " arrow keys, or " [:strong "ctrl/cmd + Z"] " & " [:strong "ctrl/cmd + shift Z"] " for undo and redo. Click on the rook-ish hamburger for a stats screen, and you can copy or paste FENs to save your place or jump to a game position."]
 
-     [:div.center
-      [:a.link.content-link {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess"]
-      [:a.link.content-link {:href "https://github.com/sunflowerseastar/chess/blob/master/src/chess/core.cljs" :rel "noreferrer" :target "_blank"} "code"]]
-
-
-     ]]))
+     (links "https://chess.sunflowerseastar.com" "https://github.com/sunflowerseastar/chess/blob/master/src/chess/core.cljs")]]))
