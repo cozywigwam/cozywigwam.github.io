@@ -16,7 +16,7 @@
     note]))
 
 (defn svg-link [name url]
-  [:a.svg-link {:rel "noreferrer" :target "_blank" :href url} [get-svg name]])
+  [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
 
 (defn header [pages social current-page upcoming-page page-color route-is-changing cr!]
   [:div.header
