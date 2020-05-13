@@ -108,6 +108,9 @@ img {
     padding: 0.5em 1.2em 0.5em 0;
   }
 }
+.header .link:last-child {
+  display: none;
+}
 .header .right {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -213,6 +216,21 @@ svg.sinistrocular {
     max-width: 60em;
     margin: 0;
     padding: 0 1vw;
+  }
+}
+@media (min-width: 768px) {
+  .about-iframe {
+    max-width: 70vw;
+  }
+}
+@media (min-width: 992px) {
+  .about-iframe {
+    max-width: 60vw;
+  }
+}
+@media (min-width: 1080px) {
+  .about-iframe {
+    max-width: 50vw;
   }
 }
 
