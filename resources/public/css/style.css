@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'iosevka term ss09';
+  src: url('iosevka-term-ss09-regular-webfont.woff2') format('woff2'),
+    url('iosevka-term-ss09-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: 'Vollkorn', serif;
