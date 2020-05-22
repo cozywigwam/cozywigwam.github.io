@@ -5,7 +5,7 @@
 
 (defn cellular-automata []
   (math-jax-wrapper
-   [:div.content
+   [:div
     (iframe "https://cellular-automata.sunflowerseastar.com")
     [:div.content-inner
      [:div

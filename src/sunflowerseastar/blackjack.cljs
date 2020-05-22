@@ -5,7 +5,7 @@
 
 (defn blackjack []
   (math-jax-wrapper
-   [:div.content
+   [:div
     (iframe "https://blackjack.sunflowerseastar.com")
     [:div.content-inner
      [:h2 "blackjack"]

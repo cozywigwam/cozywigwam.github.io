@@ -5,7 +5,7 @@
 
 (defn tetris []
   (math-jax-wrapper
-   [:div.content
+   [:div
     (iframe "https://tetris.sunflowerseastar.com"
             [:p.iframe-note [:strong "enter"] ": " [:em "rotate"] " (and " [:em "restart"] "), "
              [:strong "left"] "/" [:strong "right"] ": " [:em "move piece"] ", "

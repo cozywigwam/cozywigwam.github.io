@@ -5,7 +5,7 @@
 
 (defn chess []
   (math-jax-wrapper
-   [:div.content
+   [:div
     (iframe "https://chess.sunflowerseastar.com"
             [:p.iframe-note [:strong "enter"] ": " [:em "computer move"] ", "
              [:strong "left"] "/" [:strong "right"] " or "
