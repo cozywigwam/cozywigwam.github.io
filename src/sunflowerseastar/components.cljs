@@ -47,7 +47,8 @@
                [:a.link.link-dark-bg {:key name
                                       :style {:color (when is-upcoming-page page-color)}
                                       :on-click #(when (and (not route-is-changing) (not is-current-page))
-                                                   (change-route! name component))}
+                                                   (do (.scroll js/window (clj->js {:top 0 :left 0 :behavior "smooth"}))
+                                                       (change-route! name component)))}
                 name]))
            pages)]]
     [:div.right
