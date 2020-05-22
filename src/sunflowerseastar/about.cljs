@@ -8,9 +8,9 @@
    [:div.content-inner
     [:div
 
-     [:p {:style {:paddingTop "6em"}} "Hello! My name is Grant. I'm a digital creator in San Francisco. I started making websites in the early 90s, back when html tags were all caps and elegant positioning solutions kept getting tabled. My technology work focuses on interactive, data-intensive UIs, and includes logic-heavy webapps, mobile solutions, high-profile websites, and business products for clients ranging from startups to international corporations."]
-     [:p "My practice as a consultant is informed by my humanities background, and my work experience includes teaching and management. I enjoy working with teams to discover, implement, and communicate solutions that match problem shapes as clearly as possible. Some tools I use for measuring & maintaining project health include documentation, test suites, team dynamics, and VCS exploration."]
-     [:p "Ongoing interests of mine are program design, architecture, and functional programming. I have an insatiable appetite for learning and exploring, so I read a good bit, particularly technical books. Other interests include photography, music, and language."]
+     [:p "Hello! My name is Grant. I'm a digital creator in San Francisco. I started making websites in the early 90s, back when html tags were all caps and elegant positioning solutions kept getting tabled."]
+     [:p "I have a background in the humanities, and my work experience includes teaching, management, and sales."]
+     [:p "Ongoing pursuits are program design, architecture, and functional programming. I read a good bit, especially technical books. Other interests include photography, music, and language."]
 
      [:div.iframe-container.about-iframe
       [:iframe.iframe {:src "https://geometry.sunflowerseastar.com"}]]
