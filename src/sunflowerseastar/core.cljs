@@ -48,9 +48,10 @@
     (fn [this]
       [:div.main.fade-in-1 {:class (if @has-initially-loaded "has-initially-loaded")}
        (header pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)
-       [:div.content {:class (when @route-is-changing "route-is-changing")
-                      :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
-        [(second @current-page)]]
+       [:div.content-backdrop
+        [:div.content {:class (when @route-is-changing "route-is-changing")
+                       :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
+         [(second @current-page)]]]
        (footer pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)])}))
 
 (defn mount [el]
