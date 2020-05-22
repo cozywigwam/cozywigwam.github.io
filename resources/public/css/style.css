@@ -256,6 +256,13 @@ svg.sinistrocular {
   max-width: 40em;
 }
 
+/* about */
+@media (min-width: 768px) {
+  .content p:first-child {
+    padding-top: 6em;
+  }
+}
+
 .content h1 {
   margin: 0 0 1.5em;
   font-size: 1.5em;
