@@ -52,6 +52,30 @@
 
 (defonce match (atom nil))
 
+
+(def routes
+  [["/"
+    {:name ::chess
+     :title "chess"
+     :view chess}]
+
+   ["/tetris"
+    {:name ::tetris
+     :title "tetris"
+     :view tetris}]
+
+   ["/blackjack"
+    {:name ::blackjack
+     :title "blackjack"
+     :view blackjack}]
+
+   ["/cellular-automata"
+    {:name ::cellular-automata
+     :title "ca"
+     :view cellular-automata}]
+   ])
+
+
 (defn main []
   (create-class
    {:component-did-mount (fn [] (js/setTimeout #(reset! has-initially-loaded true) 0))
@@ -59,7 +83,7 @@
     (fn [this]
       [:div.main.fade-in-1 {:class (if @has-initially-loaded "has-initially-loaded")}
 
-       (header pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)
+       (header pages routes social @current-page @upcoming-page @page-color @route-is-changing change-route!)
 
 
        [:div.content-backdrop
@@ -82,23 +106,7 @@
          [(second @current-page)]]]
        (footer pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)])}))
 
-(def routes
-  [["/"
-    {:name ::chess
-     :view chess}]
 
-   ["/tetris"
-    {:name ::tetris
-     :view tetris}]
-
-   ["/blackjack"
-    {:name ::blackjack
-     :view blackjack}]
-
-   ["/cellular-automata"
-    {:name ::cellular-automata
-     :view cellular-automata}]
-   ])
 
 (defn init! []
 

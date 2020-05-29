@@ -1,5 +1,7 @@
 (ns sunflowerseastar.components
-  (:require [sunflowerseastar.svgs :refer [get-svg]]))
+  (:require    [tupelo.core :refer [spyx]]
+               [sunflowerseastar.svgs :refer [get-svg]]
+               [reitit.frontend.easy :as rfe]))
 
 (defn clojure-code [inner]
   [:pre
@@ -18,23 +20,29 @@
 (defn svg-link [name url]
   [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
 
-(defn header [pages social current-page upcoming-page page-color route-is-changing change-route!]
-  [:div.header
-   [:div.flex-row
-    [:div.left
-     [:h1.title "Sunflowerseastar"]
-     [:div.links-container
-      (map (fn [{:keys [name component]}]
-             (let [is-current-page (= (first current-page) (keyword name))
-                   is-upcoming-page (= (first upcoming-page) (keyword name))]
-               [:a.link.link-dark-bg {:key name
-                                      :style {:color (when is-upcoming-page page-color)}
-                                      :on-click #(when (and (not route-is-changing) (not is-current-page))
-                                                   (change-route! name component))}
-                name]))
-           pages)]]
-    [:div.right
-     (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
+(defn header [pages routes social current-page upcoming-page page-color route-is-changing change-route!]
+  (do (spyx routes)
+      [:div.header
+       [:div.flex-row
+        [:div.left
+         [:h1.title "Sunflowerseastar"]
+         [:div.links-container
+
+          (map (fn [[path {:keys [name title view]}]] (do (spyx path name view)
+                                   [:a.link.link-dark-bg {:key name :href (rfe/href name)} title]
+                                   )) routes)
+
+          (map (fn [{:keys [name component]}]
+                 (let [is-current-page (= (first current-page) (keyword name))
+                       is-upcoming-page (= (first upcoming-page) (keyword name))]
+                   [:a.link.link-dark-bg {:key name
+                                          :style {:color (when is-upcoming-page page-color)}
+                                          :on-click #(when (and (not route-is-changing) (not is-current-page))
+                                                       (change-route! name component))}
+                    name]))
+               pages)]]
+        [:div.right
+         (map (fn [{:keys [name url]}] (svg-link name url)) social)]]]))
 
 (defn footer [pages social current-page upcoming-page page-color route-is-changing change-route!]
   [:div.footer
