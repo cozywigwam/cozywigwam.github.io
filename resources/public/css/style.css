@@ -108,6 +108,9 @@ img {
   grid-template-columns: 50% 50%;
   max-width: 260px;
 }
+.link {
+  text-decoration: none;
+}
 @media (min-width: 768px) {
   .header .links-container {
     max-width: none;

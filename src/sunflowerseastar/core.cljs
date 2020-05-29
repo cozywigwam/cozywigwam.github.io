@@ -43,15 +43,7 @@
       (js/setTimeout #(reset! current-page [(keyword name) component]) route-transition-duration)
       (js/setTimeout #(reset! route-is-changing false) (+ 100 route-transition-duration))))
 
-
-
-
-
-
-
-
 (defonce match (atom nil))
-
 
 (def routes
   [["/"
@@ -73,8 +65,11 @@
     {:name ::cellular-automata
      :title "ca"
      :view cellular-automata}]
-   ])
 
+   ["/about"
+    {:name ::about
+     :title "about"
+     :view about}]])
 
 (defn main []
   (create-class
@@ -82,29 +77,14 @@
     :reagent-render
     (fn [this]
       [:div.main.fade-in-1 {:class (if @has-initially-loaded "has-initially-loaded")}
-
-       (header pages routes social @current-page @upcoming-page @page-color @route-is-changing change-route!)
-
-
+       (header pages routes social @current-page @upcoming-page @page-color match @route-is-changing change-route!)
        [:div.content-backdrop
-
-        [:ul
-         [:li [:a {:href (rfe/href ::chess)} "chess1"]]
-         [:li [:a {:href (rfe/href ::tetris)} "tetris"]]
-         [:li [:a {:href (rfe/href ::blackjack)} "blackjack"]]
-         [:li [:a {:href (rfe/href ::cellular-automata)} "cellular-automata"]]
-         ]
-
-        (if @match
-          (let [view (:view (:data @match))]
-            [view @match]))
-        [:pre (with-out-str (fedn/pprint @match))]
-
-
         [:div.content {:class (when @route-is-changing "route-is-changing")
                        :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
-         [(second @current-page)]]]
-       (footer pages social @current-page @upcoming-page @page-color @route-is-changing change-route!)])}))
+         (if @match
+           (let [view (:view (:data @match))]
+             [view @match]))]]
+       (footer pages routes social @current-page @upcoming-page @page-color match @route-is-changing change-route!)])}))
 
 
 
@@ -137,5 +117,5 @@
 
 ;; (mount-app-element)
 
-;; (defn ^:after-load on-reload []
-;;   (mount-app-element))
+(defn ^:after-load on-reload []
+  (init!))
