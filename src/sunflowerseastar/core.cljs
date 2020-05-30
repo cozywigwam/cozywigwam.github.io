@@ -91,11 +91,10 @@
 (defn init! []
   (rfe/start!
    (rf/router routes {:data {:coercion rss/coercion}})
-   (fn [m] (reset! match m))
-   ;; set to false to enable HistoryAPI
-   {:use-fragment true})
+   (fn [m] (do (reset! upcoming-page (-> m :data :name))
+               (reset! match m)))
+   {:use-fragment false})
   (reagent/render-component [main] (.getElementById js/document "app")))
-
 
 (init!)
 
