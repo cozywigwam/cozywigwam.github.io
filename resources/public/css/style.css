@@ -75,6 +75,9 @@ img {
 .main {
   overflow: hidden;
 }
+.route-is-changing {
+  pointer-events: none;
+}
 
 /* header */
 

@@ -20,8 +20,6 @@
 
 (def colors ["#d0d0ff" "#ffd3ad" "#b1e597" "#ffbad1" "#ff8c94" "#91cdf2" "#faedb9" ])
 
-(def current-page (atom [:chess chess]))
-(def upcoming-page (atom [:chess chess]))
 (def pages [{:name "chess" :component chess}
             {:name "tetris" :component tetris}
             {:name "blackjack" :component blackjack}
@@ -35,13 +33,6 @@
              {:name "twitter" :url "https://twitter.com/helianthoides"}])
 
 (def route-is-changing (atom false))
-
-(defn change-route! [name component]
-  (do (reset! route-is-changing true)
-      (reset! page-color (rand-nth colors))
-      (reset! upcoming-page [(keyword name) component])
-      (js/setTimeout #(reset! current-page [(keyword name) component]) route-transition-duration)
-      (js/setTimeout #(reset! route-is-changing false) (+ 100 route-transition-duration))))
 
 (defonce match (atom nil))
 
@@ -71,13 +62,30 @@
      :title "about"
      :view about}]])
 
+(def current-page (atom ::chess))
+(def upcoming-page (atom ::chess))
+
+(defn change-route! [name]
+  (do
+    (println (str "change-route!" name))
+    ;; (spyx "change-route!" @match (-> @match :data :name))
+      (reset! route-is-changing true)
+      (reset! page-color (rand-nth colors))
+      (reset! upcoming-page name)
+      (js/setTimeout #(do
+                        ;; (spyx "hi rfe/push-state")
+                        (rfe/push-state name)) route-transition-duration)
+      (js/setTimeout #(reset! route-is-changing false) (+ 1000 route-transition-duration))
+      ))
+
 (defn main []
   (create-class
    {:component-did-mount (fn [] (js/setTimeout #(reset! has-initially-loaded true) 0))
     :reagent-render
     (fn [this]
-      [:div.main.fade-in-1 {:class (if @has-initially-loaded "has-initially-loaded")}
-       (header pages routes social @current-page @upcoming-page @page-color match @route-is-changing change-route!)
+      [:div.main.fade-in-1 {:class [(if @has-initially-loaded "has-initially-loaded")
+                                    (when @route-is-changing "route-is-changing")]}
+       (header routes social @upcoming-page @page-color (-> @match :data :name) @route-is-changing change-route!)
        [:div.content-backdrop
         [:div.content {:class (when @route-is-changing "route-is-changing")
                        :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}

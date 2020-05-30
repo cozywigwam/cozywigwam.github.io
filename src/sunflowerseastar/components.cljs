@@ -20,22 +20,29 @@
 (defn svg-link [name url]
   [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
 
-(defn header [pages routes social current-page upcoming-page page-color match route-is-changing change-route!]
-  (do (spyx routes)
-      [:div.header
-       [:div.flex-row
-        [:div.left
-         [:h1.title "Sunflowerseastar"]
-         [:div.links-container
-          (map (fn [[path {:keys [name title view]}]]
-                 (let [is-active (= name (-> @match :data :name))]
-                   (do (spyx name is-active)
-                       [:a.link.link-dark-bg {:key name
-                                              :style {:color (when is-active page-color)}
-                                              :href (rfe/href name)} title])))
-               routes)]]
-        [:div.right
-         (map (fn [{:keys [name url]}] (svg-link name url)) social)]]]))
+(defn header [routes social upcoming-page page-color current-route-name route-is-changing change-route!]
+  (do
+    ;; (spyx current-route-name)
+    [:div.header
+     [:div.flex-row
+      [:div.left
+       [:h1.title "Sunflowerseastar"]
+       [:div.links-container
+        (map (fn [[path {:keys [name title view]}]]
+               (let [is-active (= upcoming-page name)]
+                 (do
+                   (spyx name is-active)
+                   ;; (spyx "hello" match (-> match :data))
+                   [:a.link.link-dark-bg {:key name
+                                          :style {:color (when is-active page-color)}
+                                          :on-click #(when (and (not route-is-changing) (not is-active))
+                                                       (change-route! name))
+                                          ;; :href (rfe/href name)
+                                          }
+                    title])))
+             routes)]]
+      [:div.right
+       (map (fn [{:keys [name url]}] (svg-link name url)) social)]]]))
 
 (defn footer [pages routes social current-page upcoming-page page-color match route-is-changing change-route!]
   [:div.footer
@@ -44,10 +51,9 @@
      [:div.links-container
       (map (fn [[path {:keys [name title view]}]]
              (let [is-active (= name (-> @match :data :name))]
-               (do (spyx name is-active)
-                   [:a.link.link-dark-bg {:key name
-                                          :style {:color (when is-active page-color)}
-                                          :href (rfe/href name)} title])))
+               [:a.link.link-dark-bg {:key name
+                                      :style {:color (when is-active page-color)}
+                                      :href (rfe/href name)} title]))
            routes)]]
     [:div.right
      (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
