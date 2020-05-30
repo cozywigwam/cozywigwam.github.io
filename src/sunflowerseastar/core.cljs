@@ -86,36 +86,16 @@
              [view @match]))]]
        (footer pages routes social @current-page @upcoming-page @page-color match @route-is-changing change-route!)])}))
 
-
-
 (defn init! []
-
   (rfe/start!
    (rf/router routes {:data {:coercion rss/coercion}})
    (fn [m] (reset! match m))
    ;; set to false to enable HistoryAPI
    {:use-fragment true})
-
-  ;; (r/render [current-page] (.getElementById js/document "app"))
-
-  (reagent/render-component [main] (.getElementById js/document "app"))
-
-  )
+  (reagent/render-component [main] (.getElementById js/document "app")))
 
 
 (init!)
-
-;; (defn get-app-element []
-;;   (gdom/getElement "app"))
-
-;; (defn mount [el]
-;;   (reagent/render-component [main] el))
-
-;; (defn mount-app-element []
-;;   (when-let [el (get-app-element)]
-;;     (mount el)))
-
-;; (mount-app-element)
 
 (defn ^:after-load on-reload []
   (init!))
