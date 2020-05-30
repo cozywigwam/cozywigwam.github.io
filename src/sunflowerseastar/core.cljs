@@ -63,14 +63,14 @@
 (def upcoming-page (atom ::chess))
 
 (defn change-route! [name]
-  (do
-    (reset! route-is-transitioning-out true)
-    (reset! route-is-transitioning true)
-    (reset! page-color (rand-nth colors))
-    (reset! upcoming-page name)
-    (js/setTimeout #(rfe/push-state name) route-transition-duration)
-    (js/setTimeout #(reset! route-is-transitioning-out false) (+ 100 route-transition-duration))
-    (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration)))))
+  (when (not @route-is-transitioning)
+    (do (reset! route-is-transitioning-out true)
+        (reset! route-is-transitioning true)
+        (reset! page-color (rand-nth colors))
+        (reset! upcoming-page name)
+        (js/setTimeout #(rfe/push-state name) route-transition-duration)
+        (js/setTimeout #(reset! route-is-transitioning-out false) route-transition-duration)
+        (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration))))))
 
 (defn main []
   (create-class
@@ -79,12 +79,12 @@
     (fn [this]
       [:div.main.fade-in-1 {:class [(if @has-initially-loaded "has-initially-loaded")
                                     (when @route-is-transitioning "route-is-transitioning")]}
-       (header routes social @upcoming-page @page-color @route-is-transitioning-out change-route!)
+       (header routes social @upcoming-page @page-color change-route!)
        [:div.content-backdrop
         [:div.content {:class (when @route-is-transitioning-out "route-is-transitioning-out")
                        :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
          (if @match
-           (let [view (:view (:data @match))]
+           (let [view (-> @match :data :view)]
              [view @match]))]]
        (footer pages routes social @current-page @upcoming-page @page-color match @route-is-transitioning-out change-route!)])}))
 

@@ -20,29 +20,23 @@
 (defn svg-link [name url]
   [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
 
-(defn header [routes social upcoming-page page-color route-is-transitioning-out change-route!]
-  (do
-    ;; (spyx current-route-name)
-    [:div.header
-     [:div.flex-row
-      [:div.left
-       [:h1.title "Sunflowerseastar"]
-       [:div.links-container
-        (map (fn [[path {:keys [name title view]}]]
-               (let [is-active (= upcoming-page name)]
-                 (do
-                   (spyx name is-active)
-                   ;; (spyx "hello" match (-> match :data))
-                   [:a.link.link-dark-bg {:key name
-                                          :style {:color (when is-active page-color)}
-                                          :on-click #(when (and (not route-is-transitioning-out) (not is-active))
-                                                       (change-route! name))
-                                          ;; :href (rfe/href name)
-                                          }
-                    title])))
-             routes)]]
-      [:div.right
-       (map (fn [{:keys [name url]}] (svg-link name url)) social)]]]))
+(defn header [routes social upcoming-page page-color change-route!]
+  [:div.header
+   [:div.flex-row
+    [:div.left
+     [:h1.title "Sunflowerseastar"]
+     [:div.links-container
+      (map (fn [[path {:keys [name title view]}]]
+             (let [is-active (= upcoming-page name)]
+               [:a.link.link-dark-bg {:key name
+                                      :class (when is-active "is-active")
+                                      :style {:color (when is-active page-color)}
+                                      :on-click #(when (not is-active)
+                                                   (change-route! name))}
+                title]))
+           routes)]]
+    [:div.right
+     (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
 
 (defn footer [pages routes social current-page upcoming-page page-color match route-is-transitioning-out change-route!]
   [:div.footer
