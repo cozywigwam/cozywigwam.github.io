@@ -32,7 +32,8 @@
              {:name "sinistrocular" :url "https://sinistrocular.com"}
              {:name "twitter" :url "https://twitter.com/helianthoides"}])
 
-(def route-is-changing (atom false))
+(def route-is-transitioning-out (atom false))
+(def route-is-transitioning (atom false))
 
 (defonce match (atom nil))
 
@@ -41,22 +42,18 @@
     {:name ::chess
      :title "chess"
      :view chess}]
-
    ["/tetris"
     {:name ::tetris
      :title "tetris"
      :view tetris}]
-
    ["/blackjack"
     {:name ::blackjack
      :title "blackjack"
      :view blackjack}]
-
    ["/cellular-automata"
     {:name ::cellular-automata
      :title "ca"
      :view cellular-automata}]
-
    ["/about"
     {:name ::about
      :title "about"
@@ -67,16 +64,13 @@
 
 (defn change-route! [name]
   (do
-    (println (str "change-route!" name))
-    ;; (spyx "change-route!" @match (-> @match :data :name))
-      (reset! route-is-changing true)
-      (reset! page-color (rand-nth colors))
-      (reset! upcoming-page name)
-      (js/setTimeout #(do
-                        ;; (spyx "hi rfe/push-state")
-                        (rfe/push-state name)) route-transition-duration)
-      (js/setTimeout #(reset! route-is-changing false) (+ 1000 route-transition-duration))
-      ))
+    (reset! route-is-transitioning-out true)
+    (reset! route-is-transitioning true)
+    (reset! page-color (rand-nth colors))
+    (reset! upcoming-page name)
+    (js/setTimeout #(rfe/push-state name) route-transition-duration)
+    (js/setTimeout #(reset! route-is-transitioning-out false) (+ 100 route-transition-duration))
+    (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration)))))
 
 (defn main []
   (create-class
@@ -84,15 +78,15 @@
     :reagent-render
     (fn [this]
       [:div.main.fade-in-1 {:class [(if @has-initially-loaded "has-initially-loaded")
-                                    (when @route-is-changing "route-is-changing")]}
-       (header routes social @upcoming-page @page-color (-> @match :data :name) @route-is-changing change-route!)
+                                    (when @route-is-transitioning "route-is-transitioning")]}
+       (header routes social @upcoming-page @page-color @route-is-transitioning-out change-route!)
        [:div.content-backdrop
-        [:div.content {:class (when @route-is-changing "route-is-changing")
+        [:div.content {:class (when @route-is-transitioning-out "route-is-transitioning-out")
                        :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
          (if @match
            (let [view (:view (:data @match))]
              [view @match]))]]
-       (footer pages routes social @current-page @upcoming-page @page-color match @route-is-changing change-route!)])}))
+       (footer pages routes social @current-page @upcoming-page @page-color match @route-is-transitioning-out change-route!)])}))
 
 (defn init! []
   (rfe/start!

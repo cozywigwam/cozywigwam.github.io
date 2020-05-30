@@ -20,7 +20,7 @@
 (defn svg-link [name url]
   [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
 
-(defn header [routes social upcoming-page page-color current-route-name route-is-changing change-route!]
+(defn header [routes social upcoming-page page-color route-is-transitioning-out change-route!]
   (do
     ;; (spyx current-route-name)
     [:div.header
@@ -35,7 +35,7 @@
                    ;; (spyx "hello" match (-> match :data))
                    [:a.link.link-dark-bg {:key name
                                           :style {:color (when is-active page-color)}
-                                          :on-click #(when (and (not route-is-changing) (not is-active))
+                                          :on-click #(when (and (not route-is-transitioning-out) (not is-active))
                                                        (change-route! name))
                                           ;; :href (rfe/href name)
                                           }
@@ -44,7 +44,7 @@
       [:div.right
        (map (fn [{:keys [name url]}] (svg-link name url)) social)]]]))
 
-(defn footer [pages routes social current-page upcoming-page page-color match route-is-changing change-route!]
+(defn footer [pages routes social current-page upcoming-page page-color match route-is-transitioning-out change-route!]
   [:div.footer
    [:div.flex-row
     [:div.left

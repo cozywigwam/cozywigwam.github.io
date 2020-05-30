@@ -75,7 +75,7 @@ img {
 .main {
   overflow: hidden;
 }
-.route-is-changing {
+.route-is-transitioning {
   pointer-events: none;
 }
 
@@ -194,7 +194,7 @@ svg.sinistrocular {
 .content {
   opacity: 1;
 }
-.content.route-is-changing {
+.content.route-is-transitioning-out {
   opacity: 0;
 }
 
