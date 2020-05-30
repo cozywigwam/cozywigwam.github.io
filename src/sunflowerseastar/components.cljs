@@ -38,16 +38,20 @@
     [:div.right
      (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
 
-(defn footer [pages routes social current-page upcoming-page page-color match route-is-transitioning-out change-route!]
+(defn footer [routes social upcoming-page page-color change-route!]
   [:div.footer
    [:div.flex-row
     [:div.left
      [:div.links-container
       (map (fn [[path {:keys [name title view]}]]
-             (let [is-active (= name (-> @match :data :name))]
+             (let [is-active (= upcoming-page name)]
                [:a.link.link-dark-bg {:key name
+                                      :class (when is-active "is-active")
                                       :style {:color (when is-active page-color)}
-                                      :href (rfe/href name)} title]))
+                                      :on-click #(when (not is-active)
+                                                   (do (.scroll js/window (clj->js {:top 0 :left 0 :behavior "smooth"}))
+                                                       (change-route! name)))}
+                title]))
            routes)]]
     [:div.right
      (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])

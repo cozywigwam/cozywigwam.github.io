@@ -59,7 +59,6 @@
      :title "about"
      :view about}]])
 
-(def current-page (atom ::chess))
 (def upcoming-page (atom ::chess))
 
 (defn change-route! [name]
@@ -86,7 +85,7 @@
          (if @match
            (let [view (-> @match :data :view)]
              [view @match]))]]
-       (footer pages routes social @current-page @upcoming-page @page-color match @route-is-transitioning-out change-route!)])}))
+       (footer routes social @upcoming-page @page-color change-route!)])}))
 
 (defn init! []
   (rfe/start!
