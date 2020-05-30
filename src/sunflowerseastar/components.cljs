@@ -1,6 +1,7 @@
 (ns sunflowerseastar.components
   (:require    [tupelo.core :refer [spyx]]
                [sunflowerseastar.svgs :refer [get-svg]]
+               [reitit.frontend :as rf]
                [reitit.frontend.easy :as rfe]))
 
 (defn clojure-code [inner]
@@ -20,31 +21,35 @@
 (defn svg-link [name url]
   [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
 
-(defn header [routes social upcoming-page page-color change-route!]
+(defn header [router routes header-footer-routes social upcoming-page page-color change-route!]
   [:div.header
    [:div.flex-row
     [:div.left
-     [:h1.title "Sunflowerseastar"]
+     [:a {:style {:display "block"}
+          :on-click #(change-route! :sunflowerseastar.core/about)}
+      [:h1.title {:style {:cursor "pointer"}} "Sunflowerseastar"]]
      [:div.links-container
-      (map (fn [[path {:keys [name title view]}]]
-             (let [is-active (= upcoming-page name)]
+      (map (fn [header-route]
+             (let [{{:keys [name title view]} :data} (rf/match-by-name router header-route)
+                   is-active (= upcoming-page name)]
                [:a.link.link-dark-bg {:key name
                                       :class (when is-active "is-active")
                                       :style {:color (when is-active page-color)}
                                       :on-click #(when (not is-active)
                                                    (change-route! name))}
                 title]))
-           routes)]]
+           header-footer-routes)]]
     [:div.right
      (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
 
-(defn footer [routes social upcoming-page page-color change-route!]
+(defn footer [router routes header-footer-routes social upcoming-page page-color change-route!]
   [:div.footer
    [:div.flex-row
     [:div.left
      [:div.links-container
-      (map (fn [[path {:keys [name title view]}]]
-             (let [is-active (= upcoming-page name)]
+      (map (fn [header-route]
+             (let [{{:keys [name title view]} :data} (rf/match-by-name router header-route)
+                   is-active (= upcoming-page name)]
                [:a.link.link-dark-bg {:key name
                                       :class (when is-active "is-active")
                                       :style {:color (when is-active page-color)}
@@ -52,7 +57,7 @@
                                                    (do (.scroll js/window (clj->js {:top 0 :left 0 :behavior "smooth"}))
                                                        (change-route! name)))}
                 title]))
-           routes)]]
+           header-footer-routes)]]
     [:div.right
      (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
 

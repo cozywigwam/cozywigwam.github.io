@@ -39,6 +39,10 @@
 
 (def routes
   [["/"
+    {:name ::about
+     :title "about"
+     :view about}]
+   ["/chess"
     {:name ::chess
      :title "chess"
      :view chess}]
@@ -53,11 +57,7 @@
    ["/cellular-automata"
     {:name ::cellular-automata
      :title "ca"
-     :view cellular-automata}]
-   ["/about"
-    {:name ::about
-     :title "about"
-     :view about}]])
+     :view cellular-automata}]])
 
 (def upcoming-page (atom ::chess))
 
@@ -71,6 +71,9 @@
         (js/setTimeout #(reset! route-is-transitioning-out false) route-transition-duration)
         (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration))))))
 
+(def router (rf/router routes {:data {:coercion rss/coercion}}))
+(def header-footer-routes [::chess ::tetris ::blackjack ::cellular-automata])
+
 (defn main []
   (create-class
    {:component-did-mount (fn [] (js/setTimeout #(reset! has-initially-loaded true) 0))
@@ -78,18 +81,18 @@
     (fn [this]
       [:div.main.fade-in-1 {:class [(if @has-initially-loaded "has-initially-loaded")
                                     (when @route-is-transitioning "route-is-transitioning")]}
-       (header routes social @upcoming-page @page-color change-route!)
+       (header router routes header-footer-routes social @upcoming-page @page-color change-route!)
        [:div.content-backdrop
         [:div.content {:class (when @route-is-transitioning-out "route-is-transitioning-out")
                        :style {:transition (str "opacity " route-transition-duration "ms ease-in-out")}}
          (if @match
            (let [view (-> @match :data :view)]
              [view @match]))]]
-       (footer routes social @upcoming-page @page-color change-route!)])}))
+       (footer router routes header-footer-routes social @upcoming-page @page-color change-route!)])}))
 
 (defn init! []
   (rfe/start!
-   (rf/router routes {:data {:coercion rss/coercion}})
+   router
    (fn [m] (do (reset! upcoming-page (-> m :data :name))
                (reset! match m)))
    {:use-fragment false})

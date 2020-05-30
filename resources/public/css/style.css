@@ -123,9 +123,6 @@ img {
     padding: 0.5em 1.2em 0.5em 0;
   }
 }
-.header .link:last-child {
-  display: none;
-}
 .header .right {
   display: grid;
   grid-template-columns: 50% 50%;
