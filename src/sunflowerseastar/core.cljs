@@ -28,7 +28,7 @@
 (def page-color (atom (rand-nth colors)))
 
 (def social [{:name "github" :url "https://github.com/sunflowerseastar"}
-             {:name "soundcloud" :url "https://soundcloud.com/cyaneyedvireo"}
+             {:name "linkedin" :url "https://www.linkedin.com/in/grantsurlyn/"}
              {:name "sinistrocular" :url "https://sinistrocular.com"}
              {:name "twitter" :url "https://twitter.com/helianthoides"}])
 
