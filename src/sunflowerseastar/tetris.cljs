@@ -1,10 +1,10 @@
 (ns sunflowerseastar.tetris
   (:require
-   [sunflowerseastar.helpers :refer [math-jax-wrapper]]
+   [sunflowerseastar.helpers :refer [component-mount-hook]]
    [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn tetris []
-  (math-jax-wrapper
+  (component-mount-hook
    [:div
     (iframe "https://tetris.sunflowerseastar.com"
             [:p.iframe-note [:strong "enter"] ": " [:em "rotate"] " (and " [:em "restart"] "), "

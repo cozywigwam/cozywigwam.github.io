@@ -26,7 +26,7 @@
    [:div.flex-row
     [:div.left
      [:a {:style {:display "block"}
-          :on-click #(change-route! :sunflowerseastar.core/about)}
+          :on-click #(change-route! :sunflowerseastar.core/home)}
       [:h1.title {:style {:cursor "pointer"}} "Sunflowerseastar"]]
      [:div.links-container
       (map (fn [header-route]

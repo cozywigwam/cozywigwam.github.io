@@ -9,7 +9,7 @@
           (.highlightBlock js/hljs item))
         (recur (dec i))))))
 
-(defn math-jax-wrapper [inner]
+(defn component-mount-hook [inner]
   (create-class
    {:component-did-mount #(do
                             ;; (.typeset (.-MathJax js/window))

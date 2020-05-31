@@ -1,10 +1,10 @@
 (ns sunflowerseastar.blackjack
   (:require
-   [sunflowerseastar.helpers :refer [math-jax-wrapper]]
+   [sunflowerseastar.helpers :refer [component-mount-hook]]
    [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn blackjack []
-  (math-jax-wrapper
+  (component-mount-hook
    [:div
     (iframe "https://blackjack.sunflowerseastar.com")
     [:div.content-inner

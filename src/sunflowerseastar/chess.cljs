@@ -1,10 +1,10 @@
 (ns sunflowerseastar.chess
   (:require
-   [sunflowerseastar.helpers :refer [math-jax-wrapper]]
+   [sunflowerseastar.helpers :refer [component-mount-hook]]
    [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn chess []
-  (math-jax-wrapper
+  (component-mount-hook
    [:div
     (iframe "https://chess.sunflowerseastar.com"
             [:p.iframe-note [:strong "enter"] ": " [:em "computer move"] ", "

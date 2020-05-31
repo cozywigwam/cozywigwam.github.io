@@ -233,18 +233,21 @@ svg.sinistrocular {
     padding: 0 1vw;
   }
 }
+.iframe-container.home-iframe {
+  margin-bottom: 0;
+}
 @media (min-width: 768px) {
-  .about-iframe {
+  .home-iframe {
     max-width: 70vw;
   }
 }
 @media (min-width: 992px) {
-  .about-iframe {
+  .home-iframe {
     max-width: 60vw;
   }
 }
 @media (min-width: 1080px) {
-  .about-iframe {
+  .home-iframe {
     max-width: 50vw;
   }
 }
@@ -271,7 +274,7 @@ svg.sinistrocular {
   max-width: 40em;
 }
 
-/* about */
+/* home */
 @media (min-width: 768px) {
   .content p:first-child {
     padding-top: 6em;

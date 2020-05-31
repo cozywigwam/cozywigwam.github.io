@@ -1,10 +1,10 @@
 (ns sunflowerseastar.cellular-automata
   (:require
-   [sunflowerseastar.helpers :refer [math-jax-wrapper]]
+   [sunflowerseastar.helpers :refer [component-mount-hook]]
    [sunflowerseastar.components :refer [clojure-code iframe links]]))
 
 (defn cellular-automata []
-  (math-jax-wrapper
+  (component-mount-hook
    [:div
     (iframe "https://cellular-automata.sunflowerseastar.com")
     [:div.content-inner

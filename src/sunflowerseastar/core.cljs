@@ -1,6 +1,6 @@
 (ns ^:figwheel-hooks sunflowerseastar.core
   (:require
-   [sunflowerseastar.about :refer [about]]
+   [sunflowerseastar.home :refer [home]]
    [sunflowerseastar.cellular-automata :refer [cellular-automata]]
    [sunflowerseastar.chess :refer [chess]]
    [sunflowerseastar.tetris :refer [tetris]]
@@ -24,7 +24,7 @@
             {:name "tetris" :component tetris}
             {:name "blackjack" :component blackjack}
             {:name "ca" :component cellular-automata}
-            {:name "about" :component about}])
+            {:name "home" :component home}])
 (def page-color (atom (rand-nth colors)))
 
 (def social [{:name "github" :url "https://github.com/sunflowerseastar"}
@@ -39,9 +39,9 @@
 
 (def routes
   [["/"
-    {:name ::about
-     :title "about"
-     :view about}]
+    {:name ::home
+     :title "home"
+     :view home}]
    ["/chess"
     {:name ::chess
      :title "chess"
