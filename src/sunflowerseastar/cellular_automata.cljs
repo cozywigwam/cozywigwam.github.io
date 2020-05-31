@@ -12,7 +12,7 @@
       [:h2 "cellular-automata"]
       [:p "I received " [:a {:href "https://www.wolframscience.com/nks/" :rel "noreferrer" :target "_blank"} "A New Kind of Science"] " as a gift when it came out. How could I visualize these rules with Clojure, I wondered?"]
 
-      [:p "I set up the 2^3 possibilites:"]
+      [:p "I set up the $2^3$ possibilites:"]
       (clojure-code
        "
 (def rule-triads [[1 1 1]

@@ -11,7 +11,6 @@
 
 (defn component-mount-hook [inner]
   (create-class
-   {:component-did-mount #(do
-                            ;; (.typeset (.-MathJax js/window))
+   {:component-did-mount #(do (.typeset (.-MathJax js/window))
                               (highlight-code (dom-node %)))
     :reagent-render (fn [this] inner)}))
