@@ -22,6 +22,4 @@
             "fig:test"  ["run" "-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "sunflowerseastar.test-runner"]}
 
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.3"]
-                                  [com.bhauman/rebel-readline-cljs "0.1.4"]]
-                   }})
-
+                                  [com.bhauman/rebel-readline-cljs "0.1.4"]]}})
