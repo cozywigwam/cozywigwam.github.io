@@ -14,7 +14,7 @@
     [:div.content-inner
      [:h2 "Chess"]
      [:h3 "Goal"]
-     [:p "To write a " [:a {:href "https://chess.sunflowerseastar.com" :rel "noreferrer" :target "_blank"} "chess app"] ", GUI & engine. Also, to improve at writing Clojure. And have fun!"]
+     [:p "To write a chess app GUI & engine. Also, to improve at writing Clojure. And have fun!"]
      [:h3 "Setup"]
      [:p "So here's the board's data structure—" [:em "prepare to marvel"] ". (Just kidding, prepare to say, “You should be using a " [:a {:href "https://www.chessprogramming.org/Bitboards" :rel "noreferrer" :target "_blank"} "bitboard"] "!”)"]
 
