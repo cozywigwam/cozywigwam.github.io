@@ -5,6 +5,7 @@
    [sunflowerseastar.chess :refer [chess]]
    [sunflowerseastar.tetris :refer [tetris]]
    [sunflowerseastar.blackjack :refer [blackjack]]
+   [sunflowerseastar.covid-19 :refer [covid-19]]
    [sunflowerseastar.components :refer [header footer]]
    [tupelo.core :refer [spyx]]
    [goog.dom :as gdom]
@@ -50,6 +51,10 @@
     {:name ::tetris
      :title "tetris"
      :view tetris}]
+   ["/covid-19"
+    {:name ::covid-19
+     :title "covid-19"
+     :view covid-19}]
    ["/blackjack"
     {:name ::blackjack
      :title "blackjack"
@@ -72,7 +77,7 @@
         (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration))))))
 
 (def router (rf/router routes {:data {:coercion rss/coercion}}))
-(def header-footer-routes [::chess ::tetris ::blackjack ::cellular-automata])
+(def header-footer-routes [::chess ::tetris ::covid-19 ::cellular-automata])
 
 (defn main []
   (create-class
