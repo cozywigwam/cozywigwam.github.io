@@ -54,14 +54,20 @@
       (clojure-code
        "
 (defn cell [value is-last-column is-last-row]
-  [:svg.cell {:view-box [0 0 10 10]
-              :class [(if is-last-column \"is-last-column\") (if is-last-row \"is-last-row\")]
-              :style {:fill (if (pos? value) \"black\" \"white\") :background (if (pos? value) \"black\" \"white\")}}
+  [:svg.cell
+   {:view-box [0 0 10 10]
+    :class [(if is-last-column \"is-last-column\")
+            (if is-last-row \"is-last-row\")]
+    :style {:fill (if (pos? value) \"black\" \"white\")
+            :background (if (pos? value) \"black\" \"white\")}}
    [:rect {:width 10 :height 10}]])
 
 (defn automata [data]
   (let [len (count (last data))]
-    [:div.automata.hide-borders {:style {:display \"grid\" :grid-template-columns (str \"repeat(\" len \", \" (/ 100 len) \"%)\")}}
+    [:div.automata.hide-borders
+     {:style
+      {:display \"grid\"
+       :grid-template-columns (str \"repeat(\" len \", \" (/ 100 len) \"%)\")}}
      (map-indexed (fn [y-idx row]
                     (map-indexed
                      (fn [x-idx value]
