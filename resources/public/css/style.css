@@ -36,6 +36,11 @@ body {
     font-size: 15px;
   }
 }
+@media (min-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
+}
 
 /* type & general html */
 
@@ -55,7 +60,19 @@ p {
   margin-bottom: 1.7em;
 }
 a {
+  position: relative;
+  color: #888;
   cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.3, 0.8, 0.1, 0.95);
+}
+a:visited {
+  color: #777;
+}
+a:focus, a:active {
+  color: #7171a6;
+}
+a:hover {
+  color: #8888c5;
 }
 blockquote {
   margin: 0;
@@ -306,12 +323,32 @@ svg.sinistrocular {
 
 pre {
   position: relative;
-  font-size: 0.6em;
+  font-size: 0.65em;
   max-width: 80em;
 }
-@media (min-width: 1080px) {
+@media (min-width: 400px) {
   pre {
     font-size: 0.7em;
+  }
+}
+@media (min-width: 768px) {
+  pre {
+    font-size: 0.75em;
+  }
+}
+@media (min-width: 992px) {
+  pre {
+    font-size: 0.8m;
+  }
+}
+@media (min-width: 1200px) {
+  pre {
+    font-size: 0.85em;
+  }
+}
+@media (min-width: 1400px) {
+  pre {
+    font-size: 0.9em;
   }
 }
 pre span.code-label {
