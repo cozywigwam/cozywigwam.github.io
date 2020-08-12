@@ -19,7 +19,7 @@ body {
   font-family: 'Vollkorn', serif;
   font-size: 13px;
   color: #222;
-  animation: fade-to-black 3s 5s forwards;
+  animation: fade-to-black 0s 2s forwards;
 }
 @media (min-width: 400px) {
   body {
@@ -55,9 +55,16 @@ h4 {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
-p {
+p, blockquote {
   line-height: 1.7;
   margin-bottom: 1.7em;
+}
+ul {
+  margin: 0 1em 2em;
+  list-style: square;
+}
+li {
+  line-height: 1.7;
 }
 a {
   position: relative;
@@ -75,8 +82,8 @@ a:hover {
   color: #8888c5;
 }
 blockquote {
-  margin: 0;
-  padding: 1em;
+  margin: 1em 0 1.8em;
+  padding: 0.5em 1em 0.4em;
   color: #666;
   font-style: italic;
   border-left: 1px solid #ccc;
@@ -229,6 +236,12 @@ svg.sinistrocular {
   width: 100%;
   border: 0;
 }
+.iframe.include-border {
+  border-bottom: 0.5px solid #ddd;
+}
+.iframe.include-border.dotted {
+  border-bottom: 0.5px dotted #e4e4e4;
+}
 .iframe-note {
   display: inline-block;
   max-width: none !important;
@@ -289,6 +302,9 @@ svg.sinistrocular {
 .content h3,
 .content p {
   max-width: 40em;
+}
+.content blockquote {
+  max-width: 36em;
 }
 
 /* home */
@@ -428,4 +444,7 @@ code {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+.nowrap {
+  white-space: nowrap;
 }

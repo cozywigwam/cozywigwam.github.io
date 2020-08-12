@@ -1,12 +1,13 @@
 (ns ^:figwheel-hooks sunflowerseastar.core
   (:require
-   [sunflowerseastar.home :refer [home]]
+   [sunflowerseastar.blackjack :refer [blackjack]]
    [sunflowerseastar.cellular-automata :refer [cellular-automata]]
    [sunflowerseastar.chess :refer [chess]]
-   [sunflowerseastar.tetris :refer [tetris]]
-   [sunflowerseastar.blackjack :refer [blackjack]]
-   [sunflowerseastar.covid-19 :refer [covid-19]]
    [sunflowerseastar.components :refer [header footer]]
+   [sunflowerseastar.covid-19 :refer [covid-19]]
+   [sunflowerseastar.home :refer [home]]
+   [sunflowerseastar.kakuro :refer [kakuro]]
+   [sunflowerseastar.tetris :refer [tetris]]
    [tupelo.core :refer [spyx]]
    [goog.dom :as gdom]
    [reitit.frontend :as rf]
@@ -21,11 +22,6 @@
 
 (def colors ["#d0d0ff" "#ffd3ad" "#b1e597" "#ffbad1" "#ff8c94" "#91cdf2" "#faedb9" ])
 
-(def pages [{:name "chess" :component chess}
-            {:name "tetris" :component tetris}
-            {:name "blackjack" :component blackjack}
-            {:name "ca" :component cellular-automata}
-            {:name "home" :component home}])
 (def page-color (atom (rand-nth colors)))
 
 (def social [{:name "github" :url "https://github.com/sunflowerseastar"}
@@ -62,7 +58,11 @@
    ["/cellular-automata"
     {:name ::cellular-automata
      :title "ca"
-     :view cellular-automata}]])
+     :view cellular-automata}]
+   ["/kakuro"
+    {:name ::kakuro
+     :title "kakuro"
+     :view kakuro}]])
 
 (def upcoming-page (atom ::chess))
 
@@ -77,7 +77,7 @@
         (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration))))))
 
 (def router (rf/router routes {:data {:coercion rss/coercion}}))
-(def header-footer-routes [::chess ::tetris ::covid-19 ::cellular-automata])
+(def header-footer-routes [::kakuro ::covid-19 ::chess ::tetris])
 
 (defn main []
   (create-class

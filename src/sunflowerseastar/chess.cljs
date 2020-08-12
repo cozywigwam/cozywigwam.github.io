@@ -7,14 +7,14 @@
   (component-mount-hook
    [:div
     (iframe "https://chess.sunflowerseastar.com"
-            [:p.iframe-note [:strong "enter"] ": " [:em "computer move"] ", "
-             [:strong "left"] "/" [:strong "right"] " or "
-             [:strong "cmd+z"] "/" [:strong "shift+cmd+z"] ": " [:em  "undo"] "/" [:em "redo"] ", "
-             [:strong "r"] ": " [:em "restart"]])
+            :note [:p.iframe-note [:strong "enter"] ": " [:em "computer move"] ", "
+                   [:strong "left"] "/" [:strong "right"] " or "
+                   [:strong "cmd+z"] "/" [:strong "shift+cmd+z"] ": " [:em  "undo"] "/" [:em "redo"] ", "
+                   [:strong "r"] ": " [:em "restart"]])
     [:div.content-inner
      [:h2 "Chess"]
      [:h3 "Goal"]
-     [:p "To write a chess app GUI & engine. Also, to improve at writing Clojure. And have fun!"]
+     [:p "To write a chess engine & UI. And have fun!"]
      [:h3 "Setup"]
      [:p "So here's the board's data structure—" [:em "prepare to marvel"] ". (Just kidding, prepare to say, “You should be using a " [:a {:href "https://www.chessprogramming.org/Bitboards" :rel "noreferrer" :target "_blank"} "bitboard"] "!”)"]
 
@@ -143,7 +143,7 @@
         is-one-square-move (and (<= x-distance 1) (<= y-distance 1))]
     is-one-square-move))
 "]]
-     [:p "There’s no state, so the repl shines. Programming is fun. Repl-driven programming is fun. Using " [:a {:href "https://clojure.org/guides/threading_macros" :rel "noreferrer" :target "_blank"} "threading macros"] " is fun.  = )"]
+     [:p "Programming is fun. Repl-driven programming is fun. Clojure is fun!  = )"]
      [:pre
       [:span.code-label "clojure"]
       [:code.clojure "

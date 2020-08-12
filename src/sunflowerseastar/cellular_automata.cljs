@@ -9,10 +9,9 @@
     (iframe "https://cellular-automata.sunflowerseastar.com")
     [:div.content-inner
      [:div
-      [:h2 "cellular-automata"]
-      [:p "I received " [:a {:href "https://www.wolframscience.com/nks/" :rel "noreferrer" :target "_blank"} "A New Kind of Science"] " as a gift when it came out. How could I visualize these rules with Clojure, I wondered?"]
+      [:h2 "Cellular Automata Explorer"]
 
-      [:p "I set up the $2^3$ possibilites:"]
+      [:p "$2^3$ possibilites:"]
       (clojure-code
        "
 (def rule-triads [[1 1 1]
@@ -25,7 +24,7 @@
                   [0 0 0]])
 ")
 
-      [:p "And a way to compute a block based on the triad above it:"]
+      [:p "Compute a block based on the triad above it:"]
       (clojure-code
        "
 (defn rule-translate [rule-set L C R]
@@ -50,7 +49,7 @@
           (and (not L) (not C) (not R)) h)))
 ")
 
-      [:p "Then I threw it into a grid:"]
+      [:p "Toss it in a grid:"]
       (clojure-code
        "
 (defn cell [value is-last-column is-last-row]
@@ -79,6 +78,6 @@
                   data)]))
 ")
 
-      [:p "It was fun! Be sure to visit intriguing rules like 30 and 193."]
+      [:p "Fun! Check out intriguing rules like 30 and 193."]
 
       (links "https://cellular-automata.sunflowerseastar.com" "https://github.com/sunflowerseastar/cellular-automata/blob/master/src/cellular_automata/core.cljs")]]]))

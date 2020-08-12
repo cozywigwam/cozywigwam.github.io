@@ -7,12 +7,12 @@
   (component-mount-hook
    [:div
     (iframe "https://tetris.sunflowerseastar.com"
-            [:p.iframe-note [:strong "enter"] ": " [:em "rotate"] " (and " [:em "restart"] "), "
+            :note [:p.iframe-note [:strong "enter"] ": " [:em "rotate"] " (and " [:em "restart"] "), "
              [:strong "left"] "/" [:strong "right"] ": " [:em "move piece"] ", "
              [:strong "d"] ": " [:em "advance downward"] ", "
              [:strong "p"] ": " [:em "toggle pause"] ", "
              [:strong "r"] ": " [:em "restart"]]
-            false)
+            :include-border false)
     [:div.content-inner
      [:h2 "Tetris"]
      [:p "A friend of mine said, " [:em "So they say, once you start writing tetris, it’ll pretty much write itself. And it’s easy."] " Thinking he was right, I wanted to see if I could write Tetris on my return flight after our visit."]

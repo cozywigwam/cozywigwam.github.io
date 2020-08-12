@@ -10,13 +10,11 @@
    [:code.clojure inner]])
 
 (defn iframe
-  ([src] (iframe src nil true))
-  ([src note] (iframe src note true))
-  ([src note include-border]
-   [:div.iframe-container
-    [:iframe.iframe {:src src
-                     :style {:borderBottom (if include-border "0.5px solid #ddd" "none")}}]
-    note]))
+  [src & {:keys [dotted include-border note] :or {dotted false include-border true note false}} ]
+  [:div.iframe-container
+   [:iframe.iframe {:src src
+                    :class [(when include-border "include-border") (when dotted "dotted")]}]
+   note])
 
 (defn svg-link [name url]
   [:a.svg-link {:key name :rel "noreferrer" :target "_blank" :href url} [get-svg name]])
