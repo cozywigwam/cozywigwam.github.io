@@ -18,7 +18,7 @@
      (iframe "https://geometry.sunflowerseastar.com"
              :note [:p.iframe-note [:em "phyllotaxis"]])
      [:h3 "Principle Simplicity"]
-     [:p "Communication that transcends our words is powerful and fascinating. The goal is intuition and accessibility. Minimalism extends well beyond the visual layout, into both program design and the implementation itself."]
+     [:p "Communication that transcends our words is as powerful as it is fascinating. Primary goals are intuition and accessibility. Minimalism extends well beyond the visual layout, into both program design and the implementation itself."]
      [:p "I am thankful and lucky to have had so many strong teammates and wise managers (I just said I was lucky!) through the years. Some favorite characteristics:"]
      [:ul [:li "listens eagerly and empathetically"]
       [:li "distills information appropriately"]
