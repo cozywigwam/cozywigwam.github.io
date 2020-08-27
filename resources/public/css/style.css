@@ -19,7 +19,7 @@ body {
   font-family: 'Vollkorn', serif;
   font-size: 13px;
   color: #222;
-  animation: fade-to-black 0s 2s forwards;
+  animation: fade-to-black 0s 3s forwards;
 }
 @media (min-width: 400px) {
   body {
