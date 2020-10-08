@@ -15,14 +15,16 @@
      [:h3 "Thirteen Ways of Looking at a Problem"]
      [:p "I enjoy hunting solutions and reducing captive ones to simple models. Tools I find helpful:"]
      [:ul [:li "drawing, diagramming, wireframing, whiteboarding"]
-      [:li "reading, studying, problem space exploration"]
+      [:li "reading, studying, exploring"]
       [:li "soliciting honest feedback, finding blindspots"]
       [:li "interviews, cross-referenced notes"]
       [:li "open, vulnerable collaboration"]
       [:li "creating many prototypes at different speeds/scales"]
-      [:li "“plan your work, work your plan”"]]
+      [:li "“plan your work, work your plan”"]
+      [:li "time-boxing, roadmapping"]]
      (iframe "https://geometry.sunflowerseastar.com"
-             :note [:p.iframe-note [:em "phyllotaxis"]])
+             :note [:p.iframe-note [:em "phyllotaxis"]]
+             :dotted true)
      [:h3 "Principle Simplicity"]
      [:p "Communication that transcends our words is as powerful as it is fascinating. Minimalism extends beyond the visual layout, into program design and implementation."]
      [:p "I am thankful and lucky to have had so many strong teammates and wise managers (I just told you I was lucky!) through the years. Some favorite characteristics:"]

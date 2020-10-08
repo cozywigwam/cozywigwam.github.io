@@ -60,16 +60,28 @@ h4 {
   font-family: 'Lato', sans-serif;
   font-weight: 300;
 }
-p, blockquote {
+p,
+blockquote {
   line-height: 1.7;
   margin-bottom: 1.7em;
 }
 ul {
-  margin: 0 1em 2em;
+  margin: 0 1em 2em 0;
+  padding-left: 2em;
   list-style: square;
+}
+@media (min-width: 768px) {
+  padding-left: 3em;
+}
+@media (min-width: 1200px) {
+  padding-left: 4em;
 }
 li {
   line-height: 1.7;
+  font-size: 0.9em;
+}
+p + ul {
+  margin-top: -0.6em;
 }
 a {
   position: relative;
@@ -80,7 +92,8 @@ a {
 a:visited {
   color: #777;
 }
-a:focus, a:active {
+a:focus,
+a:active {
   color: #7171a6;
 }
 a:hover {
@@ -302,6 +315,11 @@ svg.sinistrocular {
     padding: 3.4em 0 6em 0;
   }
 }
+@media (min-width: 1600px) {
+  .content-inner {
+    width: 48em;
+  }
+}
 .content h1,
 .content h2,
 .content h3,
@@ -329,7 +347,7 @@ svg.sinistrocular {
   text-shadow: 1px 1px 0px #ccc;
 }
 .content h3 {
-  margin: 3em 0 1.5em;
+  margin: 3.2em 0 1.6em;
   text-shadow: 1px 1px 0px #eee;
 }
 .content p.note {
