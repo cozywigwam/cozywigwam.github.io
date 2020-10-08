@@ -36,5 +36,4 @@
       [:li "information-based decision-making"]]
      [:div.center
       [:a.link.content-link {:href "https://github.com/sunflowerseastar" :rel "noreferrer" :target "_blank"} "GitHub"]
-      [:a.link.content-link {:href "https://www.linkedin.com/in/grantsurlyn/" :rel "noreferrer" :target "_blank"} "LinkedIn"]
-      [:a.link.content-link {:href "https://twitter.com/helianthoides" :rel "noreferrer" :target "_blank"} "Twitter"]]]]))
+      [:a.link.content-link {:href "https://www.linkedin.com/in/grantsurlyn/" :rel "noreferrer" :target "_blank"} "LinkedIn"]]]]))

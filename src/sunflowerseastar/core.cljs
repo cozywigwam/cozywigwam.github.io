@@ -26,8 +26,7 @@
 
 (def social [{:name "github" :url "https://github.com/sunflowerseastar"}
              {:name "linkedin" :url "https://www.linkedin.com/in/grantsurlyn/"}
-             {:name "sinistrocular" :url "https://sinistrocular.com"}
-             {:name "twitter" :url "https://twitter.com/helianthoides"}])
+             {:name "sinistrocular" :url "https://sinistrocular.com"}])
 
 (def route-is-transitioning-out (atom false))
 (def route-is-transitioning (atom false))

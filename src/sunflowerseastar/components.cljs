@@ -37,8 +37,7 @@
                                                    (change-route! name))}
                 title]))
            header-footer-routes)]]
-    [:div.right
-     (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
+    [:div (map (fn [{:keys [name url]}] (svg-link name url)) social)]]])
 
 (defn footer [router routes header-footer-routes social upcoming-page page-color change-route!]
   [:div.footer
