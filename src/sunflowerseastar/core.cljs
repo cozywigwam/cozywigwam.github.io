@@ -8,6 +8,7 @@
    [sunflowerseastar.home :refer [home]]
    [sunflowerseastar.kakuro :refer [kakuro]]
    [sunflowerseastar.tetris :refer [tetris]]
+   [sunflowerseastar.merels :refer [merels]]
    [tupelo.core :refer [spyx]]
    [goog.dom :as gdom]
    [reitit.frontend :as rf]
@@ -50,6 +51,10 @@
     {:name ::covid-19
      :title "covid-19"
      :view covid-19}]
+   ["/merels"
+    {:name ::merels
+     :title "merels"
+     :view merels}]
    ["/blackjack"
     {:name ::blackjack
      :title "blackjack"
@@ -76,7 +81,7 @@
         (js/setTimeout #(reset! route-is-transitioning false) (+ 400 (* 2 route-transition-duration))))))
 
 (def router (rf/router routes {:data {:coercion rss/coercion}}))
-(def header-footer-routes [::kakuro ::covid-19 ::chess ::tetris])
+(def header-footer-routes [::kakuro ::covid-19 ::merels ::chess ::tetris])
 
 (defn main []
   (create-class
