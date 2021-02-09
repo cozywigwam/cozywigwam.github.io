@@ -18,7 +18,7 @@
 
      [:p "I’m not a good person to provide an introduction to APL because I’m a dilettante, even charitably speaking. But you’re actually reading this and I didn’t charge you any money, so I’m going for it. As a warning, APL isn’t everyone’s cup of tea. For instance, Dijkstra calls APL programmers “" [:a {:href "https://www.cs.utexas.edu/users/EWD/ewd04xx/EWD498.PDF"} "bums"] "”. Oh well. Once I stumbled upon it and read " [:a {:href "https://en.wikipedia.org/wiki/Kenneth_E._Iverson"} "Kenneth Iverson’s"] " " [:a {:href "https://www.eecg.utoronto.ca/~jzhu/csc326/readings/iverson.pdf"} "Notation as a Tool of Thought"] ", I was intrigued."]
 
-     [:p "Originally, APL’s idea was to have special, purpose-built notation. You know, ye olde “thought tool” that I just linked to a couple paragraphs ago. The same way that mathematicians use special symbols to compress their ideas into a set of sharable, written comprehension, programmers deserved their own bespoke character set. Iverson devised an attractive and curious crew. Here’s a sample:"]
+     [:p "Originally, APL’s idea was to have special, purpose-built notation. You know, ye olde “thought tool” that I just linked to. The same way that mathematicians use special symbols to compress their ideas into a set of sharable, written comprehension, programmers deserved their own bespoke character set. Iverson devised an attractive and curious crew. Here’s a sample:"]
 
      (clojure-code "
 ⊂⊃∩⊥⊤|⍝⌿⍺⌈⌊_∇∆∘'⎕⍎⍕?⍵∊⍴∼↑↓⍳○⋆⊢¨¯<≤=≥>≠∨∧×

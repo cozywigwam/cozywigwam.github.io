@@ -8,7 +8,7 @@
    [:div
     [:div.content-inner
      [:h3 "Welcome"]
-     [:p "Hi, I’m Grant, a digital creator in San Francisco. I’m energized by building UIs, passionate people, and functional programming."]
+     [:p "Hi, I’m Grant, a digital creator and web technologist. I’m energized by building UIs, passionate people, and functional programming."]
      (iframe "https://cellular-automata.sunflowerseastar.com"
              :note [:p.iframe-note [:em "cellular automata explorer"]]
              :dotted true)
